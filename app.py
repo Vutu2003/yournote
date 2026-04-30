@@ -196,6 +196,24 @@ def _ask(question: str, k: int, selected_docs: list[str], page: str, gemini_key:
     res = answer(question.strip(), k=int(k), filters=_filters(selected_docs, page_num))
     return export(res, fmt="md"), json.dumps(res.model_dump(), ensure_ascii=False, indent=2)
 
+def _ask_chat(
+    message: str,
+    history: list[dict[str, str]] | None,
+    k: int,
+    selected_docs: list[str],
+    page: str,
+    gemini_key: str,
+) -> tuple[list[dict[str, str]], str, str]:
+    """Append a Q&A turn to the chatbot history."""
+    user_text = (message or "").strip()
+    hist: list[dict[str, str]] = list(history or [])
+    if not user_text:
+        return hist, "", ""
+    answer_md, raw = _ask(user_text, k, selected_docs, page, gemini_key)
+    hist.append({"role": "user", "content": user_text})
+    hist.append({"role": "assistant", "content": answer_md})
+    return hist, raw, ""
+
 
 def _summarize(
     query: str,
@@ -281,12 +299,14 @@ _theme = gr.themes.Base().set(
 with gr.Blocks(title="Building a Simple NotebookLM", fill_width=True, fill_height=True) as demo:
     with gr.Row(elem_classes="header-row"):
         logo_b64 = _img_b64("static/aivn_logo.png")
-        gr.HTML(f'<img src="data:image/png;base64,{logo_b64}" alt="AIVN">')
+        gr.HTML(f'<img src="data:image/png;base64,{logo_b64}" alt="AIVN">', elem_classes="header-logo")
         gr.HTML(
             '<div class="header-meta">'
             '<p class="header-title">📚 Building a Simple NotebookLM</p>'
             '<p class="header-sub">AIO2025 — Hỏi đáp · Tóm tắt · Quiz · Flashcards có trích dẫn nguồn</p>'
             '</div>'
+            ,
+            elem_classes="header-text",
         )
 
     gr.HTML(_INFO_NOTE_HTML)
@@ -305,7 +325,6 @@ with gr.Blocks(title="Building a Simple NotebookLM", fill_width=True, fill_heigh
             upload_btn = gr.Button("Nạp & Index", elem_classes="gen-btn")
             upload_status = gr.HTML(_status_html("Sẵn sàng."))
 
-            # with gr.Group(elem_classes="control-card"):
             with gr.Accordion("🔑 Gemini API Key (tuỳ chọn)", open=False):
                 gr.Markdown(
                     "Nhập API key để chạy Gemini. Lấy key tại: "
@@ -355,45 +374,77 @@ with gr.Blocks(title="Building a Simple NotebookLM", fill_width=True, fill_heigh
 
     with gr.Tabs():
         with gr.Tab("💬 Hỏi đáp"):
-            q = gr.Textbox(
-                label="Câu hỏi",
-                lines=2,
-                placeholder="Ví dụ: LoRA fine-tuning là gì và tài liệu giải thích điều này ra sao?",
+            chatbot = gr.Chatbot(elem_classes="qa-chat", height=520)
+            gr.Markdown(
+                "Nhập câu hỏi ở ô bên dưới và nhấn **Enter** để chat theo các tài liệu bạn đã chọn.",
+                elem_classes="feature-sub",
             )
-            k_ask = gr.Slider(1, 32, value=6, step=1, label="Top-k retrieval")
-            ask_btn = gr.Button("Trả lời", elem_classes="gen-btn")
-            ask_md = _result_markdown()
+            q = gr.Textbox(
+                label="",
+                lines=1,
+                placeholder="Nhập câu hỏi và nhấn Enter…",
+                elem_classes="qa-input",
+            )
+            with gr.Accordion("Tuỳ chọn nâng cao", open=False):
+                k_ask = gr.Slider(1, 32, value=6, step=1, label="Top-k retrieval")
             with gr.Accordion("JSON debug", open=False):
                 ask_raw = gr.Code(label="", language="json")
 
         with gr.Tab("📝 Tóm tắt"):
-            s_query = gr.Textbox(label="Chủ đề hướng dẫn (tuỳ chọn)", lines=1)
-            s_k = gr.Slider(1, 64, value=10, step=1, label="Số đoạn truy xuất (k)")
-            s_btn = gr.Button("Tạo tóm tắt", elem_classes="gen-btn")
-            s_md = _result_markdown()
-            s_download = gr.File(label="Tải Markdown", interactive=False)
-            with gr.Accordion("JSON debug", open=False):
-                s_raw = gr.Code(label="", language="json")
+            gr.Markdown(
+                "Tạo tóm tắt theo phạm vi tài liệu đã chọn (và theo trang nếu bạn chỉ chọn 1 tài liệu).",
+                elem_classes="feature-sub",
+            )
+            with gr.Row(equal_height=False, elem_classes="feature-layout"):
+                with gr.Column(scale=4, min_width=320, elem_classes="feature-controls"):
+                    s_query = gr.Textbox(label="Chủ đề (tuỳ chọn)", lines=1)
+                    s_btn = gr.Button("Tạo tóm tắt", elem_classes="gen-btn")
+                    with gr.Accordion("Tuỳ chọn nâng cao", open=False):
+                        s_k = gr.Slider(1, 64, value=10, step=1, label="Số đoạn truy xuất (k)")
+                    with gr.Accordion("JSON debug", open=False):
+                        s_raw = gr.Code(label="", language="json")
+
+                with gr.Column(scale=8, min_width=420, elem_classes="feature-output"):
+                    s_md = _result_markdown()
+                    s_download = gr.File(label="Tải Markdown", interactive=False)
 
         with gr.Tab("📋 Quiz"):
-            z_query = gr.Textbox(label="Chủ đề (tuỳ chọn)", lines=1)
-            z_count = gr.Slider(1, 30, value=3, step=1, label="Số câu hỏi")
-            z_k = gr.Slider(1, 64, value=10, step=1, label="Số đoạn truy xuất (k)")
-            z_btn = gr.Button("Tạo quiz", elem_classes="gen-btn")
-            z_md = _result_markdown()
-            z_download = gr.File(label="Tải Markdown", interactive=False)
-            with gr.Accordion("JSON debug", open=False):
-                z_raw = gr.Code(label="", language="json")
+            gr.Markdown(
+                "Tạo bộ câu hỏi trắc nghiệm từ các tài liệu bạn đã chọn.",
+                elem_classes="feature-sub",
+            )
+            with gr.Row(equal_height=False, elem_classes="feature-layout"):
+                with gr.Column(scale=4, min_width=320, elem_classes="feature-controls"):
+                    z_query = gr.Textbox(label="Chủ đề (tuỳ chọn)", lines=1)
+                    z_btn = gr.Button("Tạo quiz", elem_classes="gen-btn")
+                    with gr.Accordion("Tuỳ chọn nâng cao", open=False):
+                        z_count = gr.Slider(1, 30, value=3, step=1, label="Số câu hỏi")
+                        z_k = gr.Slider(1, 64, value=10, step=1, label="Số đoạn truy xuất (k)")
+                    with gr.Accordion("JSON debug", open=False):
+                        z_raw = gr.Code(label="", language="json")
+
+                with gr.Column(scale=8, min_width=420, elem_classes="feature-output"):
+                    z_md = _result_markdown()
+                    z_download = gr.File(label="Tải Markdown", interactive=False)
 
         with gr.Tab("🃏 Flashcards"):
-            f_query = gr.Textbox(label="Chủ đề (tuỳ chọn)", lines=1)
-            f_count = gr.Slider(1, 40, value=15, step=1, label="Số thẻ")
-            f_k = gr.Slider(1, 64, value=16, step=1, label="Số đoạn truy xuất (k)")
-            f_btn = gr.Button("Tạo flashcards", elem_classes="gen-btn")
-            f_md = _result_markdown()
-            f_download = gr.File(label="Tải Markdown", interactive=False)
-            with gr.Accordion("JSON debug", open=False):
-                f_raw = gr.Code(label="", language="json")
+            gr.Markdown(
+                "Tạo flashcards từ các tài liệu bạn đã chọn để ôn tập nhanh.",
+                elem_classes="feature-sub",
+            )
+            with gr.Row(equal_height=False, elem_classes="feature-layout"):
+                with gr.Column(scale=4, min_width=320, elem_classes="feature-controls"):
+                    f_query = gr.Textbox(label="Chủ đề (tuỳ chọn)", lines=1)
+                    f_btn = gr.Button("Tạo flashcards", elem_classes="gen-btn")
+                    with gr.Accordion("Tuỳ chọn nâng cao", open=False):
+                        f_count = gr.Slider(1, 40, value=15, step=1, label="Số thẻ")
+                        f_k = gr.Slider(1, 64, value=16, step=1, label="Số đoạn truy xuất (k)")
+                    with gr.Accordion("JSON debug", open=False):
+                        f_raw = gr.Code(label="", language="json")
+
+                with gr.Column(scale=8, min_width=420, elem_classes="feature-output"):
+                    f_md = _result_markdown()
+                    f_download = gr.File(label="Tải Markdown", interactive=False)
 
     gr.HTML(
         '<div class="footer-text">'
@@ -414,7 +465,11 @@ with gr.Blocks(title="Building a Simple NotebookLM", fill_width=True, fill_heigh
         outputs=[upload_status, docs, doc_map_state, page, doc_summary, doc_list_md],
     )
 
-    ask_btn.click(fn=_ask, inputs=[q, k_ask, docs, page, gemini_key_input], outputs=[ask_md, ask_raw])
+    q.submit(
+        fn=_ask_chat,
+        inputs=[q, chatbot, k_ask, docs, page, gemini_key_input],
+        outputs=[chatbot, ask_raw, q],
+    )
     s_btn.click(fn=_summarize, inputs=[s_query, s_k, docs, page, gemini_key_input], outputs=[s_md, s_raw]).then(
         fn=lambda text: _write_export(text, "summary.md"),
         inputs=[s_md],

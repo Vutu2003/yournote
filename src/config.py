@@ -24,8 +24,8 @@ class Settings(BaseSettings):
     storage_dir: Path = Path("storage/qdrant")
     qdrant_collection: str = "rag_chunks"
 
-    chunk_size: int = Field(default=1000, ge=100)
-    chunk_overlap: int = Field(default=150, ge=0)
+    chunk_size: int = Field(default=1500, ge=500)
+    chunk_overlap: int = Field(default=200, ge=0)
     top_k: int = Field(default=5, ge=1, le=64)
 
     llm_provider: Literal["gemini"] = "gemini"

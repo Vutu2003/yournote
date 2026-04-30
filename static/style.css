@@ -89,12 +89,28 @@ body {
   padding: 4px 0 10px !important;
   align-items: center !important;
   background: transparent !important;
+  overflow: visible !important;
 }
 
 .header-row img {
   height: 96px;
   width: auto;
   object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.header-row .header-logo,
+.header-row .header-text,
+.header-row .header-logo .html-container,
+.header-row .header-text .html-container {
+  overflow: visible !important;
+}
+
+.header-row .header-text {
+  margin-left: -65px !important;
+  position: relative;
+  z-index: 2;
 }
 
 .header-meta {
@@ -102,6 +118,7 @@ body {
   flex-direction: column;
   justify-content: center;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .header-title {
@@ -115,7 +132,7 @@ body {
 
 .header-sub {
   margin: 5px 0 0;
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   color: var(--c-text-muted);
   font-weight: 500;
 }
@@ -465,8 +482,8 @@ button:not(.gen-btn):hover {
 }
 
 /* tab nav buttons must override secondary button rules */
-.tabs > .tab-nav button,
-.tabs > .tab-nav button:not(.gen-btn) {
+.tabs>.tab-nav button,
+.tabs>.tab-nav button:not(.gen-btn) {
   border: none !important;
   background: transparent !important;
   border-bottom: 2px solid transparent !important;
@@ -480,16 +497,52 @@ button:not(.gen-btn):hover {
   transition: color 0.14s, border-color 0.14s, background 0.14s !important;
 }
 
-.tabs > .tab-nav button.selected,
-.tabs > .tab-nav button[aria-selected="true"] {
+.tabs>.tab-nav button.selected,
+.tabs>.tab-nav button[aria-selected="true"] {
   color: var(--c-primary) !important;
   border-bottom-color: var(--c-primary) !important;
   background: var(--c-primary-pale) !important;
 }
 
-.tabs > .tab-nav button:not(.selected):not([aria-selected="true"]):hover {
+.tabs>.tab-nav button:not(.selected):not([aria-selected="true"]):hover {
   color: var(--c-text-2) !important;
   background: var(--c-surface-2) !important;
+}
+
+/* Gradio footer buttons (Use via API / Settings) should look like links */
+#gradio-app footer button.show-api,
+#gradio-app footer button.how-api,
+#gradio-app footer button.settings {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 8px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  color: var(--c-text-muted) !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+}
+
+#gradio-app footer button.show-api:hover,
+#gradio-app footer button.how-api:hover,
+#gradio-app footer button.settings:hover {
+  background: transparent !important;
+  color: var(--c-primary) !important;
+}
+
+#gradio-app footer button.show-api:focus,
+#gradio-app footer button.how-api:focus,
+#gradio-app footer button.settings:focus,
+#gradio-app footer button.show-api:focus-visible,
+#gradio-app footer button.how-api:focus-visible,
+#gradio-app footer button.settings:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* ==========================================================
@@ -694,6 +747,158 @@ button:not(.gen-btn):hover {
 }
 
 /* ==========================================================
+   Q&A tab
+   ========================================================== */
+.feature-sub {
+  margin: 6px 0 10px;
+  font-size: 0.92rem;
+  color: var(--c-text-muted) !important;
+}
+
+.feature-layout {
+  gap: 12px !important;
+  align-items: flex-start !important;
+}
+
+.feature-controls,
+.feature-output {
+  background: var(--c-surface-tint) !important;
+  border: 1.5px solid var(--c-border-strong) !important;
+  border-radius: var(--r-lg) !important;
+  box-shadow: var(--shadow-panel) !important;
+  padding: 12px 12px !important;
+}
+
+.feature-controls .gen-btn {
+  margin-top: 6px !important;
+}
+
+.feature-output .result-markdown {
+  background: var(--c-surface) !important;
+  border-radius: var(--r-md) !important;
+}
+
+.feature-output .gr-file,
+.feature-output .gr-file .wrap,
+.feature-output .gr-file .wrap-inner {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.feature-output .gr-file button:not(.gen-btn) {
+  margin-top: 10px !important;
+}
+
+.qa-chat {
+  height: 520px;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Chatbot bubbles */
+.qa-chat .wrap,
+.qa-chat .wrap-inner,
+.qa-chat .bubble-wrap {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.qa-chat .wrap-inner {
+  padding: 0 !important;
+}
+
+/* Some Gradio versions add extra framed wrappers */
+.qa-chat :is(.panel, .gr-panel, .container, .scrollable, .messages) {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.qa-chat .message {
+  line-height: 1.55;
+  gap: 8px !important;
+}
+
+.qa-chat .bubble {
+  border-radius: 14px !important;
+  padding: 10px 12px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.qa-chat .bubble.user,
+.qa-chat .bubble[data-testid="user"] {
+  background: var(--c-primary-pale) !important;
+}
+
+.qa-chat .bubble.bot,
+.qa-chat .bubble[data-testid="bot"] {
+  background: var(--c-surface) !important;
+}
+
+.qa-chat .bubble :is(p, li) {
+  font-size: 0.95rem;
+  color: var(--c-text-2) !important;
+}
+
+.qa-chat .bubble strong {
+  color: var(--c-text) !important;
+}
+
+.qa-chat .bubble a {
+  color: var(--c-primary) !important;
+}
+
+/* Message actions (Copy / …) */
+.qa-chat :is(.message-actions, .actions, .btn-row, .icon-buttons) {
+  gap: 6px !important;
+}
+
+.qa-chat :is(.message-actions, .actions, .btn-row, .icon-buttons) button {
+  height: 30px !important;
+  padding: 0 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--c-border) !important;
+  background: var(--c-surface-2) !important;
+  color: var(--c-text-muted) !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  box-shadow: none !important;
+  transition: background 0.14s, border-color 0.14s, color 0.14s !important;
+}
+
+.qa-chat :is(.message-actions, .actions, .btn-row, .icon-buttons) button:hover {
+  background: var(--c-primary-pale) !important;
+  border-color: var(--c-primary) !important;
+  color: var(--c-primary-dk) !important;
+}
+
+.qa-chat :is(.message-actions, .actions, .btn-row, .icon-buttons) button svg {
+  color: currentColor !important;
+}
+
+.qa-input {
+  margin-top: 10px;
+}
+
+.qa-input textarea,
+.qa-input input {
+  border-radius: 999px !important;
+  padding: 12px 14px !important;
+  font-size: 0.98rem !important;
+}
+
+.qa-input textarea {
+  border-radius: 16px !important;
+}
+
+/* ==========================================================
    Footer
    ========================================================== */
 .footer-text {
@@ -743,12 +948,16 @@ button:not(.gen-btn):hover {
     height: 56px;
   }
 
+  .header-row .header-text {
+    margin-left: -12px !important;
+  }
+
   .header-title {
     font-size: 1.35rem;
   }
 
   .header-sub {
-    font-size: 0.87rem;
+    font-size: 0.92rem;
   }
 
   .control-card {
@@ -758,4 +967,18 @@ button:not(.gen-btn):hover {
   .tabs {
     padding: 8px 8px 10px !important;
   }
+
+  .feature-sub {
+    margin: 4px 0 8px;
+  }
+
+  .feature-layout {
+    flex-direction: column !important;
+  }
+
+  .feature-controls,
+  .feature-output {
+    padding: 10px 10px !important;
+  }
+
 }
