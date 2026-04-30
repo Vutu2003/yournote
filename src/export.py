@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import html
 from pathlib import Path
 from typing import Literal
 
 from pydantic import BaseModel
 
-from src.schemas import Citation, FlashcardSet, QuizSet, Summary
+from src.schemas import Citation, FlashcardSet, QuizSet, RagAnswer, Summary
 
 ExportFormat = Literal["text", "md", "json"]
 
@@ -21,12 +22,57 @@ def _citation_line(c: Citation) -> str:
     return " | ".join(parts)
 
 
+def _details_block(summary: str, content: str) -> str:
+    safe_summary = html.escape(summary, quote=False)
+    safe_content = html.escape(content, quote=False)
+    return (
+        "<details>"
+        f"<summary>{safe_summary}</summary>"
+        f"<div style=\"margin:8px 0 0 0; white-space:pre-wrap;\">{safe_content}</div>"
+        "</details>"
+    )
+
+
+def _citation_source_text_block(c: Citation) -> str:
+    if not c.source_text:
+        return ""
+    return "\n  " + _details_block("Xem đoạn nguồn", c.source_text)
+
+
+def _marker_details(citations: list[Citation], markers: list[str]) -> list[str]:
+    by_marker = {c.source_marker: c for c in citations}
+    lines: list[str] = []
+    for m in markers:
+        c = by_marker.get(m)
+        if c is None:
+            continue
+        summary = f"[{c.source_marker}] {c.filename} p.{c.page}"
+        if c.section:
+            summary += f" | section: {c.section}"
+        if c.chunk_id:
+            summary += f" | chunk: {c.chunk_id}"
+        if c.source_text:
+            lines.append(f"- {_details_block(summary, c.source_text)}")
+        else:
+            lines.append(f"- {summary}")
+    return lines
+
+
 def _citations_block(citations: list[Citation]) -> str:
     if not citations:
         return ""
     lines = ["## Sources", ""]
-    lines.extend(f"- {_citation_line(c)}" for c in citations)
+    for c in citations:
+        lines.append(f"- {_citation_line(c)}{_citation_source_text_block(c)}")
     return "\n".join(lines) + "\n"
+
+
+def _render_with_sources(body_lines: list[str], citations: list[Citation]) -> str:
+    lines = [*body_lines, ""]
+    c = _citations_block(citations)
+    if c:
+        lines.append(c)
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def _to_markdown(model: BaseModel) -> str:
@@ -37,10 +83,10 @@ def _to_markdown(model: BaseModel) -> str:
             lines.extend([model.summary.strip(), ""])
         if model.key_points:
             lines.extend(["## Key Points", "", *[f"- {kp}" for kp in model.key_points], ""])
-        c = _citations_block(model.citations)
-        if c:
-            lines.append(c)
-        return "\n".join(lines).rstrip() + "\n"
+        return _render_with_sources(lines, model.citations)
+
+    if isinstance(model, RagAnswer):
+        return _render_with_sources([model.answer.strip()], model.citations)
 
     if isinstance(model, QuizSet):
         title = "# Quiz" + (f": {model.target}" if model.target else "")
@@ -61,7 +107,7 @@ def _to_markdown(model: BaseModel) -> str:
             if item.explanation:
                 lines.append(f"**Explanation:** {item.explanation.strip()}")
             if item.source_markers:
-                lines.append(f"**Sources:** {', '.join(item.source_markers)}")
+                lines.extend(["**Sources:**", *_marker_details(model.citations, item.source_markers)])
             lines.append("")
 
         c = _citations_block(model.citations)
@@ -80,7 +126,7 @@ def _to_markdown(model: BaseModel) -> str:
             if card.hint:
                 lines.append(f"**Hint:** {card.hint.strip()}")
             if card.source_markers:
-                lines.append(f"**Sources:** {', '.join(card.source_markers)}")
+                lines.extend(["**Sources:**", *_marker_details(model.citations, card.source_markers)])
             lines.append("")
 
         c = _citations_block(model.citations)

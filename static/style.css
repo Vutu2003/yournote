@@ -1,42 +1,43 @@
 /* ==========================================================
    RAG Learning System — Design Tokens
    ========================================================== */
-:root, #gradio-app {
-  --c-bg:           #eef1fb;
-  --c-bg-2:         #e4e9f7;
-  --c-surface:      #ffffff;
-  --c-surface-2:    #f2f5ff;
+:root,
+#gradio-app {
+  --c-bg: #eef1fb;
+  --c-bg-2: #e4e9f7;
+  --c-surface: #ffffff;
+  --c-surface-2: #f2f5ff;
   --c-surface-tint: rgba(255, 255, 255, 0.72);
 
-  --c-primary:      #3d5af1;
-  --c-primary-dk:   #2945d4;
+  --c-primary: #3d5af1;
+  --c-primary-dk: #2945d4;
   --c-primary-pale: #dde4fd;
 
-  --c-accent:       #6c3de0;
+  --c-accent: #6c3de0;
 
-  --c-text:         #181c2e;
-  --c-text-2:       #3d4460;
-  --c-text-muted:   #6370a0;
+  --c-text: #181c2e;
+  --c-text-2: #3d4460;
+  --c-text-muted: #6370a0;
 
   /* Border needs to be darker than background for legibility */
-  --c-border:       #b6c0e6;
-  --c-border-strong:#9faee0;
+  --c-border: #b6c0e6;
+  --c-border-strong: #9faee0;
 
-  --c-note-bg:      #fffbeb;
-  --c-note-bd:      #f5c842;
-  --c-note-txt:     #7a5200;
+  --c-note-bg: #fffbeb;
+  --c-note-bd: #f5c842;
+  --c-note-txt: #7a5200;
 
-  --c-status-bg:    #f0f4ff;
+  --c-status-bg: #f0f4ff;
 
   --r-lg: 16px;
   --r-md: 12px;
-  --r-sm:  8px;
-  --r-xs:  6px;
+  --r-sm: 8px;
+  --r-xs: 6px;
 
-  --shadow-card: 0 3px 16px rgba(40,55,130,.12), 0 1px 5px rgba(40,55,130,.07);
-  --shadow-panel: 0 6px 24px rgba(40,55,130,.10), 0 2px 8px rgba(40,55,130,.06);
-  --shadow-btn:  0 4px 14px rgba(61,90,241,.30);
-  --shadow-foc:  0 0 0 3px rgba(61,90,241,.20);
+  --shadow-card: 0 3px 16px rgba(40, 55, 130, .12), 0 1px 5px rgba(40, 55, 130, .07);
+  --shadow-panel: 0 6px 24px rgba(40, 55, 130, .10), 0 2px 8px rgba(40, 55, 130, .06);
+  --shadow-btn: 0 4px 14px rgba(61, 90, 241, .30);
+  --shadow-foc: 0 0 0 3px rgba(61, 90, 241, .20);
 
   --app-max-width: 1440px;
 }
@@ -45,19 +46,21 @@
    Gradio variable bridge — all blocks transparent by default
    ========================================================== */
 #gradio-app {
-  --background-fill-primary:   var(--c-bg);
+  --background-fill-primary: var(--c-bg);
   --background-fill-secondary: var(--c-bg-2);
-  --block-background-fill:     transparent;
-  --block-border-color:        transparent;
-  --block-border-width:        0px;
-  --input-background-fill:     var(--c-surface);
+  --block-background-fill: transparent;
+  --block-border-color: transparent;
+  --block-border-width: 0px;
+  --input-background-fill: var(--c-surface);
 }
 
 /* ==========================================================
    Page shell
    ========================================================== */
-html, body {
-  margin: 0; padding: 0;
+html,
+body {
+  margin: 0;
+  padding: 0;
   background: linear-gradient(155deg, var(--c-bg) 0%, var(--c-bg-2) 100%) !important;
   color: var(--c-text);
   min-height: 100vh;
@@ -131,9 +134,15 @@ html, body {
 
 .info-card-title,
 .info-card-list,
-.info-card-list li { color: var(--c-note-txt) !important; }
+.info-card-list li {
+  color: var(--c-note-txt) !important;
+}
 
-.info-card-title { margin-bottom: 6px; font-size: 0.95rem; font-weight: 700; }
+.info-card-title {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
 
 .info-card-list {
   margin: 0;
@@ -142,7 +151,9 @@ html, body {
   line-height: 1.65;
 }
 
-.info-card-list li + li { margin-top: 3px; }
+.info-card-list li+li {
+  margin-top: 3px;
+}
 
 /* ==========================================================
    2-Column main layout — EXPLICIT flex, do not rely solely on Gradio
@@ -196,7 +207,9 @@ html, body {
 }
 
 /* accent top stripe */
-.control-card { border-top: 3px solid var(--c-primary) !important; }
+.control-card {
+  border-top: 3px solid var(--c-primary) !important;
+}
 
 /* strip nested .block inside cards — theme transparent already handles most,
    but belt-and-suspenders for sub-blocks that may carry inline styles */
@@ -210,7 +223,9 @@ html, body {
 /* ==========================================================
    Typography
    ========================================================== */
-label, .gr-label, .block-title {
+label,
+.gr-label,
+.block-title {
   color: var(--c-text-2) !important;
   font-size: 0.93rem !important;
   font-weight: 600 !important;
@@ -229,14 +244,17 @@ label, .gr-label, .block-title {
 /* standalone markdown outside cards (doc_list_md etc.) */
 .prose p,
 .prose li,
-.prose h1, .prose h2, .prose h3 {
+.prose h1,
+.prose h2,
+.prose h3 {
   color: var(--c-text) !important;
 }
 
 /* ==========================================================
    Inputs & textareas
    ========================================================== */
-textarea, input:not([type="range"]):not([type="checkbox"]) {
+textarea,
+input:not([type="range"]):not([type="checkbox"]) {
   background: var(--c-surface) !important;
   color: var(--c-text) !important;
   font-weight: 500 !important;
@@ -261,13 +279,17 @@ select:focus {
   outline: none !important;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border-color: var(--c-primary) !important;
   box-shadow: var(--shadow-foc) !important;
   outline: none !important;
 }
 
-::placeholder { color: var(--c-text-muted) !important; opacity: 1 !important; }
+::placeholder {
+  color: var(--c-text-muted) !important;
+  opacity: 1 !important;
+}
 
 /* ==========================================================
    Gradio form wrappers — remove default gray panels
@@ -296,6 +318,73 @@ textarea:focus, input:focus {
   padding: 0 8px !important;
 }
 
+/* ==========================================================
+   Left upload block & right selection block
+   - remove nested borders (fieldset, inner inputs)
+   - let outer wrappers provide the frame
+   ========================================================== */
+.control-stack .gr-file,
+.control-stack .gr-file *,
+.preview-col .gr-file,
+.preview-col .gr-file * {
+  box-shadow: none !important;
+}
+
+.control-stack fieldset,
+.control-stack .gr-checkboxgroup fieldset,
+.control-stack .gr-radiogroup fieldset,
+.preview-col fieldset,
+.preview-col .gr-checkboxgroup fieldset,
+.preview-col .gr-radiogroup fieldset {
+  border: none !important;
+  background: transparent !important;
+}
+
+.control-stack fieldset legend,
+.preview-col fieldset legend {
+  padding: 0 8px !important;
+}
+
+.control-stack .gr-checkboxgroup,
+.control-stack .gr-dropdown,
+.control-stack .gr-file,
+.preview-col .gr-checkboxgroup,
+.preview-col .gr-dropdown,
+.preview-col .gr-file {
+  background: transparent !important;
+  border: none !important;
+}
+
+.control-stack .gr-file button:not(.gen-btn),
+.preview-col .gr-file button:not(.gen-btn) {
+  border: none !important;
+  background: var(--c-surface-2) !important;
+}
+
+/* Dropdown inner input: remove inner border/outline; outer wrap provides frame */
+.preview-col .gr-dropdown input.border-none,
+.preview-col .gr-dropdown input[role="listbox"],
+.preview-col .wrap-inner input.border-none,
+.preview-col .wrap-inner input[role="listbox"] {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.preview-col .gr-dropdown input.border-none:focus,
+.preview-col .gr-dropdown input[role="listbox"]:focus,
+.preview-col .wrap-inner input.border-none:focus,
+.preview-col .wrap-inner input[role="listbox"]:focus,
+.preview-col .gr-dropdown input.border-none:focus-visible,
+.preview-col .gr-dropdown input[role="listbox"]:focus-visible,
+.preview-col .wrap-inner input.border-none:focus-visible,
+.preview-col .wrap-inner input[role="listbox"]:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* Make option rows readable and consistent */
 .gradio-container input[type="checkbox"] {
   accent-color: var(--c-primary);
@@ -315,9 +404,9 @@ textarea:focus, input:focus {
 /* Tab content area sometimes renders as a gray block */
 .tabs,
 .tabs .tabitem,
-.tabs .tabitem > .block,
-.tabs .tabitem > .wrap,
-.tabs .tabitem > .panel {
+.tabs .tabitem>.block,
+.tabs .tabitem>.wrap,
+.tabs .tabitem>.panel {
   background: transparent !important;
 }
 
@@ -349,7 +438,7 @@ input[type="range"] {
 
 .gen-btn:hover {
   opacity: 0.88 !important;
-  box-shadow: 0 6px 22px rgba(61,90,241,.38) !important;
+  box-shadow: 0 6px 22px rgba(61, 90, 241, .38) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -359,7 +448,7 @@ input[type="range"] {
 }
 
 /* Secondary buttons */
-button:not(.gen-btn) {
+button:not(.gen-btn):not(.label-wrap) {
   border-radius: var(--r-sm) !important;
   border: 1.5px solid var(--c-border) !important;
   background: var(--c-surface-2) !important;
@@ -420,19 +509,33 @@ button:not(.gen-btn):hover {
 /* ==========================================================
    Accordion
    ========================================================== */
-.gradio-accordion,
-.gradio-accordion > div,
-.gradio-accordion details {
+/* Move the "card" border to the outer block wrapper for accordion-only blocks
+   in the left panel, and keep inner accordion elements borderless. */
+.control-stack .block.padded.auto-margin {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.control-stack .block.padded.auto-margin:has(.gradio-accordion) {
   background: var(--c-surface-2) !important;
   border: 1.5px solid var(--c-border) !important;
   border-radius: var(--r-md) !important;
-  box-shadow: none !important;
   overflow: hidden !important;
 }
 
-.gradio-accordion summary,
-.gradio-accordion button {
-  background: var(--c-surface-2) !important;
+.control-stack .gradio-accordion,
+.control-stack .gradio-accordion>div,
+.control-stack .gradio-accordion details {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.control-stack .gradio-accordion summary,
+.control-stack .gradio-accordion button,
+.control-stack .gradio-accordion .label-wrap {
+  background: transparent !important;
   color: var(--c-text-2) !important;
   font-weight: 700 !important;
   font-size: 0.93rem !important;
@@ -442,10 +545,45 @@ button:not(.gen-btn):hover {
   transition: background 0.14s !important;
 }
 
-.gradio-accordion summary:hover,
-.gradio-accordion button:not(.gen-btn):hover {
+.control-stack .gradio-accordion summary:hover,
+.control-stack .gradio-accordion button:not(.gen-btn):hover,
+.control-stack .gradio-accordion .label-wrap:hover {
   background: var(--c-primary-pale) !important;
   border-color: transparent !important;
+}
+
+/* Ensure accordion header button never gets an inner border */
+.control-stack button.label-wrap,
+.control-stack .block.padded.auto-margin:has(.gradio-accordion) button.label-wrap {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Status bar inside left panel blocks: borderless, let outer wrapper frame it */
+.control-stack .block.padded.auto-margin:has(.gradio-accordion) .status-bar {
+  border: none !important;
+  border-left: none !important;
+  background: transparent !important;
+  padding: 8px 12px !important;
+}
+
+/* Document selection checkbox options container (right panel) */
+.preview-col .wrap-inner,
+.preview-col .gr-checkboxgroup .wrap-inner {
+  border: 1.5px solid var(--c-border-strong) !important;
+  border-radius: var(--r-md) !important;
+  background: var(--c-surface) !important;
+}
+
+/* Tabs: ensure tab buttons are borderless */
+.tab-container button[role="tab"],
+.tab-container button[role="tab"].selected,
+.tab-wrapper button[role="tab"] {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 /* ==========================================================
@@ -479,7 +617,7 @@ button:not(.gen-btn):hover {
    ========================================================== */
 .result-markdown {
   background: var(--c-surface) !important;
-  border: 1.5px solid var(--c-border) !important;
+  border: none !important;
   border-radius: var(--r-md) !important;
   padding: 14px 16px !important;
   min-height: 60px;
@@ -488,13 +626,19 @@ button:not(.gen-btn):hover {
 
 .result-markdown h1,
 .result-markdown h2,
-.result-markdown h3 { color: var(--c-primary-dk) !important; }
+.result-markdown h3 {
+  color: var(--c-primary-dk) !important;
+}
 
 .result-markdown p,
 .result-markdown li,
-.result-markdown strong { color: var(--c-text) !important; }
+.result-markdown strong {
+  color: var(--c-text) !important;
+}
 
-.result-markdown a { color: var(--c-primary) !important; }
+.result-markdown a {
+  color: var(--c-primary) !important;
+}
 
 .result-markdown code {
   background: var(--c-surface-2) !important;
@@ -510,6 +654,28 @@ button:not(.gen-btn):hover {
 }
 
 /* ==========================================================
+   Inline citations (HTML <details>) inside result markdown
+   ========================================================== */
+.result-markdown details {
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  padding: 8px 10px;
+  margin-top: 8px;
+}
+
+.result-markdown summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--c-text-2);
+  outline: none;
+}
+
+.result-markdown details[open] summary {
+  color: var(--c-primary-dk);
+}
+
+/* ==========================================================
    Tabs nav bar
    ========================================================== */
 .tabs {
@@ -520,7 +686,7 @@ button:not(.gen-btn):hover {
   padding: 10px 12px 12px !important;
 }
 
-.tabs > .tab-nav {
+.tabs>.tab-nav {
   border-bottom: 2px solid var(--c-border) !important;
   gap: 2px !important;
   padding: 0 2px !important;
@@ -545,23 +711,51 @@ button:not(.gen-btn):hover {
   font-weight: 600;
 }
 
-.footer-text a:hover { text-decoration: underline; }
+.footer-text a:hover {
+  text-decoration: underline;
+}
 
 /* ==========================================================
    Responsive
    ========================================================== */
 @media (max-width: 860px) {
-  .main-layout { flex-direction: column !important; }
-  .control-stack, .preview-col {
+  .main-layout {
+    flex-direction: column !important;
+  }
+
+  .control-stack,
+  .preview-col {
     flex: 1 1 100% !important;
     min-width: 0 !important;
     padding: 12px 12px !important;
   }
-  .gradio-container { padding: 6px 8px !important; }
-  .header-row { gap: 8px !important; padding: 2px 0 6px !important; }
-  .header-row img { height: 56px; }
-  .header-title { font-size: 1.35rem; }
-  .header-sub { font-size: 0.87rem; }
-  .control-card { padding: 10px 12px !important; }
-  .tabs { padding: 8px 8px 10px !important; }
+
+  .gradio-container {
+    padding: 6px 8px !important;
+  }
+
+  .header-row {
+    gap: 8px !important;
+    padding: 2px 0 6px !important;
+  }
+
+  .header-row img {
+    height: 56px;
+  }
+
+  .header-title {
+    font-size: 1.35rem;
+  }
+
+  .header-sub {
+    font-size: 0.87rem;
+  }
+
+  .control-card {
+    padding: 10px 12px !important;
+  }
+
+  .tabs {
+    padding: 8px 8px 10px !important;
+  }
 }

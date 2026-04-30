@@ -87,6 +87,7 @@ def format_citations(chunks: list[RetrievedChunk]) -> list[Citation]:
             source_marker=f"S{i}",
             filename=c.metadata.filename,
             page=c.metadata.page,
+            source_text=c.text.strip(),
             section=c.metadata.section,
             chunk_id=c.metadata.chunk_id,
         )

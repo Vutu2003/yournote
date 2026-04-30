@@ -33,6 +33,7 @@ class Citation(BaseModel):
     source_marker: str
     filename: str
     page: int
+    source_text: str | None = None
     section: str | None = None
     chunk_id: str | None = None
 

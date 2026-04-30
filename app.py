@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import html
 import json
 from pathlib import Path
 from typing import Any
@@ -47,6 +48,26 @@ def _img_b64(path: str) -> str:
 def _status_html(message: str) -> str:
     return f'<div class="status-bar">{message}</div>'
 
+def _result_markdown() -> gr.Markdown:
+    """Create a result Markdown that allows safe HTML when supported.
+
+    We render citations using HTML <details> blocks for expand/collapse.
+    Gradio versions differ in how they gate HTML in Markdown, so we fall back
+    gracefully when a flag is unavailable.
+    """
+    candidates = (
+        {"sanitize_html": False},
+        {"sanitize": False},
+        {"unsafe_allow_html": True},
+        {},
+    )
+    for kwargs in candidates:
+        try:
+            return gr.Markdown(elem_classes="result-markdown", **kwargs)
+        except TypeError:
+            continue
+    return gr.Markdown(elem_classes="result-markdown")
+
 def _read_uploaded_pdf(file_obj: object) -> tuple[bytes, str]:
     """Normalize Gradio file payload into (bytes, filename).
 
@@ -75,6 +96,14 @@ def _read_uploaded_pdf(file_obj: object) -> tuple[bytes, str]:
             return p.read_bytes(), name
 
     raise TypeError(f"Unsupported uploaded file type: {type(file_obj).__name__}")
+
+def _read_uploaded_pdfs(file_obj: object) -> list[tuple[bytes, str]]:
+    """Normalize Gradio file payload into a list of (bytes, filename)."""
+    if file_obj is None:
+        return []
+    if isinstance(file_obj, (list, tuple)):
+        return [_read_uploaded_pdf(x) for x in file_obj]
+    return [_read_uploaded_pdf(file_obj)]
 
 
 def _filters(filenames: list[str] | None, page: int | None) -> dict[str, object] | None:
@@ -119,7 +148,8 @@ def _pages_for_selection(doc_map: dict[str, Any], selected: list[str]) -> gr.Dro
 def _upload_pdf(
     file: object | None,
 ) -> tuple[str, object, dict[str, Any], object, str, str]:
-    if file is None:
+    payloads = _read_uploaded_pdfs(file)
+    if not payloads:
         choices, doc_map, page_dropdown, summary, filenames_text = _refresh_docs()
         return (
             _status_html("⚠️ Vui lòng chọn file PDF."),
@@ -129,9 +159,31 @@ def _upload_pdf(
             summary,
             filenames_text,
         )
-    file_bytes, filename = _read_uploaded_pdf(file)
-    info = save_and_ingest_pdf(file_bytes, filename)
-    message = _status_html(f"✅ Đã nạp **{info['filename']}** · {info['chunks_indexed']} đoạn")
+
+    successes: list[str] = []
+    failures: list[str] = []
+    chunks_total = 0
+    for file_bytes, filename in payloads:
+        try:
+            info = save_and_ingest_pdf(file_bytes, filename)
+        except Exception as e:  # noqa: BLE001
+            failures.append(f"{filename}: {e}")
+            continue
+        successes.append(str(info["filename"]))
+        chunks_total += int(info.get("chunks_indexed") or 0)
+
+    parts: list[str] = []
+    if successes:
+        parts.append(f"✅ Đã nạp {len(successes)} file · {chunks_total} đoạn")
+    if failures:
+        parts.append(f"⚠️ Lỗi **{len(failures)}** file")
+    details = ""
+    if failures:
+        items = "".join(f"<li><code>{html.escape(x, quote=False)}</code></li>" for x in failures)
+        details = f"<details><summary>Xem lỗi</summary><ul>{items}</ul></details>"
+    message_body = (" · ".join(parts) if parts else "⚠️ Không có file hợp lệ.") + details
+    message = _status_html(message_body)
+
     choices, doc_map, page_dropdown, summary, filenames_text = _refresh_docs()
     return message, choices, doc_map, page_dropdown, summary, filenames_text
 
@@ -142,13 +194,23 @@ def _ask(question: str, k: int, selected_docs: list[str], page: str, gemini_key:
     page_num = None if page == "(Tất cả trang)" else int(page)
     set_runtime_gemini_api_key(gemini_key)
     res = answer(question.strip(), k=int(k), filters=_filters(selected_docs, page_num))
-    return res.answer, json.dumps(res.model_dump(), ensure_ascii=False, indent=2)
+    return export(res, fmt="md"), json.dumps(res.model_dump(), ensure_ascii=False, indent=2)
 
 
-def _summarize(query: str, k: int, selected_docs: list[str], page: str, gemini_key: str) -> tuple[str, str]:
+def _summarize(
+    query: str,
+    k: int,
+    selected_docs: list[str],
+    page: str,
+    gemini_key: str,
+    progress: gr.Progress = gr.Progress(),
+) -> tuple[str, str]:
     page_num = None if page == "(Tất cả trang)" else int(page)
     set_runtime_gemini_api_key(gemini_key)
+    progress(0.0, desc="Đang chuẩn bị…")
+    progress(0.2, desc="Đang truy xuất ngữ cảnh…")
     res = summarize(query=query.strip() or None, filters=_filters(selected_docs, page_num), k=int(k))
+    progress(0.85, desc="Đang định dạng kết quả…")
     return export(res, fmt="md"), res.model_dump_json(indent=2)
 
 
@@ -159,15 +221,19 @@ def _quiz(
     selected_docs: list[str],
     page: str,
     gemini_key: str,
+    progress: gr.Progress = gr.Progress(),
 ) -> tuple[str, str]:
     page_num = None if page == "(Tất cả trang)" else int(page)
     set_runtime_gemini_api_key(gemini_key)
+    progress(0.0, desc="Đang chuẩn bị…")
+    progress(0.2, desc="Đang truy xuất ngữ cảnh…")
     res = generate_quiz(
         query=query.strip() or None,
         count=int(count),
         filters=_filters(selected_docs, page_num),
         k=int(k),
     )
+    progress(0.85, desc="Đang định dạng kết quả…")
     return export(res, fmt="md"), res.model_dump_json(indent=2)
 
 
@@ -178,15 +244,19 @@ def _flashcards(
     selected_docs: list[str],
     page: str,
     gemini_key: str,
+    progress: gr.Progress = gr.Progress(),
 ) -> tuple[str, str]:
     page_num = None if page == "(Tất cả trang)" else int(page)
     set_runtime_gemini_api_key(gemini_key)
+    progress(0.0, desc="Đang chuẩn bị…")
+    progress(0.2, desc="Đang truy xuất ngữ cảnh…")
     res = generate_flashcards(
         query=query.strip() or None,
         count=int(count),
         filters=_filters(selected_docs, page_num),
         k=int(k),
     )
+    progress(0.85, desc="Đang định dạng kết quả…")
     return export(res, fmt="md"), res.model_dump_json(indent=2)
 
 
@@ -208,13 +278,13 @@ _theme = gr.themes.Base().set(
     input_background_fill="#ffffff",
 )
 
-with gr.Blocks(title="RAG Learning System", fill_width=True, fill_height=True) as demo:
+with gr.Blocks(title="Building a Simple NotebookLM", fill_width=True, fill_height=True) as demo:
     with gr.Row(elem_classes="header-row"):
         logo_b64 = _img_b64("static/aivn_logo.png")
         gr.HTML(f'<img src="data:image/png;base64,{logo_b64}" alt="AIVN">')
         gr.HTML(
             '<div class="header-meta">'
-            '<p class="header-title">📚 RAG Learning System</p>'
+            '<p class="header-title">📚 Building a Simple NotebookLM</p>'
             '<p class="header-sub">AIO2025 — Hỏi đáp · Tóm tắt · Quiz · Flashcards có trích dẫn nguồn</p>'
             '</div>'
         )
@@ -229,7 +299,7 @@ with gr.Blocks(title="RAG Learning System", fill_width=True, fill_height=True) a
             upload = gr.File(
                 label="Chọn PDF",
                 file_types=[".pdf"],
-                file_count="single",
+                file_count="multiple",
                 type="filepath",
             )
             upload_btn = gr.Button("Nạp & Index", elem_classes="gen-btn")
@@ -238,7 +308,8 @@ with gr.Blocks(title="RAG Learning System", fill_width=True, fill_height=True) a
             # with gr.Group(elem_classes="control-card"):
             with gr.Accordion("🔑 Gemini API Key (tuỳ chọn)", open=False):
                 gr.Markdown(
-                    "API key chỉ dùng trong phiên hiện tại và **không được lưu**.",
+                    "Nhập API key để chạy Gemini. Lấy key tại: "
+                    "[Google AI Studio](https://aistudio.google.com/app/api-keys). ",
                     elem_classes="help-markdown",
                 )
                 gemini_key_input = gr.Textbox(
@@ -291,7 +362,7 @@ with gr.Blocks(title="RAG Learning System", fill_width=True, fill_height=True) a
             )
             k_ask = gr.Slider(1, 32, value=6, step=1, label="Top-k retrieval")
             ask_btn = gr.Button("Trả lời", elem_classes="gen-btn")
-            ask_md = gr.Markdown(elem_classes="result-markdown")
+            ask_md = _result_markdown()
             with gr.Accordion("JSON debug", open=False):
                 ask_raw = gr.Code(label="", language="json")
 
@@ -299,7 +370,7 @@ with gr.Blocks(title="RAG Learning System", fill_width=True, fill_height=True) a
             s_query = gr.Textbox(label="Chủ đề hướng dẫn (tuỳ chọn)", lines=1)
             s_k = gr.Slider(1, 64, value=10, step=1, label="Số đoạn truy xuất (k)")
             s_btn = gr.Button("Tạo tóm tắt", elem_classes="gen-btn")
-            s_md = gr.Markdown(elem_classes="result-markdown")
+            s_md = _result_markdown()
             s_download = gr.File(label="Tải Markdown", interactive=False)
             with gr.Accordion("JSON debug", open=False):
                 s_raw = gr.Code(label="", language="json")
@@ -309,7 +380,7 @@ with gr.Blocks(title="RAG Learning System", fill_width=True, fill_height=True) a
             z_count = gr.Slider(1, 30, value=3, step=1, label="Số câu hỏi")
             z_k = gr.Slider(1, 64, value=10, step=1, label="Số đoạn truy xuất (k)")
             z_btn = gr.Button("Tạo quiz", elem_classes="gen-btn")
-            z_md = gr.Markdown(elem_classes="result-markdown")
+            z_md = _result_markdown()
             z_download = gr.File(label="Tải Markdown", interactive=False)
             with gr.Accordion("JSON debug", open=False):
                 z_raw = gr.Code(label="", language="json")
@@ -319,7 +390,7 @@ with gr.Blocks(title="RAG Learning System", fill_width=True, fill_height=True) a
             f_count = gr.Slider(1, 40, value=15, step=1, label="Số thẻ")
             f_k = gr.Slider(1, 64, value=16, step=1, label="Số đoạn truy xuất (k)")
             f_btn = gr.Button("Tạo flashcards", elem_classes="gen-btn")
-            f_md = gr.Markdown(elem_classes="result-markdown")
+            f_md = _result_markdown()
             f_download = gr.File(label="Tải Markdown", interactive=False)
             with gr.Accordion("JSON debug", open=False):
                 f_raw = gr.Code(label="", language="json")
