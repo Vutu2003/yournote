@@ -49,19 +49,8 @@ def _status_html(message: str) -> str:
     return f'<div class="status-bar">{message}</div>'
 
 def _result_markdown() -> gr.Markdown:
-    """Create a result Markdown that allows safe HTML when supported.
-
-    We render citations using HTML <details> blocks for expand/collapse.
-    Gradio versions differ in how they gate HTML in Markdown, so we fall back
-    gracefully when a flag is unavailable.
-    """
-    candidates = (
-        {"sanitize_html": False},
-        {"sanitize": False},
-        {"unsafe_allow_html": True},
-        {},
-    )
-    for kwargs in candidates:
+    # Gradio versions differ in how they gate HTML in Markdown; try in priority order.
+    for kwargs in ({"sanitize_html": False}, {"sanitize": False}, {"unsafe_allow_html": True}, {}):
         try:
             return gr.Markdown(elem_classes="result-markdown", **kwargs)
         except TypeError:
@@ -223,13 +212,10 @@ def _summarize(
     gemini_key: str,
     progress: gr.Progress = gr.Progress(),
 ) -> tuple[str, str]:
-    page_num = None if page == "(Tất cả trang)" else int(page)
-    set_runtime_gemini_api_key(gemini_key)
-    progress(0.0, desc="Đang chuẩn bị…")
-    progress(0.2, desc="Đang truy xuất ngữ cảnh…")
-    res = summarize(query=query.strip() or None, filters=_filters(selected_docs, page_num), k=int(k))
-    progress(0.85, desc="Đang định dạng kết quả…")
-    return export(res, fmt="md"), res.model_dump_json(indent=2)
+    return _run_feature(
+        summarize, selected_docs, page, gemini_key, progress,
+        query=query.strip() or None, k=int(k),
+    )
 
 
 def _quiz(
@@ -241,18 +227,10 @@ def _quiz(
     gemini_key: str,
     progress: gr.Progress = gr.Progress(),
 ) -> tuple[str, str]:
-    page_num = None if page == "(Tất cả trang)" else int(page)
-    set_runtime_gemini_api_key(gemini_key)
-    progress(0.0, desc="Đang chuẩn bị…")
-    progress(0.2, desc="Đang truy xuất ngữ cảnh…")
-    res = generate_quiz(
-        query=query.strip() or None,
-        count=int(count),
-        filters=_filters(selected_docs, page_num),
-        k=int(k),
+    return _run_feature(
+        generate_quiz, selected_docs, page, gemini_key, progress,
+        query=query.strip() or None, count=int(count), k=int(k),
     )
-    progress(0.85, desc="Đang định dạng kết quả…")
-    return export(res, fmt="md"), res.model_dump_json(indent=2)
 
 
 def _flashcards(
@@ -264,18 +242,10 @@ def _flashcards(
     gemini_key: str,
     progress: gr.Progress = gr.Progress(),
 ) -> tuple[str, str]:
-    page_num = None if page == "(Tất cả trang)" else int(page)
-    set_runtime_gemini_api_key(gemini_key)
-    progress(0.0, desc="Đang chuẩn bị…")
-    progress(0.2, desc="Đang truy xuất ngữ cảnh…")
-    res = generate_flashcards(
-        query=query.strip() or None,
-        count=int(count),
-        filters=_filters(selected_docs, page_num),
-        k=int(k),
+    return _run_feature(
+        generate_flashcards, selected_docs, page, gemini_key, progress,
+        query=query.strip() or None, count=int(count), k=int(k),
     )
-    progress(0.85, desc="Đang định dạng kết quả…")
-    return export(res, fmt="md"), res.model_dump_json(indent=2)
 
 
 def _write_export(md_text: str, filename: str) -> str | None:
@@ -285,6 +255,22 @@ def _write_export(md_text: str, filename: str) -> str | None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(md_text, encoding="utf-8")
     return str(output_path)
+
+
+def _run_feature(
+    fn,
+    selected_docs: list[str],
+    page: str,
+    gemini_key: str,
+    progress: gr.Progress,
+    **kwargs: object,
+) -> tuple[str, str]:
+    page_num = None if page == "(Tất cả trang)" else int(page)
+    set_runtime_gemini_api_key(gemini_key)
+    progress(0.3, desc="Đang truy xuất ngữ cảnh…")
+    res = fn(**kwargs, filters=_filters(selected_docs, page_num))
+    progress(0.9, desc="Đang định dạng kết quả…")
+    return export(res, fmt="md"), res.model_dump_json(indent=2)
 
 
 _theme = gr.themes.Base().set(
@@ -309,7 +295,7 @@ with gr.Blocks(title="Building a Simple NotebookLM", fill_width=True, fill_heigh
             elem_classes="header-text",
         )
 
-    gr.HTML(_INFO_NOTE_HTML)
+    gr.HTML(_INFO_NOTE_HTML, elem_classes="site-info-note")
 
     doc_map_state = gr.State({})
 
@@ -325,7 +311,7 @@ with gr.Blocks(title="Building a Simple NotebookLM", fill_width=True, fill_heigh
             upload_btn = gr.Button("Nạp & Index", elem_classes="gen-btn")
             upload_status = gr.HTML(_status_html("Sẵn sàng."))
 
-            with gr.Accordion("🔑 Gemini API Key (tuỳ chọn)", open=False):
+            with gr.Accordion("🔑 Gemini API Key", open=False):
                 gr.Markdown(
                     "Nhập API key để chạy Gemini. Lấy key tại: "
                     "[Google AI Studio](https://aistudio.google.com/app/api-keys). ",
