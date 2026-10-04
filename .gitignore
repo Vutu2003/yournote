@@ -2,3 +2,12 @@ __pycache__/
 storage/
 data/
 exports/
+
+.venv/
+.env
+.pytest_cache/
+.tools/
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local

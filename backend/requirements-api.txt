@@ -1,0 +1,4 @@
+# API dependencies on top of the root requirements.txt.
+fastapi==0.142.1
+uvicorn==0.54.0
+python-multipart==0.0.32
