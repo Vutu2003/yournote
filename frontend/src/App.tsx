@@ -1,27 +1,21 @@
-import { useEffect, useState } from 'react'
-import { checkBackendHealth } from './api/client'
+import { useNotebook } from './useNotebook'
+import { AppHeader } from './components/AppHeader'
+import { SourcesPanel } from './features/sources/SourcesPanel'
+import { ChatPanel } from './features/chat/ChatPanel'
+import { StudioPanel } from './features/studio/StudioPanel'
 
 function App() {
-  const [backendStatus, setBackendStatus] = useState('checking...')
-
-  useEffect(() => {
-    const controller = new AbortController()
-
-    checkBackendHealth(controller.signal)
-      .then(() => setBackendStatus('connected'))
-      .catch(() => {
-        if (!controller.signal.aborted) setBackendStatus('unavailable')
-      })
-
-    return () => controller.abort()
-  }, [])
+  const notebook = useNotebook()
 
   return (
-    <main>
-      <h1>Research Notebook</h1>
-      <p>React frontend ready.</p>
-      <p role="status">Backend status: {backendStatus}</p>
-    </main>
+    <div className="app-shell">
+      <AppHeader />
+      <main className="workspace">
+        <SourcesPanel notebook={notebook} />
+        <ChatPanel notebook={notebook} />
+        <StudioPanel notebook={notebook} />
+      </main>
+    </div>
   )
 }
 
