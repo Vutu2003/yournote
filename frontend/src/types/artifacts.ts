@@ -1,4 +1,4 @@
-import type { FlashcardsResponse, QuizResponse, SourceSelection, SummaryResponse } from './api'
+import type { FlashcardsResponse, QuizResponse, SourceSelection, SummaryResponse, MindMapResponse } from './api'
 
 export interface StudioArtifact<T> {
   id: string
@@ -13,6 +13,7 @@ export interface StudioArtifact<T> {
 export type SummaryArtifact = StudioArtifact<SummaryResponse>
 export type QuizArtifact = StudioArtifact<QuizResponse>
 export type FlashcardArtifact = StudioArtifact<FlashcardsResponse>
+export type MindMapArtifact = StudioArtifact<MindMapResponse>
 
 export function createArtifact<T>(result: T, context: SourceSelection & { topic: string | null }): StudioArtifact<T> {
   const firstTitle = context.filenames[0].replace(/\.pdf$/i, '')

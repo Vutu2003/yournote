@@ -10,7 +10,7 @@ from threading import RLock
 from backend.schemas.api import (
     ChatRequest, ChatResponse, DocumentsResponse, ExportRequest,
     FlashcardsRequest, FlashcardsResponse, LearningRequest, QuizRequest,
-    QuizResponse, SourceSelection, SummaryRequest, SummaryResponse, UploadResponse,
+    QuizResponse, SourceSelection, SummaryRequest, SummaryResponse, UploadResponse, MindMapRequest, MindMapResponse,
 )
 
 _core_lock = RLock()
@@ -86,14 +86,28 @@ def flashcards(request: FlashcardsRequest) -> FlashcardsResponse:
         return FlashcardsResponse.model_validate(generate_flashcards(count=request.count, **_learning_args(request)).model_dump())
 
 
+def mindmap(request: MindMapRequest) -> MindMapResponse:
+    from src.mindmap import generate_mindmap
+
+    with _core_lock:
+        return MindMapResponse.model_validate(generate_mindmap(**_learning_args(request)).model_dump())
+
+
 def markdown(request: ExportRequest) -> str:
     from src.export import export
-    from src.schemas import FlashcardSet, QuizSet, RagAnswer, Summary
+    from src.schemas import FlashcardSet, QuizSet, RagAnswer, Summary, MindMap
 
-    models = {"chat": RagAnswer, "summary": Summary, "quiz": QuizSet, "flashcards": FlashcardSet}
+    models = {"chat": RagAnswer, "summary": Summary, "quiz": QuizSet, "flashcards": FlashcardSet, "mindmap": MindMap}
     result = models[request.feature].model_validate(request.result.model_dump())
     # No output path: canonical renderer returns text without filesystem writes.
-    return export(result, fmt="md")
+    rendered = export(result, fmt="md")
+    if request.feature == "chat" and request.result.context:
+        context = request.result.context
+        rendered += "\n\n## Phạm vi đọc chuyên sâu\n\n" + ", ".join(context.filenames) + "\n"
+        if context.selection:
+            rendered += f"\nĐoạn chọn · trang {context.selection.page}:\n\n"
+            rendered += "\n".join("> " + line for line in context.selection.text.splitlines()) + "\n"
+    return rendered
 
 
 def close() -> None:

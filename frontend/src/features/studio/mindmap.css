@@ -1,0 +1,36 @@
+.viewer-overlay:has(.mindmap-view) .result-viewer { width: min(1320px, 96vw); }
+.viewer-overlay:has(.mindmap-view) .viewer-content { padding: 0; overflow: hidden; }
+.mindmap-view { display: flex; flex-direction: column; min-height: 0; }
+.mindmap-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+.mindmap-scale { font-size: 11px; min-width: 40px; text-align: center; color: var(--muted); font-variant-numeric: tabular-nums; }
+.mindmap-expand-all { margin-left: auto; }
+.mindmap-content { display: grid; grid-template-columns: minmax(0, 1fr) 270px; height: min(64dvh, 640px); min-height: 300px; }
+.mindmap-canvas { min-width: 0; min-height: 0; overflow: hidden; background-color: var(--bg); background-image: radial-gradient(var(--border) .75px, transparent .75px); background-size: 22px 22px; }
+.mindmap-canvas > svg { display: block; cursor: grab; touch-action: none; user-select: none; }
+.mindmap-canvas > svg:active { cursor: grabbing; }
+.mindmap-node, .mindmap-collapse { cursor: pointer; outline: none; }
+.mindmap-node-bg, .mindmap-collapse circle { fill: var(--surface); }
+.mindmap-node:hover .mindmap-node-bg, .mindmap-node:focus-visible .mindmap-node-bg { fill: var(--surface-hover); stroke-width: 2.5; }
+.mindmap-node:focus-visible .mindmap-node-bg, .mindmap-collapse:focus-visible circle { stroke: var(--accent); stroke-width: 3; }
+.mindmap-node-label { fill: var(--text); font-size: 14px; font-family: inherit; font-weight: 500; }
+.mindmap-node-source { fill: var(--muted); font-size: 9px; font-family: inherit; }
+.mindmap-collapse text { fill: var(--text); font-size: 15px; font-family: inherit; pointer-events: none; }
+.mindmap-detail { min-width: 0; overflow-y: auto; padding: 20px 17px; border-left: 1px solid var(--border); }
+.mindmap-detail-marker { display: block; height: 4px; width: 27px; border-radius: 5px; margin-bottom: 13px; }
+.mindmap-detail > h3 { font-size: 16px; line-height: 1.5; margin-bottom: 13px; overflow-wrap: anywhere; }
+.mindmap-detail > p { color: var(--muted); font-size: 12px; line-height: 1.8; margin-bottom: 16px; }
+.mindmap-detail > .button { margin-bottom: 20px; }
+.mindmap-detail .citation-filename { max-width: 135px; }
+.mindmap-export { display: flex; align-items: center; gap: 8px; }
+.mindmap-count { color: var(--muted); font-size: 11px; }
+.tool-mindmap { color: #8ead8c; }
+@media (max-width: 700px) {
+  .mindmap-content { grid-template-columns: 1fr; grid-template-rows: minmax(230px, 1fr) minmax(130px, .65fr); height: 60dvh; min-height: 0; }
+  .mindmap-detail { border-left: 0; border-top: 1px solid var(--border); padding: 14px 17px; }
+  .mindmap-detail-marker { display: none; }
+  .mindmap-toolbar { gap: 2px; padding: 7px; }
+  .mindmap-toolbar .button { font-size: 10px; padding: 6px; }
+  .mindmap-toolbar .icon-button { width: 28px; height: 28px; }
+  .mindmap-expand-all { margin-left: 0; }
+  .viewer-overlay:has(.mindmap-view) .viewer-header, .viewer-overlay:has(.mindmap-view) .viewer-footer { padding: 12px 15px; }
+}

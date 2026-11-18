@@ -8,7 +8,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from src.schemas import Citation, FlashcardSet, QuizSet, RagAnswer, Summary
+from src.schemas import Citation, FlashcardSet, QuizSet, RagAnswer, Summary, MindMap, MindMapNode
 
 ExportFormat = Literal["text", "md", "json"]
 
@@ -76,6 +76,21 @@ def _render_with_sources(body_lines: list[str], citations: list[Citation]) -> st
 
 
 def _to_markdown(model: BaseModel) -> str:
+    if isinstance(model, MindMap):
+        lines = [f"# Sơ đồ tư duy: {model.root.label}", ""]
+
+        def walk(node: MindMapNode, depth: int):
+            indent = "  " * depth
+            markers = " ".join(f"[{marker}]" for marker in node.source_markers)
+            lines.append(f"{indent}- **{node.label}** {markers}")
+            if node.description:
+                lines.append(f"{indent}  {node.description}")
+            for child in node.children:
+                walk(child, depth + 1)
+
+        walk(model.root, 0)
+        return _render_with_sources(lines, model.citations)
+
     if isinstance(model, Summary):
         title = "# Summary" + (f": {model.target}" if model.target else "")
         lines: list[str] = [title, "", f"_Scope: {model.scope}_", ""]

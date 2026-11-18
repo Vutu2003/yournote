@@ -2,9 +2,32 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Annotated, Literal
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import AfterValidator, BaseModel, ConfigDict, Field, StringConstraints, model_validator
+
+
+class MindMapNode(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    label: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=120)]
+    description: Annotated[str, StringConstraints(strip_whitespace=True, max_length=1000)] = ""
+    source_markers: list[Annotated[str, Field(pattern=r"^S[1-9][0-9]*$")]] = Field(default_factory=list, max_length=16)
+    children: list["MindMapNode"] = Field(default_factory=list, max_length=8)
+
+
+def validate_mindmap_tree(root: MindMapNode) -> MindMapNode:
+    pending, count = [(root, 1)], 0
+    while pending:
+        node, depth = pending.pop()
+        count += 1
+        if depth > 4 or count > 65:
+            raise ValueError("Mind map must have at most 4 levels and 65 nodes")
+        pending.extend((child, depth + 1) for child in node.children)
+    return root
+
+
+MindMapTree = Annotated[MindMapNode, AfterValidator(validate_mindmap_tree)]
 
 
 class ChunkMetadata(BaseModel):
@@ -54,6 +77,13 @@ class Summary(BaseModel):
     target: str | None = None
     summary: str
     key_points: list[str] = Field(default_factory=list)
+    citations: list[Citation] = Field(default_factory=list)
+
+
+class MindMap(BaseModel):
+    scope: Literal["query", "document", "filter", "corpus"]
+    target: str | None = None
+    root: MindMapTree
     citations: list[Citation] = Field(default_factory=list)
 
 

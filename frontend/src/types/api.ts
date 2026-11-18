@@ -22,7 +22,20 @@ export interface Citation {
 }
 export interface SourceSelection { filenames: string[]; pages?: number[] }
 export interface ChatRequest extends SourceSelection { question: string; k?: number }
-export interface ChatResponse { question: string; answer: string; citations: Citation[] }
+export interface SelectedPassage {
+  document_id: string
+  filename: string
+  document_version: string
+  page: number
+  text: string
+}
+export interface ChatContext {
+  mode: 'reading'
+  scope: 'document' | 'notebook'
+  filenames: string[]
+  selection: SelectedPassage | null
+}
+export interface ChatResponse { question: string; answer: string; citations: Citation[]; context?: ChatContext | null }
 export interface SummaryRequest extends SourceSelection { topic?: string | null; k?: number | null }
 export interface LearningResponse {
   scope: 'query' | 'document' | 'filter' | 'corpus'
@@ -30,6 +43,13 @@ export interface LearningResponse {
   citations: Citation[]
 }
 export interface SummaryResponse extends LearningResponse { summary: string; key_points: string[] }
+export interface MindMapNode {
+  label: string
+  description: string
+  source_markers: string[]
+  children: MindMapNode[]
+}
+export interface MindMapResponse extends LearningResponse { root: MindMapNode }
 export interface QuizItem {
   question: string
   options: [string, string, string, string]
@@ -57,6 +77,8 @@ export interface ExportResults {
   summary: SummaryResponse
   quiz: QuizResponse
   flashcards: FlashcardsResponse
+  mindmap: MindMapResponse
 }
 export type ExportFeature = keyof ExportResults
-export type StudioTool = Exclude<ExportFeature, 'chat'>
+export type GenerationTool = Exclude<ExportFeature, 'chat'>
+export type StudioTool = GenerationTool | 'notes'

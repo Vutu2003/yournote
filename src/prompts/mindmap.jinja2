@@ -1,0 +1,8 @@
+{% include "mindmap_rules.jinja2" %}
+
+Source material:
+{% for chunk in chunks %}
+---
+[source=S{{ start + loop.index }}] ({{ chunk.metadata.filename }} p.{{ chunk.metadata.page }})
+{{ chunk.text }}
+{% endfor %}

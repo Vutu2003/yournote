@@ -5,7 +5,7 @@ import { citationsForMarkers } from '../../types/citations'
 import { ExportButton } from '../../components/ExportButton'
 import { ResultViewerModal } from '../../components/ResultViewerModal'
 
-export function QuizView({ result, title, open, onClose }: { result: QuizResponse; title: string; open: boolean; onClose: () => void }) {
+export function QuizView({ result, title, open, onClose, sourceName }: { result: QuizResponse; title: string; open: boolean; onClose: () => void; sourceName?: (filename: string) => string }) {
   const answerGroup = useId()
   const [index, setIndex] = useState(0)
   const [option, setOption] = useState<number | null>(null)
@@ -35,7 +35,7 @@ export function QuizView({ result, title, open, onClose }: { result: QuizRespons
         <p className={option === item.correct_index ? 'success-message' : 'incorrect-message'}>{option === item.correct_index ? 'Chính xác!' : 'Chưa chính xác.'}</p>
         <p><strong>Đáp án đúng:</strong> {item.options[item.correct_index]}</p>
         <p className="prose">{item.explanation}</p>
-        <CitationList citations={citationsForMarkers(result.citations, item.source_markers)} label="Nguồn tham chiếu" />
+        <CitationList citations={citationsForMarkers(result.citations, item.source_markers)} label="Nguồn tham chiếu" sourceName={sourceName} />
       </div>}
     </>}
     </article>

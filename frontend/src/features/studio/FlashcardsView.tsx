@@ -5,7 +5,7 @@ import { citationsForMarkers } from '../../types/citations'
 import { ExportButton } from '../../components/ExportButton'
 import { ResultViewerModal } from '../../components/ResultViewerModal'
 
-export function FlashcardsView({ result, title, open, onClose }: { result: FlashcardsResponse; title: string; open: boolean; onClose: () => void }) {
+export function FlashcardsView({ result, title, open, onClose, sourceName }: { result: FlashcardsResponse; title: string; open: boolean; onClose: () => void; sourceName?: (filename: string) => string }) {
   const [index, setIndex] = useState(0)
   const [revealed, setRevealed] = useState(false)
   const card = result.cards[index]
@@ -25,7 +25,7 @@ export function FlashcardsView({ result, title, open, onClose }: { result: Flash
       {!revealed && <button className="button" type="button" onClick={() => setRevealed(true)}>Hiển thị đáp án</button>}
       {revealed && <div className="flashcard-back"><h3>Đáp án</h3><p className="prose">{card.back}</p>
         {card.hint && <p className="field-hint">Gợi ý: {card.hint}</p>}
-        <CitationList citations={citationsForMarkers(result.citations, card.source_markers)} label="Nguồn tham chiếu" />
+        <CitationList citations={citationsForMarkers(result.citations, card.source_markers)} label="Nguồn tham chiếu" sourceName={sourceName} />
       </div>}
     </>}
     </article>

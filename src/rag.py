@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from functools import lru_cache
 from pathlib import Path
+import re
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
@@ -15,6 +16,16 @@ from src.store import get_vector_store, scroll_all
 
 PROMPTS_DIR = Path(__file__).parent / "prompts"
 ANSWER_TEMPLATE = "answer.jinja2"
+
+_ABSTRACT_REQUEST = re.compile(r"\babstracts?\b|\b(?:phần|mục)\s+tóm\s+tắt\b", re.IGNORECASE)
+_ABSTRACT_HEADING = re.compile(
+    r"^\s*(?:\d+[.)]?\s+)?a[ \t]*b[ \t]*s[ \t]*t[ \t]*r[ \t]*a[ \t]*c[ \t]*t\b",
+    re.IGNORECASE | re.MULTILINE,
+)
+_INTRODUCTION_HEADING = re.compile(
+    r"^\s*(?:\d+[.)]?\s*)?(?:introduction|giới thiệu|mở đầu)\b",
+    re.IGNORECASE | re.MULTILINE,
+)
 
 
 def retrieve(
@@ -64,6 +75,47 @@ def fetch_all_chunks(
     return results
 
 
+def _abstract_chunks(chunks: list[RetrievedChunk]) -> list[RetrievedChunk]:
+    """Locate abstracts structurally, including papers without an Abstract label.
+
+    Work only with already-filtered chunks. Keep whole source chunks so citations
+    remain faithful, and include a continuation page when the introduction has
+    not started yet. The answer prompt separates the abstract from front matter.
+    """
+    documents: dict[str, list[RetrievedChunk]] = {}
+    for chunk in chunks:
+        documents.setdefault(chunk.metadata.document_id, []).append(chunk)
+
+    selected: list[RetrievedChunk] = []
+    for document in documents.values():
+        labelled = [
+            c for c in document
+            if (c.metadata.section or "").strip().casefold() == "abstract"
+        ]
+        if labelled:
+            selected.extend(labelled)
+            continue
+
+        heading = next((c for c in document if _ABSTRACT_HEADING.search(c.text)), None)
+        if heading is None and not any(c.metadata.page == 1 for c in document):
+            # A page filter must never silently expand to other pages.
+            continue
+        start_page = heading.metadata.page if heading else 1
+        opening = [c for c in document if c.metadata.page == start_page]
+        if heading:
+            # Ignore any introduction belonging to front matter before Abstract.
+            start = document.index(heading)
+            opening = [c for c in document[start:] if c.metadata.page == start_page]
+            text = "\n".join(c.text for c in opening)
+            text = text[_ABSTRACT_HEADING.search(text).end():]
+        else:
+            text = "\n".join(c.text for c in opening)
+        selected.extend(opening)
+        if not _INTRODUCTION_HEADING.search(text):
+            selected.extend(c for c in document if c.metadata.page == start_page + 1)
+    return selected
+
+
 @lru_cache(maxsize=1)
 def _jinja_env() -> Environment:
     return Environment(
@@ -101,14 +153,31 @@ def answer(
     filters: dict[str, object] | None = None,
     collection_name: str | None = None,
 ) -> RagAnswer:
-    chunks = retrieve(question, k=k, filters=filters, collection_name=collection_name)
+    abstract_requested = bool(_ABSTRACT_REQUEST.search(question))
+    chunks = []
+    if abstract_requested:
+        chunks = _abstract_chunks(fetch_all_chunks(filters=filters, collection_name=collection_name))
+    if not chunks:
+        chunks = retrieve(question, k=k, filters=filters, collection_name=collection_name)
+    return answer_from_chunks(question, chunks, abstract_requested=abstract_requested)
+
+
+def answer_from_chunks(
+    question: str, chunks: list[RetrievedChunk], *,
+    selected_text: str | None = None, abstract_requested: bool = False,
+) -> RagAnswer:
+    """Generate a cited answer from explicit source context, including PDF pages."""
     if not chunks:
         return RagAnswer(
             question=question,
             answer="Tôi không có đủ thông tin trong ngữ cảnh được cung cấp để trả lời.",
         )
 
-    prompt = render_prompt(ANSWER_TEMPLATE, question=question, chunks=chunks)
+    prompt = render_prompt(
+        ANSWER_TEMPLATE, question=question, chunks=chunks,
+        abstract_requested=abstract_requested,
+        selected_text=selected_text,
+    )
     text = invoke_llm(prompt)
 
     return RagAnswer(

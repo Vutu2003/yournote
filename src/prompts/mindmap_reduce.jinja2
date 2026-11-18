@@ -1,0 +1,9 @@
+{% include "mindmap_rules.jinja2" %}
+
+Merge the following sourced outlines into one coherent mind map. They describe
+different parts of the selected material. Keep distinct contributions and
+limitations; merge repeated concepts. Use ONLY facts and source IDs present in
+these outlines. Keep the original global IDs unchanged; do not renumber them.
+
+Outlines:
+{{ trees | tojson }}

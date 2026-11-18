@@ -39,6 +39,7 @@ class Settings(BaseSettings):
     gemini_api_key: str | None = Field(default=None, validation_alias="GEMINI_API_KEY")
 
     summarize_batch_size: int = Field(default=10, ge=1)
+    mindmap_batch_size: int = Field(default=24, ge=1, le=64)
     summarize_retrieval_k: int = Field(default=12, ge=1, le=128)
     generation_retrieval_k: int = Field(default=16, ge=1, le=128)
     quiz_default_count: int = Field(default=8, ge=1, le=50)

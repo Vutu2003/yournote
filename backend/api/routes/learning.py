@@ -2,7 +2,7 @@ from fastapi import APIRouter
 
 from backend.schemas.api import (
     ERROR_RESPONSES, FlashcardsRequest, FlashcardsResponse,
-    QuizRequest, QuizResponse, SummaryRequest, SummaryResponse,
+    QuizRequest, QuizResponse, SummaryRequest, SummaryResponse, MindMapRequest, MindMapResponse,
 )
 from backend.services import core_adapter
 
@@ -25,3 +25,8 @@ def quiz(request: QuizRequest):
              description="Core may return fewer cards than requested. Front/back/hint and markers are preserved. Reveal and navigation belong to React.")
 def flashcards(request: FlashcardsRequest):
     return core_adapter.flashcards(request)
+
+
+@router.post("/mindmap", response_model=MindMapResponse, summary="Create a grounded mind map from selected sources")
+def mindmap(request: MindMapRequest):
+    return core_adapter.mindmap(request)

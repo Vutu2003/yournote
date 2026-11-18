@@ -72,8 +72,9 @@ class APIContractTests(unittest.TestCase):
 
         key = settings.gemini_api_key or "test-secret"
         with patch("src.indexing.save_and_ingest_pdf", side_effect=RuntimeError(f"private /home/internal/data/secret.pdf {key}")), patch("backend.main.logger.error") as log:
-            response = self.client.post("/api/documents/upload", files={"file": ("isolated.pdf", b"%PDF-1.4", "application/pdf")})
+            response = self.client.post("/api/documents/upload", headers={"Origin": "http://localhost:5173"}, files={"file": ("isolated.pdf", b"%PDF-1.4", "application/pdf")})
         self.assertEqual(response.status_code, 500)
+        self.assertEqual(response.headers.get("access-control-allow-origin"), "http://localhost:5173")
         self.assertEqual(response.json(), {"detail": "Unable to complete the operation. Please try again."})
         self.assertNotIn(key, response.text)
         if settings.gemini_api_key:
@@ -98,8 +99,29 @@ class APIContractTests(unittest.TestCase):
                 for issue in response.json()["detail"]:
                     self.assertEqual(set(issue), {"loc", "msg", "type"})
 
+    def test_ai_failure_returns_safe_status_and_cors_instead_of_network_error(self):
+        from src.errors import LLMServiceError
+
+        for origin in ("http://localhost:5173", "http://127.0.0.1:5173", "https://untrusted.example"):
+            for status, detail in [(503, "AI service is temporarily unavailable."), (429, "AI service rate limit exceeded."), (504, "AI service timed out.")]:
+                with self.subTest(origin=origin, status=status), patch("backend.services.core_adapter.mindmap", side_effect=LLMServiceError(status, detail)):
+                    response = self.client.post("/api/mindmap", headers={"Origin": origin}, json={"filenames": [self.filename]})
+                self.assertEqual(response.status_code, status)
+                self.assertEqual(response.json(), {"detail": detail})
+                if origin == "https://untrusted.example":
+                    self.assertNotIn("access-control-allow-origin", response.headers)
+                else:
+                    self.assertEqual(response.headers.get("access-control-allow-origin"), origin)
+                if status in (503, 504):
+                    self.assertEqual(response.headers.get("Retry-After"), "5")
+
+        with patch("src.indexing.save_and_ingest_pdf", side_effect=RuntimeError("private")), patch("backend.main.logger.error"):
+            response = self.client.post("/api/documents/upload", headers={"Origin": "https://untrusted.example"}, files={"file": ("isolated.pdf", b"%PDF-1.4", "application/pdf")})
+        self.assertEqual(response.status_code, 500)
+        self.assertNotIn("access-control-allow-origin", response.headers)
+
     def test_learning_validation(self):
-        for route, max_count in [("summary", None), ("quiz", 50), ("flashcards", 100)]:
+        for route, max_count in [("summary", None), ("quiz", 50), ("flashcards", 100), ("mindmap", None)]:
             cases = [{}, {"filenames": []}, {"filenames": [self.filename], "pages": [-1]},
                      {"filenames": [self.filename], "k": 129}]
             if max_count:
@@ -109,7 +131,7 @@ class APIContractTests(unittest.TestCase):
                     self.assertEqual(self.client.post(f"/api/{route}", json=body).status_code, 422)
 
     def test_unknown_document_and_page(self):
-        for route in ["chat", "summary", "quiz", "flashcards"]:
+        for route in ["chat", "summary", "quiz", "flashcards", "mindmap"]:
             body = {"filenames": ["not-indexed.pdf"]}
             if route == "chat":
                 body["question"] = "A question"
@@ -137,7 +159,7 @@ class APIContractTests(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertNotIn("access-control-allow-origin", response.headers)
         response = self.client.get("/api/documents", headers={"Origin": "http://localhost:5173"})
-        self.assertEqual(response.headers["access-control-expose-headers"], "Content-Disposition")
+        self.assertIn("Content-Disposition", response.headers["access-control-expose-headers"])
 
     def test_export_uses_renderer_without_paths(self):
         response = self.client.post("/api/export", json={"feature": "summary", "result": {"scope": "filter", "summary": "Known text", "key_points": ["Known point"], "citations": []}})
@@ -152,12 +174,13 @@ class APIContractTests(unittest.TestCase):
 
     def test_openapi_and_docs(self):
         schema = self.client.get("/openapi.json").json()
-        self.assertEqual(len(schema["paths"]), 8)
+        self.assertEqual(len(schema["paths"]), 17)
         for path, operation in schema["paths"].items():
             for method, details in operation.items():
                 self.assertTrue(details["summary"])
-                self.assertIn("200", details["responses"])
-                if method == "post":
+                success = "204" if method == "delete" else "201" if method == "post" and (path == "/api/notebooks" or path.endswith("/highlights")) else "200"
+                self.assertIn(success, details["responses"])
+                if method in {"post", "put"}:
                     self.assertIn("requestBody", details)
                     self.assertIn("422", details["responses"])
         self.assertIn("text/markdown", schema["paths"]["/api/export"]["post"]["responses"]["200"]["content"])

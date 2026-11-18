@@ -3,6 +3,7 @@
 from typing import Annotated, Literal
 
 from pydantic import AfterValidator, BaseModel, ConfigDict, Field, field_validator, model_validator
+from src.schemas import MindMapTree
 
 
 def validate_filename(value: str) -> str:
@@ -47,7 +48,11 @@ ERROR_RESPONSES = {
     400: {"model": ErrorResponse, "description": "Invalid PDF upload"},
     404: {"model": ErrorResponse, "description": "Selected document or page is not indexed"},
     422: {"model": ValidationErrorResponse, "description": "Request validation failed"},
+    429: {"model": ErrorResponse, "description": "AI service rate limit or quota exceeded"},
     500: {"model": ErrorResponse, "description": "Core operation failed; details stay on the server"},
+    502: {"model": ErrorResponse, "description": "AI service rejected the request"},
+    503: {"model": ErrorResponse, "description": "AI service temporarily unavailable"},
+    504: {"model": ErrorResponse, "description": "AI service timed out"},
 }
 
 
@@ -94,6 +99,10 @@ class SummaryRequest(LearningRequest):
     pass
 
 
+class MindMapRequest(LearningRequest):
+    pass
+
+
 class QuizRequest(LearningRequest):
     count: int = Field(default=3, strict=True, ge=1, le=50)
 
@@ -129,10 +138,26 @@ class Citation(APIModel):
     chunk_id: str | None = None
 
 
+class SelectedPassage(APIModel):
+    filename: Filename
+    document_id: str = Field(min_length=1, max_length=128)
+    document_version: str = Field(pattern=r"^[a-f0-9]{64}$")
+    page: Page
+    text: str = Field(min_length=1, max_length=10000)
+
+
+class ChatContext(APIModel):
+    mode: Literal["reading"] = "reading"
+    scope: Literal["document", "notebook"]
+    filenames: list[Filename]
+    selection: SelectedPassage | None = None
+
+
 class ChatResponse(APIModel):
     question: str
     answer: str
     citations: list[Citation] = Field(default_factory=list)
+    context: ChatContext | None = None
 
 
 class LearningResponse(APIModel):
@@ -144,6 +169,10 @@ class LearningResponse(APIModel):
 class SummaryResponse(LearningResponse):
     summary: str
     key_points: list[str] = Field(default_factory=list)
+
+
+class MindMapResponse(LearningResponse):
+    root: MindMapTree
 
 
 class QuizItem(APIModel):
@@ -192,7 +221,12 @@ class FlashcardsExportRequest(APIModel):
     result: FlashcardsResponse
 
 
+class MindMapExportRequest(APIModel):
+    feature: Literal["mindmap"]
+    result: MindMapResponse
+
+
 ExportRequest = Annotated[
-    ChatExportRequest | SummaryExportRequest | QuizExportRequest | FlashcardsExportRequest,
+    ChatExportRequest | SummaryExportRequest | QuizExportRequest | FlashcardsExportRequest | MindMapExportRequest,
     Field(discriminator="feature"),
 ]
