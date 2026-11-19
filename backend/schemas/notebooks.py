@@ -4,7 +4,7 @@ from typing import Annotated, Generic, Literal, TypeVar
 
 from pydantic import Field, field_validator, model_validator
 
-from backend.schemas.api import APIModel, ChatResponse, Filename, FlashcardsResponse, QuizResponse, SummaryResponse, MindMapResponse
+from backend.schemas.api import APIModel, ChatResponse, Filename, FlashcardsResponse, QuizResponse, SummaryResponse, MindMapResponse, ComparisonResponse, ReportResponse, GraphResponse
 
 Result = TypeVar("Result")
 
@@ -21,6 +21,18 @@ class StudioArtifact(APIModel, Generic[Result]):
     pages: list[int]
     topic: str | None
     result: Result
+
+
+    @model_validator(mode="after")
+    def research_snapshot_matches(self):
+        if isinstance(self.result,(ComparisonResponse,ReportResponse,GraphResponse)):
+            names=[source.filename for source in self.result.sources]
+            if names!=self.sourceFilenames:
+                raise ValueError('Research artifact sources disagree with its snapshot')
+            metadata=self.result.generation
+            if metadata and (metadata.source_filenames!=names or metadata.source_versions!={source.filename:source.document_version for source in self.result.sources}):
+                raise ValueError('Research generation metadata disagrees with source versions')
+        return self
 
 
 class UserNote(APIModel):
@@ -45,18 +57,23 @@ class UserNote(APIModel):
 
 
 class WorkspaceState(APIModel):
+    schema_version: Literal[1, 2, 3] = 3
     document_filenames: list[Filename] = Field(default_factory=list, max_length=64)
     source_names: dict[Filename, Annotated[str, Field(min_length=1, max_length=160)]] = Field(default_factory=dict, max_length=64)
     selected: list[Filename] = Field(default_factory=list, max_length=64)
     read_documents: list[Filename] = Field(default_factory=list, max_length=64)
     page: str = Field(default="", max_length=10, pattern=r"^(?:[1-9][0-9]*)?$")
-    active_tool: Literal["summary", "quiz", "flashcards", "mindmap", "notes"] = "summary"
+    active_tool: Literal["summary", "quiz", "flashcards", "mindmap", "notes", "comparison", "report", "graph"] = "summary"
     notes: list[UserNote] = Field(default_factory=list, max_length=100)
     chat: list[ChatResponse] = Field(default_factory=list)
     summary_artifacts: list[StudioArtifact[SummaryResponse]] = Field(default_factory=list)
     quiz_artifacts: list[StudioArtifact[QuizResponse]] = Field(default_factory=list)
     flashcard_artifacts: list[StudioArtifact[FlashcardsResponse]] = Field(default_factory=list)
     mindmap_artifacts: list[StudioArtifact[MindMapResponse]] = Field(default_factory=list)
+
+    comparison_artifacts: list[StudioArtifact[ComparisonResponse]] = Field(default_factory=list)
+    report_artifacts: list[StudioArtifact[ReportResponse]] = Field(default_factory=list)
+    graph_artifacts: list[StudioArtifact[GraphResponse]] = Field(default_factory=list)
 
     @field_validator("source_names")
     @classmethod
@@ -77,7 +94,7 @@ class WorkspaceState(APIModel):
         self.read_documents = list(dict.fromkeys(name for name in self.read_documents if name in self.document_filenames))
         if len({note.id for note in self.notes}) != len(self.notes):
             raise ValueError("Note identifiers must be unique within a notebook")
-        if len(self.selected) != 1:
+        if len(self.selected) != 1 or not self.selected[0].lower().endswith(".pdf"):
             self.page = ""
         return self
 

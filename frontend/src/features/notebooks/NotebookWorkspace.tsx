@@ -16,11 +16,13 @@ import type { PdfTarget } from '../../types/reading'
 import '../reading/reading.css'
 
 const PdfReader = lazy(() => import('../reading/PdfReader'))
+const TextReader = lazy(() => import('../reading/TextReader'))
 
 export function NotebookWorkspace({ notebook, onHome, onSaved, onRename, onCreate, onSettings }: {
   notebook: Notebook; onHome: () => void; onSaved: (notebook: Notebook) => void; onRename: () => void; onCreate: () => void; onSettings: () => void
 }) {
-  const n = useNotebook(notebook.state)
+  const prepare = useRef<() => Promise<void>>(async () => {})
+  const n = useNotebook(notebook.state, notebook.id, () => prepare.current())
   const notify = useToast()
   const [readingDocument, setReadingDocument] = useState<DocumentInfo | null>(null)
   const [readingScope, setReadingScope] = useState<'document' | 'notebook'>('document')
@@ -33,21 +35,28 @@ export function NotebookWorkspace({ notebook, onHome, onSaved, onRename, onCreat
   const panelWidths = usePanelWidths(sourcesCollapsed, studioCollapsed)
   const readerWidth = useReaderWidth(panelWidths.workspaceRef, !!readingDocument)
   const [mobilePanel, setMobilePanel] = useState('chat')
-  function openDocument(document: DocumentInfo, page = 1, text?: string | null) {
-    n.selectSource(document.filename)
-    n.markRead(document.filename)
-    setReadingDocument(document); setReadingScope('document')
-    setReadingTarget(old => ({ page, text, token: old.token + 1 })); setMobilePanel('pdf')
+  async function openDocument(document: DocumentInfo, target?: Partial<PdfTarget>) {
+    try {
+      await flush()
+      n.selectSource(document.filename); n.clearChatError()
+      setReadingDocument(document); setReadingScope('document')
+      setReadingTarget(old => ({ page: 1, version: document.document_version, ...target, token: old.token + 1 })); setMobilePanel('pdf')
+    } catch { notify('Chưa lưu được sổ tay để mở nguồn. Hãy thử lại.', 'error') }
   }
-  function openCitation(citation: Citation) {
+  async function openCitation(citation: Citation) {
     const document = n.documents.find(doc => doc.filename === citation.filename)
-    if (document) openDocument(document, citation.page, citation.source_text)
-    else notify('Nguồn trích dẫn không còn trong sổ này.', 'error')
+    if (!document) { notify('Nguồn trích dẫn không còn trong sổ này.', 'error'); return }
+    try {
+      await flush()
+      const resolved = await api.resolveCitation(notebook.id, citation)
+      await openDocument(document, { page: resolved.locator.page || 1, anchor: resolved.locator.anchor,
+        text: citation.source_text, version: resolved.document.document_version })
+    } catch (reason) { notify(reason instanceof Error ? reason.message : 'Không thể xác minh trích dẫn.', 'error') }
   }
   function closeReading() { setReadingDocument(null); setMobilePanel('chat') }
   async function download(document: DocumentInfo) {
-    try { await api.downloadOriginalPdf(notebook.id, document.document_id, document.filename) }
-    catch (reason) { notify(reason instanceof Error ? reason.message : 'Không thể tải PDF gốc.', 'error') }
+    try { await flush(); await api.downloadOriginalPdf(notebook.id, document.document_id, document.original_filename || document.filename, document.document_version) }
+    catch (reason) { notify(reason instanceof Error ? reason.message : 'Không thể tải tệp gốc.', 'error') }
   }
   const body: NotebookUpdate = { title: notebook.title, icon: notebook.icon, state: n.snapshot }
   const latest = useRef(body)
@@ -74,6 +83,8 @@ export function NotebookWorkspace({ notebook, onHome, onSaved, onRename, onCreat
       throw reason
     }
   }, [notebook.id])
+
+  useEffect(() => { prepare.current = flush }, [flush])
 
   useEffect(() => {
     if (JSON.stringify(latest.current) === saved.current) return
@@ -105,7 +116,8 @@ export function NotebookWorkspace({ notebook, onHome, onSaved, onRename, onCreat
 
   return <div className="app-shell">
     <header className="workspace-header">
-      <button type="button" className="icon-button back-home" aria-label="Về trang chủ" title={busy ? 'Đợi tác vụ hoàn tất để trở về trang chủ' : 'Về trang chủ'} disabled={busy || leaving} onClick={async () => {
+      <button type="button" className="icon-button back-home" aria-label="Về trang chủ" title="Về trang chủ · Tác vụ đang chạy sẽ được dừng" disabled={!!n.loading.upload || leaving} onClick={async () => {
+        n.cancelAll()
         setLeaving(true)
         clearTimeout(timer.current)
         try { await flush(); onHome() } catch { setLeaving(false) }
@@ -117,8 +129,8 @@ export function NotebookWorkspace({ notebook, onHome, onSaved, onRename, onCreat
       </div>
       <div className="workspace-header-actions">{readingDocument ? <button type="button" className="button subtle" onClick={closeReading}><Icon name="back" size={15} /><span>Về sổ</span></button> : <><button type="button" className={`icon-button panel-toggle ${!sourcesCollapsed ? 'active' : ''}`} aria-label={sourcesCollapsed ? 'Hiện bảng nguồn' : 'Ẩn bảng nguồn'} aria-pressed={!sourcesCollapsed} onClick={() => setSourcesCollapsed(old => !old)}><Icon name="panelLeft" /></button>
         <button type="button" className={`icon-button panel-toggle ${!studioCollapsed ? 'active' : ''}`} aria-label={studioCollapsed ? 'Hiện Studio' : 'Ẩn Studio'} aria-pressed={!studioCollapsed} onClick={() => setStudioCollapsed(old => !old)}><Icon name="panelRight" /></button></>}
-        <button type="button" className="button subtle workspace-create" disabled={busy || leaving} onClick={async () => {
-          setLeaving(true); clearTimeout(timer.current)
+        <button type="button" className="button subtle workspace-create" disabled={!!n.loading.upload || leaving} onClick={async () => {
+          n.cancelAll(); setLeaving(true); clearTimeout(timer.current)
           try { await flush(); onCreate() } catch { /* Save status exposes retry. */ } finally { setLeaving(false) }
         }}><Icon name="plus" size={16} /><span>Sổ mới</span></button>
         <button type="button" className="icon-button" aria-label="Cài đặt" title={busy ? 'Đợi tác vụ hoàn tất để mở cài đặt' : 'Cài đặt'} disabled={busy || leaving} onClick={async () => {
@@ -128,7 +140,7 @@ export function NotebookWorkspace({ notebook, onHome, onSaved, onRename, onCreat
       </div>
     </header>
     <nav className="mobile-workspace-nav" aria-label="Khu vực làm việc">{(readingDocument ? [
-      { id: 'pdf', title: 'PDF gốc', icon: 'book' as const }, { id: 'chat', title: 'Trò chuyện', icon: 'chat' as const },
+      { id: 'pdf', title: !readingDocument.kind || readingDocument.kind === 'pdf' ? 'PDF gốc' : 'Văn bản nguồn', icon: 'book' as const }, { id: 'chat', title: 'Trò chuyện', icon: 'chat' as const },
     ] : [
       { id: 'sources', title: 'Nguồn', icon: 'source' as const }, { id: 'chat', title: 'Trò chuyện', icon: 'chat' as const }, { id: 'studio', title: 'Studio', icon: 'cards' as const },
     ]).map(item => <button type="button" key={item.id} aria-pressed={mobilePanel === item.id} className={mobilePanel === item.id ? 'active' : ''} onClick={() => {
@@ -137,10 +149,13 @@ export function NotebookWorkspace({ notebook, onHome, onSaved, onRename, onCreat
       if (item.id === 'studio') setStudioCollapsed(false)
     }}><Icon name={item.icon} size={17} />{item.title}{item.id === 'sources' && <span>{n.documents.length}</span>}</button>)}</nav>
     <main ref={panelWidths.workspaceRef} style={{ ...panelWidths.style, ...(readingDocument ? { '--pdf-width': `${readerWidth.value}px` } : {}) } as CSSProperties} className={`workspace ${readingDocument ? 'reading-workspace' : ''}`} data-sources-collapsed={sourcesCollapsed} data-studio-collapsed={studioCollapsed} data-mobile-panel={mobilePanel}>
-      {readingDocument && <Suspense fallback={<section className="panel pdf-reader"><p className="pdf-message">Đang mở PDF…</p></section>}><PdfReader key={readingDocument.document_id} notebookId={notebook.id} document={readingDocument} documents={n.documents} target={readingTarget} onClose={closeReading} onDocumentChange={document => openDocument(document)} sourceName={n.sourceName} /></Suspense>}
+      {readingDocument && <Suspense fallback={<section className="panel pdf-reader"><p className="pdf-message">Đang mở PDF…</p></section>}>{!readingDocument.kind || readingDocument.kind === 'pdf' ? <PdfReader key={readingDocument.document_id + (readingTarget.version || '')} notebookId={notebook.id} document={readingDocument} documents={n.documents} target={readingTarget} onClose={closeReading} onDocumentChange={document => { void openDocument(document) }} sourceName={n.sourceName} /> : <TextReader key={readingDocument.document_id + (readingTarget.version || '')} notebookId={notebook.id} document={readingDocument} documents={n.documents} target={readingTarget} onClose={closeReading} onDocumentChange={document => { void openDocument(document) }} sourceName={n.sourceName} />}</Suspense>}
       <SourcesPanel key="sources" notebook={n} collapsed={sourcesCollapsed || !!readingDocument} onCollapse={() => setSourcesCollapsed(true)} onRead={document => openDocument(document)} onDownload={document => { void download(document) }} />
       <PanelResizer key="source-resizer" side="sources" hidden={!readingDocument && sourcesCollapsed} {...(readingDocument ? readerWidth : panelWidths.sources)} label={readingDocument ? 'Độ rộng PDF' : undefined} controls={readingDocument ? 'notebook-pdf-panel' : undefined} />
-      <ChatPanel key="notebook-chat" notebook={n} title={notebook.title} icon={notebook.icon} createdAt={notebook.created_at} onOpenCitation={openCitation} reading={readingDocument ? { notebookId: notebook.id, document_id: readingDocument.document_id, scope: readingScope, onScopeChange: setReadingScope } : undefined} />
+      <ChatPanel onSettings={() => {
+        setLeaving(true)
+        void flush().then(onSettings).catch(() => {}).finally(() => setLeaving(false))
+      }} settingsDisabled={busy || leaving} key="notebook-chat" notebook={n} title={notebook.title} icon={notebook.icon} createdAt={notebook.created_at} onOpenCitation={openCitation} reading={readingDocument ? { notebookId: notebook.id, document_id: readingDocument.document_id, document_version: readingTarget.version, scope: readingScope, onScopeChange: setReadingScope } : undefined} />
       <PanelResizer key="studio-resizer" side="studio" hidden={studioCollapsed || !!readingDocument} {...panelWidths.studio} />
       <StudioPanel key="studio" notebook={n} collapsed={studioCollapsed || !!readingDocument} onCollapse={() => setStudioCollapsed(true)} onOpenCitation={openCitation} onShowChat={() => setMobilePanel('chat')} />
     </main>

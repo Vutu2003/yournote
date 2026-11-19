@@ -136,8 +136,8 @@ export function MindMapView({ result, title, open, onClose, sourceName, onOpenCi
                   <title>{item.node.label}</title>
                   <rect className="mindmap-node-bg" width={NODE_WIDTH} height={NODE_HEIGHT} rx="13" stroke={item.color} strokeWidth={selected.id === item.id ? 2.5 : 1.2} />
                   <rect x="0" y="22" width="3" height="44" rx="1.5" fill={item.color} />
-                  <text className="mindmap-node-label" x="15" y="22">{labelLines(item.node.label).map((line, index) => <tspan key={index} x="15" dy={index ? 17 : 0}>{line}</tspan>)}</text>
-                  <text className="mindmap-node-source" x="15" y="71">{item.node.source_markers.slice(0, 4).join(' · ')}{item.node.source_markers.length > 4 ? ' …' : ''}</text>
+                  <text className="mindmap-node-label" x="15" y="26">{labelLines(item.node.label).map((line, index) => <tspan key={index} x="15" dy={index ? 21 : 0}>{line}</tspan>)}</text>
+                  <text className="mindmap-node-source" x="15" y={NODE_HEIGHT - 12}>{item.node.source_markers.slice(0, 4).join(' · ')}{item.node.source_markers.length > 4 ? ' …' : ''}</text>
                 </g>
                 {!!item.node.children.length && <g className="mindmap-collapse" role="button" tabIndex={open ? 0 : -1} aria-label={`${collapsed.has(item.id) ? 'Mở rộng' : 'Thu gọn'} nhánh ${item.node.label}`} aria-expanded={!collapsed.has(item.id)} onClick={() => toggle(item.id)}
                   onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggle(item.id) } }}>

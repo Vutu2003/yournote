@@ -5,6 +5,7 @@ from typing import Literal
 from pydantic import Field, field_validator, model_validator
 
 from backend.schemas.api import APIModel, Filename, Page, SelectedPassage
+from src.locations import Locator
 
 
 class ReadingDocument(APIModel):
@@ -12,6 +13,9 @@ class ReadingDocument(APIModel):
     filename: Filename
     document_version: str
     page_count: int
+    kind: Literal['pdf','docx','markdown','text'] = 'pdf'
+    original_filename: str | None = None
+    historical: bool = False
 
 
 class HighlightRect(APIModel):
@@ -52,7 +56,22 @@ class HighlightsResponse(APIModel):
     highlights: list[Highlight]
 
 
+class TextBlock(APIModel):
+    text: str
+    locator: Locator
+
+
+class TextDocumentResponse(ReadingDocument):
+    blocks: list[TextBlock]
+
+
+class CitationResolution(APIModel):
+    document: ReadingDocument
+    locator: Locator
+
+
 class ReadingChatRequest(APIModel):
+    document_version: str | None = Field(default=None, pattern=r'^[a-f0-9]{64}$')
     document_id: str = Field(min_length=1, max_length=128)
     scope: Literal["document", "notebook"] = "document"
     question: str = Field(min_length=1, max_length=10000)

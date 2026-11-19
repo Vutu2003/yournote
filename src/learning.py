@@ -8,7 +8,7 @@ from loguru import logger
 from pydantic import ValidationError
 
 from src.config import settings
-from src.llm import invoke_llm
+from src.llm import check_workload, invoke_llm, llm_operation
 from src.rag import fetch_all_chunks, format_citations, render_prompt, retrieve
 from src.schemas import Flashcard, FlashcardSet, QuizItem, QuizSet, RetrievedChunk, Summary
 
@@ -28,7 +28,7 @@ def _parse_json(text: str) -> dict | list:
     try:
         obj = json.loads(cleaned)
     except json.JSONDecodeError as e:
-        raise RuntimeError(f"Invalid JSON from model output: {cleaned}") from e
+        raise RuntimeError("Invalid JSON from model output.") from e
 
     if not isinstance(obj, (dict, list)):
         raise RuntimeError(f"Expected JSON object or array, got {type(obj).__name__}.")
@@ -61,6 +61,7 @@ def _resolve_target(
         target = None
         scope = "corpus"
 
+    format_citations(chunks)  # Verify version/locator before spending model usage.
     return chunks, scope, target
 
 
@@ -86,13 +87,15 @@ def _validate_items(
         try:
             item = model_class.model_validate(raw)
         except ValidationError as e:
-            logger.warning("Dropping invalid {}: {}", label, e)
+            logger.warning("Dropping invalid {}", label)
             continue
         norm = str(getattr(item, dedup_field, "")).strip().lower()
         if not norm or norm in seen:
             continue
         seen.add(norm)
-        markers = [m for m in item.source_markers if m in valid_markers]
+        if not item.source_markers or not set(item.source_markers) <= valid_markers:
+            continue
+        markers = list(dict.fromkeys(item.source_markers))
         items.append(item.model_copy(update={"source_markers": markers}))
 
     if not items:
@@ -112,6 +115,7 @@ def _validate_summary_payload(payload: object) -> tuple[str, list[str]]:
     return summary.strip(), [kp.strip() for kp in key_points if kp.strip()]
 
 
+@llm_operation
 def summarize(
     document: str | None = None,
     query: str | None = None,
@@ -131,6 +135,7 @@ def summarize(
         raise RuntimeError("No chunks available for summarization.")
 
     batch_size = settings.summarize_batch_size
+    check_workload(1 if len(chunks) <= batch_size else (len(chunks) + batch_size - 1) // batch_size + 1)
     if len(chunks) <= batch_size:
         prompt = render_prompt(SUMMARY_SINGLE_TEMPLATE, chunks=chunks)
         payload = _parse_json(invoke_llm(prompt))
@@ -142,15 +147,20 @@ def summarize(
         for batch_index, start in enumerate(range(0, len(chunks), batch_size), start=1):
             logger.info("Summarizing batch {}/{}", batch_index, n_batches)
             batch = chunks[start : start + batch_size]
-            prompt = render_prompt(SUMMARY_MAP_TEMPLATE, chunks=batch)
+            prompt = render_prompt(SUMMARY_MAP_TEMPLATE, chunks=batch, start=start)
             payload = _parse_json(invoke_llm(prompt))
             summary_text, key_points = _validate_summary_payload(payload)
+            from src.grounding_markers import validate_markers
+            validate_markers(summary_text+'\n'+'\n'.join(key_points),{f'S{i}' for i in range(start+1,start+len(batch)+1)})
             partials.append({"summary": summary_text, "key_points": key_points})
 
         reduce_prompt = render_prompt(SUMMARY_REDUCE_TEMPLATE, partials=partials)
         payload = _parse_json(invoke_llm(reduce_prompt))
         summary_text, key_points = _validate_summary_payload(payload)
 
+    valid={citation.source_marker for citation in format_citations(chunks)}
+    from src.grounding_markers import validate_markers
+    validate_markers(summary_text+'\n'+'\n'.join(key_points),valid)
     return Summary(
         scope=scope,
         target=target,
@@ -160,6 +170,7 @@ def summarize(
     )
 
 
+@llm_operation
 def generate_quiz(
     document: str | None = None,
     query: str | None = None,
@@ -193,6 +204,7 @@ def generate_quiz(
     )
 
 
+@llm_operation
 def generate_flashcards(
     document: str | None = None,
     query: str | None = None,

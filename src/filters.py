@@ -14,6 +14,7 @@ class MetadataFilter(BaseModel):
     page: int | None = None
     section: str | None = None
     document_id: str | None = None
+    document_versions: dict[str, str] | None = None
 
     @model_validator(mode="after")
     def _normalize(self) -> "MetadataFilter":
@@ -24,14 +25,16 @@ class MetadataFilter(BaseModel):
         elif len(names) == 1:
             self.filename, self.filenames = names[0], None
         else:
-            # Multi-doc selection: page filter becomes ambiguous, so drop it.
-            self.filename, self.filenames, self.page = None, names, None
+            if self.page is not None:
+                raise ValueError('A page filter requires exactly one selected PDF')
+            self.filename, self.filenames = None, names
         if self.filename is not None:
             self.filename = self.filename.strip() or None
         if self.section is not None:
             self.section = self.section.strip() or None
         if self.document_id is not None:
             self.document_id = self.document_id.strip() or None
+        if not self.document_versions: self.document_versions = None
         return self
 
 
@@ -82,5 +85,19 @@ def filters_to_qdrant(filters: MetadataFilter | dict[str, object] | None) -> qmo
                 )
             )
 
+    versions=flat.get('document_versions') or {}
+    if versions:
+        from src.documents import get_document
+        selected=flat.get('filenames') or ([flat['filename']] if flat.get('filename') else [])
+        alternatives=[]
+        for filename,digest in versions.items():
+            version_condition=qmodels.FieldCondition(key='metadata.document_version',match=qmodels.MatchValue(value=digest))
+            doc=get_document(filename=filename)
+            if doc and doc.get('legacy_version')==digest:
+                version_condition=qmodels.Filter(should=[version_condition,qmodels.IsEmptyCondition(is_empty=qmodels.PayloadField(key='metadata.document_version'))])
+            alternatives.append(qmodels.Filter(must=[qmodels.FieldCondition(key='metadata.filename',match=qmodels.MatchValue(value=filename)),version_condition]))
+        remaining=[name for name in selected if name not in versions]
+        if remaining: alternatives.append(qmodels.FieldCondition(key='metadata.filename',match=qmodels.MatchAny(any=remaining)))
+        conditions.append(qmodels.Filter(should=alternatives))
     return qmodels.Filter(must=conditions) if conditions else None
 

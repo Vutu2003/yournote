@@ -27,22 +27,67 @@ def _inspect(path: str, modified: int, size: int) -> tuple[str, int]:
     return digest.hexdigest(), len(PdfReader(path).pages)
 
 
-def document(notebook_id: str, document_id: str) -> tuple[ReadingDocument, Path]:
+def document(notebook_id: str, document_id: str, version: str | None = None) -> tuple[ReadingDocument, Path]:
+    from src import documents as catalog
     notebook = notebooks.get_notebook(notebook_id)
+    registered=catalog.get_document(document_id=document_id)
+    if registered:
+        if registered['filename'] not in notebook.state.document_filenames:
+            raise AdapterError(404,'Document is not in this notebook.')
+        stored=catalog.get_version(document_id,version)
+        if not stored: raise AdapterError(409,'Source version is unavailable; citation cannot be redirected.')
+        try: path=catalog.original_path(stored)
+        except ValueError: raise AdapterError(409,'Original source failed its version check.') from None
+        return ReadingDocument(document_id=document_id,filename=registered['filename'],document_version=stored['version'],
+            page_count=stored['page_count'],kind=registered['kind'],original_filename=registered['original_filename'],
+            historical=stored['version']!=registered['active_version']),path
     indexed = core_adapter.documents().documents
     found = next((doc for doc in indexed if doc.document_id == document_id and doc.filename in notebook.state.document_filenames), None)
-    if found is None:
-        raise AdapterError(404, "Document is not in this notebook.")
-    root = settings.data_dir.resolve()
-    path = (root / found.filename).resolve()
-    if path.parent != root or not path.is_file():
-        raise AdapterError(404, "Original PDF is unavailable.")
+    if found is None: raise AdapterError(404, "Document is not in this notebook.")
+    root = settings.data_dir.resolve();path=(root/found.filename).resolve()
+    if path.parent!=root or not path.is_file(): raise AdapterError(404,"Original PDF is unavailable.")
     try:
-        stat = path.stat()
-        version, pages = _inspect(str(path), stat.st_mtime_ns, stat.st_size)
-    except Exception as exc:
-        raise AdapterError(400, "Unable to read original PDF.") from exc
-    return ReadingDocument(document_id=document_id, filename=found.filename, document_version=version, page_count=pages), path
+        stat=path.stat();fingerprint,pages=_inspect(str(path),stat.st_mtime_ns,stat.st_size)
+    except Exception: raise AdapterError(400,"Unable to read original PDF.") from None
+    if version and version!=fingerprint: raise AdapterError(409,'Original PDF has changed. Reopen the document.')
+    return ReadingDocument(document_id=document_id,filename=found.filename,document_version=fingerprint,page_count=pages),path
+
+
+def text_document(notebook_id,document_id,version=None):
+    from src import documents as catalog
+    from src.grounding import version_blocks
+    from backend.schemas.reading import TextDocumentResponse
+    info,_=document(notebook_id,document_id,version)
+    if info.kind=='pdf': raise AdapterError(400,'Use the PDF reader for this document.')
+    stored=catalog.get_version(document_id,info.document_version)
+    return TextDocumentResponse(**info.model_dump(),blocks=version_blocks(stored))
+
+
+def resolve_citation(notebook_id,citation):
+    from src.grounding import verify_citation,normalized
+    from src import documents as catalog
+    from src.locations import Locator
+    from backend.schemas.reading import CitationResolution
+    notebook=notebooks.get_notebook(notebook_id)
+    if citation.filename not in notebook.state.document_filenames:
+        raise AdapterError(404,'Citation source is not in this notebook.')
+    doc=catalog.get_document(filename=citation.filename)
+    if doc:
+        try: checked=verify_citation(citation,allow_legacy=True)
+        except ValueError as exc: raise AdapterError(409,str(exc)) from None
+        stored,locator=checked
+        info,_=document(notebook_id,doc['id'],stored['version'])
+    else:
+        source=next((item for item in core_adapter.documents().documents if item.filename==citation.filename),None)
+        if not source: raise AdapterError(404,'Citation source is unavailable.')
+        info,path=document(notebook_id,source.document_id,citation.document_version)
+        if not citation.page or citation.page>info.page_count or not citation.source_text:
+            raise AdapterError(409,'Legacy citation has no verifiable page/excerpt.')
+        text=PdfReader(path).pages[citation.page-1].extract_text() or ''
+        if normalized(citation.source_text) not in normalized(text):
+            raise AdapterError(409,'Citation excerpt does not match the original PDF; it cannot be redirected safely.')
+        locator=Locator(kind='page',page=citation.page)
+    return CitationResolution(document=info,locator=locator)
 
 
 def _highlight(row) -> Highlight:
@@ -81,13 +126,17 @@ def _normalized(text: str) -> str:
     return re.sub(r"[\s\u00ad]+", "", text)
 
 
-def chat(notebook_id: str, request: ReadingChatRequest) -> ChatResponse:
+def chat(notebook_id: str, request: ReadingChatRequest, *, filenames_snapshot: list[str] | None = None, history: list[dict] | None = None) -> ChatResponse:
     from src.rag import answer, answer_from_chunks
     from src.schemas import ChunkMetadata, RetrievedChunk
 
     info, path = document(notebook_id, request.document_id)
+    if request.document_version and request.document_version!=info.document_version:
+        raise AdapterError(409,'Document version changed. Refresh sources and try again.')
     notebook = notebooks.get_notebook(notebook_id)
     names = [info.filename] if request.scope == "document" else notebook.state.document_filenames
+    if filenames_snapshot is not None:
+        names = list(filenames_snapshot)
     with core_adapter._core_lock:
         if request.selection:
             selected = request.selection
@@ -106,9 +155,9 @@ def chat(notebook_id: str, request: ReadingChatRequest) -> ChatResponse:
             for page in range(max(1, selected.page - 1), min(info.page_count, selected.page + 1) + 1):
                 text = page_text if page == selected.page else (reader.pages[page - 1].extract_text() or "")
                 if text.strip():
-                    chunks.append(RetrievedChunk(text=text, score=0, metadata=ChunkMetadata(document_id=info.document_id, filename=info.filename, source=str(path), page=page, chunk_id=f"{info.document_id}:{page}:reading")))
-            result = answer_from_chunks(request.question, chunks, selected_text=selected.text)
+                    chunks.append(RetrievedChunk(text=text, score=0, metadata=ChunkMetadata(document_id=info.document_id, filename=info.filename, source=str(path), page=page, chunk_id=f"{info.document_id}:{page}:reading",document_version=info.document_version,schema_version=2,locator={"kind":"page","page":page})))
         else:
             filters = core_adapter._filters(SourceSelection(filenames=names))
-            result = answer(request.question, k=request.k, filters=filters)
+    result = (answer_from_chunks(request.question, chunks, selected_text=selected.text,history=history) if request.selection
+              else answer(request.question, k=request.k, filters=filters,history=history))
     return ChatResponse(**result.model_dump(exclude={"chunks"}), context=ChatContext(scope=request.scope, filenames=names, selection=request.selection))

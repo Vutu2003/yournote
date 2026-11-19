@@ -12,3 +12,6 @@ frontend/dist/
 frontend/.env.local
 frontend/.env.*.local
 .run/
+
+# Private local release artifacts; no public publishing.
+releases/

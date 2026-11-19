@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-18",
+  "system": "Linux",
+  "release": "7.0.0-43-generic",
+  "machine": "x86_64",
+  "python": "3.12.10",
+  "packages": {
+    "fastapi": "0.142.1",
+    "uvicorn": "0.54.0",
+    "pydantic": "2.12.5",
+    "pydantic-settings": "2.15.0",
+    "qdrant-client": "1.19.1",
+    "sentence-transformers": "6.1.0",
+    "torch": "2.14.0",
+    "httpx": "0.28.1",
+    "PyJWT": "2.15.1",
+    "cryptography": "50.0.1",
+    "keyring": "25.7.0",
+    "gradio": "6.13.0",
+    "langchain-core": "1.6.6",
+    "langchain-community": "0.4.2",
+    "langchain-qdrant": "1.1.0",
+    "google-genai": "2.25.0",
+    "pypdf": "5.9.0",
+    "python-multipart": "0.0.32"
+  }
+}

@@ -14,8 +14,8 @@ import urllib.error
 import urllib.request
 
 PROJECT = Path(__file__).resolve().parent.parent
-RUN = PROJECT / '.run'
-PYTHON = PROJECT / '.venv/bin/python'
+RUN = Path(os.environ.get('YOURNOTE_RUN_DIR', PROJECT / '.run')).resolve()
+PYTHON = Path(os.environ.get('YOURNOTE_PYTHON', PROJECT / '.venv/bin/python')).absolute()
 BOOT_ID = Path('/proc/sys/kernel/random/boot_id').read_text().strip()
 PORTS = {'backend': 8000, 'frontend': 5173}
 URLS = {'backend': 'http://127.0.0.1:8000/api/health', 'frontend': 'http://127.0.0.1:5173/'}
@@ -65,8 +65,11 @@ def ownership(name):
             cwd = PROJECT if name == 'backend' else PROJECT / 'frontend'
             args = Path(f'/proc/{pid}/cmdline').read_bytes().split(b'\0')
             command = b' '.join(args).decode(errors='replace').strip()
+            frontend_mode = record.get('mode','dev')
+            if frontend_mode not in ('dev','local'): raise ValueError('invalid runtime mode')
+            frontend_script = 'preview' if frontend_mode == 'local' else 'dev'
             expected = ('-m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --workers 1'
-                        if name == 'backend' else 'npm run dev --host 127.0.0.1 --port 5173 --strictPort')
+                        if name == 'backend' else f'npm run {frontend_script} --host 127.0.0.1 --port 5173 --strictPort')
             if (current['start'] != record['start'] or current['pgid'] != pid
                     or current['sid'] != pid or Path(f'/proc/{pid}/cwd').resolve() != cwd
                     or os.readlink(f'/proc/{pid}/exe') != record['exe']
@@ -138,7 +141,9 @@ def stop_component(name, record):
     return True
 
 
-def commands():
+def commands(mode='dev'):
+    if mode == 'local' and not (PROJECT / 'frontend/dist/index.html').is_file():
+        raise RuntimeError('Build frontend first: npm --prefix frontend run build')
     for path in (PYTHON, PROJECT / 'frontend/package.json', PROJECT / 'backend/main.py'):
         if not path.is_file():
             raise RuntimeError(f'Missing required file: {path}')
@@ -153,11 +158,11 @@ def commands():
     env['PYTHONUNBUFFERED'] = '1'
     return {
         'backend': ([str(PYTHON), '-m', 'uvicorn', 'backend.main:app', '--host', '127.0.0.1', '--port', '8000', '--workers', '1'], PROJECT, str(PYTHON.resolve())),
-        'frontend': ([npm, 'run', 'dev', '--', '--host', '127.0.0.1', '--port', '5173', '--strictPort'], PROJECT / 'frontend', str(Path(node).resolve())),
+        'frontend': ([npm, 'run', 'preview' if mode == 'local' else 'dev', '--', '--host', '127.0.0.1', '--port', '5173', '--strictPort'], PROJECT / 'frontend', str(Path(node).resolve())),
     }, env
 
 
-def launch(name, spec, env):
+def launch(name, spec, env, mode='dev'):
     argv, cwd, executable = spec
     log_path = RUN / f'{name}.log'
     with log_path.open('wb') as log:
@@ -166,7 +171,7 @@ def launch(name, spec, env):
     current = process(child.pid)
     if current is None:
         raise RuntimeError(f'{name.title()} exited during startup. Log: {log_path}')
-    record = {'pid': child.pid, 'start': current['start'], 'boot': BOOT_ID,
+    record = {'mode': mode, 'pid': child.pid, 'start': current['start'], 'boot': BOOT_ID,
               'exe': executable, 'members': group_members(child.pid)}
     # The operation lock prevents readers from observing a partially written pair.
     (RUN / f'{name}.owner').write_text(json.dumps(record))
@@ -174,10 +179,12 @@ def launch(name, spec, env):
     return record, child
 
 
-def start():
-    specs, env = commands()
+def start(mode='dev'):
+    specs, env = commands(mode)
     existing = {name: ownership(name) for name in PORTS}
     for name, record in existing.items():
+        if name == 'frontend' and record and record.get('mode','dev') != mode:
+            raise RuntimeError('Frontend is running in another mode. Stop it before switching modes.')
         if record and not healthy(name):
             raise RuntimeError(f'{name.title()} PID {record["pid"]} is not healthy. Inspect .run/{name}.log and run stop_all.sh.')
         if not record and listening(PORTS[name]):
@@ -188,7 +195,7 @@ def start():
             if existing[name]:
                 print(f'{name.title()} already running on PID {existing[name]["pid"]}.')
                 continue
-            record, child = launch(name, specs[name], env)
+            record, child = launch(name, specs[name], env, mode)
             started.append((name, record, child))
             deadline = time.monotonic() + 20
             while time.monotonic() < deadline:
@@ -211,7 +218,7 @@ def start():
             except (OSError, RuntimeError, subprocess.TimeoutExpired) as error:
                 print(f'Cleanup: {error}', file=sys.stderr)
         raise
-    print('Research Notebook started\n\nFrontend: http://127.0.0.1:5173\nAPI: http://127.0.0.1:8000\nAPI docs: http://127.0.0.1:8000/docs\nLogs: .run/backend.log, .run/frontend.log')
+    print('YourNote started\n\nFrontend: http://127.0.0.1:5173\nAPI: http://127.0.0.1:8000\nAPI docs: http://127.0.0.1:8000/docs\nLogs: .run/backend.log, .run/frontend.log')
 
 
 def stop():
@@ -228,11 +235,11 @@ def stop():
                 failures.append(str(error))
     if failures:
         raise RuntimeError(' '.join(failures))
-    print('Research Notebook stopped.' if stopped else 'Research Notebook is not running.')
+    print('YourNote stopped.' if stopped else 'YourNote is not running.')
 
 
 def status():
-    print('Research Notebook status')
+    print('YourNote status')
     for name in PORTS:
         record = ownership(name)
         state = 'RUNNING' if record and healthy(name) else 'UNHEALTHY' if record else 'STOPPED'
@@ -250,7 +257,9 @@ def main():
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             raise RuntimeError('Another runtime operation is in progress. Try again shortly.')
-        {'start': start, 'stop': stop, 'status': status}[sys.argv[1]]()
+        import argparse
+        parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=['start','start-local','stop','status']);args=parser.parse_args()
+        {'start': start, 'start-local': lambda:start('local'), 'stop': stop, 'status': status}[args.action]()
 
 
 if __name__ == '__main__':

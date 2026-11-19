@@ -1,0 +1,29 @@
+.ai-connections { display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid var(--border); min-width: 0; }
+.ai-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ai-section-heading h3 { font-size: 1.125rem; margin: 0; }
+.ai-provider-label { color: var(--muted); font-size: .875rem; border: 1px solid var(--border); border-radius: 20px; padding: 4px 10px; }
+.ai-connections p { margin: 0; color: var(--muted); font-size: .9375rem; line-height: 1.7; overflow-wrap: anywhere; }
+.ai-connections .ai-storage-note, .ai-connections .ai-scope-note { font-size: .875rem; }
+.ai-field { display: flex; flex-direction: column; gap: 9px; font-size: .9375rem; color: var(--muted); min-width: 0; }
+.ai-field select { width: 100%; min-width: 0; max-width: 100%; text-overflow: ellipsis; }
+.ai-connection-state, .ai-welcome, .ai-pending, .ai-check { display: flex; flex-direction: column; gap: 12px; padding: 16px; background: var(--field); border: 1px solid var(--border); border-radius: 12px; min-width: 0; overflow-wrap: anywhere; }
+.ai-connection-state span { color: var(--muted); font-size: .875rem; line-height: 1.6; }
+.ai-welcome { background: var(--selected); border-color: var(--selected-border); }
+.ai-welcome button, .ai-pending button, .ai-pending a { align-self: flex-start; }
+.ai-actions, .ai-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.ai-actions .button { white-space: normal; text-align: center; }
+.ai-connections .chatgpt-signin { background: #111; color: #fff; border-color: #777; }
+.ai-links { font-size: .875rem; line-height: 1.7; }
+.ai-links a { color: var(--accent); overflow-wrap: anywhere; }
+.ai-signout { align-self: flex-start; font-size: .9375rem; }
+.ai-connections .ai-notice, .ai-connections .ai-check-success { color: var(--text); }
+@media (max-width: 480px) { .ai-check, .ai-pending, .ai-welcome { padding: 12px; } .ai-actions .button { flex: 1 1 160px; } }
+
+.ai-service-card { padding: 17px; background: var(--field); border: 1px solid var(--border); border-radius: 14px; display: flex; flex-direction: column; gap: 10px; }
+.ai-section-heading h4 { margin: 6px 0 0; font-size: 1rem; }
+.ai-usage-card { display: flex; align-items: flex-start; gap: 14px; padding: 19px; border: 1px solid var(--selected-border); border-radius: 16px; background: linear-gradient(135deg, var(--accent-wash), transparent), var(--field); }
+.ai-usage-icon { display: grid; place-items: center; flex: 0 0 42px; height: 42px; border-radius: 13px; color: var(--accent); background: var(--accent-wash); }
+.ai-usage-card h4 { font-size: 1rem; margin: 0 0 8px; }
+.ai-usage-card .button { margin-top: 14px; text-decoration: none; }
+.ai-connections .ai-usage-caption { font-size: .8125rem; margin-top: 10px; }
+@media (max-width: 480px) { .ai-usage-card { padding: 14px; gap: 10px; } .ai-usage-icon { display: none; } }

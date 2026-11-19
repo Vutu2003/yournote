@@ -1,0 +1,45 @@
+{
+  "layouts": 48,
+  "features": [
+    "comparison",
+    "report",
+    "graph"
+  ],
+  "checks": [
+    "create",
+    "view",
+    "reload_no_calls",
+    "citations",
+    "notes",
+    "export",
+    "cancel_delete",
+    "delete_during_generation",
+    "cancel",
+    "quota",
+    "incomplete",
+    "model_scope_snapshot",
+    "notebook_isolation",
+    "stale_version",
+    "search",
+    "source_filter",
+    "zoom",
+    "pointer_pan",
+    "legacy_studio_all",
+    "long_notes",
+    "save_failure_recovery",
+    "isolated_reset",
+    "keyboard_pan",
+    "keyboard_selection",
+    "mobile_list"
+  ],
+  "errors": [],
+  "api": "mock",
+  "chrome_profile": "temporary",
+  "actual_llm_calls": 0,
+  "breakdown": {
+    "studio": 24,
+    "reading": 16,
+    "model_picker": 8
+  },
+  "date": "2026-11-18"
+}

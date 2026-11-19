@@ -48,13 +48,13 @@ class AbstractRetrievalTests(unittest.TestCase):
     def test_abstract_recovers_opening_chunks_missed_by_similarity(self):
         filters = {"filename": "paper.pdf"}
         question = "hãy giúp tôi tóm tắt nội dung của phần abstract trong tài liệu trên"
-        dense = rag.retrieve(question, k=1, filters=filters, collection_name="test")
+        dense = rag.retrieve_vector(question, k=1, filters=filters, collection_name="test")
         self.assertEqual(dense[0].metadata.page, 5)
         with patch("src.rag.invoke_llm", return_value="Nghiên cứu giảm sai số [S2].") as llm:
             result = rag.answer(question, k=1, filters=filters, collection_name="test")
         self.assertEqual([c.metadata.page for c in result.chunks], [1, 1])
         self.assertEqual({c.filename for c in result.citations}, {"paper.pdf"})
-        self.assertEqual(len(result.citations), 2)
+        self.assertEqual([c.source_marker for c in result.citations], ["S2"])
         prompt = llm.call_args.args[0]
         self.assertIn("An unlabelled overview", prompt)
         self.assertIn("Our overview finds reduced error", prompt)
@@ -62,14 +62,14 @@ class AbstractRetrievalTests(unittest.TestCase):
         self.assertIn("Some papers have an unlabelled abstract", prompt)
 
     def test_abstract_keeps_explicit_page_filter(self):
-        with patch("src.rag.invoke_llm", return_value="Không có abstract."):
+        with patch("src.rag.invoke_llm", return_value="Tôi không có đủ thông tin trong ngữ cảnh được cung cấp để trả lời."):
             result = rag.answer("Tóm tắt phần abstract", filters={"filename": "paper.pdf", "page": 5}, collection_name="test")
         self.assertEqual([c.metadata.page for c in result.chunks], [5])
 
-    def test_ordinary_question_keeps_similarity_retrieval(self):
-        with patch("src.rag.fetch_all_chunks") as scroll, patch("src.rag.invoke_llm", return_value="Kết quả [S1]."):
+    def test_ordinary_question_uses_vector_and_scoped_lexical_retrieval(self):
+        with patch("src.rag.fetch_all_chunks",return_value=[]) as scroll, patch("src.rag.invoke_llm", return_value="Kết quả [S1]."):
             result = rag.answer("Kết quả thí nghiệm?", k=1, filters={"filename": "paper.pdf"}, collection_name="test")
-        scroll.assert_not_called()
+        scroll.assert_called_once_with(filters={"filename":"paper.pdf"},collection_name="test")
         self.assertEqual([c.metadata.page for c in result.chunks], [5])
 
     def test_no_context_does_not_call_llm(self):

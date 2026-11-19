@@ -1,0 +1,10 @@
+{
+  "files_verified": 229,
+  "archive_sha256": "489623433cb99c091618b16d85fc263931c79b3babd9ab0f332617f93fb8d820",
+  "safe_paths": true,
+  "normalized_owner_metadata": true,
+  "excluded_private_paths": true,
+  "demo_materials_included": true,
+  "evaluation_included": true,
+  "publicly_published": false
+}

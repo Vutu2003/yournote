@@ -8,15 +8,19 @@ from typing import Literal
 
 from pydantic import BaseModel
 
+from src.locations import location_label
 from src.schemas import Citation, FlashcardSet, QuizSet, RagAnswer, Summary, MindMap, MindMapNode
 
 ExportFormat = Literal["text", "md", "json"]
 
 
 def _citation_line(c: Citation) -> str:
-    parts = [f"[{c.source_marker}] {c.filename} p.{c.page}"]
+    location=f'p.{c.page}' if c.page else location_label(c.locator)
+    parts = [f"[{c.source_marker}] {html.escape(c.filename)} {html.escape(location)}"]
+    if c.locator and c.locator.anchor: parts.append(f'anchor: {c.locator.anchor}')
+    if c.document_version: parts.append(f'version: {c.document_version}')
     if c.section:
-        parts.append(f"section: {c.section}")
+        parts.append(f"section: {html.escape(c.section)}")
     if c.chunk_id:
         parts.append(f"chunk: {c.chunk_id}")
     return " | ".join(parts)
@@ -46,7 +50,8 @@ def _marker_details(citations: list[Citation], markers: list[str]) -> list[str]:
         c = by_marker.get(m)
         if c is None:
             continue
-        summary = f"[{c.source_marker}] {c.filename} p.{c.page}"
+        location=f'p.{c.page}' if c.page else location_label(c.locator)
+        summary = f"[{c.source_marker}] {c.filename} {location}"
         if c.section:
             summary += f" | section: {c.section}"
         if c.chunk_id:
@@ -75,7 +80,47 @@ def _render_with_sources(body_lines: list[str], citations: list[Citation]) -> st
     return "\n".join(lines).rstrip() + "\n"
 
 
+def _research_statement(statement):
+    lines=[html.escape(statement.text,quote=False)]
+    for ref in statement.evidence:
+        lines.append(f'> [{ref.source_marker}] '+html.escape(ref.quote,quote=False).replace('\n','\n> '))
+    return '\n\n'.join(lines)
+
+
+def _research_markdown(model):
+    from src.research_schemas import Comparison,KnowledgeGraph
+    lines=['# '+html.escape(getattr(model,'title','Mạng tri thức' if isinstance(model,KnowledgeGraph) else 'So sánh tài liệu'),quote=False),'','## Mục tiêu','',html.escape(model.goal,quote=False),'','## Phạm vi nguồn','']
+    for source in model.sources:
+        lines.append(f'- {html.escape(source.filename)}: {len(source.examined_chunk_ids)}/{source.total_chunks} đoạn; {source.coverage}; version {source.document_version}')
+    if isinstance(model,KnowledgeGraph):
+        lines+=['','## Khái niệm','']
+        for node in model.nodes:
+            lines+=['### '+html.escape(node.label),'', 'Tên thay thế: '+', '.join(html.escape(a) for a in node.aliases),'',_research_statement(node.definition),'']
+        nodes={node.id:node for node in model.nodes}
+        lines+=['','## Quan hệ','']
+        for edge in model.edges:
+            lines+=['### '+html.escape(nodes[edge.source].label)+' → '+html.escape(nodes[edge.target].label)+' ('+edge.relation+')','',_research_statement(edge.statement),'']
+    elif isinstance(model,Comparison):
+        for criterion in model.criteria:
+            lines+=['','## '+html.escape(criterion.label),'']
+            for source in criterion.sources:
+                lines+=['### '+html.escape(source.filename),'',_research_statement(source.statement) if source.statement else 'Chưa tìm thấy trong các đoạn đã xét: '+html.escape(source.limitation)]
+            for finding in model.findings:
+                if finding.criterion_id==criterion.id: lines+=['','### '+finding.kind,'',_research_statement(finding.statement)]
+    else:
+        for section in model.sections:
+            lines+=['','## '+html.escape(section.title),'']
+            lines.extend(_research_statement(statement)+'\n' for statement in section.statements)
+    if hasattr(model,'conclusion'): lines+=['','## Kết luận','']
+    lines.extend(_research_statement(statement)+'\n' for statement in getattr(model,'conclusion',[]))
+    lines+=['','## Giới hạn','']+['- '+html.escape(limit,quote=False) for limit in model.limits]
+    lines.extend('- '+html.escape(note.filename)+': '+html.escape(note.detail) for note in model.source_notes)
+    return _render_with_sources(lines,model.citations)
+
+
 def _to_markdown(model: BaseModel) -> str:
+    from src.research_schemas import Comparison,StudyReport,KnowledgeGraph
+    if isinstance(model,(Comparison,StudyReport,KnowledgeGraph)): return _research_markdown(model)
     if isinstance(model, MindMap):
         lines = [f"# Sơ đồ tư duy: {model.root.label}", ""]
 

@@ -1,0 +1,5 @@
+Chỉ tài liệu không được chọn này có dòng học phí của một lớp giả định là 9 triệu đồng.
+
+Chỉ tài liệu không được chọn này có dòng lịch thi giả định ngày 30 tháng 6 năm 2026.
+
+Đừng dùng hai thông tin này khi phạm vi không chọn tài liệu này.

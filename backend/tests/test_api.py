@@ -1,10 +1,12 @@
 """Run: .venv/bin/python -m unittest discover -s backend/tests -v.
 
-Only upload delegation/failure is substituted: the real baseline must not
-be written to. Documents, selection checks and exports use real core code.
-No generation requests with valid, indexed selections are made here.
+Documents, selection checks and exports use real core code with an isolated
+Qdrant fixture. Never open the user's data/index. No external generation calls.
 """
 
+from contextlib import ExitStack
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
@@ -18,21 +20,37 @@ from backend.services import core_adapter
 class APIContractTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.context = TestClient(app, raise_server_exceptions=False)
-        cls.client = cls.context.__enter__()
+        from qdrant_client.http import models
+        from src.config import settings
+        from src.store import close_client, get_client
+
+        stack = cls.enterClassContext(ExitStack())
+        root = Path(stack.enter_context(TemporaryDirectory(prefix="api-test-")))
+        stack.enter_context(patch.object(settings, "storage_dir", root / "qdrant"))
+        stack.enter_context(patch.object(settings, "qdrant_collection", "test_chunks"))
+        stack.enter_context(patch.object(settings, "data_dir", root / "data"))
+        stack.enter_context(patch("backend.services.notebooks._database_path", return_value=root / "notebooks.sqlite"))
+        if get_client.cache_info().currsize:
+            raise AssertionError("Test fixture requires an unopened index")
+        stack.callback(close_client)
+        index = get_client()
+        index.create_collection("test_chunks", vectors_config=models.VectorParams(size=3, distance=models.Distance.COSINE))
+        index.upsert("test_chunks", points=[models.PointStruct(
+            id=i, vector=[1.0, 0.0, 0.0], payload={"page_content": f"Course material {i}", "metadata": {
+                "document_id": f"document-{i}", "filename": f"course-{i}.pdf", "page": 1,
+                "source": str(root / f"course-{i}.pdf"), "chunk_id": f"document-{i}:1:0",
+            }},
+        ) for i in range(1, 3)])
+        cls.client = stack.enter_context(TestClient(app, raise_server_exceptions=False))
         response = cls.client.get("/api/documents")
         assert response.status_code == 200, response.text
         cls.documents = response.json()["documents"]
         cls.filename = cls.documents[0]["filename"]
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.context.__exit__(None, None, None)
-
     def test_health(self):
         self.assertEqual(self.client.get("/api/health").json(), {"status": "ok"})
 
-    def test_real_documents(self):
+    def test_indexed_documents(self):
         self.assertGreaterEqual(len(self.documents), 1)
         for item in self.documents:
             self.assertEqual(set(item), {"filename", "document_id", "pages", "page_count", "chunk_count"})
@@ -42,7 +60,7 @@ class APIContractTests(unittest.TestCase):
 
     def test_upload_validation(self):
         cases = [
-            ("bad.txt", b"text", "text/plain"),
+            ("bad.exe", b"text", "application/octet-stream"),
             ("empty.pdf", b"", "application/pdf"),
             ("corrupt.pdf", b"non-pdf", "application/pdf"),
             ("../bad.pdf", b"%PDF-1.4", "application/pdf"),
@@ -71,12 +89,15 @@ class APIContractTests(unittest.TestCase):
         from src.config import settings
 
         key = settings.gemini_api_key or "test-secret"
-        with patch("src.indexing.save_and_ingest_pdf", side_effect=RuntimeError(f"private /home/internal/data/secret.pdf {key}")), patch("backend.main.logger.error") as log:
+        runtime_secret = "runtime-oauth-sentinel-not-in-settings"
+        with patch("src.indexing.save_and_ingest_pdf", side_effect=RuntimeError(f"private /home/internal/data/secret.pdf {key} {runtime_secret}")), patch("backend.main.logger.error") as log:
             response = self.client.post("/api/documents/upload", headers={"Origin": "http://localhost:5173"}, files={"file": ("isolated.pdf", b"%PDF-1.4", "application/pdf")})
         self.assertEqual(response.status_code, 500)
         self.assertEqual(response.headers.get("access-control-allow-origin"), "http://localhost:5173")
         self.assertEqual(response.json(), {"detail": "Unable to complete the operation. Please try again."})
         self.assertNotIn(key, response.text)
+        self.assertNotIn(runtime_secret, response.text)
+        self.assertNotIn(runtime_secret, str(log.call_args))
         if settings.gemini_api_key:
             self.assertNotIn(key, str(log.call_args))
         log.assert_called_once()
@@ -174,7 +195,8 @@ class APIContractTests(unittest.TestCase):
 
     def test_openapi_and_docs(self):
         schema = self.client.get("/openapi.json").json()
-        self.assertEqual(len(schema["paths"]), 17)
+        self.assertEqual(len([path for path in schema["paths"] if not path.startswith("/api/ai/")]), 21)
+        self.assertIn("/api/ai/chatgpt", schema["paths"])
         for path, operation in schema["paths"].items():
             for method, details in operation.items():
                 self.assertTrue(details["summary"])

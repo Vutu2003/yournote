@@ -1,0 +1,38 @@
+{
+  "layouts": 24,
+  "features": [
+    "comparison",
+    "report",
+    "graph"
+  ],
+  "checks": [
+    "create",
+    "view",
+    "reload_no_calls",
+    "citations",
+    "notes",
+    "export",
+    "cancel_delete",
+    "delete_during_generation",
+    "cancel",
+    "quota",
+    "incomplete",
+    "model_scope_snapshot",
+    "notebook_isolation",
+    "stale_version",
+    "search",
+    "source_filter",
+    "zoom",
+    "pointer_pan",
+    "keyboard_pan",
+    "keyboard_selection",
+    "mobile_list"
+  ],
+  "errors": [],
+  "date": "2026-11-18",
+  "api": "isolated_mock",
+  "profile": "temporary",
+  "model_calls": 0,
+  "graph_fixture": "cached real inference result on synthetic materials",
+  "pointer_release_regression": "passed"
+}

@@ -4,9 +4,9 @@ import type { CSSProperties } from 'react'
 type Side = 'sources' | 'studio'
 type Widths = Record<Side, number>
 const STORAGE_KEY = 'research-notebook-panel-widths'
-const MIN: Widths = { sources: 220, studio: 240 }
+const MIN: Widths = { sources: 260, studio: 300 }
 const MAX = 720
-const CHAT_MIN = 320
+const CHAT_MIN = 360
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max))
 
 function readWidths(): Partial<Widths> {
@@ -23,7 +23,7 @@ function readWidths(): Partial<Widths> {
 export function usePanelWidths(sourcesCollapsed: boolean, studioCollapsed: boolean) {
   const workspaceRef = useRef<HTMLElement>(null)
   const [preferred, setPreferred] = useState(readWidths)
-  const [layout, setLayout] = useState({ available: 0, gutter: 18, defaults: { sources: 280, studio: 326 } })
+  const [layout, setLayout] = useState({ available: 0, gutter: 18, defaults: { sources: 320, studio: 370 } })
 
   useLayoutEffect(() => {
     const element = workspaceRef.current
@@ -35,8 +35,8 @@ export function usePanelWidths(sourcesCollapsed: boolean, studioCollapsed: boole
         available: element.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight),
         gutter: parseFloat(style.getPropertyValue('--panel-gutter')) || 18,
         defaults: {
-          sources: parseFloat(style.getPropertyValue('--default-sources-width')) || 280,
-          studio: parseFloat(style.getPropertyValue('--default-studio-width')) || 326,
+          sources: parseFloat(style.getPropertyValue('--default-sources-width')) || 320,
+          studio: parseFloat(style.getPropertyValue('--default-studio-width')) || 370,
         },
       })
     }

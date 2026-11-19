@@ -1,0 +1,208 @@
+{
+  "fixture_sha256": "1e777991274e1382a78addb798e1d12eee3f38b6358f413336bc080e52069a89",
+  "policy_sha256": "8771727b4ca5efa05241cc3bb76d8c4bd50b182bc1bd9ef3b117e27008fef592",
+  "models": [
+    "gpt-6.1-terra"
+  ],
+  "jobs": [
+    {
+      "case_id": "s01",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s02",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s03",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s04",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s05",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s06",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s07",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s08",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s09",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s10",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "m01",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "m02",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "m03",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "m04",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "m05",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "m06",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "m07",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "m08",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "n01",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "n02",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "n03",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "n04",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "n05",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "n06",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "f01",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "f02",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "f03",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "f04",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "f05",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "f06",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid"
+    },
+    {
+      "case_id": "s04",
+      "model": "gpt-6.1-terra",
+      "retriever": "vector"
+    },
+    {
+      "case_id": "s07",
+      "model": "gpt-6.1-terra",
+      "retriever": "vector"
+    },
+    {
+      "case_id": "m02",
+      "model": "gpt-6.1-terra",
+      "retriever": "vector"
+    },
+    {
+      "case_id": "m03",
+      "model": "gpt-6.1-terra",
+      "retriever": "vector"
+    },
+    {
+      "case_id": "m07",
+      "model": "gpt-6.1-terra",
+      "retriever": "vector"
+    },
+    {
+      "case_id": "n01",
+      "model": "gpt-6.1-terra",
+      "retriever": "vector"
+    },
+    {
+      "case_id": "f03",
+      "model": "gpt-6.1-terra",
+      "retriever": "vector"
+    },
+    {
+      "case_id": "f05",
+      "model": "gpt-6.1-terra",
+      "retriever": "vector"
+    }
+  ],
+  "max_model_calls": 38,
+  "planned_model_calls": 38,
+  "fits_budget": true,
+  "effort": null,
+  "k": 5,
+  "same_prompt_and_contextual_query": true,
+  "uses_chatgpt_plan": true,
+  "automatic_retries": 0,
+  "plan_sha256": "11a382e9c469c0c53351c74294ca7fd0b63534bbbca3fe6ea833408a8d699b0e"
+}

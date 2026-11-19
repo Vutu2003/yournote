@@ -2,3 +2,8 @@
 fastapi==0.142.1
 uvicorn==0.54.0
 python-multipart==0.0.32
+# exclude_if preserves the legacy JSON shape when generation metadata is absent.
+pydantic>=2.12,<=2.12.5
+httpx>=0.28,<0.29
+PyJWT[crypto]>=2.15,<3
+keyring>=25.7,<26

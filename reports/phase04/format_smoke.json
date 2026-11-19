@@ -1,0 +1,41 @@
+{
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "embedding_dimension": 384,
+  "real_local_embedding_and_qdrant": true,
+  "llm_calls": 0,
+  "synthetic_fixture_only": true,
+  "rows": [
+    {
+      "format": "pdf",
+      "upload": 200,
+      "retrieved_chunks": 2,
+      "citation_resolve": 200,
+      "viewer": 200,
+      "locator": "page"
+    },
+    {
+      "format": "docx",
+      "upload": 200,
+      "retrieved_chunks": 3,
+      "citation_resolve": 200,
+      "viewer": 200,
+      "locator": "paragraph"
+    },
+    {
+      "format": "markdown",
+      "upload": 200,
+      "retrieved_chunks": 2,
+      "citation_resolve": 200,
+      "viewer": 200,
+      "locator": "paragraph"
+    },
+    {
+      "format": "text",
+      "upload": 200,
+      "retrieved_chunks": 1,
+      "citation_resolve": 200,
+      "viewer": 200,
+      "locator": "paragraph"
+    }
+  ]
+}

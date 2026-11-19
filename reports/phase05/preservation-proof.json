@@ -1,0 +1,10 @@
+{
+  "backup_verified": true,
+  "backup_files": 15,
+  "databases_logically_unchanged": {
+    "notebooks.sqlite": true,
+    "documents.sqlite": true
+  },
+  "source_and_index_files_unchanged": true,
+  "compared_files": 13
+}

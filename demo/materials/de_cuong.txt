@@ -1,0 +1,9 @@
+Bài LAB-A của nhóm A hạn nộp ngày 21 tháng 4 năm 2026.
+
+Bài LAB-A cần nộp đúng ba mục: mã nguồn, báo cáo PDF và file dự đoán CSV.
+
+Thang điểm báo cáo: dữ liệu 20%, phương pháp 30%, đánh giá 50%.
+
+Trong học phần B, chỉ số bắt buộc trong báo cáo phân loại là macro F1.
+
+Đề cương này không công bố ngày thi chính thức hoặc học phí.

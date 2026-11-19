@@ -1,0 +1,172 @@
+{
+  "date": "2026-11-18T15:33:27.752271+00:00",
+  "models": [
+    "gpt-6.1-terra"
+  ],
+  "fixture_sha256": "1e777991274e1382a78addb798e1d12eee3f38b6358f413336bc080e52069a89",
+  "policy_sha256": "8771727b4ca5efa05241cc3bb76d8c4bd50b182bc1bd9ef3b117e27008fef592",
+  "method": "Developer agent manually read all 38 outputs, the frozen source facts and marker/source mapping; not independent student annotation and not an LLM judge. Strict pass requires supported material claims, correct referent, expected question coverage and appropriate uncertainty/refusal.",
+  "independent_human_assessment": false,
+  "automatic_audit": {
+    "checked_contexts": 38,
+    "checked_citations": 48,
+    "hard_issues": [],
+    "contexts_containing_injection": 0
+  },
+  "arms": {
+    "gpt-6.1-terra:hybrid": {
+      "cases": 30,
+      "completed": 30,
+      "supported": 30,
+      "strict_pass": 29,
+      "pass_rate": 0.9666666666666667,
+      "appropriate_refusals": 7,
+      "refusal_cases": 7,
+      "median_seconds": 2.9045159719989897,
+      "p95_seconds": 4.511422100000345,
+      "calls": 30,
+      "reported_tokens": {
+        "input_tokens": 23214,
+        "output_tokens": 1299,
+        "total_tokens": 24513
+      }
+    },
+    "gpt-6.1-terra:vector": {
+      "cases": 8,
+      "completed": 8,
+      "supported": 8,
+      "strict_pass": 8,
+      "pass_rate": 1.0,
+      "appropriate_refusals": 1,
+      "refusal_cases": 1,
+      "median_seconds": 3.334378031000597,
+      "p95_seconds": 4.915539289999288,
+      "calls": 8,
+      "reported_tokens": {
+        "input_tokens": 5930,
+        "output_tokens": 346,
+        "total_tokens": 6276
+      }
+    }
+  },
+  "paired_controlled8": {
+    "gpt-6.1-terra:hybrid": {
+      "cases": 8,
+      "completed": 8,
+      "supported": 8,
+      "strict_pass": 8,
+      "pass_rate": 1.0,
+      "appropriate_refusals": 1,
+      "refusal_cases": 1,
+      "median_seconds": 3.4177137535007205,
+      "p95_seconds": 3.870969586998399,
+      "calls": 8,
+      "reported_tokens": {
+        "input_tokens": 6172,
+        "output_tokens": 370,
+        "total_tokens": 6542
+      }
+    },
+    "gpt-6.1-terra:vector": {
+      "cases": 8,
+      "completed": 8,
+      "supported": 8,
+      "strict_pass": 8,
+      "pass_rate": 1.0,
+      "appropriate_refusals": 1,
+      "refusal_cases": 1,
+      "median_seconds": 3.334378031000597,
+      "p95_seconds": 4.915539289999288,
+      "calls": 8,
+      "reported_tokens": {
+        "input_tokens": 5930,
+        "output_tokens": 346,
+        "total_tokens": 6276
+      }
+    }
+  },
+  "groups": {
+    "single": {
+      "cases": 10,
+      "completed": 10,
+      "supported": 10,
+      "strict_pass": 10,
+      "pass_rate": 1.0,
+      "appropriate_refusals": 0,
+      "refusal_cases": 0,
+      "median_seconds": 2.723768433497753,
+      "p95_seconds": 4.930236207001144,
+      "calls": 10,
+      "reported_tokens": {
+        "input_tokens": 7086,
+        "output_tokens": 309,
+        "total_tokens": 7395
+      }
+    },
+    "multi": {
+      "cases": 8,
+      "completed": 8,
+      "supported": 8,
+      "strict_pass": 7,
+      "pass_rate": 0.875,
+      "appropriate_refusals": 0,
+      "refusal_cases": 0,
+      "median_seconds": 3.7249930599991785,
+      "p95_seconds": 4.511422100000345,
+      "calls": 8,
+      "reported_tokens": {
+        "input_tokens": 6427,
+        "output_tokens": 573,
+        "total_tokens": 7000
+      }
+    },
+    "insufficient": {
+      "cases": 6,
+      "completed": 6,
+      "supported": 6,
+      "strict_pass": 6,
+      "pass_rate": 1.0,
+      "appropriate_refusals": 6,
+      "refusal_cases": 6,
+      "median_seconds": 2.9045159719989897,
+      "p95_seconds": 4.170214519002911,
+      "calls": 6,
+      "reported_tokens": {
+        "input_tokens": 4404,
+        "output_tokens": 201,
+        "total_tokens": 4605
+      }
+    },
+    "followup": {
+      "cases": 6,
+      "completed": 6,
+      "supported": 6,
+      "strict_pass": 6,
+      "pass_rate": 1.0,
+      "appropriate_refusals": 1,
+      "refusal_cases": 1,
+      "median_seconds": 2.781920331501169,
+      "p95_seconds": 3.562745002000156,
+      "calls": 6,
+      "reported_tokens": {
+        "input_tokens": 5297,
+        "output_tokens": 216,
+        "total_tokens": 5513
+      }
+    }
+  },
+  "failures": [
+    {
+      "case_id": "m08",
+      "model": "gpt-6.1-terra",
+      "retriever": "hybrid",
+      "reason": "Đúng và có bằng chứng cho mini-batch 32 mẫu, nhưng thiếu full-batch toàn bộ train do đoạn slide cần thiết không vào top-5; model nêu thiếu dữ liệu đúng với context, câu hỏi tổng thể chưa được đáp ứng đủ."
+    }
+  ],
+  "limitations": [
+    "One authorized model; cross-model comparison not run.",
+    "Seeded follow-up history, not live multi-turn session timing.",
+    "Small synthetic corpus; no held-out real student study.",
+    "Developer manual annotations are not independent student judgements."
+  ]
+}

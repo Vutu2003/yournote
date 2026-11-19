@@ -7,6 +7,7 @@ import { Icon } from '../../components/Icon'
 import { FormattedText } from '../../components/FormattedText'
 import type { ChatContext, Citation } from '../../types/api'
 import type { ReadingChatInput } from '../../types/reading'
+import { ModelPicker } from '../ai/ModelPicker'
 
 function TurnContext({ context, sourceName }: { context?: ChatContext | null; sourceName: (filename: string) => string }) {
   if (!context) return null
@@ -15,7 +16,8 @@ function TurnContext({ context, sourceName }: { context?: ChatContext | null; so
   </details>
 }
 
-export function ChatPanel({ notebook: n, title, icon, createdAt, reading, onOpenCitation }: {
+export function ChatPanel({ notebook: n, title, icon, createdAt, reading, onOpenCitation, onSettings, settingsDisabled }: {
+  onSettings: () => void; settingsDisabled: boolean
   notebook: NotebookState; title: string; icon: string; createdAt: string
   reading?: ReadingChatInput & { onScopeChange: (scope: 'document' | 'notebook') => void }
   onOpenCitation?: (citation: Citation) => void
@@ -36,7 +38,7 @@ export function ChatPanel({ notebook: n, title, icon, createdAt, reading, onOpen
   useEffect(() => {
     const element = conversation.current
     if (element) element.scrollTo({ top: element.scrollHeight })
-  }, [n.chat.length, n.pendingQuestion])
+  }, [n.chat.length, n.pendingQuestion, n.pendingAnswer])
   async function send(event?: FormEvent) {
     event?.preventDefault()
     if (await n.send(question, reading)) setQuestion('')
@@ -58,25 +60,33 @@ export function ChatPanel({ notebook: n, title, icon, createdAt, reading, onOpen
         <ChatAnswer result={result} onOpenCitation={onOpenCitation} sourceName={n.sourceName} />
       </article>)}
       {n.pendingQuestion && <div className="pending-turn"><div className="user-message"><h3>Bạn</h3><TurnContext context={n.pendingContext} sourceName={n.sourceName} /><p className="prose">{n.pendingQuestion}</p></div>
-        <LoadingIndicator text="Đang tạo câu trả lời..." /></div>}
+        {n.pendingAnswer ? <div className="partial-answer"><p className="field-hint">Đang trả lời · Chưa lưu</p><FormattedText text={n.pendingAnswer} /></div> : <LoadingIndicator text="Đang tạo câu trả lời..." />}</div>}
     </div>
     <form className="chat-composer" onSubmit={send}>
       {!reading && !n.selected.length && <p className="field-hint">Vui lòng chọn ít nhất một tài liệu.</p>}
       <ErrorMessage message={n.errors.chat} />
+      {n.operationStatus.chat === 'cancelled' && <p className="operation-cancelled" role="status">Đã dừng. Nội dung dở dang không được lưu.</p>}
       <label className="sr-only" htmlFor="chat-question">Câu hỏi</label>
-      <div className="composer-row">
-        <span className="composer-icon"><Icon name="bolt" size={21} /></span>
-        <textarea ref={questionInput} id="chat-question" placeholder="Nhập câu hỏi…" title="Enter để gửi · Shift+Enter để xuống dòng" value={question} maxLength={10000} rows={2}
-          disabled={n.loading.chat} onChange={event => setQuestion(event.target.value)}
-          onKeyDown={event => {
-            if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) {
-              event.preventDefault()
-              if (!n.loading.chat) void send()
-            }
-          }} />
-        <span className="composer-source-count">{reading ? reading.scope === 'document' ? 1 : n.documents.length : n.selected.length} nguồn</span>
-        <button className="button primary send-button" type="submit" aria-label="Gửi câu hỏi" disabled={n.loading.chat || !question.trim() || (!reading && !n.selected.length)}><Icon name="send" size={19} /><span className="sr-only">Gửi</span></button>
+      <div className="composer-surface">
+        <div className="composer-row">
+          <span className="composer-icon"><Icon name="bolt" size={21} /></span>
+          <textarea ref={questionInput} id="chat-question" placeholder="Nhập câu hỏi…" title="Enter để gửi · Shift+Enter để xuống dòng" value={question} maxLength={10000} rows={2}
+            disabled={n.loading.chat} onChange={event => setQuestion(event.target.value)}
+            onKeyDown={event => {
+              if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) {
+                event.preventDefault()
+                if (!n.loading.chat) void send()
+              }
+            }} />
+        </div>
+        <div className="composer-toolbar">
+          <ModelPicker controls={n.modelControls} onSettings={onSettings} settingsDisabled={settingsDisabled} />
+          <span className="composer-source-count">{reading ? reading.scope === 'document' ? 1 : n.documents.length : n.selected.length} nguồn</span>
+          {n.loading.chat ? <button className="button stop-answer" type="button" aria-label="Dừng trả lời" onClick={() => n.cancel('chat')}>Dừng</button>
+            : <button className="button primary send-button" type="submit" aria-label="Gửi câu hỏi" disabled={!n.modelControls.ready || !question.trim() || (!reading && !n.selected.length)}><Icon name="send" size={19} /><span className="sr-only">Gửi</span></button>}
+        </div>
       </div>
+      {!n.modelControls.loading && !n.modelControls.ready && <p className="composer-model-warning" role="status">{n.modelControls.error || 'Chọn model khả dụng để bắt đầu.'}</p>}
     </form>
   </section>
 }

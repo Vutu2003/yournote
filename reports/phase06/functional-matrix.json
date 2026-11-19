@@ -1,0 +1,51 @@
+{
+  "01_provider": {
+    "executed": 26,
+    "failed": 0,
+    "modules": [
+      "test_llm",
+      "test_provider_context"
+    ]
+  },
+  "02_auth": {
+    "executed": 26,
+    "failed": 0,
+    "modules": [
+      "test_chatgpt_auth",
+      "test_chatgpt_oidc_security",
+      "test_chatgpt_provider"
+    ]
+  },
+  "03_tasks_stream": {
+    "executed": 18,
+    "failed": 0,
+    "modules": [
+      "test_generation_tasks",
+      "test_provider_streaming"
+    ]
+  },
+  "04_documents": {
+    "executed": 32,
+    "failed": 0,
+    "modules": [
+      "test_documents_phase04",
+      "test_history_phase04",
+      "test_migration_phase04"
+    ]
+  },
+  "05_research": {
+    "executed": 16,
+    "failed": 0,
+    "modules": [
+      "test_research_phase05",
+      "test_knowledge_phase05"
+    ]
+  },
+  "06_release": {
+    "executed": 8,
+    "failed": 0,
+    "modules": [
+      "test_release_phase06"
+    ]
+  }
+}

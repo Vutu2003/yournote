@@ -1,4 +1,5 @@
 import type { Citation } from '../types/api'
+import { citationLocation } from '../types/citations'
 
 export function CitationList({ citations, label = 'Nguồn đã sử dụng', collapsed = true, onOpenCitation, sourceName }: {
   citations: Citation[]; label?: string; collapsed?: boolean; onOpenCitation?: (citation: Citation) => void; sourceName?: (filename: string) => string
@@ -10,13 +11,13 @@ export function CitationList({ citations, label = 'Nguồn đã sử dụng', co
         <summary title={citation.filename} onClick={() => onOpenCitation?.(citation)}>
           <span className="source-marker">[{citation.source_marker}]</span>
           <span className="citation-filename">{sourceName?.(citation.filename) || citation.filename}</span>
-          <span className="citation-page">tr. {citation.page}</span>
+          <span className="citation-page">{citationLocation(citation)}</span>
         </summary>
         <div className="citation-content">
           {citation.section && <p>{citation.section}</p>}
           <p className="prose">{citation.source_text || 'Không có trích đoạn.'}</p>
           {citation.chunk_id && <small>Mã đoạn: {citation.chunk_id}</small>}
-          {onOpenCitation && <button type="button" className="button subtle citation-open-pdf" onClick={() => onOpenCitation(citation)}>Mở PDF · trang {citation.page}</button>}
+          {onOpenCitation && <button type="button" className="button subtle citation-open-pdf" onClick={() => onOpenCitation(citation)}>Mở nguồn · {citationLocation(citation)}</button>}
         </div>
       </details>
     </li>)}

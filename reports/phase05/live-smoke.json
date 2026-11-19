@@ -1,0 +1,1237 @@
+{
+  "synthetic_material_only": true,
+  "requested_model": "gpt-6.1-terra",
+  "max_planned_model_calls": 7,
+  "prior_attempt": {
+    "completed_comparison_calls": 4,
+    "export_failed_before_proof_write": true,
+    "reason": "Fixed generation metadata passed into strict core export schema; mock regression added before rerun"
+  },
+  "automatic_repairs": 0,
+  "rows": [
+    {
+      "feature": "comparison",
+      "progress": [
+        {
+          "type": "progress",
+          "stage": "preparing",
+          "calls": 0
+        },
+        {
+          "type": "progress",
+          "stage": "plan",
+          "completed_steps": 0,
+          "total_steps": 4,
+          "source_count": 3,
+          "chunk_count": 9,
+          "planned_calls": 4
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 0,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "generating",
+          "calls": 1
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 1,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 1,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "generating",
+          "calls": 2
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 2,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 2,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "generating",
+          "calls": 3
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 3,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "synthesizing",
+          "completed_steps": 3,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "generating",
+          "calls": 4
+        },
+        {
+          "type": "progress",
+          "stage": "validating",
+          "completed_steps": 4,
+          "total_steps": 4
+        }
+      ],
+      "status": "completed",
+      "result": {
+        "schema_version": 1,
+        "scope": "filter",
+        "target": "Đối chiếu các khái niệm, điều kiện áp dụng và thông tin học tập giữa giáo trình, slide và ghi chú.",
+        "goal": "Đối chiếu các khái niệm, điều kiện áp dụng và thông tin học tập giữa giáo trình, slide và ghi chú.",
+        "sources": [
+          {
+            "filename": "textbook--6c1710b77487833c.docx",
+            "document_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14",
+            "document_version": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd",
+            "total_chunks": 4,
+            "examined_chunk_ids": [
+              "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000001:00f821f85a4c:0",
+              "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000002:a5882501003f:1",
+              "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000003:3c9865c4d5cb:2",
+              "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000004:6416efa1ee41:3"
+            ],
+            "coverage": "complete"
+          },
+          {
+            "filename": "slides--9024c3202ad306dd.pdf",
+            "document_id": "908304154ec2003c8967846c37d0a1c8a136bad2d4806f6ac9a3e39efe6e231c",
+            "document_version": "9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7",
+            "total_chunks": 1,
+            "examined_chunk_ids": [
+              "908304154ec2003c8967846c37d0a1c8a136bad2d4806f6ac9a3e39efe6e231c:9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7:1:5dd85e892f22:0"
+            ],
+            "coverage": "complete"
+          },
+          {
+            "filename": "notes--ac5273b411989a76.md",
+            "document_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c",
+            "document_version": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "total_chunks": 4,
+            "examined_chunk_ids": [
+              "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000001:586d1dabbbf9:0",
+              "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000002:baa46ac0347b:1",
+              "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000003:70d5f518c31b:2",
+              "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000004:ac9e65f1ba07:3"
+            ],
+            "coverage": "complete"
+          }
+        ],
+        "citations": [
+          {
+            "source_index": 2,
+            "source_marker": "S2",
+            "filename": "textbook--6c1710b77487833c.docx",
+            "document_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14",
+            "page": null,
+            "source_text": "Mean squared error (MSE) measures the average squared prediction error.",
+            "section": null,
+            "schema_version": 2,
+            "document_version": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000002",
+              "paragraph": 2,
+              "heading": []
+            },
+            "chunk_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000002:a5882501003f:1"
+          },
+          {
+            "source_index": 3,
+            "source_marker": "S3",
+            "filename": "textbook--6c1710b77487833c.docx",
+            "document_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14",
+            "page": null,
+            "source_text": "Gradient descent requires feature scaling for this course's exercises.",
+            "section": null,
+            "schema_version": 2,
+            "document_version": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000003",
+              "paragraph": 3,
+              "heading": []
+            },
+            "chunk_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000003:3c9865c4d5cb:2"
+          },
+          {
+            "source_index": 4,
+            "source_marker": "S4",
+            "filename": "textbook--6c1710b77487833c.docx",
+            "document_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14",
+            "page": null,
+            "source_text": "Assignment LAB-A is due on 18 April 2026 for Group A.",
+            "section": null,
+            "schema_version": 2,
+            "document_version": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000004",
+              "paragraph": 4,
+              "heading": []
+            },
+            "chunk_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000004:6416efa1ee41:3"
+          },
+          {
+            "source_index": 5,
+            "source_marker": "S5",
+            "filename": "slides--9024c3202ad306dd.pdf",
+            "document_id": "908304154ec2003c8967846c37d0a1c8a136bad2d4806f6ac9a3e39efe6e231c",
+            "page": 1,
+            "source_text": "Linear regression predicts a numerical target.\nMSE means mean squared error.\nDecision trees do not require feature scaling in this course.\nAssignment LAB-A is due on 21 April 2026 for Group A.\nGradient descent minimizes mean squared error.",
+            "section": null,
+            "schema_version": 2,
+            "document_version": "9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7",
+            "locator": {
+              "kind": "page",
+              "page": 1,
+              "anchor": null,
+              "paragraph": null,
+              "heading": []
+            },
+            "chunk_id": "908304154ec2003c8967846c37d0a1c8a136bad2d4806f6ac9a3e39efe6e231c:9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7:1:5dd85e892f22:0"
+          },
+          {
+            "source_index": 7,
+            "source_marker": "S7",
+            "filename": "notes--ac5273b411989a76.md",
+            "document_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c",
+            "page": null,
+            "source_text": "MSE (mean squared error) là trung bình bình phương sai số dự đoán.",
+            "section": "Ghi chú ôn tập",
+            "schema_version": 2,
+            "document_version": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000002",
+              "paragraph": 2,
+              "heading": [
+                "Ghi chú ôn tập"
+              ]
+            },
+            "chunk_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000002:baa46ac0347b:1"
+          },
+          {
+            "source_index": 8,
+            "source_marker": "S8",
+            "filename": "notes--ac5273b411989a76.md",
+            "document_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c",
+            "page": null,
+            "source_text": "Cần chuẩn hóa đặc trưng khi dùng gradient descent trong bài thực hành.",
+            "section": "Ghi chú ôn tập",
+            "schema_version": 2,
+            "document_version": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000003",
+              "paragraph": 3,
+              "heading": [
+                "Ghi chú ôn tập"
+              ]
+            },
+            "chunk_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000003:70d5f518c31b:2"
+          },
+          {
+            "source_index": 9,
+            "source_marker": "S9",
+            "filename": "notes--ac5273b411989a76.md",
+            "document_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c",
+            "page": null,
+            "source_text": "Quy tắc không cần chuẩn hóa trong slide áp dụng cho cây quyết định, không áp dụng cho gradient descent.",
+            "section": "Ghi chú ôn tập",
+            "schema_version": 2,
+            "document_version": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000004",
+              "paragraph": 4,
+              "heading": [
+                "Ghi chú ôn tập"
+              ]
+            },
+            "chunk_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000004:ac9e65f1ba07:3"
+          }
+        ],
+        "limits": [
+          "Bằng chứng được giới hạn trong các nguồn/đoạn đã xét; trích dẫn đúng vị trí không tự chứng minh mọi diễn giải là đúng.",
+          "Đã cung cấp tất cả chunk trong phạm vi chọn; vẫn cần đối chiếu nhận định quan trọng với trích đoạn gốc."
+        ],
+        "source_notes": [],
+        "kind": "comparison",
+        "criteria": [
+          {
+            "id": "c1",
+            "label": "Ý nghĩa MSE",
+            "sources": [
+              {
+                "criterion_id": "c1",
+                "status": "supported",
+                "statement": {
+                  "text": "MSE đo sai số dự đoán bình phương trung bình.",
+                  "evidence": [
+                    {
+                      "source_marker": "S2",
+                      "quote": "Mean squared error (MSE) measures the average squared prediction error."
+                    }
+                  ]
+                },
+                "limitation": "",
+                "filename": "textbook--6c1710b77487833c.docx"
+              },
+              {
+                "criterion_id": "c1",
+                "status": "supported",
+                "statement": {
+                  "text": "MSE là sai số bình phương trung bình.",
+                  "evidence": [
+                    {
+                      "source_marker": "S5",
+                      "quote": "MSE means mean squared error."
+                    }
+                  ]
+                },
+                "limitation": "",
+                "filename": "slides--9024c3202ad306dd.pdf"
+              },
+              {
+                "criterion_id": "c1",
+                "status": "supported",
+                "statement": {
+                  "text": "MSE là trung bình bình phương sai số dự đoán.",
+                  "evidence": [
+                    {
+                      "source_marker": "S7",
+                      "quote": "MSE (mean squared error) là trung bình bình phương sai số dự đoán."
+                    }
+                  ]
+                },
+                "limitation": "",
+                "filename": "notes--ac5273b411989a76.md"
+              }
+            ]
+          },
+          {
+            "id": "c2",
+            "label": "Điều kiện chuẩn hóa đặc trưng",
+            "sources": [
+              {
+                "criterion_id": "c2",
+                "status": "supported",
+                "statement": {
+                  "text": "Trong các bài tập của học phần này, gradient descent yêu cầu chuẩn hóa thang đo đặc trưng.",
+                  "evidence": [
+                    {
+                      "source_marker": "S3",
+                      "quote": "Gradient descent requires feature scaling for this course's exercises."
+                    }
+                  ]
+                },
+                "limitation": "",
+                "filename": "textbook--6c1710b77487833c.docx"
+              },
+              {
+                "criterion_id": "c2",
+                "status": "supported",
+                "statement": {
+                  "text": "Trong học phần này, cây quyết định không yêu cầu chuẩn hóa đặc trưng.",
+                  "evidence": [
+                    {
+                      "source_marker": "S5",
+                      "quote": "Decision trees do not require feature scaling in this course."
+                    }
+                  ]
+                },
+                "limitation": "",
+                "filename": "slides--9024c3202ad306dd.pdf"
+              },
+              {
+                "criterion_id": "c2",
+                "status": "supported",
+                "statement": {
+                  "text": "Cần chuẩn hóa đặc trưng khi dùng gradient descent trong bài thực hành; quy tắc không cần chuẩn hóa trong slide áp dụng cho cây quyết định, không áp dụng cho gradient descent.",
+                  "evidence": [
+                    {
+                      "source_marker": "S8",
+                      "quote": "Cần chuẩn hóa đặc trưng khi dùng gradient descent trong bài thực hành."
+                    },
+                    {
+                      "source_marker": "S9",
+                      "quote": "Quy tắc không cần chuẩn hóa trong slide áp dụng cho cây quyết định, không áp dụng cho gradient descent."
+                    }
+                  ]
+                },
+                "limitation": "",
+                "filename": "notes--ac5273b411989a76.md"
+              }
+            ]
+          },
+          {
+            "id": "c3",
+            "label": "Hạn nộp LAB-A cho nhóm A",
+            "sources": [
+              {
+                "criterion_id": "c3",
+                "status": "supported",
+                "statement": {
+                  "text": "Hạn nộp LAB-A cho nhóm A là ngày 18 tháng 4 năm 2026.",
+                  "evidence": [
+                    {
+                      "source_marker": "S4",
+                      "quote": "Assignment LAB-A is due on 18 April 2026 for Group A."
+                    }
+                  ]
+                },
+                "limitation": "",
+                "filename": "textbook--6c1710b77487833c.docx"
+              },
+              {
+                "criterion_id": "c3",
+                "status": "supported",
+                "statement": {
+                  "text": "Hạn nộp LAB-A cho nhóm A là ngày 21 tháng 4 năm 2026.",
+                  "evidence": [
+                    {
+                      "source_marker": "S5",
+                      "quote": "Assignment LAB-A is due on 21 April 2026 for Group A."
+                    }
+                  ]
+                },
+                "limitation": "",
+                "filename": "slides--9024c3202ad306dd.pdf"
+              },
+              {
+                "criterion_id": "c3",
+                "status": "not_found",
+                "statement": null,
+                "limitation": "Chưa tìm thấy trong các đoạn đã xét: hạn nộp LAB-A cho nhóm A.",
+                "filename": "notes--ac5273b411989a76.md"
+              }
+            ]
+          },
+          {
+            "id": "c4",
+            "label": "Chi phí học phần",
+            "sources": [
+              {
+                "criterion_id": "c4",
+                "status": "not_found",
+                "statement": null,
+                "limitation": "Chưa tìm thấy trong các đoạn đã xét thông tin về chi phí học phần.",
+                "filename": "textbook--6c1710b77487833c.docx"
+              },
+              {
+                "criterion_id": "c4",
+                "status": "not_found",
+                "statement": null,
+                "limitation": "Chưa tìm thấy trong các đoạn đã xét thông tin về chi phí học phần.",
+                "filename": "slides--9024c3202ad306dd.pdf"
+              },
+              {
+                "criterion_id": "c4",
+                "status": "not_found",
+                "statement": null,
+                "limitation": "Chưa tìm thấy trong các đoạn đã xét: chi phí học phần.",
+                "filename": "notes--ac5273b411989a76.md"
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "criterion_id": "c1",
+            "kind": "agreement",
+            "statement": {
+              "text": "Giáo trình và ghi chú thống nhất rằng MSE đo trung bình bình phương sai số dự đoán; slide nêu tên đầy đủ là mean squared error.",
+              "evidence": [
+                {
+                  "source_marker": "S2",
+                  "quote": "Mean squared error (MSE) measures the average squared prediction error."
+                },
+                {
+                  "source_marker": "S7",
+                  "quote": "MSE (mean squared error) là trung bình bình phương sai số dự đoán."
+                },
+                {
+                  "source_marker": "S5",
+                  "quote": "MSE means mean squared error."
+                }
+              ]
+            }
+          },
+          {
+            "criterion_id": "c2",
+            "kind": "different_conditions",
+            "statement": {
+              "text": "Các nhận định áp dụng cho thuật toán khác nhau: giáo trình và ghi chú yêu cầu chuẩn hóa khi dùng gradient descent trong bài tập hoặc bài thực hành, còn slide nói cây quyết định không yêu cầu chuẩn hóa trong học phần.",
+              "evidence": [
+                {
+                  "source_marker": "S3",
+                  "quote": "Gradient descent requires feature scaling for this course's exercises."
+                },
+                {
+                  "source_marker": "S8",
+                  "quote": "Cần chuẩn hóa đặc trưng khi dùng gradient descent trong bài thực hành."
+                },
+                {
+                  "source_marker": "S5",
+                  "quote": "Decision trees do not require feature scaling in this course."
+                },
+                {
+                  "source_marker": "S9",
+                  "quote": "Quy tắc không cần chuẩn hóa trong slide áp dụng cho cây quyết định, không áp dụng cho gradient descent."
+                }
+              ]
+            }
+          },
+          {
+            "criterion_id": "c3",
+            "kind": "direct_conflict",
+            "statement": {
+              "text": "Với cùng bài LAB-A và nhóm A, giáo trình ghi hạn nộp là ngày 18 tháng 4 năm 2026, còn slide ghi ngày 21 tháng 4 năm 2026.",
+              "evidence": [
+                {
+                  "source_marker": "S4",
+                  "quote": "Assignment LAB-A is due on 18 April 2026 for Group A."
+                },
+                {
+                  "source_marker": "S5",
+                  "quote": "Assignment LAB-A is due on 21 April 2026 for Group A."
+                }
+              ]
+            }
+          }
+        ],
+        "conclusion": [
+          {
+            "text": "MSE được giáo trình và ghi chú mô tả nhất quán; điều kiện chuẩn hóa cần được xét theo thuật toán và bối cảnh bài học.",
+            "evidence": [
+              {
+                "source_marker": "S2",
+                "quote": "Mean squared error (MSE) measures the average squared prediction error."
+              },
+              {
+                "source_marker": "S7",
+                "quote": "MSE (mean squared error) là trung bình bình phương sai số dự đoán."
+              },
+              {
+                "source_marker": "S3",
+                "quote": "Gradient descent requires feature scaling for this course's exercises."
+              },
+              {
+                "source_marker": "S5",
+                "quote": "Decision trees do not require feature scaling in this course."
+              }
+            ]
+          },
+          {
+            "text": "Hai nguồn đưa ra hạn nộp khác nhau cho LAB-A của nhóm A, nên chưa thể xác định hạn nộp từ các bằng chứng này.",
+            "evidence": [
+              {
+                "source_marker": "S4",
+                "quote": "Assignment LAB-A is due on 18 April 2026 for Group A."
+              },
+              {
+                "source_marker": "S5",
+                "quote": "Assignment LAB-A is due on 21 April 2026 for Group A."
+              }
+            ]
+          }
+        ],
+        "generation": {
+          "provider": "chatgpt",
+          "reasoning_effort": null,
+          "requested_model": "gpt-6.1-terra",
+          "model": "gpt-6.1-terra",
+          "actual_models": [
+            "gpt-6.1-terra"
+          ],
+          "created_at": "2026-11-18T14:54:19.128445+00:00",
+          "status": "completed",
+          "request_id": "78bf5eb6-d521-4bae-bf42-68b84da4b5e2",
+          "notebook_id": "4597a178-c711-463a-9d13-34e96214c107",
+          "source_versions": {
+            "notes--ac5273b411989a76.md": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "slides--9024c3202ad306dd.pdf": "9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7",
+            "textbook--6c1710b77487833c.docx": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd"
+          },
+          "source_filenames": [
+            "textbook--6c1710b77487833c.docx",
+            "slides--9024c3202ad306dd.pdf",
+            "notes--ac5273b411989a76.md"
+          ],
+          "pages": [],
+          "calls": 4,
+          "duration_seconds": 35.77283090399942,
+          "usage": {
+            "input_tokens": 3110,
+            "output_tokens": 1377,
+            "total_tokens": 4487
+          }
+        }
+      },
+      "persisted_roundtrip": true
+    },
+    {
+      "feature": "graph",
+      "progress": [
+        {
+          "type": "progress",
+          "stage": "preparing",
+          "calls": 0
+        },
+        {
+          "type": "progress",
+          "stage": "plan",
+          "completed_steps": 0,
+          "total_steps": 4,
+          "source_count": 3,
+          "chunk_count": 9,
+          "planned_calls": 3
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 0,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "generating",
+          "calls": 1
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 1,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 1,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "generating",
+          "calls": 2
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 2,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 2,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "generating",
+          "calls": 3
+        },
+        {
+          "type": "progress",
+          "stage": "examining",
+          "completed_steps": 3,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "building_graph",
+          "completed_steps": 3,
+          "total_steps": 4
+        },
+        {
+          "type": "progress",
+          "stage": "validating",
+          "completed_steps": 4,
+          "total_steps": 4
+        }
+      ],
+      "status": "completed",
+      "result": {
+        "schema_version": 1,
+        "scope": "filter",
+        "target": "Liên kết MSE, sai số dự đoán, hồi quy tuyến tính, gradient descent và chuẩn hóa đặc trưng; chỉ quan hệ được nêu rõ trong nguồn.",
+        "goal": "Liên kết MSE, sai số dự đoán, hồi quy tuyến tính, gradient descent và chuẩn hóa đặc trưng; chỉ quan hệ được nêu rõ trong nguồn.",
+        "sources": [
+          {
+            "filename": "textbook--6c1710b77487833c.docx",
+            "document_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14",
+            "document_version": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd",
+            "total_chunks": 4,
+            "examined_chunk_ids": [
+              "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000001:00f821f85a4c:0",
+              "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000002:a5882501003f:1",
+              "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000003:3c9865c4d5cb:2",
+              "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000004:6416efa1ee41:3"
+            ],
+            "coverage": "complete"
+          },
+          {
+            "filename": "slides--9024c3202ad306dd.pdf",
+            "document_id": "908304154ec2003c8967846c37d0a1c8a136bad2d4806f6ac9a3e39efe6e231c",
+            "document_version": "9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7",
+            "total_chunks": 1,
+            "examined_chunk_ids": [
+              "908304154ec2003c8967846c37d0a1c8a136bad2d4806f6ac9a3e39efe6e231c:9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7:1:5dd85e892f22:0"
+            ],
+            "coverage": "complete"
+          },
+          {
+            "filename": "notes--ac5273b411989a76.md",
+            "document_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c",
+            "document_version": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "total_chunks": 4,
+            "examined_chunk_ids": [
+              "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000001:586d1dabbbf9:0",
+              "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000002:baa46ac0347b:1",
+              "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000003:70d5f518c31b:2",
+              "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000004:ac9e65f1ba07:3"
+            ],
+            "coverage": "complete"
+          }
+        ],
+        "citations": [
+          {
+            "source_index": 1,
+            "source_marker": "S1",
+            "filename": "textbook--6c1710b77487833c.docx",
+            "document_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14",
+            "page": null,
+            "source_text": "Linear regression is a supervised learning model that predicts a numerical target.",
+            "section": null,
+            "schema_version": 2,
+            "document_version": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000001",
+              "paragraph": 1,
+              "heading": []
+            },
+            "chunk_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000001:00f821f85a4c:0"
+          },
+          {
+            "source_index": 2,
+            "source_marker": "S2",
+            "filename": "textbook--6c1710b77487833c.docx",
+            "document_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14",
+            "page": null,
+            "source_text": "Mean squared error (MSE) measures the average squared prediction error.",
+            "section": null,
+            "schema_version": 2,
+            "document_version": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000002",
+              "paragraph": 2,
+              "heading": []
+            },
+            "chunk_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000002:a5882501003f:1"
+          },
+          {
+            "source_index": 3,
+            "source_marker": "S3",
+            "filename": "textbook--6c1710b77487833c.docx",
+            "document_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14",
+            "page": null,
+            "source_text": "Gradient descent requires feature scaling for this course's exercises.",
+            "section": null,
+            "schema_version": 2,
+            "document_version": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000003",
+              "paragraph": 3,
+              "heading": []
+            },
+            "chunk_id": "a73b32117e8681a7f2c6e28624f2d0a4251a8be80069be4e3b2f3e848cb39f14:6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd:b000003:3c9865c4d5cb:2"
+          },
+          {
+            "source_index": 5,
+            "source_marker": "S5",
+            "filename": "slides--9024c3202ad306dd.pdf",
+            "document_id": "908304154ec2003c8967846c37d0a1c8a136bad2d4806f6ac9a3e39efe6e231c",
+            "page": 1,
+            "source_text": "Linear regression predicts a numerical target.\nMSE means mean squared error.\nDecision trees do not require feature scaling in this course.\nAssignment LAB-A is due on 21 April 2026 for Group A.\nGradient descent minimizes mean squared error.",
+            "section": null,
+            "schema_version": 2,
+            "document_version": "9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7",
+            "locator": {
+              "kind": "page",
+              "page": 1,
+              "anchor": null,
+              "paragraph": null,
+              "heading": []
+            },
+            "chunk_id": "908304154ec2003c8967846c37d0a1c8a136bad2d4806f6ac9a3e39efe6e231c:9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7:1:5dd85e892f22:0"
+          },
+          {
+            "source_index": 7,
+            "source_marker": "S7",
+            "filename": "notes--ac5273b411989a76.md",
+            "document_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c",
+            "page": null,
+            "source_text": "MSE (mean squared error) là trung bình bình phương sai số dự đoán.",
+            "section": "Ghi chú ôn tập",
+            "schema_version": 2,
+            "document_version": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000002",
+              "paragraph": 2,
+              "heading": [
+                "Ghi chú ôn tập"
+              ]
+            },
+            "chunk_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000002:baa46ac0347b:1"
+          },
+          {
+            "source_index": 8,
+            "source_marker": "S8",
+            "filename": "notes--ac5273b411989a76.md",
+            "document_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c",
+            "page": null,
+            "source_text": "Cần chuẩn hóa đặc trưng khi dùng gradient descent trong bài thực hành.",
+            "section": "Ghi chú ôn tập",
+            "schema_version": 2,
+            "document_version": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000003",
+              "paragraph": 3,
+              "heading": [
+                "Ghi chú ôn tập"
+              ]
+            },
+            "chunk_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000003:70d5f518c31b:2"
+          },
+          {
+            "source_index": 9,
+            "source_marker": "S9",
+            "filename": "notes--ac5273b411989a76.md",
+            "document_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c",
+            "page": null,
+            "source_text": "Quy tắc không cần chuẩn hóa trong slide áp dụng cho cây quyết định, không áp dụng cho gradient descent.",
+            "section": "Ghi chú ôn tập",
+            "schema_version": 2,
+            "document_version": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "locator": {
+              "kind": "paragraph",
+              "page": null,
+              "anchor": "b000004",
+              "paragraph": 4,
+              "heading": [
+                "Ghi chú ôn tập"
+              ]
+            },
+            "chunk_id": "05f549037edba6ff621bd96a92cda8d6e2e6f122ac1db61fa37d9dc24af9869c:ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c:b000004:ac9e65f1ba07:3"
+          }
+        ],
+        "limits": [
+          "Bằng chứng được giới hạn trong các nguồn/đoạn đã xét; trích dẫn đúng vị trí không tự chứng minh mọi diễn giải là đúng.",
+          "Đã cung cấp tất cả chunk trong phạm vi chọn; vẫn cần đối chiếu nhận định quan trọng với trích đoạn gốc.",
+          "Chỉ gộp khái niệm khi cùng khóa nghĩa và trùng tên/alias có trong nguồn; khái niệm có thể còn trùng nếu chưa chắc đồng nghĩa."
+        ],
+        "source_notes": [
+          {
+            "filename": "textbook--6c1710b77487833c.docx",
+            "status": "evidence",
+            "detail": "Có 3 quan hệ đủ trích đoạn kiểm chứng."
+          },
+          {
+            "filename": "slides--9024c3202ad306dd.pdf",
+            "status": "evidence",
+            "detail": "Có 1 quan hệ đủ trích đoạn kiểm chứng."
+          },
+          {
+            "filename": "notes--ac5273b411989a76.md",
+            "status": "evidence",
+            "detail": "Có 3 quan hệ đủ trích đoạn kiểm chứng."
+          }
+        ],
+        "kind": "graph",
+        "nodes": [
+          {
+            "id": "n1",
+            "label": "Hồi quy tuyến tính",
+            "meaning_key": "linear_regression",
+            "aliases": [
+              "Linear regression",
+              "Hồi quy tuyến tính"
+            ],
+            "definition": {
+              "text": "Một mô hình học có giám sát dự đoán mục tiêu dạng số.",
+              "evidence": [
+                {
+                  "source_marker": "S1",
+                  "quote": "Linear regression is a supervised learning model that predicts a numerical target."
+                },
+                {
+                  "source_marker": "S5",
+                  "quote": "Linear regression predicts a numerical target."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n2",
+            "label": "Mục tiêu dạng số",
+            "meaning_key": "numerical_target",
+            "aliases": [
+              "numerical target"
+            ],
+            "definition": {
+              "text": "Đại lượng dạng số được hồi quy tuyến tính dự đoán.",
+              "evidence": [
+                {
+                  "source_marker": "S1",
+                  "quote": "Linear regression is a supervised learning model that predicts a numerical target."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n3",
+            "label": "Sai số bình phương trung bình",
+            "meaning_key": "mean_squared_error",
+            "aliases": [
+              "Mean squared error",
+              "MSE",
+              "Sai số bình phương trung bình",
+              "mean squared error"
+            ],
+            "definition": {
+              "text": "Thước đo trung bình của sai số dự đoán bình phương.",
+              "evidence": [
+                {
+                  "source_marker": "S2",
+                  "quote": "Mean squared error (MSE) measures the average squared prediction error."
+                },
+                {
+                  "source_marker": "S5",
+                  "quote": "MSE means mean squared error."
+                },
+                {
+                  "source_marker": "S7",
+                  "quote": "MSE (mean squared error) là trung bình bình phương sai số dự đoán."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n4",
+            "label": "Sai số dự đoán bình phương",
+            "meaning_key": "squared_prediction_error",
+            "aliases": [
+              "squared prediction error"
+            ],
+            "definition": {
+              "text": "Đại lượng có giá trị trung bình được đo bằng MSE.",
+              "evidence": [
+                {
+                  "source_marker": "S2",
+                  "quote": "Mean squared error (MSE) measures the average squared prediction error."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n5",
+            "label": "Gradient descent",
+            "meaning_key": "gradient_descent",
+            "aliases": [
+              "Gradient descent",
+              "gradient descent"
+            ],
+            "definition": {
+              "text": "Phương pháp yêu cầu chuẩn hóa đặc trưng trong các bài tập của khóa học này.",
+              "evidence": [
+                {
+                  "source_marker": "S3",
+                  "quote": "Gradient descent requires feature scaling for this course's exercises."
+                },
+                {
+                  "source_marker": "S5",
+                  "quote": "Gradient descent minimizes mean squared error."
+                },
+                {
+                  "source_marker": "S8",
+                  "quote": "Cần chuẩn hóa đặc trưng khi dùng gradient descent trong bài thực hành."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n6",
+            "label": "Chuẩn hóa đặc trưng",
+            "meaning_key": "feature_scaling",
+            "aliases": [
+              "feature scaling",
+              "Chuẩn hóa đặc trưng"
+            ],
+            "definition": {
+              "text": "Điều được gradient descent yêu cầu trong các bài tập của khóa học này.",
+              "evidence": [
+                {
+                  "source_marker": "S3",
+                  "quote": "Gradient descent requires feature scaling for this course's exercises."
+                },
+                {
+                  "source_marker": "S5",
+                  "quote": "Decision trees do not require feature scaling in this course."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n7",
+            "label": "Cây quyết định",
+            "meaning_key": "decision_trees",
+            "aliases": [
+              "Decision trees"
+            ],
+            "definition": {
+              "text": "Trong khóa học này, cây quyết định không yêu cầu chuẩn hóa đặc trưng.",
+              "evidence": [
+                {
+                  "source_marker": "S5",
+                  "quote": "Decision trees do not require feature scaling in this course."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n8",
+            "label": "sai số dự đoán",
+            "meaning_key": "prediction_error",
+            "aliases": [
+              "sai số dự đoán"
+            ],
+            "definition": {
+              "text": "Sai số dự đoán là đại lượng được bình phương và lấy trung bình trong MSE.",
+              "evidence": [
+                {
+                  "source_marker": "S7",
+                  "quote": "MSE (mean squared error) là trung bình bình phương sai số dự đoán."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n9",
+            "label": "chuẩn hóa đặc trưng",
+            "meaning_key": "feature_normalization",
+            "aliases": [
+              "chuẩn hóa đặc trưng"
+            ],
+            "definition": {
+              "text": "Chuẩn hóa đặc trưng là việc cần làm khi dùng gradient descent trong bài thực hành.",
+              "evidence": [
+                {
+                  "source_marker": "S8",
+                  "quote": "Cần chuẩn hóa đặc trưng khi dùng gradient descent trong bài thực hành."
+                }
+              ]
+            }
+          },
+          {
+            "id": "n10",
+            "label": "cây quyết định",
+            "meaning_key": "decision_tree",
+            "aliases": [
+              "cây quyết định"
+            ],
+            "definition": {
+              "text": "Cây quyết định là đối tượng được áp dụng quy tắc không cần chuẩn hóa trong slide.",
+              "evidence": [
+                {
+                  "source_marker": "S9",
+                  "quote": "Quy tắc không cần chuẩn hóa trong slide áp dụng cho cây quyết định, không áp dụng cho gradient descent."
+                }
+              ]
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e1",
+            "source": "n1",
+            "target": "n2",
+            "relation": "predicts",
+            "statement": {
+              "text": "Hồi quy tuyến tính dự đoán một mục tiêu dạng số.",
+              "evidence": [
+                {
+                  "source_marker": "S1",
+                  "quote": "Linear regression is a supervised learning model that predicts a numerical target."
+                }
+              ]
+            }
+          },
+          {
+            "id": "e2",
+            "source": "n3",
+            "target": "n4",
+            "relation": "measures",
+            "statement": {
+              "text": "MSE đo trung bình của sai số dự đoán bình phương.",
+              "evidence": [
+                {
+                  "source_marker": "S2",
+                  "quote": "Mean squared error (MSE) measures the average squared prediction error."
+                }
+              ]
+            }
+          },
+          {
+            "id": "e3",
+            "source": "n5",
+            "target": "n6",
+            "relation": "requires",
+            "statement": {
+              "text": "Gradient descent yêu cầu chuẩn hóa đặc trưng trong các bài tập của khóa học này.",
+              "evidence": [
+                {
+                  "source_marker": "S3",
+                  "quote": "Gradient descent requires feature scaling for this course's exercises."
+                }
+              ]
+            }
+          },
+          {
+            "id": "e4",
+            "source": "n5",
+            "target": "n3",
+            "relation": "optimizes",
+            "statement": {
+              "text": "Gradient descent tối thiểu hóa MSE.",
+              "evidence": [
+                {
+                  "source_marker": "S5",
+                  "quote": "Gradient descent minimizes mean squared error."
+                }
+              ]
+            }
+          },
+          {
+            "id": "e5",
+            "source": "n3",
+            "target": "n8",
+            "relation": "measures",
+            "statement": {
+              "text": "MSE biểu thị trung bình bình phương sai số dự đoán.",
+              "evidence": [
+                {
+                  "source_marker": "S7",
+                  "quote": "MSE (mean squared error) là trung bình bình phương sai số dự đoán."
+                }
+              ]
+            }
+          },
+          {
+            "id": "e6",
+            "source": "n5",
+            "target": "n9",
+            "relation": "requires",
+            "statement": {
+              "text": "Trong bài thực hành, dùng gradient descent cần chuẩn hóa đặc trưng.",
+              "evidence": [
+                {
+                  "source_marker": "S8",
+                  "quote": "Cần chuẩn hóa đặc trưng khi dùng gradient descent trong bài thực hành."
+                }
+              ]
+            }
+          },
+          {
+            "id": "e7",
+            "source": "n10",
+            "target": "n5",
+            "relation": "contrasts_with",
+            "statement": {
+              "text": "Quy tắc không cần chuẩn hóa trong slide áp dụng cho cây quyết định nhưng không áp dụng cho gradient descent.",
+              "evidence": [
+                {
+                  "source_marker": "S9",
+                  "quote": "Quy tắc không cần chuẩn hóa trong slide áp dụng cho cây quyết định, không áp dụng cho gradient descent."
+                }
+              ]
+            }
+          }
+        ],
+        "discarded_relations": 0,
+        "merge_policy": "same_meaning_and_documented_name",
+        "generation": {
+          "provider": "chatgpt",
+          "reasoning_effort": null,
+          "requested_model": "gpt-6.1-terra",
+          "model": "gpt-6.1-terra",
+          "actual_models": [
+            "gpt-6.1-terra"
+          ],
+          "created_at": "2026-11-18T14:55:10.108205+00:00",
+          "status": "completed",
+          "request_id": "c7bf69a9-0602-41eb-9af5-b8bee13ffa48",
+          "notebook_id": "4597a178-c711-463a-9d13-34e96214c107",
+          "source_versions": {
+            "notes--ac5273b411989a76.md": "ac5273b411989a769e2f278b56c3bf7c9e6fcf18656b68f37966787d0410f25c",
+            "slides--9024c3202ad306dd.pdf": "9024c3202ad306dd07ea4a476c5af04777e59b241ccddc49eea45009f4fe40b7",
+            "textbook--6c1710b77487833c.docx": "6c1710b77487833c55e44a7c93f0c629985963b3360508a3bc9f5e50a21600fd"
+          },
+          "source_filenames": [
+            "textbook--6c1710b77487833c.docx",
+            "slides--9024c3202ad306dd.pdf",
+            "notes--ac5273b411989a76.md"
+          ],
+          "pages": [],
+          "calls": 3,
+          "duration_seconds": 50.9619522139983,
+          "usage": {
+            "input_tokens": 2242,
+            "output_tokens": 2212,
+            "total_tokens": 4454
+          }
+        }
+      },
+      "persisted_roundtrip": true
+    }
+  ]
+}

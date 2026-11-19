@@ -2,6 +2,9 @@ import type { CSSProperties } from 'react'
 import { APP_NAME } from '../brand'
 
 const paths = {
+  compare: <><rect x="2" y="4" width="8" height="16" rx="2" /><rect x="14" y="4" width="8" height="16" rx="2" /><path d="M5 9h2M5 13h2M17 9h2M17 13h2" /></>,
+  report: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8ZM14 2v6h6M8 12h8M8 16h8M8 19h4" /></>,
+  graph: <><circle cx="5" cy="6" r="3" /><circle cx="19" cy="7" r="3" /><circle cx="12" cy="19" r="3" /><path d="m8 6 8 1M7 9l4 7M17 10l-4 6" /></>,
   mindmap: <><rect x="2" y="9" width="6" height="6" rx="1.5" /><rect x="16" y="2" width="6" height="5" rx="1.5" /><rect x="16" y="9.5" width="6" height="5" rx="1.5" /><rect x="16" y="17" width="6" height="5" rx="1.5" /><path d="M8 12h4m0-7.5v15M12 4.5h4M12 12h4m-4 7.5h4" /></>,
   settings: <><path d="m9.5 3-.6 2.2-1.6.9-2.2-.6-2.5 4.3 1.6 1.6v1.8l-1.6 1.6 2.5 4.3 2.2-.6 1.6.9.6 2.2h5l.6-2.2 1.6-.9 2.2.6 2.5-4.3-1.6-1.6v-1.8l1.6-1.6-2.5-4.3-2.2.6-1.6-.9-.6-2.2Z" /><circle cx="12" cy="12" r="3" /></>,
   copy: <><rect x="8" y="8" width="12" height="13" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3" /></>,

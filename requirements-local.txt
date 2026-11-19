@@ -1,0 +1,21 @@
+# React/FastAPI localhost application. Exact tested versions are constraints below.
+-c requirements-local.lock
+jinja2
+loguru
+pydantic
+pydantic-settings
+python-dotenv
+pypdf
+qdrant-client
+langchain-core
+langchain-community
+langchain-text-splitters
+langchain-qdrant
+google-genai
+sentence-transformers
+fastapi
+uvicorn
+python-multipart
+httpx
+PyJWT[crypto]
+keyring

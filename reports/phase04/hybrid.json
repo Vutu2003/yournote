@@ -1,0 +1,285 @@
+{
+  "mode": "hybrid",
+  "fixture_sha256": "a74035280dd957478e5d538a02e2118d10df4dc9a4c4ad8c49c8fa080cf177de",
+  "rag_code_sha256": "23faf434e2e2935ed52714eebdba7ab9ff18bbdf48a89e097e2641edd6455724",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "chunks": 24,
+  "queries": 16,
+  "k": 3,
+  "repetitions": 3,
+  "cold_load_and_index_seconds": 1.3117616569979873,
+  "hit_at_1": 0.8571428571428571,
+  "recall_at_3": 1.0,
+  "scope_leaks": 0,
+  "median_latency_ms": 8.289420500659617,
+  "llm_calls": 0,
+  "rows": [
+    {
+      "id": "exact_assignment",
+      "kind": "answerable",
+      "expected": [
+        "course_rules:1:0"
+      ],
+      "returned": [
+        "course_rules:1:0",
+        "course_rules:6:0",
+        "course_rules:2:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.463370002573356,
+      "calls": 0
+    },
+    {
+      "id": "other_assignment",
+      "kind": "answerable",
+      "expected": [
+        "course_rules:4:0"
+      ],
+      "returned": [
+        "course_rules:1:0",
+        "course_rules:2:0",
+        "course_rules:4:0"
+      ],
+      "hit_at_1": 0,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.928920000471408,
+      "calls": 0
+    },
+    {
+      "id": "group_limit",
+      "kind": "answerable",
+      "expected": [
+        "course_rules:3:0"
+      ],
+      "returned": [
+        "course_rules:3:0",
+        "course_rules:2:0",
+        "course_rules:5:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.174200000212295,
+      "calls": 0
+    },
+    {
+      "id": "rubric",
+      "kind": "answerable",
+      "expected": [
+        "course_rules:7:0"
+      ],
+      "returned": [
+        "course_rules:7:0",
+        "course_rules:2:0",
+        "course_rules:6:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.383991997106932,
+      "calls": 0
+    },
+    {
+      "id": "device_exact",
+      "kind": "answerable",
+      "expected": [
+        "lab_handbook:2:0"
+      ],
+      "returned": [
+        "lab_handbook:2:0",
+        "lab_handbook:3:0",
+        "lab_handbook:4:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.055963000515476,
+      "calls": 0
+    },
+    {
+      "id": "device_variant",
+      "kind": "answerable",
+      "expected": [
+        "lab_handbook:4:0"
+      ],
+      "returned": [
+        "lab_handbook:4:0",
+        "lab_handbook:3:0",
+        "lab_handbook:2:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 7.950150000397116,
+      "calls": 0
+    },
+    {
+      "id": "semantic_translation",
+      "kind": "answerable",
+      "expected": [
+        "linear_algebra:1:0"
+      ],
+      "returned": [
+        "linear_algebra:2:0",
+        "linear_algebra:1:0",
+        "linear_algebra:4:0"
+      ],
+      "hit_at_1": 0,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.320695000293199,
+      "calls": 0
+    },
+    {
+      "id": "semantic_singular",
+      "kind": "answerable",
+      "expected": [
+        "linear_algebra:3:0"
+      ],
+      "returned": [
+        "linear_algebra:3:0",
+        "linear_algebra:4:0",
+        "linear_algebra:1:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 7.91971099897637,
+      "calls": 0
+    },
+    {
+      "id": "safety",
+      "kind": "answerable",
+      "expected": [
+        "lab_handbook:1:0"
+      ],
+      "returned": [
+        "lab_handbook:1:0",
+        "lab_handbook:2:0",
+        "lab_handbook:3:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.357243998034392,
+      "calls": 0
+    },
+    {
+      "id": "conflict",
+      "kind": "conflict",
+      "expected": [
+        "exam_guide_a:1:0",
+        "exam_guide_b:1:0"
+      ],
+      "returned": [
+        "exam_guide_a:1:0",
+        "exam_guide_b:1:0",
+        "exam_guide_a:2:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.258146001026034,
+      "calls": 0
+    },
+    {
+      "id": "study",
+      "kind": "answerable",
+      "expected": [
+        "study_notes:2:0"
+      ],
+      "returned": [
+        "study_notes:2:0",
+        "study_notes:3:0",
+        "study_notes:4:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 7.950407998578157,
+      "calls": 0
+    },
+    {
+      "id": "injection",
+      "kind": "injection",
+      "expected": [
+        "study_notes:4:0"
+      ],
+      "returned": [
+        "study_notes:4:0",
+        "study_notes:1:0",
+        "study_notes:3:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.527927002432989,
+      "calls": 0
+    },
+    {
+      "id": "insufficient",
+      "kind": "insufficient",
+      "expected": [],
+      "returned": [
+        "course_rules:1:0",
+        "course_rules:3:0",
+        "course_rules:6:0"
+      ],
+      "hit_at_1": 0,
+      "recall_at_3": null,
+      "scope_leaks": 0,
+      "latency_ms": 9.12948699988192,
+      "calls": 0
+    },
+    {
+      "id": "followup",
+      "kind": "followup",
+      "expected": [
+        "course_rules:1:0"
+      ],
+      "returned": [
+        "course_rules:1:0",
+        "course_rules:6:0",
+        "course_rules:2:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 8.467980998830171,
+      "calls": 0
+    },
+    {
+      "id": "page_scope",
+      "kind": "answerable",
+      "expected": [
+        "exam_guide_a:1:0"
+      ],
+      "returned": [
+        "exam_guide_a:1:0"
+      ],
+      "hit_at_1": 1,
+      "recall_at_3": 1.0,
+      "scope_leaks": 0,
+      "latency_ms": 7.860060999519192,
+      "calls": 0
+    },
+    {
+      "id": "strict_selection",
+      "kind": "insufficient",
+      "expected": [],
+      "returned": [
+        "linear_algebra:3:0",
+        "linear_algebra:4:0",
+        "linear_algebra:2:0"
+      ],
+      "hit_at_1": 0,
+      "recall_at_3": null,
+      "scope_leaks": 0,
+      "latency_ms": 8.062914999754867,
+      "calls": 0
+    }
+  ]
+}

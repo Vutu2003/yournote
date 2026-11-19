@@ -11,19 +11,20 @@ Run from the project root:
 Open http://127.0.0.1:5173 to see the notebook home. Create a notebook or open
 an existing one to use Sources, Chat, and Studio (Summary, Quiz, Flashcards, Mind Map, Notes).
 Each notebook saves its own source membership, selected pages, conversation,
-and generated results. Add existing PDFs with **Thêm từ thư viện**, or upload
-a new PDF. Page filtering is available when exactly one PDF is selected.
+and generated results. Add documents with **Thêm từ thư viện**, or upload
+PDF, DOCX, Markdown or UTF-8 TXT (up to 25 MiB). Page filtering is available
+when exactly one PDF is selected; text formats use paragraph/heading anchors.
 Run one FastAPI worker for embedded Qdrant.
 
 Each source has a separate **Đã đọc** checkbox. This tracks reading progress
 independently of the source selection used for Chat/Studio and the page filter.
-Use **Tất cả / Chưa đọc / Đã đọc** to filter the list. Opening a PDF in deep
-reading also marks it as read; the status can be unchecked manually. Read flags
-are per notebook and are cleared when the source is detached from that notebook.
+Use **Tất cả / Chưa đọc / Đã đọc** to filter the list. Check or uncheck **Đã đọc**
+to update a source's reading status. Read flags are per notebook and are
+cleared when the source is detached from that notebook.
 
 Studio's **Ghi chú** section supports manual notes with titles and plain-text
 content, creating/editing/deleting notes, and an expanded editor. Notes need no
-selected source and make no Gemini requests. Notes and read flags autosave in
+selected source and make no AI requests. Notes and read flags autosave in
 the notebook workspace, survive reopening/reloading, and are isolated between
 notebooks. Each notebook supports up to 100 notes, with 160-character titles
 and 100,000-character bodies. Old notebooks default to empty notes/read flags.
@@ -42,15 +43,21 @@ Reset waits for pending workspace saves and is disabled during active work.
 Canceling settings leaves saved content intact; normal use keeps autosaving.
 
 Notebooks are saved automatically in `storage/notebooks.sqlite` alongside the
-existing Qdrant directory. Back up both the database and `data/`/`storage/qdrant/`
-to retain notebooks and their documents. This is a local workspace without
+existing Qdrant directory. Use the offline Phase 04 migration/backup tool to
+keep notebooks.sqlite, documents.sqlite, data/ and storage/qdrant/ consistent;
+stop the backend before backup or rollback. See ../reports/phase04/migration.md. This is a local workspace without
 multi-user authentication. View and theme preferences use browser local storage.
 
 Use the sun/moon button in the home header to choose light or dark mode. The
 selected palette also applies to the notebook workspace, viewers, and dialogs,
-and is restored before the next page renders. On desktop, the source and Studio
+and is restored before the next page renders. The interface uses larger text
+(17–18px reading text, 14–16px main controls), a charcoal/crimson dark palette,
+and subtle translucent surfaces and shadows. Text uses relative font sizes so
+browser font preferences still apply. On desktop, the source and Studio
 panels can be collapsed to make more room for the conversation. On mobile, use
 the Sources/Chat/Studio tabs to move between panels without losing their state.
+The tab layout also applies to screens up to 1100px wide to keep larger text
+from squeezing three panels together. Original PDF text keeps its own layout.
 Drag the separators beside Sources and Studio to resize either panel. Widths
 are remembered in browser local storage and adapt to the available space while
 reserving room for Chat. Double-click a separator to reset that side; focused
@@ -125,3 +132,144 @@ and chat history survive reloading or reopening a notebook; transient quiz
 answers and card positions reset when the workspace is reopened. Check **Đã lưu**
 before closing the page; a failed save offers a retry. Use **Tải Markdown** to
 download a result through the backend export endpoint.
+
+Each generated Summary, Quiz, Flashcards, and Mind Map card has a trash button.
+Choose **Xóa nội dung** in its confirmation dialog to remove only that result
+from the current notebook. Canceling keeps it intact. Deletions autosave with
+the workspace; check **Đã lưu** before closing. Source PDFs, notes, chat, other
+generated results, and other notebooks are preserved.
+
+## ChatGPT connection
+
+Open **Cài đặt → Kết nối AI**, choose **Continue with ChatGPT**, then complete
+sign-in and authorization in the new browser tab. Return to YourNote, select a
+model from the account's catalog, and click **Kiểm tra kết nối** once. This
+explicit action sends one short AI request using the plan allowance. Opening
+settings or loading the catalog does not run inference. Connection success,
+catalog availability, and a completed AI request are displayed separately.
+
+Choose the AI service and saved account in **Cài đặt → Kết nối AI**. In a
+notebook, the compact model button inside the chat composer opens a floating
+picker. Click the model name to open the searchable model list; adjust reasoning
+effort with the slider only when the catalog advertises supported levels. The
+reset button restores the provider default. This choice applies to Chat, reading
+chat, Summary, Quiz, Flashcards, and Mind Map. Settings also lets you explicitly
+choose the existing server API. The model list is limited to
+what the account or server configuration actually supports. A saved choice that
+is no longer available must be selected again; no alternate model or billing
+path is selected automatically. Model preference is saved in browser local
+storage without OAuth credentials, and Settings changes synchronize with the
+notebook immediately. `RAG_LLM_PROVIDER` is not modified per task. Settings has a
+**Hạn mức sử dụng** card linking to the official ChatGPT usage page; YourNote does
+not currently synchronize remaining quota or estimate a percentage.
+
+An explicit `reasoning_effort` is captured in the task snapshot and completed
+metadata. The backend revalidates it against the account's current catalog and
+forwards it as Responses `reasoning.effort`. Unsupported levels are rejected;
+providers without this capability receive no reasoning parameter. Omitting it
+preserves provider defaults and compatibility with existing notebooks.
+
+Chat streams text as it arrives. **Dừng** aborts the browser request and asks the
+backend to cancel/close the upstream response. Studio has **Dừng tạo** for each
+active tool. Partial, failed, incomplete, and cancelled output is not saved to
+notebook history. Completed results show provider/model and time; reported usage
+is available in the metadata tooltip. Old notebooks without this metadata still
+open normally. Cancellation does not reverse usage already consumed.
+
+Each task freezes its model, account reference, notebook, and source/page scope
+before sending. Changing controls affects subsequent tasks. Going home or
+opening another notebook cancels pending work before leaving; it cannot save a
+late response into the next notebook. Autosave writes only completed results.
+Deleting one Studio result while another is generating keeps both operations
+independent.
+
+AI tasks use `/api/ai/tasks` over SSE, with an explicit cancel endpoint. The
+browser decoder handles UTF-8/events split across network chunks and requires
+an explicit completed event. Studio JSON is parsed and validated on the backend
+before a completed result is sent. Embedded Qdrant remains on one worker; its
+shared lock covers index operations rather than network generation.
+
+Install the API dependencies from `backend/requirements-api.txt` to include
+PyJWT with cryptography and keyring. OAuth credentials live in a supported OS
+keyring. When no supported keyring is available, the backend keeps credentials
+in RAM only and the settings screen explains that restarting requires sign-in
+again. The backend never falls back to a plaintext token file.
+
+Nonsecret host/registration metadata is kept under `.run/chatgpt/` by default
+(`RAG_CHATGPT_RUNTIME_DIR` overrides this location). Keep this directory to reuse
+the same host and client registration. It is not the credential store. Catalog
+and last-check metadata are held in RAM and are refreshed/reset after backend
+restart; a previous successful check remains historical evidence, not a promise
+of current model availability or remaining quota.
+
+Use the local Vite dev/preview server on port 5173/4173. Its `/api/ai` proxy keeps
+the AI settings session on the frontend origin. The backend validates loopback
+peer/Host, permitted Origin, browser session and CSRF for sensitive actions.
+Cookies and CSRF tokens do not contain OpenAI credentials. Other frontend ports
+or a remote deployment need a separate explicit origin/security configuration.
+
+**Đăng xuất kết nối này** attempts to revoke the renewable session, then clears
+local credentials. If remote revocation is not confirmed, settings say so and
+link to ChatGPT settings where the app can be disconnected. No automatic credit
+purchase, quota increase, model substitution or API billing fallback is used.
+
+
+## Document formats and grounded retrieval (Phase 04)
+
+**Tải tài liệu** accepts PDF, DOCX, Markdown and TXT. DOCX reads main-body
+paragraphs/headings and table-cell text; Markdown uses ATX headings and blank-line
+paragraphs; TXT is UTF-8. Scanned PDFs without extractable text show an OCR
+message. The parser runs in a bounded subprocess (30 s wall time, 20 s CPU,
+768 MiB address space), with 25 MiB uploads, 500 PDF pages, 2 million extracted
+characters, 10,000 paragraphs and 5,000 chunks per source. DOCX ZIP expansion is
+limited to 50 MiB/2,048 entries and constrained per-entry sizes/compression.
+
+Originals are immutable in `data/.versions/`. Source names in notebook state are
+opaque stable keys; display names and original filenames are separate. Same-name
+files with different content coexist; identical content is deduplicated. Use
+**Tùy chọn tài liệu → Cập nhật nội dung** to explicitly replace a source of the
+same format, using its expected version. This updates the shared library source
+and notebooks that use it; aliases/read state remain. Previous citations open
+archived originals, never silently redirect to the new version. A historical
+reader has **Mở bản hiện tại** before asking questions about the active source.
+
+PDF citations open their page. DOCX/MD/TXT citations open a version-scoped
+paragraph anchor in a text viewer. Source HTML/scripts are displayed as text,
+never executed. Non-PDF text has no invented page count; exports contain heading,
+paragraph anchor and content version. PDF reading/export remains compatible.
+
+Retrieval combines scoped vector search and BM25 through RRF. Notebook/source,
+page and version constraints remain active in both branches and Studio map/reduce.
+Follow-ups may use at most 3 completed turns from the same notebook/scope/version;
+only user questions clarify retrieval, and previous answers are not evidence.
+`retrieval_trace` stores method, query hash, context chunk IDs, context count,
+duration and history count, without raw document text in logs. The selected
+provider/model/effort and cancellation/completion contract remain unchanged.
+
+Schema additions: workspace `schema_version: 2`; source `document_version`, `kind`,
+`original_filename`; citation `document_id`, `document_version`, typed `locator`
+and nullable `page`; request `document_versions`; generation `source_versions`.
+Old JSON defaults remain readable. The catalog lives in `storage/documents.sqlite`;
+collection embedding identity is recorded and changing it is rejected without
+separate collection/migration. RAG scope is limited to 20,000 chunks; oversized
+selections fail explicitly so users can choose fewer sources or a PDF page.
+
+Read [evaluation results](../reports/phase04/evaluation.md) and
+[migration/rollback instructions](../reports/phase04/migration.md). Unit tests use
+isolated data roots, mock AI and temporary indexes; actual answer evaluation is
+an explicit bounded script and is never run by the application automatically.
+
+
+## Local handoff (Phase 06)
+
+The current workspace schema is 3, adding separate `comparison_artifacts`,
+`report_artifacts`, and `graph_artifacts` arrays to schema 1/2. Studio includes
+comparison, learning reports and an evidence-bearing Knowledge Graph alongside
+the existing Summary, Quiz, Flashcards, Mind Map and Notes. No model call is
+needed to reopen/export/delete a saved result.
+
+For the built localhost app, use `bash scripts/start_local.sh` from project/,
+`bash scripts/status.sh`, and `bash scripts/stop_all.sh`. Keep Node 24 in PATH.
+See [local setup and usage](../docs/LOCAL_GUIDE.md), [demo](../docs/DEMO.md),
+and [evaluation/limitations](../reports/phase06/evaluation.md). Linux x86_64 is
+the verified platform; no cloud/public production deployment is included.

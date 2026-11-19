@@ -1,7 +1,7 @@
 import type { MindMapNode } from '../../types/api'
 
-export const NODE_WIDTH = 216
-export const NODE_HEIGHT = 80
+export const NODE_WIDTH = 248
+export const NODE_HEIGHT = 100
 export const BRANCH_COLORS = ['#c99168', '#719fbc', '#8ead8c', '#b18db7', '#c0aa6b', '#6faeac', '#bd858c', '#9a9ec5']
 export interface PositionedNode { id: string; node: MindMapNode; x: number; y: number; color: string }
 

@@ -1,0 +1,10 @@
+{
+  "shared_system_site_packages": false,
+  "pip_exit_code": 0,
+  "install_seconds": 603.2575578200012,
+  "requirements": "requirements-local.txt",
+  "constraints": "requirements-local.lock",
+  "torch_variant": "2.14.0+cpu",
+  "cached_complete_wheels": 55,
+  "reason": "Local embeddings run on CPU; avoid multi-GB CUDA runtime for localhost setup. Existing project venv unchanged."
+}

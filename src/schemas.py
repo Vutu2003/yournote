@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Annotated, Literal
+from src.locations import Locator, checked_page
 
 from pydantic import AfterValidator, BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
@@ -36,9 +37,17 @@ class ChunkMetadata(BaseModel):
     document_id: str
     filename: str
     source: str
-    page: int
+    page: int | None = None
     chunk_id: str
     section: str | None = None
+    schema_version: int = 1
+    document_version: str | None = Field(default=None, pattern=r'^[a-f0-9]{64}$')
+    locator: Locator | None = None
+
+    @model_validator(mode='after')
+    def location_matches_page(self):
+        self.page = checked_page(self.page,self.locator)
+        return self
 
 
 class RetrievedChunk(BaseModel):
@@ -55,10 +64,28 @@ class Citation(BaseModel):
     source_index: int
     source_marker: str
     filename: str
-    page: int
+    document_id: str | None = None
+    page: int | None = None
     source_text: str | None = None
     section: str | None = None
+    schema_version: int = 1
+    document_version: str | None = Field(default=None, pattern=r'^[a-f0-9]{64}$')
+    locator: Locator | None = None
     chunk_id: str | None = None
+
+    @model_validator(mode='after')
+    def location_matches_page(self):
+        self.page = checked_page(self.page,self.locator)
+        return self
+
+
+class RetrievalTrace(BaseModel):
+    method: str
+    query_sha256: str
+    chunk_ids: list[str] = Field(default_factory=list)
+    context_count: int = 0
+    duration_ms: float = 0
+    history_turns: int = 0
 
 
 class RagAnswer(BaseModel):
@@ -68,6 +95,7 @@ class RagAnswer(BaseModel):
     answer: str
     citations: list[Citation] = Field(default_factory=list)
     chunks: list[RetrievedChunk] = Field(default_factory=list)
+    retrieval_trace: RetrievalTrace | None = None
 
 
 class Summary(BaseModel):

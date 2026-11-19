@@ -2,7 +2,7 @@
 
 from src.config import settings
 from src.learning import _parse_json, _resolve_target
-from src.llm import invoke_llm
+from src.llm import check_workload, invoke_llm, llm_operation
 from src.rag import format_citations, render_prompt
 from src.schemas import MindMap, MindMapNode, validate_mindmap_tree
 
@@ -31,6 +31,7 @@ def _markers(root: MindMapNode) -> set[str]:
     return set(root.source_markers).union(*(_markers(child) for child in root.children))
 
 
+@llm_operation
 def generate_mindmap(document=None, query=None, filters=None, k=None) -> MindMap:
     chunks, scope, target = _resolve_target(document, query, filters, k, settings.generation_retrieval_k)
     if not chunks:
@@ -38,6 +39,12 @@ def generate_mindmap(document=None, query=None, filters=None, k=None) -> MindMap
     # Every selected chunk is covered. IDs remain global rather than restarting
     # at S1 in each batch, including through multiple reduction rounds.
     batch_size = settings.mindmap_batch_size
+    remaining = (len(chunks) + batch_size - 1) // batch_size
+    calls = remaining
+    while remaining > 1:
+        calls += remaining // 8 + (1 if remaining % 8 > 1 else 0)
+        remaining = (remaining + 7) // 8
+    check_workload(calls)
     partials = []
     for start in range(0, len(chunks), batch_size):
         batch = chunks[start:start + batch_size]

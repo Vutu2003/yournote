@@ -1,0 +1,15 @@
+{
+  "health": 200,
+  "openapi": 200,
+  "version": "0.6.0",
+  "documents": 4,
+  "notebooks": 3,
+  "connected_profiles": 1,
+  "catalog_models": 10,
+  "benchmark_model_still_granted": true,
+  "inference_sent": false,
+  "mode": "local_preview",
+  "workers": 1,
+  "frontend": 200,
+  "proxy_ai_session": true
+}

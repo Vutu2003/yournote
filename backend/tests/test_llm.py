@@ -8,8 +8,9 @@ from google.genai import errors
 import httpx
 
 from src.config import settings
-from src.errors import LLMServiceError
-from src.llm import invoke_llm
+from src.errors import LLMErrorCode, LLMServiceError
+from src.llm import generate_llm, invoke_llm, llm_task
+from src.providers.contracts import CancellationToken, LLMRequest
 
 
 def provider_error(code):
@@ -20,10 +21,10 @@ def provider_error(code):
 class LLMTests(unittest.TestCase):
     def setUp(self):
         self.enterContext(patch.object(settings, "gemini_api_key", "test-api-secret"))
-        self.factory = self.enterContext(patch("src.llm.genai.Client"))
+        self.factory = self.enterContext(patch("src.providers.gemini.genai.Client"))
         self.client = MagicMock()
         self.factory.return_value.__enter__.return_value = self.client
-        self.sleep = self.enterContext(patch("src.llm.time.sleep"))
+        self.sleep = self.enterContext(patch("src.providers.contracts.CancellationToken.wait", return_value=False))
 
     def test_transient_failure_recovers_and_closes_connections(self):
         self.client.models.generate_content.side_effect = [provider_error(503), SimpleNamespace(text=" answer ")]
@@ -80,3 +81,56 @@ class LLMTests(unittest.TestCase):
             invoke_llm("test")
         self.assertEqual(caught.exception.status_code, 502)
         self.sleep.assert_not_called()
+
+    def test_result_only_reports_metadata_received_from_provider(self):
+        self.client.models.generate_content.return_value = SimpleNamespace(
+            text=" answer ", model_version="gemini-actual-version",
+            usage_metadata=SimpleNamespace(prompt_token_count=0, candidates_token_count=4, total_token_count=7),
+        )
+        result = generate_llm(LLMRequest("test"))
+        self.assertEqual(result.text, "answer")
+        self.assertEqual(result.provider, "gemini")
+        self.assertEqual(result.model, "gemini-actual-version")
+        self.assertEqual((result.usage.input_tokens, result.usage.output_tokens, result.usage.total_tokens), (0, 4, 7))
+        self.assertGreaterEqual(result.duration_seconds, 0)
+        self.client.models.generate_content.return_value = SimpleNamespace(text="answer")
+        unknown = generate_llm(LLMRequest("test"))
+        self.assertIsNone(unknown.model)
+        self.assertIsNone(unknown.usage)
+
+    def test_partial_usage_is_not_inferred(self):
+        self.client.models.generate_content.return_value = SimpleNamespace(
+            text="answer", usage_metadata=SimpleNamespace(prompt_token_count=5, total_token_count=12),
+        )
+        result = generate_llm(LLMRequest("test"))
+        self.assertEqual(result.usage.input_tokens, 5)
+        self.assertIsNone(result.usage.output_tokens)
+        self.assertEqual(result.usage.total_tokens, 12)
+
+    def test_error_codes_preserve_existing_http_messages(self):
+        for status, code in [(401, LLMErrorCode.RECONNECT_REQUIRED), (404, LLMErrorCode.MODEL_UNAVAILABLE),
+                             (429, LLMErrorCode.RATE_LIMITED), (503, LLMErrorCode.TEMPORARILY_UNAVAILABLE)]:
+            with self.subTest(status=status):
+                self.client.models.generate_content.side_effect = provider_error(status)
+                with self.assertRaises(LLMServiceError) as caught:
+                    invoke_llm("test")
+                self.assertEqual(caught.exception.code, code)
+
+    def test_constructor_and_response_errors_do_not_leak_provider_details(self):
+        self.factory.side_effect = ValueError("test-api-secret private-provider-text")
+        with self.assertRaises(LLMServiceError) as caught:
+            invoke_llm("test")
+        self.assertEqual(caught.exception.code, LLMErrorCode.REQUEST_REJECTED)
+        self.assertNotIn("test-api-secret", str(caught.exception))
+        self.assertTrue(caught.exception.__suppress_context__)
+
+    def test_cancel_during_backoff_stops_retries_and_closes_client(self):
+        cancellation = CancellationToken()
+        self.client.models.generate_content.side_effect = provider_error(503)
+        with patch.object(cancellation, "wait", side_effect=lambda seconds: cancellation.cancel()):
+            with self.assertRaises(LLMServiceError) as caught:
+                with llm_task(cancellation=cancellation):
+                    invoke_llm("test")
+        self.assertEqual(caught.exception.code, LLMErrorCode.CANCELLED)
+        self.assertEqual(self.client.models.generate_content.call_count, 1)
+        self.factory.return_value.__exit__.assert_called_once()

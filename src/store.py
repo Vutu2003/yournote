@@ -38,6 +38,8 @@ def get_client() -> QdrantClient:
 
 def ensure_collection(recreate: bool = False, collection_name: str | None = None) -> None:
     """Create the collection and payload indexes if they do not exist."""
+    from src.documents import check_embedding_contract
+    check_embedding_contract(collection_name)
     client = get_client()
     name = collection_name or settings.qdrant_collection
 
@@ -107,6 +109,8 @@ def scroll_all(
 
 
 def get_vector_store(collection_name: str | None = None) -> QdrantVectorStore:
+    from src.documents import check_embedding_contract
+    check_embedding_contract(collection_name)
     return QdrantVectorStore(
         client=get_client(),
         collection_name=collection_name or settings.qdrant_collection,
@@ -122,6 +126,8 @@ def list_documents() -> list[dict[str, object]]:
     pages_map: dict[str, set[int]] = {}
     doc_id_map: dict[str, str] = {}
     count_map: dict[str, int] = {}
+    from src.documents import enrich_info, get_document
+    registered = {}
 
     for batch in scroll_all(settings.qdrant_collection, with_payload=["metadata"]):
         for point in batch:
@@ -129,22 +135,29 @@ def list_documents() -> list[dict[str, object]]:
             filename = meta.get("filename")
             document_id = meta.get("document_id")
             pg = meta.get("page")
-            if not filename or not document_id or not isinstance(pg, int):
+            if not filename or not document_id:
                 continue
             fn = str(filename)
+            if fn not in registered: registered[fn] = get_document(filename=fn)
+            current = registered[fn]
+            if not current and meta.get('schema_version',1)>=2:
+                continue  # Staged points without a committed catalog entry are invisible.
+            if current and (str(document_id) != current['id'] or (meta.get('document_version') or current.get('legacy_version')) != current['active_version']):
+                continue
             doc_id_map.setdefault(fn, str(document_id))
-            pages_map.setdefault(fn, set()).add(pg)
+            pages_map.setdefault(fn, set())
+            if isinstance(pg,int): pages_map[fn].add(pg)
             count_map[fn] = count_map.get(fn, 0) + 1
 
     return sorted(
         [
-            {
+            enrich_info({
                 "filename": fn,
                 "document_id": doc_id_map[fn],
                 "pages": sorted(pages_map[fn]),
                 "page_count": len(pages_map[fn]),
                 "chunk_count": count_map[fn],
-            }
+            })
             for fn in doc_id_map
         ],
         key=lambda d: str(d["filename"]),

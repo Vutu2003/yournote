@@ -6,7 +6,7 @@ function inline(text: string, onSource?: (marker: string) => void): ReactNode[] 
   let position = 0
   for (const match of text.matchAll(pattern)) {
     if (match.index > position) parts.push(text.slice(position, match.index))
-    parts.push(match[1] ? <strong key={match.index}>{match[1]}</strong> : match[2] ? <code key={match.index}>{match[2]}</code> : onSource ? <span key={match.index}>{match[3].match(/S\d+/g)!.map(marker => <button type="button" className="inline-citation" key={marker} title={`Mở nguồn ${marker} trong PDF`} onClick={() => onSource(marker)}>[{marker}]</button>)}</span> : <span className="inline-citation" key={match.index}>{match[3]}</span>)
+    parts.push(match[1] ? <strong key={match.index}>{match[1]}</strong> : match[2] ? <code key={match.index}>{match[2]}</code> : onSource ? <span key={match.index}>{match[3].match(/S\d+/g)!.map(marker => <button type="button" className="inline-citation" key={marker} title={`Mở nguồn ${marker} trong tài liệu`} onClick={() => onSource(marker)}>[{marker}]</button>)}</span> : <span className="inline-citation" key={match.index}>{match[3]}</span>)
     position = match.index + match[0].length
   }
   if (position < text.length) parts.push(text.slice(position))

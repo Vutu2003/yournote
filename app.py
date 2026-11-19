@@ -15,7 +15,7 @@ from src.export import export
 from src.filters import MetadataFilter, filters_to_dict
 from src.indexing import save_and_ingest_pdf
 from src.learning import generate_flashcards, generate_quiz, summarize
-from src.llm import set_runtime_gemini_api_key
+from src.llm import gemini_api_key_scope
 from src.rag import answer
 from src.schemas import Citation, FlashcardSet, QuizSet, RagAnswer, Summary
 from src.store import list_documents
@@ -246,10 +246,10 @@ def _ask_chat(
     if not selected_docs:
         return prior, message, "Vui lòng chọn ít nhất một tài liệu.", current_debug, current_debug.get(debug_selected, "")
     try:
-        set_runtime_gemini_api_key(gemini_key)
-        result = answer(question, k=int(k), filters=_filters(selected_docs, page))
-        rendered = _render_answer(result)
-        raw = result.model_dump_json(indent=2)
+        with gemini_api_key_scope(gemini_key):
+            result = answer(question, k=int(k), filters=_filters(selected_docs, page))
+            rendered = _render_answer(result)
+            raw = result.model_dump_json(indent=2)
     except Exception as exc:
         logger.error("Q&A generation failed: {}", type(exc).__name__)
         return prior, message, "Không thể tạo câu trả lời. Vui lòng thử lại.", current_debug, current_debug.get(debug_selected, "")
@@ -273,14 +273,14 @@ def _generate_summary(
     if not selected_docs:
         return gr.update(), gr.update(), "Vui lòng chọn ít nhất một tài liệu.", current_debug, current_debug.get(debug_selected, "")
     try:
-        set_runtime_gemini_api_key(gemini_key)
-        progress(0.3, desc="Đang truy xuất ngữ cảnh…")
-        result = summarize(query=(query or "").strip() or None, k=int(k), filters=_filters(selected_docs, page))
-        progress(0.9, desc="Đang chuẩn bị kết quả…")
-        rendered = _render_summary(result)
-        download = _write_export(export(result, fmt="md"), "summary.md")
-        updated, visible_debug = _debug_update(current_debug, _DEBUG_SUMMARY, result.model_dump_json(indent=2), debug_selected)
-        return rendered, gr.update(value=download, visible=True), "", updated, visible_debug
+        with gemini_api_key_scope(gemini_key):
+            progress(0.3, desc="Đang truy xuất ngữ cảnh…")
+            result = summarize(query=(query or "").strip() or None, k=int(k), filters=_filters(selected_docs, page))
+            progress(0.9, desc="Đang chuẩn bị kết quả…")
+            rendered = _render_summary(result)
+            download = _write_export(export(result, fmt="md"), "summary.md")
+            updated, visible_debug = _debug_update(current_debug, _DEBUG_SUMMARY, result.model_dump_json(indent=2), debug_selected)
+            return rendered, gr.update(value=download, visible=True), "", updated, visible_debug
     except Exception as exc:
         logger.error("Summary generation failed: {}", type(exc).__name__)
         return gr.update(), gr.update(), "Không thể tạo nội dung. Vui lòng thử lại.", current_debug, current_debug.get(debug_selected, "")
@@ -318,16 +318,16 @@ def _generate_quiz(
     if not selected_docs:
         return (*unchanged, "Vui lòng chọn ít nhất một tài liệu.", current_debug, current_debug.get(debug_selected, ""))
     try:
-        set_runtime_gemini_api_key(gemini_key)
-        progress(0.3, desc="Đang truy xuất ngữ cảnh…")
-        result = generate_quiz(query=(query or "").strip() or None, count=int(count), k=int(k), filters=_filters(selected_docs, page))
-        if not result.items:
-            raise ValueError("Empty quiz")
-        progress(0.9, desc="Đang chuẩn bị câu hỏi…")
-        state = {"result": result.model_dump(), "index": 0, "revealed": False}
-        download = _write_export(export(result, fmt="md"), "quiz.md")
-        updated, visible_debug = _debug_update(current_debug, _DEBUG_QUIZ, result.model_dump_json(indent=2), debug_selected)
-        return (state, gr.update(visible=True), *_quiz_view(state), gr.update(value=download, visible=True), "", updated, visible_debug)
+        with gemini_api_key_scope(gemini_key):
+            progress(0.3, desc="Đang truy xuất ngữ cảnh…")
+            result = generate_quiz(query=(query or "").strip() or None, count=int(count), k=int(k), filters=_filters(selected_docs, page))
+            if not result.items:
+                raise ValueError("Empty quiz")
+            progress(0.9, desc="Đang chuẩn bị câu hỏi…")
+            state = {"result": result.model_dump(), "index": 0, "revealed": False}
+            download = _write_export(export(result, fmt="md"), "quiz.md")
+            updated, visible_debug = _debug_update(current_debug, _DEBUG_QUIZ, result.model_dump_json(indent=2), debug_selected)
+            return (state, gr.update(visible=True), *_quiz_view(state), gr.update(value=download, visible=True), "", updated, visible_debug)
     except Exception as exc:
         logger.error("Quiz generation failed: {}", type(exc).__name__)
         return (*unchanged, "Không thể tạo nội dung. Vui lòng thử lại.", current_debug, current_debug.get(debug_selected, ""))
@@ -403,16 +403,16 @@ def _generate_flashcards(
     if not selected_docs:
         return (*unchanged, "Vui lòng chọn ít nhất một tài liệu.", current_debug, current_debug.get(debug_selected, ""))
     try:
-        set_runtime_gemini_api_key(gemini_key)
-        progress(0.3, desc="Đang truy xuất ngữ cảnh…")
-        result = generate_flashcards(query=(query or "").strip() or None, count=int(count), k=int(k), filters=_filters(selected_docs, page))
-        if not result.cards:
-            raise ValueError("Empty flashcard set")
-        progress(0.9, desc="Đang chuẩn bị thẻ…")
-        state = {"result": result.model_dump(), "index": 0, "revealed": False}
-        download = _write_export(export(result, fmt="md"), "flashcards.md")
-        updated, visible_debug = _debug_update(current_debug, _DEBUG_FLASHCARDS, result.model_dump_json(indent=2), debug_selected)
-        return (state, gr.update(visible=True), *_flash_view(state), gr.update(value=download, visible=True), "", updated, visible_debug)
+        with gemini_api_key_scope(gemini_key):
+            progress(0.3, desc="Đang truy xuất ngữ cảnh…")
+            result = generate_flashcards(query=(query or "").strip() or None, count=int(count), k=int(k), filters=_filters(selected_docs, page))
+            if not result.cards:
+                raise ValueError("Empty flashcard set")
+            progress(0.9, desc="Đang chuẩn bị thẻ…")
+            state = {"result": result.model_dump(), "index": 0, "revealed": False}
+            download = _write_export(export(result, fmt="md"), "flashcards.md")
+            updated, visible_debug = _debug_update(current_debug, _DEBUG_FLASHCARDS, result.model_dump_json(indent=2), debug_selected)
+            return (state, gr.update(visible=True), *_flash_view(state), gr.update(value=download, visible=True), "", updated, visible_debug)
     except Exception as exc:
         logger.error("Flashcards generation failed: {}", type(exc).__name__)
         return (*unchanged, "Không thể tạo nội dung. Vui lòng thử lại.", current_debug, current_debug.get(debug_selected, ""))

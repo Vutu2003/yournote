@@ -3,6 +3,7 @@ import { Icon } from '../../components/Icon'
 import { ResultViewerModal } from '../../components/ResultViewerModal'
 import { ErrorMessage } from '../../components/Status'
 import type { NotebookInfo } from '../../types/notebooks'
+import { AIConnections } from '../ai/AIConnections'
 
 const confirmationText = 'ĐẶT LẠI'
 
@@ -19,6 +20,7 @@ export function SettingsDialog({ notebooks, notebookId, onClose, onReset }: {
   const close = useCallback(() => { if (!pending) onClose() }, [pending, onClose])
 
   return <ResultViewerModal open title={confirming ? 'Đặt lại sổ tay?' : 'Cài đặt'} artifactTitle="" onClose={close} footer={null}>
+    {!confirming && <AIConnections />}
     <form className="notebook-form settings-form" aria-busy={pending} onSubmit={async event => {
       event.preventDefault()
       if (!selected || pending) return

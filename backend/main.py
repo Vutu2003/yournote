@@ -1,7 +1,6 @@
 """HTTP transport over the existing RAG core. Run from project/ with one worker."""
 
 import logging
-import sys
 import traceback
 from contextlib import asynccontextmanager
 
@@ -11,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.concurrency import run_in_threadpool
 
-from backend.api.routes import chat, documents, exports, learning, notebooks, reading
+from backend.api.routes import ai, chat, documents, exports, learning, notebooks, reading, tasks
 from backend.schemas.api import HealthResponse
 from backend.services import core_adapter
 from src.errors import LLMServiceError
@@ -21,13 +20,19 @@ logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    yield
-    await run_in_threadpool(core_adapter.close)
+    from src.data_guard import data_guard
+    with data_guard():
+        yield
+        from backend.services.generation import shutdown as shutdown_tasks
+        from backend.services.chatgpt_auth import shutdown
+        await run_in_threadpool(shutdown_tasks)
+        await run_in_threadpool(shutdown)
+        await run_in_threadpool(core_adapter.close)
 
 
 app = FastAPI(
-    title="YourNote API", version="0.2.0", lifespan=lifespan,
-    description="Local React transport for the existing PDF RAG core. Explicit PDF selection is required. Use one worker for embedded Qdrant; run from project/. Gemini credentials stay on the server.",
+    title="YourNote API", version="0.6.0", lifespan=lifespan,
+    description="Local document RAG for PDF, DOCX, Markdown and TXT. Explicit source selection is required. Use one worker for embedded Qdrant; run from project/. Gemini credentials stay on the server.",
 )
 
 
@@ -51,12 +56,11 @@ async def ai_service_error(request, exc: LLMServiceError):
 
 @app.exception_handler(Exception)
 async def core_error(request, exc: Exception):
-    details = "".join(traceback.format_exception(exc))
-    config = sys.modules.get("src.config")
-    key = getattr(getattr(config, "settings", None), "gemini_api_key", None)
-    if key:
-        details = details.replace(key, "[redacted]")
-    logger.error("Core request failed\n%s", details)
+    # Messages/chains can contain runtime credentials, prompts or provider bodies.
+    # Retain diagnostic frame locations without logging arbitrary values.
+    frames = "\n".join(f"{frame.filename}:{frame.lineno} in {frame.name}"
+                       for frame in traceback.extract_tb(exc.__traceback__))
+    logger.error("Core request failed (%s)\n%s", type(exc).__name__, frames)
     return JSONResponse(status_code=500, content={"detail": "Unable to complete the operation. Please try again."})
 
 
@@ -65,7 +69,7 @@ def health() -> HealthResponse:
     return HealthResponse()
 
 
-for router in (documents.router, chat.router, learning.router, exports.router, notebooks.router, reading.router):
+for router in (documents.router, chat.router, learning.router, exports.router, notebooks.router, reading.router, ai.router, tasks.router):
     app.include_router(router)
 
 # Wrap FastAPI's entire stack, including its outer 500 handler. Otherwise an

@@ -1,3 +1,5 @@
+import type { ComparisonResponse, ReportResponse, GraphResponse } from './research'
+import type { StudioArtifact } from './artifacts'
 import type { ChatResponse, StudioTool } from './api'
 import type { FlashcardArtifact, QuizArtifact, SummaryArtifact, MindMapArtifact } from './artifacts'
 
@@ -10,6 +12,7 @@ export interface UserNote {
 }
 
 export interface WorkspaceSnapshot {
+  schema_version?: 1 | 2 | 3
   document_filenames: string[]
   source_names: Record<string, string>
   selected: string[]
@@ -22,6 +25,9 @@ export interface WorkspaceSnapshot {
   quiz_artifacts: QuizArtifact[]
   flashcard_artifacts: FlashcardArtifact[]
   mindmap_artifacts: MindMapArtifact[]
+  comparison_artifacts?: StudioArtifact<ComparisonResponse>[]
+  report_artifacts?: StudioArtifact<ReportResponse>[]
+  graph_artifacts?: StudioArtifact<GraphResponse>[]
 }
 
 export interface NotebookInfo {

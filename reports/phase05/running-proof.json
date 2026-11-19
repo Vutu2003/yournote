@@ -1,0 +1,10 @@
+{
+  "health": 200,
+  "openapi": 200,
+  "documents": 4,
+  "notebooks": 3,
+  "connected_profiles": 1,
+  "inference_sent": false,
+  "frontend": 200,
+  "proxy_health": 200
+}
