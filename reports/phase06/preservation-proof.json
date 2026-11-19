@@ -1,9 +1,0 @@
-{
-  "backup_verified": true,
-  "databases_logically_unchanged": {
-    "notebooks.sqlite": true,
-    "documents.sqlite": true
-  },
-  "source_and_index_files_unchanged": true,
-  "compared_source_and_index_files": 13
-}
