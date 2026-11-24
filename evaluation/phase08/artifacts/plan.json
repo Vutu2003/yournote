@@ -1,0 +1,609 @@
+{
+  "provider": "chatgpt",
+  "model_requested": "gpt-6.1-terra",
+  "effort_requested": null,
+  "split": "all",
+  "same_configuration_except_retriever": true,
+  "base_git_commit": "661b380daa604c2fc52a222f8ed892c26f8e5047",
+  "evaluation_code_sha256": {
+    "evaluation/phase07/__main__.py": "972db67fcf24a167a0ef22714b8e8226329f1b5955905668a1ec9405ae8014f5",
+    "evaluation/phase06/bundle.py": "60acb4eae7da924552858ee84874983160499317f1afebf8cae37bd4fa17e3a1",
+    "evaluation/phase06/benchmark.py": "8e8545b829501ede060edb8e58e6402c56d0d7537f5daa8118dab23f4662c478",
+    "src/rag.py": "23faf434e2e2935ed52714eebdba7ab9ff18bbdf48a89e097e2641edd6455724",
+    "src/conversation.py": "1fec596c1cfecc4ea39ae58741c32e562c700821a9c46506132257399e249cfb",
+    "src/indexing.py": "ca9e57d59c3496322a7986c02f9b5462c9620e727b02e7ed46562d039e5fca65",
+    "src/document_parser.py": "56e9487ceaaa249bf57bae9d8ea75ffc4b071d7d51b8c8648eb71b28223e4130",
+    "evaluation/phase08/benchmark.py": "9ef4c00039c0d75d0cc23c51e2cd013ca3dad6d94cee91dbaf30f027cbc82a52",
+    "src/llm.py": "f59a3cb3dda4ce8cab2036ddd12e60dc226fbf576b4d4132acd36a04061d9b89",
+    "src/providers/chatgpt.py": "58dad2a3c5a1d63fd034b139b515555c49949a98ae7fd681c32fb2b5701871bb",
+    "src/config.py": "e70bc1024466394cf6f27d2330bd48996744833c2072314fa760ce8c51e714cc",
+    "src/retrieval.py": "182c38d1904ec866916a5cb4a1541f34cbf0b6b44a03f6d0f65fb2bfe5feeb83",
+    "src/filters.py": "c02a7efdc721b68443921589aa2e9cedaadf1b46b136de555e1ca8f7fda78e6e",
+    "src/embeddings.py": "3631c0d2387ce45c22bda3e8a7767695fdb327009b92b31f7dbe239f8928873b",
+    "src/store.py": "856e945269e505d42ccc9bf3a25c9306be4d3c8d55c1e62e3b524c4f1859faa7",
+    "src/grounding.py": "727eb51fd4940bb14d61ec036a622f8e92a31e89b67225e2315b42d096063e82"
+  },
+  "fixture_sha256": "0fb256530c406dcce5a9c9d8482bcc3ca591f85cf2ef190c4390bafec5401ceb",
+  "policy_sha256": "d376caf4e4db1880a8d52ab824e15a446398ca59071032e94ff4494a7b739241",
+  "rubric_sha256": "3637698bca9ae9e2efab5e4dea560c28cc421ec9ed478e3e0065bb316acf2103",
+  "prompt_sha256": "37e079d6b2ed82202f1a10b60debd1b406a7659f89439d30b356b85dd4fa1700",
+  "source_sha256": {
+    "handout": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+    "procedures": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+    "field_notes": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+    "log": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+    "appendix": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee"
+  },
+  "k": 5,
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "chunk_size": 1500,
+  "chunk_overlap": 200,
+  "max_model_calls": 35,
+  "planned_model_calls_upper_bound": 35,
+  "automatic_retries": 0,
+  "fits_budget": true,
+  "model_access_verified": false,
+  "jobs": [
+    {
+      "split": "pilot",
+      "case_id": "p07-t01",
+      "retriever": "hybrid",
+      "question": "Trên đồ thị, chuỗi của mái phản quang được vẽ bằng nét gì?",
+      "group": "single_source",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": [
+        4
+      ]
+    },
+    {
+      "split": "pilot",
+      "case_id": "p07-t02",
+      "retriever": "hybrid",
+      "question": "Phiếu hiện trường ghi những loại dữ liệu nào? Nhật ký có kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi không?",
+      "group": "multi_source",
+      "sources": [
+        "ghi-chu-hien-truong.md",
+        "nhat-ky-cr04.txt"
+      ],
+      "source_ids": [
+        "field_notes",
+        "log"
+      ],
+      "pages": []
+    },
+    {
+      "split": "pilot",
+      "case_id": "p07-t03",
+      "retriever": "hybrid",
+      "question": "Lượt đó có ghi hướng của mũi tên trên sơ đồ không?",
+      "group": "follow_up",
+      "sources": [
+        "phu-luc-cr05.txt",
+        "nhat-ky-cr04.txt"
+      ],
+      "source_ids": [
+        "appendix",
+        "log"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-s01",
+      "retriever": "hybrid",
+      "question": "Ở trang ghi số đọc lúc 14:00, không khí trong hai hộp nóng bao nhiêu và chênh nhau bao nhiêu?",
+      "group": "single_source",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ]
+    },
+    {
+      "split": "main",
+      "case_id": "p07-s01",
+      "retriever": "vector",
+      "question": "Ở trang ghi số đọc lúc 14:00, không khí trong hai hộp nóng bao nhiêu và chênh nhau bao nhiêu?",
+      "group": "single_source",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ]
+    },
+    {
+      "split": "main",
+      "case_id": "p07-s02",
+      "retriever": "hybrid",
+      "question": "Theo tài liệu hướng dẫn, trước khi đo cần đặt hai đầu dò ở đâu và chờ bao lâu?",
+      "group": "single_source",
+      "sources": [
+        "quy-trinh-do.docx"
+      ],
+      "source_ids": [
+        "procedures"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-s03",
+      "retriever": "vector",
+      "question": "Trong lượt thử, sân bị mây che vào thời gian nào và sau đó thời tiết thay đổi ra sao?",
+      "group": "single_source",
+      "sources": [
+        "ghi-chu-hien-truong.md"
+      ],
+      "source_ids": [
+        "field_notes"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-s03",
+      "retriever": "hybrid",
+      "question": "Trong lượt thử, sân bị mây che vào thời gian nào và sau đó thời tiết thay đổi ra sao?",
+      "group": "single_source",
+      "sources": [
+        "ghi-chu-hien-truong.md"
+      ],
+      "source_ids": [
+        "field_notes"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-s04",
+      "retriever": "hybrid",
+      "question": "Nhật ký mô tả hộp mái trơn và hộp mái phản quang đặt ở phía nào của sân?",
+      "group": "single_source",
+      "sources": [
+        "nhat-ky-cr04.txt"
+      ],
+      "source_ids": [
+        "log"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-s05",
+      "retriever": "hybrid",
+      "question": "Hãy đọc phần mô tả kích thước. Đáy mỗi hộp rộng bao nhiêu và đầu dò bên trong đặt cao bao nhiêu so với đáy?",
+      "group": "single_source",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": [
+        4
+      ]
+    },
+    {
+      "split": "main",
+      "case_id": "p07-s06",
+      "retriever": "hybrid",
+      "question": "Trong phụ lục CR-05, khối lượng khay nước ở hộp mái trơn thay đổi thế nào?",
+      "group": "single_source",
+      "sources": [
+        "phu-luc-cr05.txt"
+      ],
+      "source_ids": [
+        "appendix"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-m01",
+      "retriever": "hybrid",
+      "question": "Ghép giờ bắt đầu trong nhật ký với thời lượng trong quy trình. Lượt CR-04 dự kiến kết thúc ghi lúc mấy giờ?",
+      "group": "multi_source",
+      "sources": [
+        "nhat-ky-cr04.txt",
+        "quy-trinh-do.docx"
+      ],
+      "source_ids": [
+        "log",
+        "procedures"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-m01",
+      "retriever": "vector",
+      "question": "Ghép giờ bắt đầu trong nhật ký với thời lượng trong quy trình. Lượt CR-04 dự kiến kết thúc ghi lúc mấy giờ?",
+      "group": "multi_source",
+      "sources": [
+        "nhat-ky-cr04.txt",
+        "quy-trinh-do.docx"
+      ],
+      "source_ids": [
+        "log",
+        "procedures"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-m02",
+      "retriever": "vector",
+      "question": "Hai tài liệu nói gì về khoảng lấy mẫu trong thời gian ghi chính thức của CR-04? Có thể chốt một con số không?",
+      "group": "multi_source",
+      "sources": [
+        "cool-roof-handout.pdf",
+        "ghi-chu-hien-truong.md"
+      ],
+      "source_ids": [
+        "handout",
+        "field_notes"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-m02",
+      "retriever": "hybrid",
+      "question": "Hai tài liệu nói gì về khoảng lấy mẫu trong thời gian ghi chính thức của CR-04? Có thể chốt một con số không?",
+      "group": "multi_source",
+      "sources": [
+        "cool-roof-handout.pdf",
+        "ghi-chu-hien-truong.md"
+      ],
+      "source_ids": [
+        "handout",
+        "field_notes"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-m03",
+      "retriever": "hybrid",
+      "question": "Mái phản quang của chính lượt CR-04 có sơn hay không? Hãy đối chiếu hai mô tả về vật liệu trước khi kết luận.",
+      "group": "multi_source",
+      "sources": [
+        "ghi-chu-hien-truong.md",
+        "nhat-ky-cr04.txt"
+      ],
+      "source_ids": [
+        "field_notes",
+        "log"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-m04",
+      "retriever": "hybrid",
+      "question": "Hai nguồn mô tả nhóm kiểm soát điều kiện so sánh giữa hai hộp thế nào về đầu dò, khe thông gió và khoảng cách?",
+      "group": "multi_source",
+      "sources": [
+        "quy-trinh-do.docx",
+        "ghi-chu-hien-truong.md"
+      ],
+      "source_ids": [
+        "procedures",
+        "field_notes"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-m05",
+      "retriever": "hybrid",
+      "question": "Mốc nhiệt độ 14:00 được ghi trước hay trong khoảng có mây che? Hãy nêu căn cứ thời gian ở hai nguồn.",
+      "group": "multi_source",
+      "sources": [
+        "cool-roof-handout.pdf",
+        "ghi-chu-hien-truong.md"
+      ],
+      "source_ids": [
+        "handout",
+        "field_notes"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-m06",
+      "retriever": "hybrid",
+      "question": "Tài liệu bài thực hành và phụ lục mô tả hai lượt nào? Đối tượng so sánh trong lượt chính là gì và phụ lục có dùng lại cùng cặp hộp không?",
+      "group": "multi_source",
+      "sources": [
+        "cool-roof-handout.pdf",
+        "phu-luc-cr05.txt"
+      ],
+      "source_ids": [
+        "handout",
+        "appendix"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-i01",
+      "retriever": "hybrid",
+      "question": "Chỉ đọc trang số liệu 14:00, hãy cho biết đầu dò trong hộp đặt cao bao nhiêu so với đáy.",
+      "group": "insufficient",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ]
+    },
+    {
+      "split": "main",
+      "case_id": "p07-i01",
+      "retriever": "vector",
+      "question": "Chỉ đọc trang số liệu 14:00, hãy cho biết đầu dò trong hộp đặt cao bao nhiêu so với đáy.",
+      "group": "insufficient",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ]
+    },
+    {
+      "split": "main",
+      "case_id": "p07-i02",
+      "retriever": "hybrid",
+      "question": "Từ các phiếu đã chọn, quạt phụ dùng hết bao nhiêu điện trong lượt CR-04?",
+      "group": "insufficient",
+      "sources": [
+        "ghi-chu-hien-truong.md",
+        "phu-luc-cr05.txt"
+      ],
+      "source_ids": [
+        "field_notes",
+        "appendix"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-i03",
+      "retriever": "hybrid",
+      "question": "Mức độ hài lòng của người ở trong hộp sau thí nghiệm là bao nhiêu?",
+      "group": "insufficient",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-i04",
+      "retriever": "vector",
+      "question": "Ngưỡng lệch cho phép giữa hai đầu dò là bao nhiêu, và đầu dò trong lượt này thực tế lệch bao nhiêu?",
+      "group": "insufficient",
+      "sources": [
+        "quy-trinh-do.docx",
+        "nhat-ky-cr04.txt"
+      ],
+      "source_ids": [
+        "procedures",
+        "log"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-i04",
+      "retriever": "hybrid",
+      "question": "Ngưỡng lệch cho phép giữa hai đầu dò là bao nhiêu, và đầu dò trong lượt này thực tế lệch bao nhiêu?",
+      "group": "insufficient",
+      "sources": [
+        "quy-trinh-do.docx",
+        "nhat-ky-cr04.txt"
+      ],
+      "source_ids": [
+        "procedures",
+        "log"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-i05",
+      "retriever": "hybrid",
+      "question": "Nhật ký cho biết lượt CR-04 bắt đầu lúc nào và tổng điện năng của bộ ghi là bao nhiêu?",
+      "group": "insufficient",
+      "sources": [
+        "nhat-ky-cr04.txt"
+      ],
+      "source_ids": [
+        "log"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-i06",
+      "retriever": "hybrid",
+      "question": "Ở trang số liệu 14:00, đọc nhiệt độ của hộp mái trơn và hộp mái phản quang, rồi cho biết độ ẩm lúc đó.",
+      "group": "insufficient",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ]
+    },
+    {
+      "split": "main",
+      "case_id": "p07-f01",
+      "retriever": "hybrid",
+      "question": "Vậy hộp đó được đặt ở phía nào của sân?",
+      "group": "follow_up",
+      "sources": [
+        "cool-roof-handout.pdf",
+        "nhat-ky-cr04.txt"
+      ],
+      "source_ids": [
+        "handout",
+        "log"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-f02",
+      "retriever": "hybrid",
+      "question": "Còn thời lượng của khoảng này theo quy trình là bao lâu?",
+      "group": "follow_up",
+      "sources": [
+        "nhat-ky-cr04.txt",
+        "quy-trinh-do.docx"
+      ],
+      "source_ids": [
+        "log",
+        "procedures"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-f03",
+      "retriever": "hybrid",
+      "question": "Ngưỡng chấp nhận của bước đó là bao nhiêu?",
+      "group": "follow_up",
+      "sources": [
+        "quy-trinh-do.docx"
+      ],
+      "source_ids": [
+        "procedures"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-f03",
+      "retriever": "vector",
+      "question": "Ngưỡng chấp nhận của bước đó là bao nhiêu?",
+      "group": "follow_up",
+      "sources": [
+        "quy-trinh-do.docx"
+      ],
+      "source_ids": [
+        "procedures"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-f04",
+      "retriever": "vector",
+      "question": "Với lượt đó, bộ ghi lấy mẫu cách nhau bao lâu?",
+      "group": "follow_up",
+      "sources": [
+        "phu-luc-cr05.txt",
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "appendix",
+        "handout"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-f04",
+      "retriever": "hybrid",
+      "question": "Với lượt đó, bộ ghi lấy mẫu cách nhau bao lâu?",
+      "group": "follow_up",
+      "sources": [
+        "phu-luc-cr05.txt",
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "appendix",
+        "handout"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-f05",
+      "retriever": "hybrid",
+      "question": "Trong lúc đó bộ ghi có bị gián đoạn không?",
+      "group": "follow_up",
+      "sources": [
+        "nhat-ky-cr04.txt",
+        "ghi-chu-hien-truong.md"
+      ],
+      "source_ids": [
+        "log",
+        "field_notes"
+      ],
+      "pages": []
+    },
+    {
+      "split": "main",
+      "case_id": "p07-f06",
+      "retriever": "hybrid",
+      "question": "Lúc đó tấm che trên hai hộp đang ở trạng thái nào?",
+      "group": "follow_up",
+      "sources": [
+        "cool-roof-handout.pdf"
+      ],
+      "source_ids": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ]
+    }
+  ],
+  "protocol_sha256": "2b728254f58c7d28f889b03cd9469efe2eea694065508900902db04277f51583",
+  "generation_parameters": {
+    "temperature": null,
+    "max_output_tokens": null,
+    "reasoning_effort": null
+  },
+  "package_versions": {
+    "httpx": "0.28.1",
+    "pypdf": "5.9.0",
+    "qdrant-client": "1.19.1",
+    "sentence-transformers": "6.1.0",
+    "torch": "2.14.0"
+  },
+  "output_paths": {
+    "retrieval": "/home/vutu/Desktop/rag_notebooklm/project/reports/phase08/retrieval.json",
+    "inference": "/home/vutu/Desktop/rag_notebooklm/project/reports/phase08/inference.json",
+    "preflight": "/home/vutu/Desktop/rag_notebooklm/project/reports/phase08/preflight.json"
+  },
+  "plan_sha256": "5236e219c02e66ff8391e1179cf1ad25c266c2cede442c03be0996b61b3a2b97"
+}

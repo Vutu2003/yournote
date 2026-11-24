@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đọc tài liệu · Tab riêng</title>
+<style>
+body { margin: 24px auto; padding: 0 18px; max-width: 940px; color: #202631; background: #f7f8fa; font: 16px system-ui, sans-serif; }
+section, form { padding: 16px 20px; margin: 12px 0; background: #fff; border: 1px solid #d7dbe1; border-radius: 8px; }
+h1 { font-size: 24px; } h2 { font-size: 18px; }
+label { display: block; margin: 6px 0; }
+textarea { box-sizing: border-box; width: 100%; font: inherit; padding: 8px; }
+button, input, select { font: inherit; }
+.pdf-page { display: block; max-width: 100%; margin: 16px auto; border: 1px solid #d7dbe1; background: white; }
+#answer { white-space: pre-wrap; line-height: 1.6; }
+</style>
+<h1 id="heading">Đọc tài liệu · Tab riêng</h1>
+<div id="content" aria-busy="true"></div>
+<script type="module">
+const params = new URLSearchParams(location.search);
+const trial = params.get('trial');
+const config = await (await fetch('/phase09/case/' + encodeURIComponent(trial))).json();
+const content = document.querySelector('#content');
+if (params.get('view') === 'pdf') {
+  document.querySelector('#heading').textContent = config.source_title;
+  content.innerHTML = '<form id="page-form"><label for="page-number">Trang PDF</label> <input id="page-number" type="number" min="1" value="1" required> <span id="total"></span> <button>Mở trang</button></form><canvas class="pdf-page"></canvas>';
+  const { getDocument, GlobalWorkerOptions } = await import('/phase09/pdfjs/pdf.min.mjs');
+  GlobalWorkerOptions.workerSrc = '/phase09/pdfjs/pdf.worker.min.mjs';
+  const pdf = await getDocument({ url: config.pdf_url, useSystemFonts: true }).promise;
+  const pageNumber = document.querySelector('#page-number');
+  const canvas = document.querySelector('canvas');
+  pageNumber.max = pdf.numPages;
+  document.querySelector('#total').textContent = '/ ' + pdf.numPages;
+  const render = async (number) => {
+    content.setAttribute('aria-busy', 'true');
+    canvas.removeAttribute('data-page');
+    const page = await pdf.getPage(number);
+    const base = page.getViewport({ scale: 1 });
+    const viewport = page.getViewport({ scale: Math.min(content.clientWidth / base.width, (innerHeight - 170) / base.height) });
+    canvas.width = Math.ceil(viewport.width);
+    canvas.height = Math.ceil(viewport.height);
+    await page.render({ canvas, viewport }).promise;
+    canvas.dataset.page = number;
+    canvas.dataset.text = (await page.getTextContent()).items.map(item => item.str).join(' ');
+    content.setAttribute('aria-busy', 'false');
+  };
+  document.querySelector('#page-form').addEventListener('submit', event => {
+    event.preventDefault();
+    void render(pageNumber.valueAsNumber);
+  });
+  await render(1);
+} else {
+  content.innerHTML = '<section><h2>Phạm vi câu hỏi</h2><label><input id="target" type="checkbox" checked> <span></span></label><label><input id="distractor" type="checkbox" checked> <span></span></label><label for="scope-page">Trang</label><select id="scope-page" disabled><option value="">Tất cả các trang</option></select></section><section><h2>Câu trả lời đã lưu</h2><p id="question"></p><p id="answer"></p><small id="model"></small><p id="citation"></p></section><form id="note-form"><h2>Ghi chú</h2><label for="note">Nội dung ghi chú</label><textarea id="note" rows="3"></textarea><button>Lưu ghi chú</button> <span id="saved" role="status"></span></form>';
+  document.querySelector('#target + span').textContent = config.source_title;
+  document.querySelector('#distractor + span').textContent = config.distractor_title;
+  document.querySelector('#question').textContent = config.question;
+  document.querySelector('#answer').textContent = config.answer.replaceAll('**', '');
+  document.querySelector('#model').textContent = config.model;
+  document.querySelector('#citation').textContent = '[S1] ' + config.source_title + ' · trang ' + config.page;
+  const scopePage = document.querySelector('#scope-page');
+  for (let i = 1; i <= config.pdf_page_count; i += 1) scopePage.add(new Option('Trang ' + i, i));
+  function updateScope() {
+    scopePage.disabled = !document.querySelector('#target').checked || document.querySelector('#distractor').checked;
+    if (scopePage.disabled) scopePage.value = '';
+  }
+  for (const input of document.querySelectorAll('input[type=checkbox]')) input.addEventListener('change', updateScope);
+  const note = document.querySelector('#note');
+  const noteKey = 'phase09-note-' + trial;
+  note.value = localStorage.getItem(noteKey) || '';
+  document.querySelector('#note-form').addEventListener('submit', event => {
+    event.preventDefault();
+    localStorage.setItem(noteKey, note.value);
+    document.querySelector('#saved').textContent = 'Đã lưu';
+  });
+  content.setAttribute('aria-busy', 'false');
+}
+</script>
+</html>

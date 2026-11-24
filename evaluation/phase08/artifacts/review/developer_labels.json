@@ -1,0 +1,954 @@
+{
+  "reviewer_id": "developer-agent-phase08",
+  "role": "developer_agent",
+  "notes": "Một tác nhân đọc từng câu, ngữ cảnh và trích dẫn trên phiếu ẩn cấu hình. Đây là chấm sơ bộ. Hai người chấm có thể dùng danh sách nhận định đề xuất trong phiếu nhãn trắng.",
+  "labels": {
+    "64130c5a4e373c11": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Chuỗi mái phản quang được vẽ bằng nét liền.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "85cd196522b80b67": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Mũi tên trên sơ đồ CR-05 chỉ hướng bắc.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "b08ecaf51fd2641a": {
+      "required_claim_covered": {
+        "G1": false,
+        "G2": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Ghi chú đề cập loại đầu dò nhiệt độ không khí dùng cho hai hộp.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S5": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Ghi chú mô tả tấm nhôm không sơn.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "Nhật ký mô tả tấm nhôm sơn trắng.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S3": true
+          }
+        },
+        {
+          "claim_id": "C4",
+          "claim_text": "Nhật ký thiếu ảnh lắp mái và bản xuất cấu hình bộ ghi.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": false,
+      "notes": "Không có đoạn 7 của ghi chú trong top 5 nên câu trả lời bỏ sót danh sách dữ liệu trong phiếu; phần mâu thuẫn về mái đúng nguồn nhưng ngoài trọng tâm."
+    },
+    "07e7ba1a5f83a34d": {
+      "required_claim_covered": {},
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Từ chối phù hợp với trang được chọn."
+    },
+    "0c3d36ca849a83fe": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Chỉ bắt đầu khi chênh lệch không quá 0,2 °C.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S3": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "1fca12b37ebb50e4": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Đáy rộng 40 cm × 40 cm.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Đầu dò cao 15 cm so với đáy.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "212d85fb5bec54b4": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Mái phản quang 31,2 °C lúc 14:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Mái trơn 34,8 °C lúc 14:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "Mức chênh lệch là 3,6 °C.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "2596034a8f807458": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Mái phản quang 31,2 °C lúc 14:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Mái trơn 34,8 °C lúc 14:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "Mức chênh lệch là 3,6 °C.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "2b6f4b2bee319153": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true,
+        "G3": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Bắt đầu lúc 13:30.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Khoảng ghi kéo dài 90 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S3": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "Dự kiến kết thúc lúc 15:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true,
+            "S3": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "32c6dde496e63a3e": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Tài liệu bài thực hành mô tả CR-04.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S5": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Phụ lục mô tả CR-05.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "CR-04 so sánh nhiệt độ buổi chiều dưới hai kiểu mái.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S5": true
+          }
+        },
+        {
+          "claim_id": "C4",
+          "claim_text": "CR-04 dùng hai hộp trống ở cùng sân.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S5": true
+          }
+        },
+        {
+          "claim_id": "C5",
+          "claim_text": "CR-05 dùng một cặp hộp khác.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "3476069d204bcc1f": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Mây che từ 14:10 đến 14:30.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Sau đó nắng trở lại.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "3593f993e40e068b": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Hộp mái trơn ở phía đông sân.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Hộp mái phản quang ở phía tây sân.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "3be589ed8540f247": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Chênh lệch cho phép không quá 0,2 °C.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Phân biệt ngưỡng cho phép với độ lệch thực đo chưa có dữ kiện."
+    },
+    "462ba45890557f6b": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Khoảng ghi kéo dài 90 phút từ khi bật bộ ghi.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "49f029cb2391ff7a": {
+      "required_claim_covered": {},
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Từ chối theo ngữ cảnh; không lấy số điện của CR-05 thay cho CR-04."
+    },
+    "4d848bce9860fc31": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Mây che sân từ 14:10 đến 14:30.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Bộ ghi không bị gián đoạn trong khoảng đó.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true,
+            "S2": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "Nhóm hoàn thành lượt ghi theo kế hoạch.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "507275046d57b90c": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true,
+        "G3": false
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Mốc đọc nhiệt độ là 14:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S5": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Mây che từ 14:10 đến 14:30.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "Mốc 14:00 nằm trước khoảng mây che.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S5": true,
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": false,
+      "notes": "Đúng thứ tự và hai mốc thời gian, nhưng không nêu độ chênh 10 phút theo G3 của rubric đã chốt."
+    },
+    "6279711fe1884a21": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Chỉ bắt đầu khi chênh lệch không quá 0,2 °C.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "6f9ee628de2fafb6": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true,
+        "G3": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Ghi chú hiện trường mô tả lấy mẫu mỗi 5 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Tài liệu bài thực hành mô tả lấy mẫu mỗi 10 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Giữ mỗi số theo nguồn tương ứng và nêu rõ chưa thể phân xử."
+    },
+    "715eb4aa23da9eae": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Tấm che trên hai hộp được thu hoàn toàn lúc đọc nhiệt độ.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "7235072f181c3e81": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Chênh lệch cho phép không quá 0,2 °C.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S4": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Phân biệt ngưỡng cho phép với độ lệch thực đo chưa có dữ kiện."
+    },
+    "72a6981114c803ae": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true,
+        "G3": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Nhật ký mô tả tấm nhôm sơn trắng.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Ghi chú hiện trường mô tả tấm nhôm mới, không sơn.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Trích dẫn hai mô tả mâu thuẫn và giữ bất định."
+    },
+    "7cee45e9adfa378b": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true,
+        "G3": false
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Dùng cùng loại đầu dò cho hai hộp.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S5": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "Chỉ bắt đầu nếu chênh lệch không quá 0,2 °C.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S3": true
+          }
+        },
+        {
+          "claim_id": "C4",
+          "claim_text": "Khe thông gió mở như nhau ở hai hộp.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": false,
+      "notes": "Đúng hai ý và nêu giới hạn ngữ cảnh; đoạn 5 về khoảng cách 1,5 m thiếu trong top 5."
+    },
+    "7fd779d7bba9ce6f": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Đặt hai đầu dò cạnh nhau trong bóng râm trong 5 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "8b0007dba7e78e53": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true,
+        "G3": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Ghi chú hiện trường mô tả lấy mẫu mỗi 5 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Tài liệu bài thực hành mô tả lấy mẫu mỗi 10 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S4": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Giữ mỗi số theo nguồn tương ứng và nêu rõ chưa thể phân xử."
+    },
+    "8ca3eb4a3bc82422": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Hộp mái phản quang ở phía tây sân.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "98a8e44e557a81e7": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Mây che từ 14:10 đến 14:30.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Sau đó nắng trở lại.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "9a8d7d5cf238ffd0": {
+      "required_claim_covered": {},
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Từ chối phù hợp với trang được chọn."
+    },
+    "bf2a25aab02870d2": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Lượt CR-05 lấy mẫu mỗi 2 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": false,
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "S2 ghi đúng lượt và tần suất. S1 chỉ giới thiệu lượt thử, không thêm bằng chứng cho tần suất."
+    },
+    "d0f6ed264b0d4a8a": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Khay nước của mái trơn ở CR-05 giảm 12 g.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "d1a4f0e7077769e7": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "CR-04 bắt đầu ghi lúc 13:30.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Nêu rõ chưa có số điện năng của bộ ghi."
+    },
+    "d331e061c966c7f3": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Lượt CR-05 lấy mẫu mỗi 2 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "e0ef5aace673689e": {
+      "required_claim_covered": {},
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Từ chối phù hợp vì không có khảo sát hoặc số liệu mức độ hài lòng."
+    },
+    "e524b677e5c06cab": {
+      "required_claim_covered": {
+        "G1": true,
+        "G2": true,
+        "G3": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Bắt đầu lúc 13:30.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Khoảng ghi kéo dài 90 phút.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S2": true
+          }
+        },
+        {
+          "claim_id": "C3",
+          "claim_text": "Dự kiến kết thúc lúc 15:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true,
+            "S2": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": ""
+    },
+    "f422124b5bc36c47": {
+      "required_claim_covered": {
+        "G1": true
+      },
+      "claims": [
+        {
+          "claim_id": "C1",
+          "claim_text": "Hộp mái trơn 34,8 °C lúc 14:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        },
+        {
+          "claim_id": "C2",
+          "claim_text": "Hộp mái phản quang 31,2 °C lúc 14:00.",
+          "supported_by_context": true,
+          "supported_by_citations": true,
+          "marker_contributions": {
+            "S1": true
+          }
+        }
+      ],
+      "unassigned_markers": [],
+      "uncertainty_correct": true,
+      "strict_pass": true,
+      "notes": "Trả lời hai nhiệt độ và nêu rõ thiếu độ ẩm."
+    }
+  }
+}

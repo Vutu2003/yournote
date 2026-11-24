@@ -20,17 +20,32 @@ def load_fixture():
     return json.loads(raw),policy
 
 
-def write_materials(destination):
-    """No model calls. All output is original CC0 teaching material."""
-    fixture,_=load_fixture();destination=Path(destination);destination.mkdir(parents=True,exist_ok=True)
+def write_materials(destination, *, fixture=None):
+    """Generate documents and their license notice without model calls."""
+    if fixture is None:
+        fixture,_=load_fixture()
+    destination=Path(destination);destination.mkdir(parents=True,exist_ok=True)
     paths={}
     for source in fixture['sources']:
         path=destination/source['filename'];paths[source['id']]=path
         if source['format']=='docx':
             xml='<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>'
             xml+=''.join('<w:p><w:r><w:t>'+escape(text)+'</w:t></w:r></w:p>' for text in source['blocks'])+'</w:body></w:document>'
+            content_types='<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+            if source.get('docx_package')=='ooxml':
+                content_types+='<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+            content_types+='<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>'
+            entries={'[Content_Types].xml':content_types,'word/document.xml':xml}
+            if source.get('docx_package')=='ooxml':
+                # Legacy Phase 06 fixture files keep their original bytes and version IDs.
+                entries['_rels/.rels']=(
+                    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+                    '<Relationship Id="rId1" Target="word/document.xml" '
+                    'Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument"/>'
+                    '</Relationships>'
+                )
             with ZipFile(path,'w',ZIP_DEFLATED) as archive:
-                for name,content in {'[Content_Types].xml':'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>','word/document.xml':xml}.items():
+                for name,content in entries.items():
                     info=ZipInfo(name,date_time=(1980,1,1,0,0,0));info.compress_type=ZIP_DEFLATED;archive.writestr(info,content)
         elif source['format']=='pdf':
             from pypdf import PdfWriter
@@ -44,19 +59,20 @@ def write_materials(destination):
                 page[NameObject('/Contents')]=writer._add_object(stream)
             writer.write(path)
         else:path.write_text('\n\n'.join(source['blocks'])+'\n',encoding='utf-8')
-    (destination/'LICENSE.txt').write_text('CC0-1.0. Original fictional learning materials authored for YourNote evaluation; no personal/student data.\n')
+    notice=fixture.get('license_notice','CC0-1.0. Original fictional learning materials authored for YourNote evaluation; no personal/student data.\n')
+    (destination/'LICENSE.txt').write_text(notice,encoding='utf-8')
     return paths
 
 
 @contextmanager
-def isolated_index():
+def isolated_index(*, fixture=None):
     from src.config import settings
     from src.store import get_client,close_client
     from src.indexing import save_and_ingest_document
     if get_client.cache_info().currsize:raise RuntimeError('Run evaluation in its own process; an index is already open.')
-    with TemporaryDirectory(prefix='yournote-phase06-') as directory,patch.object(settings,'storage_dir',Path(directory)/'storage/qdrant'),patch.object(settings,'data_dir',Path(directory)/'data'):
+    with TemporaryDirectory(prefix='yournote-evaluation-') as directory,patch.object(settings,'storage_dir',Path(directory)/'storage/qdrant'),patch.object(settings,'data_dir',Path(directory)/'data'):
         try:
-            mapping={key:save_and_ingest_document(path.read_bytes(),path.name) for key,path in write_materials(Path(directory)/'materials').items()}
+            mapping={key:save_and_ingest_document(path.read_bytes(),path.name) for key,path in write_materials(Path(directory)/'materials',fixture=fixture).items()}
             yield mapping
         finally:close_client()
 

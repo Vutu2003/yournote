@@ -1,0 +1,31 @@
+{
+  "pdf": "handout",
+  "distractor": "log",
+  "scope_title": "Bài thực hành CR-04.pdf",
+  "distractor_title": "Nhật ký CR-04.txt",
+  "task_limit_seconds": 300,
+  "desktop": { "width": 1440, "height": 900 },
+  "mobile_check": { "width": 390, "height": 844 },
+  "tasks": {
+    "A": {
+      "case_id": "p07-s01",
+      "page": 2,
+      "title": "Thẻ A · Nhiệt độ lúc 14:00",
+      "note": "Trang 2: Hộp mái phản quang 31,2 °C; hộp mái trơn 34,8 °C.",
+      "verify_text": ["31.2 degrees C", "34.8 degrees C"]
+    },
+    "B": {
+      "case_id": "p07-s05",
+      "page": 4,
+      "title": "Thẻ B · Bố trí đầu dò",
+      "note": "Trang 4: Đáy hộp 40 cm × 40 cm; đầu dò nằm cao 15 cm so với đáy.",
+      "verify_text": ["40 cm by 40 cm", "15 cm above the base"]
+    }
+  },
+  "assignments": [
+    [["yournote", "A"], ["separate_tabs", "B"]],
+    [["separate_tabs", "A"], ["yournote", "B"]],
+    [["yournote", "B"], ["separate_tabs", "A"]],
+    [["separate_tabs", "B"], ["yournote", "A"]]
+  ]
+}

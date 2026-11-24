@@ -1,0 +1,301 @@
+{
+  "main_cases": 24,
+  "pilot_cases": 3,
+  "documents": {
+    "handout": {
+      "filename": "cool-roof-handout.pdf",
+      "blocks": 4,
+      "pages": 4,
+      "sha256": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39"
+    },
+    "procedures": {
+      "filename": "quy-trinh-do.docx",
+      "blocks": 7,
+      "pages": 0,
+      "sha256": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480"
+    },
+    "field_notes": {
+      "filename": "ghi-chu-hien-truong.md",
+      "blocks": 7,
+      "pages": 0,
+      "sha256": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351"
+    },
+    "log": {
+      "filename": "nhat-ky-cr04.txt",
+      "blocks": 7,
+      "pages": 0,
+      "sha256": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680"
+    },
+    "appendix": {
+      "filename": "phu-luc-cr05.txt",
+      "blocks": 5,
+      "pages": 0,
+      "sha256": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee"
+    }
+  },
+  "case_checks": [
+    {
+      "case_id": "p07-s01",
+      "scoped_chunks": 1,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-s02",
+      "scoped_chunks": 7,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-s03",
+      "scoped_chunks": 7,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-s04",
+      "scoped_chunks": 7,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-s05",
+      "scoped_chunks": 1,
+      "gold_units_verified": 2,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-s06",
+      "scoped_chunks": 5,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-m01",
+      "scoped_chunks": 14,
+      "gold_units_verified": 2,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-m02",
+      "scoped_chunks": 11,
+      "gold_units_verified": 2,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-m03",
+      "scoped_chunks": 14,
+      "gold_units_verified": 2,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-m04",
+      "scoped_chunks": 14,
+      "gold_units_verified": 3,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-m05",
+      "scoped_chunks": 11,
+      "gold_units_verified": 2,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-m06",
+      "scoped_chunks": 9,
+      "gold_units_verified": 3,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-i01",
+      "scoped_chunks": 1,
+      "gold_units_verified": 0,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-i02",
+      "scoped_chunks": 12,
+      "gold_units_verified": 0,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-i03",
+      "scoped_chunks": 4,
+      "gold_units_verified": 0,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-i04",
+      "scoped_chunks": 14,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-i05",
+      "scoped_chunks": 7,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-i06",
+      "scoped_chunks": 1,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-f01",
+      "scoped_chunks": 11,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-f02",
+      "scoped_chunks": 14,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-f03",
+      "scoped_chunks": 7,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-f04",
+      "scoped_chunks": 9,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-f05",
+      "scoped_chunks": 14,
+      "gold_units_verified": 2,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-f06",
+      "scoped_chunks": 1,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-t01",
+      "scoped_chunks": 1,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-t02",
+      "scoped_chunks": 14,
+      "gold_units_verified": 2,
+      "scope_leaks": 0
+    },
+    {
+      "case_id": "p07-t03",
+      "scoped_chunks": 12,
+      "gold_units_verified": 1,
+      "scope_leaks": 0
+    }
+  ],
+  "pilot_retrieval": [
+    {
+      "case_id": "p07-t01",
+      "retriever": "hybrid",
+      "missing_evidence": [],
+      "evidence_units": 1,
+      "evidence_found": 1,
+      "evidence_hit": 1,
+      "evidence_recall": 1.0,
+      "scope_leaks": 0,
+      "duration_ms": 18.910583999968367,
+      "locator_checks": 1,
+      "invalid_marker_or_locator": 0
+    },
+    {
+      "case_id": "p07-t01",
+      "retriever": "vector",
+      "missing_evidence": [],
+      "evidence_units": 1,
+      "evidence_found": 1,
+      "evidence_hit": 1,
+      "evidence_recall": 1.0,
+      "scope_leaks": 0,
+      "duration_ms": 16.741327999625355,
+      "locator_checks": 1,
+      "invalid_marker_or_locator": 0
+    },
+    {
+      "case_id": "p07-t02",
+      "retriever": "hybrid",
+      "missing_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 7,
+            "anchor": "b000007"
+          },
+          "quote": "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây."
+        }
+      ],
+      "evidence_units": 2,
+      "evidence_found": 1,
+      "evidence_hit": 1,
+      "evidence_recall": 0.5,
+      "scope_leaks": 0,
+      "duration_ms": 21.958542999527708,
+      "locator_checks": 5,
+      "invalid_marker_or_locator": 0
+    },
+    {
+      "case_id": "p07-t02",
+      "retriever": "vector",
+      "missing_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 7,
+            "anchor": "b000007"
+          },
+          "quote": "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây."
+        }
+      ],
+      "evidence_units": 2,
+      "evidence_found": 1,
+      "evidence_hit": 1,
+      "evidence_recall": 0.5,
+      "scope_leaks": 0,
+      "duration_ms": 19.0823309994812,
+      "locator_checks": 5,
+      "invalid_marker_or_locator": 0
+    },
+    {
+      "case_id": "p07-t03",
+      "retriever": "hybrid",
+      "missing_evidence": [],
+      "evidence_units": 1,
+      "evidence_found": 1,
+      "evidence_hit": 1,
+      "evidence_recall": 1.0,
+      "scope_leaks": 0,
+      "duration_ms": 21.19529099945794,
+      "locator_checks": 5,
+      "invalid_marker_or_locator": 0
+    },
+    {
+      "case_id": "p07-t03",
+      "retriever": "vector",
+      "missing_evidence": [],
+      "evidence_units": 1,
+      "evidence_found": 1,
+      "evidence_hit": 1,
+      "evidence_recall": 1.0,
+      "scope_leaks": 0,
+      "duration_ms": 19.07995999954437,
+      "locator_checks": 5,
+      "invalid_marker_or_locator": 0
+    }
+  ],
+  "llm_calls": 0
+}

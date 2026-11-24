@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "fixture_sha256": "0fb256530c406dcce5a9c9d8482bcc3ca591f85cf2ef190c4390bafec5401ceb",
+  "prompt_sha256": "37e079d6b2ed82202f1a10b60debd1b406a7659f89439d30b356b85dd4fa1700",
+  "source_sha256": {
+    "handout": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+    "procedures": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+    "field_notes": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+    "log": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+    "appendix": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee"
+  },
+  "rubric_sha256": "3637698bca9ae9e2efab5e4dea560c28cc421ec9ed478e3e0065bb316acf2103",
+  "rubric": {
+    "strict_pass": [
+      "Lượt hoàn tất; mọi mệnh đề bắt buộc được trả lời đúng và đủ.",
+      "Đúng đối tượng tham chiếu và phạm vi nguồn/trang đã chọn.",
+      "Mọi nhận định trọng yếu cần bằng chứng được trích dẫn hợp lệ và thực sự hỗ trợ.",
+      "Nêu rõ chi tiết thiếu; nếu mâu thuẫn thì dẫn từng phía và giữ bất định khi chưa có căn cứ phân xử."
+    ],
+    "evidence_hit_and_recall": "Tính theo câu có ít nhất một đoạn bắt buộc; hit là >=1 đoạn, recall là số đoạn tìm được / tổng đoạn chuẩn; lấy trung bình theo câu. Câu partial tính các đoạn thật sự có trong phạm vi.",
+    "citation_location": "Mỗi citation được tính riêng; đúng khi nguồn nằm trong scope và định danh, phiên bản, trang/đoạn, đoạn trích cùng khớp bản gốc.",
+    "claim_support": "Tách các nhận định trọng yếu cần căn cứ; mỗi nhận định đạt nếu được hỗ trợ bởi hợp của các citation áp dụng, tất cả đều hợp lệ. Nhận định không có citation tính không được hỗ trợ.",
+    "latency": "Monotonic từ trước contextual_query đến khi có kết quả hoàn tất và kiểm tra citation; trung vị và p95 nearest rank trên lượt hoàn tất. Tách thời gian truy xuất và khởi tạo.",
+    "error_accounting": "Mọi case đã bắt đầu đều vào mẫu số strict, kể cả lỗi; ca chưa bắt đầu báo riêng. Tính lần gửi provider ngay trước khi gửi, kể cả lỗi sau khi gửi; không tự gửi lại, không đổi model, lỗi kết nối/xác thực/hạn mức hoặc lỗi phạm vi/locator làm dừng đợt. Lượt bổ sung được ghi riêng và không thay kết quả đầu."
+  },
+  "k": 5,
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "chunk_size": 1500,
+  "chunk_overlap": 200,
+  "pilot_max_calls": 3,
+  "main_max_calls": 32,
+  "automatic_retries": 0,
+  "primary_retriever": "hybrid",
+  "comparison_retriever": "vector",
+  "comparison_pairs": [
+    {
+      "case_id": "p07-s01",
+      "first": "hybrid"
+    },
+    {
+      "case_id": "p07-s03",
+      "first": "vector"
+    },
+    {
+      "case_id": "p07-m01",
+      "first": "hybrid"
+    },
+    {
+      "case_id": "p07-m02",
+      "first": "vector"
+    },
+    {
+      "case_id": "p07-i01",
+      "first": "hybrid"
+    },
+    {
+      "case_id": "p07-i04",
+      "first": "vector"
+    },
+    {
+      "case_id": "p07-f03",
+      "first": "hybrid"
+    },
+    {
+      "case_id": "p07-f04",
+      "first": "vector"
+    }
+  ],
+  "technical_gates": {
+    "scope_leaks": 0,
+    "invalid_marker_or_locator": 0
+  },
+  "quality_target_strict_pass": 0.85
+}

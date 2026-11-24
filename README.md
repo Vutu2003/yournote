@@ -17,7 +17,8 @@ Bản **0.6.0-local** dành cho thử nghiệm localhost trên Linux x86_64, Pyt
 
 - [Cài mới, sử dụng, dừng/chạy lại, backup/restore](docs/LOCAL_GUIDE.md).
 - [Demo với tài liệu tự tạo CC0](docs/DEMO.md).
-- [Báo cáo đánh giá và giới hạn](reports/phase06/evaluation.md).
+- [Báo cáo đánh giá ban đầu](https://github.com/Vutu2003/yournote/blob/9af3864e4beeeb1ef80e299934800a8ae5023109/reports/phase06/evaluation.md).
+- [Thiết kế đánh giá](results/phase_07_evaluation_design.md), [đo chất lượng hỏi đáp RAG](results/phase_08_rag_benchmark.md), [đánh giá luồng đọc](results/phase_09_reading_evaluation.md) và [tổng hợp kết quả](results/phase_10_evaluation_report.md).
 - [Checklist nội bộ](docs/RELEASE_CHECKLIST.md), [kịch bản dùng thử sinh viên](docs/STUDENT_TRIAL.md).
 
 ```bash

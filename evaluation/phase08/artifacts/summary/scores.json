@@ -1,0 +1,922 @@
+{
+  "human_reviewer_count": 0,
+  "inter_rater": null,
+  "reviewers": [
+    {
+      "reviewer_id": "developer-agent-phase08",
+      "role": "developer_agent",
+      "metrics": {
+        "hybrid_main": {
+          "planned": 24,
+          "attempted": 24,
+          "completed": 24,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 24,
+            "denominator": 24,
+            "rate": 1.0
+          },
+          "model_calls": 24,
+          "response_seconds": {
+            "n": 24,
+            "median": 3.333927630999824,
+            "p95": 4.340824137998425
+          },
+          "provider_response_seconds": {
+            "n": 24,
+            "median": 3.333927630999824,
+            "p95": 4.340824137998425
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 20492,
+            "output_tokens": 1162,
+            "total_tokens": 21654
+          },
+          "citation_location": {
+            "numerator": 30,
+            "denominator": 30,
+            "rate": 1.0
+          },
+          "completed_without_citation": 3,
+          "reviewed": 24,
+          "review_pending": 0,
+          "strict_pass_count": 22,
+          "strict_pass_rate": {
+            "numerator": 22,
+            "denominator": 24,
+            "rate": 0.9166666666666666
+          },
+          "required_claim_coverage": {
+            "numerator": 33,
+            "denominator": 35,
+            "rate": 0.9428571428571428
+          },
+          "faithfulness": {
+            "numerator": 42,
+            "denominator": 42,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 42,
+            "denominator": 42,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 45,
+            "denominator": 45,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 24,
+            "denominator": 24,
+            "rate": 1.0
+          }
+        },
+        "hybrid_paired": {
+          "planned": 8,
+          "attempted": 8,
+          "completed": 8,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 8,
+            "denominator": 8,
+            "rate": 1.0
+          },
+          "model_calls": 8,
+          "response_seconds": {
+            "n": 8,
+            "median": 3.4222877114998482,
+            "p95": 4.174154506999912
+          },
+          "provider_response_seconds": {
+            "n": 8,
+            "median": 3.4222877114998482,
+            "p95": 4.174154506999912
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 6776,
+            "output_tokens": 379,
+            "total_tokens": 7155
+          },
+          "citation_location": {
+            "numerator": 9,
+            "denominator": 9,
+            "rate": 1.0
+          },
+          "completed_without_citation": 1,
+          "reviewed": 8,
+          "review_pending": 0,
+          "strict_pass_count": 8,
+          "strict_pass_rate": {
+            "numerator": 8,
+            "denominator": 8,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 13,
+            "denominator": 13,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 13,
+            "denominator": 13,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 14,
+            "denominator": 14,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 8,
+            "denominator": 8,
+            "rate": 1.0
+          }
+        },
+        "vector_paired": {
+          "planned": 8,
+          "attempted": 8,
+          "completed": 8,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 8,
+            "denominator": 8,
+            "rate": 1.0
+          },
+          "model_calls": 8,
+          "response_seconds": {
+            "n": 8,
+            "median": 3.578421003999665,
+            "p95": 4.716395909000312
+          },
+          "provider_response_seconds": {
+            "n": 8,
+            "median": 3.578421003999665,
+            "p95": 4.716395909000312
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 6654,
+            "output_tokens": 375,
+            "total_tokens": 7029
+          },
+          "citation_location": {
+            "numerator": 10,
+            "denominator": 10,
+            "rate": 1.0
+          },
+          "completed_without_citation": 1,
+          "reviewed": 8,
+          "review_pending": 0,
+          "strict_pass_count": 8,
+          "strict_pass_rate": {
+            "numerator": 8,
+            "denominator": 8,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 13,
+            "denominator": 13,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 13,
+            "denominator": 13,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 14,
+            "denominator": 15,
+            "rate": 0.9333333333333333
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 8,
+            "denominator": 8,
+            "rate": 1.0
+          }
+        },
+        "pilot": {
+          "planned": 3,
+          "attempted": 3,
+          "completed": 3,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "model_calls": 3,
+          "response_seconds": {
+            "n": 3,
+            "median": 3.5895460950005145,
+            "p95": 5.180169110999486
+          },
+          "provider_response_seconds": {
+            "n": 3,
+            "median": 3.5895460950005145,
+            "p95": 5.180169110999486
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 2436,
+            "output_tokens": 183,
+            "total_tokens": 2619
+          },
+          "citation_location": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "completed_without_citation": 0,
+          "reviewed": 3,
+          "review_pending": 0,
+          "strict_pass_count": 2,
+          "strict_pass_rate": {
+            "numerator": 2,
+            "denominator": 3,
+            "rate": 0.6666666666666666
+          },
+          "required_claim_coverage": {
+            "numerator": 3,
+            "denominator": 4,
+            "rate": 0.75
+          },
+          "faithfulness": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 3,
+            "denominator": 3,
+            "rate": 1.0
+          }
+        },
+        "hybrid/single_source": {
+          "planned": 6,
+          "attempted": 6,
+          "completed": 6,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "model_calls": 6,
+          "response_seconds": {
+            "n": 6,
+            "median": 3.0535216040002524,
+            "p95": 3.5363267499997164
+          },
+          "provider_response_seconds": {
+            "n": 6,
+            "median": 3.0535216040002524,
+            "p95": 3.5363267499997164
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 4716,
+            "output_tokens": 226,
+            "total_tokens": 4942
+          },
+          "citation_location": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "completed_without_citation": 0,
+          "reviewed": 6,
+          "review_pending": 0,
+          "strict_pass_count": 6,
+          "strict_pass_rate": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 9,
+            "denominator": 9,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 11,
+            "denominator": 11,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 11,
+            "denominator": 11,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 11,
+            "denominator": 11,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "hybrid/multi_source": {
+          "planned": 6,
+          "attempted": 6,
+          "completed": 6,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "model_calls": 6,
+          "response_seconds": {
+            "n": 6,
+            "median": 4.093181910000567,
+            "p95": 4.525268584000514
+          },
+          "provider_response_seconds": {
+            "n": 6,
+            "median": 4.093181910000567,
+            "p95": 4.525268584000514
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 5800,
+            "output_tokens": 520,
+            "total_tokens": 6320
+          },
+          "citation_location": {
+            "numerator": 14,
+            "denominator": 14,
+            "rate": 1.0
+          },
+          "completed_without_citation": 0,
+          "reviewed": 6,
+          "review_pending": 0,
+          "strict_pass_count": 4,
+          "strict_pass_rate": {
+            "numerator": 4,
+            "denominator": 6,
+            "rate": 0.6666666666666666
+          },
+          "required_claim_coverage": {
+            "numerator": 15,
+            "denominator": 17,
+            "rate": 0.8823529411764706
+          },
+          "faithfulness": {
+            "numerator": 19,
+            "denominator": 19,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 19,
+            "denominator": 19,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 21,
+            "denominator": 21,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "hybrid/insufficient": {
+          "planned": 6,
+          "attempted": 6,
+          "completed": 6,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "model_calls": 6,
+          "response_seconds": {
+            "n": 6,
+            "median": 3.5057183025000995,
+            "p95": 3.9898730700006126
+          },
+          "provider_response_seconds": {
+            "n": 6,
+            "median": 3.5057183025000995,
+            "p95": 3.9898730700006126
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 4388,
+            "output_tokens": 235,
+            "total_tokens": 4623
+          },
+          "citation_location": {
+            "numerator": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "completed_without_citation": 3,
+          "reviewed": 6,
+          "review_pending": 0,
+          "strict_pass_count": 6,
+          "strict_pass_rate": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "hybrid/follow_up": {
+          "planned": 6,
+          "attempted": 6,
+          "completed": 6,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "model_calls": 6,
+          "response_seconds": {
+            "n": 6,
+            "median": 3.041790227499405,
+            "p95": 3.9980104160003975
+          },
+          "provider_response_seconds": {
+            "n": 6,
+            "median": 3.041790227499405,
+            "p95": 3.9980104160003975
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 5588,
+            "output_tokens": 181,
+            "total_tokens": 5769
+          },
+          "citation_location": {
+            "numerator": 7,
+            "denominator": 7,
+            "rate": 1.0
+          },
+          "completed_without_citation": 0,
+          "reviewed": 6,
+          "review_pending": 0,
+          "strict_pass_count": 6,
+          "strict_pass_rate": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 8,
+            "denominator": 8,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 8,
+            "denominator": 8,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 9,
+            "denominator": 9,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          }
+        },
+        "vector/single_source": {
+          "planned": 2,
+          "attempted": 2,
+          "completed": 2,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "model_calls": 2,
+          "response_seconds": {
+            "n": 2,
+            "median": 4.0354256055002224,
+            "p95": 4.716395909000312
+          },
+          "provider_response_seconds": {
+            "n": 2,
+            "median": 4.0354256055002224,
+            "p95": 4.716395909000312
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 1456,
+            "output_tokens": 91,
+            "total_tokens": 1547
+          },
+          "citation_location": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "completed_without_citation": 0,
+          "reviewed": 2,
+          "review_pending": 0,
+          "strict_pass_count": 2,
+          "strict_pass_rate": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 5,
+            "denominator": 5,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 5,
+            "denominator": 5,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 5,
+            "denominator": 5,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          }
+        },
+        "vector/multi_source": {
+          "planned": 2,
+          "attempted": 2,
+          "completed": 2,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "model_calls": 2,
+          "response_seconds": {
+            "n": 2,
+            "median": 3.9913556534993404,
+            "p95": 4.41957298899888
+          },
+          "provider_response_seconds": {
+            "n": 2,
+            "median": 3.9913556534993404,
+            "p95": 4.41957298899888
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 1760,
+            "output_tokens": 134,
+            "total_tokens": 1894
+          },
+          "citation_location": {
+            "numerator": 4,
+            "denominator": 4,
+            "rate": 1.0
+          },
+          "completed_without_citation": 0,
+          "reviewed": 2,
+          "review_pending": 0,
+          "strict_pass_count": 2,
+          "strict_pass_rate": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 5,
+            "denominator": 5,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 5,
+            "denominator": 5,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 6,
+            "denominator": 6,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          }
+        },
+        "vector/insufficient": {
+          "planned": 2,
+          "attempted": 2,
+          "completed": 2,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "model_calls": 2,
+          "response_seconds": {
+            "n": 2,
+            "median": 3.4051149344995792,
+            "p95": 3.593703689999529
+          },
+          "provider_response_seconds": {
+            "n": 2,
+            "median": 3.4051149344995792,
+            "p95": 3.593703689999529
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 1417,
+            "output_tokens": 86,
+            "total_tokens": 1503
+          },
+          "citation_location": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "completed_without_citation": 1,
+          "reviewed": 2,
+          "review_pending": 0,
+          "strict_pass_count": 2,
+          "strict_pass_rate": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 1,
+            "denominator": 1,
+            "rate": 1.0
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          }
+        },
+        "vector/follow_up": {
+          "planned": 2,
+          "attempted": 2,
+          "completed": 2,
+          "not_run": 0,
+          "errors": 0,
+          "completion_rate": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "model_calls": 2,
+          "response_seconds": {
+            "n": 2,
+            "median": 3.602596973499203,
+            "p95": 3.747274198998639
+          },
+          "provider_response_seconds": {
+            "n": 2,
+            "median": 3.602596973499203,
+            "p95": 3.747274198998639
+          },
+          "local_no_call_completed": 0,
+          "reported_usage": {
+            "input_tokens": 2021,
+            "output_tokens": 64,
+            "total_tokens": 2085
+          },
+          "citation_location": {
+            "numerator": 3,
+            "denominator": 3,
+            "rate": 1.0
+          },
+          "completed_without_citation": 0,
+          "reviewed": 2,
+          "review_pending": 0,
+          "strict_pass_count": 2,
+          "strict_pass_rate": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "required_claim_coverage": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "faithfulness": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "citation_recall": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          },
+          "citation_precision": {
+            "numerator": 2,
+            "denominator": 3,
+            "rate": 0.6666666666666666
+          },
+          "uncited_claims": 0,
+          "uncertainty_correct": {
+            "numerator": 2,
+            "denominator": 2,
+            "rate": 1.0
+          }
+        }
+      },
+      "pairs": [
+        {
+          "case_id": "p07-s01",
+          "hybrid_status": "completed",
+          "vector_status": "completed",
+          "hybrid_model": "gpt-6.1-terra",
+          "vector_model": "gpt-6.1-terra",
+          "comparable": true,
+          "hybrid_strict_pass": true,
+          "vector_strict_pass": true
+        },
+        {
+          "case_id": "p07-s03",
+          "hybrid_status": "completed",
+          "vector_status": "completed",
+          "hybrid_model": "gpt-6.1-terra",
+          "vector_model": "gpt-6.1-terra",
+          "comparable": true,
+          "hybrid_strict_pass": true,
+          "vector_strict_pass": true
+        },
+        {
+          "case_id": "p07-m01",
+          "hybrid_status": "completed",
+          "vector_status": "completed",
+          "hybrid_model": "gpt-6.1-terra",
+          "vector_model": "gpt-6.1-terra",
+          "comparable": true,
+          "hybrid_strict_pass": true,
+          "vector_strict_pass": true
+        },
+        {
+          "case_id": "p07-m02",
+          "hybrid_status": "completed",
+          "vector_status": "completed",
+          "hybrid_model": "gpt-6.1-terra",
+          "vector_model": "gpt-6.1-terra",
+          "comparable": true,
+          "hybrid_strict_pass": true,
+          "vector_strict_pass": true
+        },
+        {
+          "case_id": "p07-i01",
+          "hybrid_status": "completed",
+          "vector_status": "completed",
+          "hybrid_model": "gpt-6.1-terra",
+          "vector_model": "gpt-6.1-terra",
+          "comparable": true,
+          "hybrid_strict_pass": true,
+          "vector_strict_pass": true
+        },
+        {
+          "case_id": "p07-i04",
+          "hybrid_status": "completed",
+          "vector_status": "completed",
+          "hybrid_model": "gpt-6.1-terra",
+          "vector_model": "gpt-6.1-terra",
+          "comparable": true,
+          "hybrid_strict_pass": true,
+          "vector_strict_pass": true
+        },
+        {
+          "case_id": "p07-f03",
+          "hybrid_status": "completed",
+          "vector_status": "completed",
+          "hybrid_model": "gpt-6.1-terra",
+          "vector_model": "gpt-6.1-terra",
+          "comparable": true,
+          "hybrid_strict_pass": true,
+          "vector_strict_pass": true
+        },
+        {
+          "case_id": "p07-f04",
+          "hybrid_status": "completed",
+          "vector_status": "completed",
+          "hybrid_model": "gpt-6.1-terra",
+          "vector_model": "gpt-6.1-terra",
+          "comparable": true,
+          "hybrid_strict_pass": true,
+          "vector_strict_pass": true
+        }
+      ]
+    }
+  ]
+}

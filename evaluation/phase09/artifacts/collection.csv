@@ -1,0 +1,1 @@
+participant_id,session_date,consent_recorded,sequence_id,order,mode,task_id,os,browser,viewport,prior_familiarity,start_seconds,correct_source_open_seconds,evidence_confirmed_seconds,note_reopened_seconds,status,scope_correct,position_confirmed,document_correct,page_correct,both_facts_correct,note_persisted,assistance_count,switch_count,focus_1_to_5,technical_issue,observation

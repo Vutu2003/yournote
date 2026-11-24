@@ -1,0 +1,368 @@
+{
+  "reviewer_id": "",
+  "role": "human",
+  "labels": {
+    "64130c5a4e373c11": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "85cd196522b80b67": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "b08ecaf51fd2641a": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "07e7ba1a5f83a34d": {
+      "required_claim_covered": {},
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "0c3d36ca849a83fe": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "1fca12b37ebb50e4": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "212d85fb5bec54b4": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "2596034a8f807458": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "2b6f4b2bee319153": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null,
+        "G3": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "32c6dde496e63a3e": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "3476069d204bcc1f": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "3593f993e40e068b": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "3be589ed8540f247": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "462ba45890557f6b": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "49f029cb2391ff7a": {
+      "required_claim_covered": {},
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "4d848bce9860fc31": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "507275046d57b90c": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null,
+        "G3": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "6279711fe1884a21": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "6f9ee628de2fafb6": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null,
+        "G3": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "715eb4aa23da9eae": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "7235072f181c3e81": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "72a6981114c803ae": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null,
+        "G3": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "7cee45e9adfa378b": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null,
+        "G3": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "7fd779d7bba9ce6f": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "8b0007dba7e78e53": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null,
+        "G3": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "8ca3eb4a3bc82422": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "98a8e44e557a81e7": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "9a8d7d5cf238ffd0": {
+      "required_claim_covered": {},
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "bf2a25aab02870d2": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "d0f6ed264b0d4a8a": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "d1a4f0e7077769e7": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "d331e061c966c7f3": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "e0ef5aace673689e": {
+      "required_claim_covered": {},
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "e524b677e5c06cab": {
+      "required_claim_covered": {
+        "G1": null,
+        "G2": null,
+        "G3": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    },
+    "f422124b5bc36c47": {
+      "required_claim_covered": {
+        "G1": null
+      },
+      "claims": [],
+      "unassigned_markers": [],
+      "uncertainty_correct": null,
+      "strict_pass": null,
+      "notes": ""
+    }
+  }
+}

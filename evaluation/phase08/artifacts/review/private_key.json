@@ -1,0 +1,179 @@
+{
+  "items": {
+    "64130c5a4e373c11": {
+      "case_id": "p07-t01",
+      "retriever": "hybrid",
+      "split": "pilot"
+    },
+    "b08ecaf51fd2641a": {
+      "case_id": "p07-t02",
+      "retriever": "hybrid",
+      "split": "pilot"
+    },
+    "85cd196522b80b67": {
+      "case_id": "p07-t03",
+      "retriever": "hybrid",
+      "split": "pilot"
+    },
+    "212d85fb5bec54b4": {
+      "case_id": "p07-s01",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "2596034a8f807458": {
+      "case_id": "p07-s01",
+      "retriever": "vector",
+      "split": "main"
+    },
+    "7fd779d7bba9ce6f": {
+      "case_id": "p07-s02",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "3476069d204bcc1f": {
+      "case_id": "p07-s03",
+      "retriever": "vector",
+      "split": "main"
+    },
+    "98a8e44e557a81e7": {
+      "case_id": "p07-s03",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "3593f993e40e068b": {
+      "case_id": "p07-s04",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "1fca12b37ebb50e4": {
+      "case_id": "p07-s05",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "d0f6ed264b0d4a8a": {
+      "case_id": "p07-s06",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "2b6f4b2bee319153": {
+      "case_id": "p07-m01",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "e524b677e5c06cab": {
+      "case_id": "p07-m01",
+      "retriever": "vector",
+      "split": "main"
+    },
+    "6f9ee628de2fafb6": {
+      "case_id": "p07-m02",
+      "retriever": "vector",
+      "split": "main"
+    },
+    "8b0007dba7e78e53": {
+      "case_id": "p07-m02",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "72a6981114c803ae": {
+      "case_id": "p07-m03",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "7cee45e9adfa378b": {
+      "case_id": "p07-m04",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "507275046d57b90c": {
+      "case_id": "p07-m05",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "32c6dde496e63a3e": {
+      "case_id": "p07-m06",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "9a8d7d5cf238ffd0": {
+      "case_id": "p07-i01",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "07e7ba1a5f83a34d": {
+      "case_id": "p07-i01",
+      "retriever": "vector",
+      "split": "main"
+    },
+    "49f029cb2391ff7a": {
+      "case_id": "p07-i02",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "e0ef5aace673689e": {
+      "case_id": "p07-i03",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "7235072f181c3e81": {
+      "case_id": "p07-i04",
+      "retriever": "vector",
+      "split": "main"
+    },
+    "3be589ed8540f247": {
+      "case_id": "p07-i04",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "d1a4f0e7077769e7": {
+      "case_id": "p07-i05",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "f422124b5bc36c47": {
+      "case_id": "p07-i06",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "8ca3eb4a3bc82422": {
+      "case_id": "p07-f01",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "462ba45890557f6b": {
+      "case_id": "p07-f02",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "6279711fe1884a21": {
+      "case_id": "p07-f03",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "0c3d36ca849a83fe": {
+      "case_id": "p07-f03",
+      "retriever": "vector",
+      "split": "main"
+    },
+    "bf2a25aab02870d2": {
+      "case_id": "p07-f04",
+      "retriever": "vector",
+      "split": "main"
+    },
+    "d331e061c966c7f3": {
+      "case_id": "p07-f04",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "4d848bce9860fc31": {
+      "case_id": "p07-f05",
+      "retriever": "hybrid",
+      "split": "main"
+    },
+    "715eb4aa23da9eae": {
+      "case_id": "p07-f06",
+      "retriever": "hybrid",
+      "split": "main"
+    }
+  }
+}

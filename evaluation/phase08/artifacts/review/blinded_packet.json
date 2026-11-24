@@ -1,0 +1,4291 @@
+{
+  "items": [
+    {
+      "blind_id": "64130c5a4e373c11",
+      "split": "pilot",
+      "question": "Trên đồ thị, chuỗi của mái phản quang được vẽ bằng nét gì?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Đường nét liền."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 4
+          },
+          "quote": "The chart marks the reflective-roof series with a solid line."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Chuỗi của mái phản quang được vẽ bằng **nét liền**. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 4,
+          "source_text": "The indoor sensor was positioned 15 cm above the base.\nThe two boxes each used a base measuring 40 cm by 40 cm.\nThe chart marks the reflective-roof series with a solid line.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 4,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:4:8ac07277b6e8:3"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 4,
+          "source_text": "The indoor sensor was positioned 15 cm above the base.\nThe two boxes each used a base measuring 40 cm by 40 cm.\nThe chart marks the reflective-roof series with a solid line.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 4,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:4:8ac07277b6e8:3"
+        }
+      ]
+    },
+    {
+      "blind_id": "85cd196522b80b67",
+      "split": "pilot",
+      "question": "Lượt đó có ghi hướng của mũi tên trên sơ đồ không?",
+      "referent": "lượt CR-05 trong phụ lục",
+      "history": [
+        {
+          "question": "Lượt nào có số đo điện quạt phụ trong phụ lục?",
+          "answer": "Lượt CR-05.",
+          "sources": [
+            "appendix"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "Ở sơ đồ của CR-05, mũi tên chỉ hướng bắc."
+      },
+      "reference_evidence": [
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Có. Ở lượt CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử [S2].",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Chỉ ở CR-05, công tơ của quạt phụ ghi 0,03 kWh cho toàn lượt.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000003:83da29c315aa:2"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000005:f0fccd758bbd:4"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000001:ad02096c09a3:0"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Người ghi đánh dấu mốc kiểm tra thiết bị tiếp theo vào 15:20.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000007:eaebc2b003f5:6"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000005:f0fccd758bbd:4"
+        }
+      ]
+    },
+    {
+      "blind_id": "b08ecaf51fd2641a",
+      "split": "pilot",
+      "question": "Phiếu hiện trường ghi những loại dữ liệu nào? Nhật ký có kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi không?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Phiếu chỉ ghi nhiệt độ không khí và tình trạng mây.",
+        "G2": "Nhật ký không kèm ảnh lắp mái hay bản xuất cấu hình."
+      },
+      "reference_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 7,
+            "anchor": "b000007"
+          },
+          "quote": "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây."
+        },
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 6,
+            "anchor": "b000006"
+          },
+          "quote": "Tệp nhật ký không kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Dẫn từng nguồn và giữ đúng phạm vi của từng phiếu.",
+      "answer": "- Ghi chú hiện trường đề cập đến loại đầu dò nhiệt độ không khí dùng cho hai hộp [S5] và vật liệu mái phản quang [S2]. Ngữ cảnh không nêu đầy đủ các loại dữ liệu được ghi trong phiếu.\n- Nhật ký **không kèm** ảnh lắp mái hoặc bản xuất cấu hình bộ ghi [S1].\n- Các nguồn mâu thuẫn về mái phản quang: ghi chú hiện trường nói tấm nhôm không sơn [S2], còn nhật ký nói tấm nhôm sơn trắng [S3].",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Tệp nhật ký không kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000006:e166fa672caf:5"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm mới, bề mặt không sơn.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000004:fc8843f799f4:3"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000003:58718bf232ba:2"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhóm đã kết thúc lượt ghi theo kế hoạch; bộ ghi không bị gián đoạn.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000004:889fb740aec6:3"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Tệp nhật ký không kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000006:e166fa672caf:5"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm mới, bề mặt không sơn.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000004:fc8843f799f4:3"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000003:58718bf232ba:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        }
+      ]
+    },
+    {
+      "blind_id": "07e7ba1a5f83a34d",
+      "split": "main",
+      "question": "Chỉ đọc trang số liệu 14:00, hãy cho biết đầu dò trong hộp đặt cao bao nhiêu so với đáy.",
+      "referent": null,
+      "history": [],
+      "required_claims": {},
+      "reference_evidence": [],
+      "information_missing": [
+        "Chiều cao đầu dò trên trang 2."
+      ],
+      "expected_behavior": "Nói trang đã chọn thiếu thông tin về chiều cao đầu dò. Dữ kiện trên trang khác nằm ngoài phạm vi.",
+      "answer": "Tôi không có đủ thông tin trong ngữ cảnh được cung cấp để trả lời.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ],
+      "citations": []
+    },
+    {
+      "blind_id": "0c3d36ca849a83fe",
+      "split": "main",
+      "question": "Ngưỡng chấp nhận của bước đó là bao nhiêu?",
+      "referent": "bước kiểm tra độ lệch giữa hai đầu dò trước khi đo",
+      "history": [
+        {
+          "question": "Bước kiểm tra độ lệch hai đầu dò trước khi đo cần chuẩn bị thế nào?",
+          "answer": "Đặt hai đầu dò cạnh nhau trong bóng râm trong 5 phút.",
+          "sources": [
+            "procedures"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "Chênh lệch không quá 0,2 °C."
+      },
+      "reference_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Chênh lệch giữa hai đầu dò phải **không quá 0,2 °C** thì mới bắt đầu đo. [S3]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Nếu mưa xuất hiện, che bộ ghi và đánh dấu lượt đo là gián đoạn.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000006:833f4eaa9c20:5"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Quy trình thao tác thí nghiệm mô hình mái làm mát CR-04.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000001:4ffcda860e86:0"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Đặt hộp đối chứng cách hộp mái phản quang 1,5 m để tránh che bóng lẫn nhau.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000005:64bab8512e99:4"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        }
+      ]
+    },
+    {
+      "blind_id": "1fca12b37ebb50e4",
+      "split": "main",
+      "question": "Hãy đọc phần mô tả kích thước. Đáy mỗi hộp rộng bao nhiêu và đầu dò bên trong đặt cao bao nhiêu so với đáy?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Đáy 40 cm × 40 cm.",
+        "G2": "Đầu dò cao 15 cm so với đáy."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 4
+          },
+          "quote": "The two boxes each used a base measuring 40 cm by 40 cm."
+        },
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 4
+          },
+          "quote": "The indoor sensor was positioned 15 cm above the base."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Đáy mỗi hộp rộng **40 cm × 40 cm**; đầu dò bên trong được đặt cao **15 cm so với đáy**. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 4,
+          "source_text": "The indoor sensor was positioned 15 cm above the base.\nThe two boxes each used a base measuring 40 cm by 40 cm.\nThe chart marks the reflective-roof series with a solid line.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 4,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:4:8ac07277b6e8:3"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 4,
+          "source_text": "The indoor sensor was positioned 15 cm above the base.\nThe two boxes each used a base measuring 40 cm by 40 cm.\nThe chart marks the reflective-roof series with a solid line.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 4,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:4:8ac07277b6e8:3"
+        }
+      ]
+    },
+    {
+      "blind_id": "212d85fb5bec54b4",
+      "split": "main",
+      "question": "Ở trang ghi số đọc lúc 14:00, không khí trong hai hộp nóng bao nhiêu và chênh nhau bao nhiêu?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Mái phản quang 31,2 °C, mái trơn 34,8 °C.",
+        "G2": "Hộp mái phản quang mát hơn 3,6 °C tại mốc này."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Lúc 14:00, hộp có mái phản xạ là **31,2°C**, còn hộp có mái thông thường là **34,8°C**. Hộp mái thông thường nóng hơn **3,6°C**. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "2596034a8f807458",
+      "split": "main",
+      "question": "Ở trang ghi số đọc lúc 14:00, không khí trong hai hộp nóng bao nhiêu và chênh nhau bao nhiêu?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Mái phản quang 31,2 °C, mái trơn 34,8 °C.",
+        "G2": "Hộp mái phản quang mát hơn 3,6 °C tại mốc này."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Lúc 14:00, nhiệt độ trong hộp mái phản xạ là **31,2°C**, còn hộp mái thông thường là **34,8°C**. Hai hộp chênh nhau **3,6°C**. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "2b6f4b2bee319153",
+      "split": "main",
+      "question": "Ghép giờ bắt đầu trong nhật ký với thời lượng trong quy trình. Lượt CR-04 dự kiến kết thúc ghi lúc mấy giờ?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Bắt đầu 13:30.",
+        "G2": "Thời lượng theo quy trình là 90 phút.",
+        "G3": "Giờ kết thúc dự kiến là 15:00."
+      },
+      "reference_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30."
+        },
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Dẫn cả hai nguồn và trình bày 15:00 là giờ tính theo kế hoạch.",
+      "answer": "Lượt CR-04 dự kiến kết thúc ghi lúc **15:00**: bắt đầu lúc 13:30 [S1] và kéo dài 90 phút [S3].",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhật ký vận hành lượt CR-04 ngày 18 tháng 9.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000001:2a3c405c04c1:0"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000004:5c2d1a80d0ae:3"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Quy trình thao tác thí nghiệm mô hình mái làm mát CR-04.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000001:4ffcda860e86:0"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhóm đã kết thúc lượt ghi theo kế hoạch; bộ ghi không bị gián đoạn.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000004:889fb740aec6:3"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000004:5c2d1a80d0ae:3"
+        }
+      ]
+    },
+    {
+      "blind_id": "32c6dde496e63a3e",
+      "split": "main",
+      "question": "Tài liệu bài thực hành và phụ lục mô tả hai lượt nào? Đối tượng so sánh trong lượt chính là gì và phụ lục có dùng lại cùng cặp hộp không?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Lượt CR-04 so sánh hai hộp trống trong cùng sân.",
+        "G2": "Phụ lục mô tả CR-05 dùng một cặp hộp khác."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 1
+          },
+          "quote": "Passive cooling lab: experiment CR-04"
+        },
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 1
+          },
+          "quote": "The test compared two unoccupied model boxes in the same courtyard."
+        },
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 1,
+            "anchor": "b000001"
+          },
+          "quote": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Tài liệu bài thực hành mô tả lượt **CR-04**, còn phụ lục mô tả lượt thử riêng **CR-05**. [S5][S1]\n\nTrong CR-04, đối tượng so sánh là nhiệt độ không khí buổi chiều dưới hai kiểu hoàn thiện mái, dùng hai hộp mô hình không có người ở trong cùng một sân. [S5] Phụ lục **không dùng lại cùng cặp hộp** mà dùng một cặp khác. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000001:ad02096c09a3:0"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Chỉ ở CR-05, công tơ của quạt phụ ghi 0,03 kWh cho toàn lượt.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000003:83da29c315aa:2"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000005:f0fccd758bbd:4"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, khay nước trong hộp mái trơn giảm 12 g.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000004:ebe3d06c5bbb:3"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 1,
+          "source_text": "Passive cooling lab: experiment CR-04\nThe test compared two unoccupied model boxes in the same courtyard.\nThe goal was to compare afternoon air temperatures under two roof finishes.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 1,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:1:0fa62a5e79d6:0"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000001:ad02096c09a3:0"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 1,
+          "source_text": "Passive cooling lab: experiment CR-04\nThe test compared two unoccupied model boxes in the same courtyard.\nThe goal was to compare afternoon air temperatures under two roof finishes.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 1,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:1:0fa62a5e79d6:0"
+        }
+      ]
+    },
+    {
+      "blind_id": "3476069d204bcc1f",
+      "split": "main",
+      "question": "Trong lượt thử, sân bị mây che vào thời gian nào và sau đó thời tiết thay đổi ra sao?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Mây che từ 14:10 đến 14:30, sau đó nắng trở lại."
+      },
+      "reference_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Sân bị mây che từ **14:10 đến 14:30**, sau đó nắng trở lại. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000007:9a557500cefd:6"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm giữ các khe thông gió mở như nhau ở hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000006:ddf85ba33c2e:5"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        }
+      ]
+    },
+    {
+      "blind_id": "3593f993e40e068b",
+      "split": "main",
+      "question": "Nhật ký mô tả hộp mái trơn và hộp mái phản quang đặt ở phía nào của sân?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Mái trơn ở phía đông.",
+        "G2": "Mái phản quang ở phía tây."
+      },
+      "reference_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Hộp mái trơn đặt ở phía đông sân, còn hộp mái phản quang đặt ở phía tây sân. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000005:b1fed334fcaa:4"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000003:58718bf232ba:2"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Tệp nhật ký không kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000006:e166fa672caf:5"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhật ký vận hành lượt CR-04 ngày 18 tháng 9.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000001:2a3c405c04c1:0"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Người ghi đánh dấu mốc kiểm tra thiết bị tiếp theo vào 15:20.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000007:eaebc2b003f5:6"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000005:b1fed334fcaa:4"
+        }
+      ]
+    },
+    {
+      "blind_id": "3be589ed8540f247",
+      "split": "main",
+      "question": "Ngưỡng lệch cho phép giữa hai đầu dò là bao nhiêu, và đầu dò trong lượt này thực tế lệch bao nhiêu?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Cho phép chênh tối đa 0,2 °C."
+      },
+      "reference_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C."
+        }
+      ],
+      "information_missing": [
+        "Giá trị lệch thực đo của CR-04."
+      ],
+      "expected_behavior": "Trích ngưỡng cho phép, nêu thiếu giá trị thực đo.",
+      "answer": "Ngưỡng chênh lệch cho phép giữa hai đầu dò là **không quá 0,2 °C** [S2]. Ngữ cảnh không nêu mức chênh lệch thực tế giữa hai đầu dò trong lượt này.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Nếu mưa xuất hiện, che bộ ghi và đánh dấu lượt đo là gián đoạn.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000006:833f4eaa9c20:5"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Dây đầu dò được cố định bằng kẹp nhựa ở mép hộp.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000007:42a69d207aa0:6"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhóm đã kết thúc lượt ghi theo kế hoạch; bộ ghi không bị gián đoạn.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000004:889fb740aec6:3"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        }
+      ]
+    },
+    {
+      "blind_id": "462ba45890557f6b",
+      "split": "main",
+      "question": "Còn thời lượng của khoảng này theo quy trình là bao lâu?",
+      "referent": "khoảng ghi chính thức của CR-04",
+      "history": [
+        {
+          "question": "Khoảng ghi chính thức của lượt CR-04 bắt đầu lúc nào?",
+          "answer": "Khoảng ghi chính thức bắt đầu lúc 13:30.",
+          "sources": [
+            "log"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "Khoảng ghi chính thức kéo dài 90 phút."
+      },
+      "reference_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Theo quy trình, khoảng ghi chính thức kéo dài **90 phút** kể từ khi bật bộ ghi [S2].",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000004:5c2d1a80d0ae:3"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Quy trình thao tác thí nghiệm mô hình mái làm mát CR-04.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000001:4ffcda860e86:0"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhật ký vận hành lượt CR-04 ngày 18 tháng 9.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000001:2a3c405c04c1:0"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Người ghi đánh dấu mốc kiểm tra thiết bị tiếp theo vào 15:20.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000007:eaebc2b003f5:6"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000004:5c2d1a80d0ae:3"
+        }
+      ]
+    },
+    {
+      "blind_id": "49f029cb2391ff7a",
+      "split": "main",
+      "question": "Từ các phiếu đã chọn, quạt phụ dùng hết bao nhiêu điện trong lượt CR-04?",
+      "referent": null,
+      "history": [],
+      "required_claims": {},
+      "reference_evidence": [],
+      "information_missing": [
+        "Điện năng của quạt riêng cho CR-04."
+      ],
+      "expected_behavior": "Nêu thiếu số liệu của CR-04. Số 0,03 kWh thuộc CR-05 và không thay cho dữ liệu CR-04.",
+      "answer": "Tôi không có đủ thông tin trong ngữ cảnh được cung cấp để trả lời.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000001:ad02096c09a3:0"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Chỉ ở CR-05, công tơ của quạt phụ ghi 0,03 kWh cho toàn lượt.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000003:83da29c315aa:2"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm giữ các khe thông gió mở như nhau ở hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000006:ddf85ba33c2e:5"
+        }
+      ],
+      "citations": []
+    },
+    {
+      "blind_id": "4d848bce9860fc31",
+      "split": "main",
+      "question": "Trong lúc đó bộ ghi có bị gián đoạn không?",
+      "referent": "khoảng mây che từ 14:10 đến 14:30",
+      "history": [
+        {
+          "question": "Lúc nào có mây che sân trong lúc thử?",
+          "answer": "Từ 14:10 đến 14:30.",
+          "sources": [
+            "field_notes"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "Nhật ký ghi cả lượt không bị gián đoạn, gồm khoảng mây che."
+      },
+      "reference_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại."
+        },
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Nhóm đã kết thúc lượt ghi theo kế hoạch; bộ ghi không bị gián đoạn."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Không. Trong khoảng 14:10–14:30 khi mây che sân [S1], bộ ghi không bị gián đoạn; nhóm đã hoàn thành lượt ghi theo kế hoạch [S2].",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhóm đã kết thúc lượt ghi theo kế hoạch; bộ ghi không bị gián đoạn.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000004:889fb740aec6:3"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000007:9a557500cefd:6"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Người ghi đánh dấu mốc kiểm tra thiết bị tiếp theo vào 15:20.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000007:eaebc2b003f5:6"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhóm đã kết thúc lượt ghi theo kế hoạch; bộ ghi không bị gián đoạn.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000004:889fb740aec6:3"
+        }
+      ]
+    },
+    {
+      "blind_id": "507275046d57b90c",
+      "split": "main",
+      "question": "Mốc nhiệt độ 14:00 được ghi trước hay trong khoảng có mây che? Hãy nêu căn cứ thời gian ở hai nguồn.",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Số đọc hai hộp ở mốc 14:00.",
+        "G2": "Khoảng mây che ghi nhận là 14:10–14:30.",
+        "G3": "Mốc 14:00 sớm hơn 10 phút so với lúc bắt đầu khoảng mây che."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C."
+        },
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Mốc nhiệt độ **14:00 được ghi trước** khoảng có mây che. Nguồn [S5] ghi nhiệt độ lúc 14:00; nguồn [S1] cho biết mây che sân từ 14:10 đến 14:30.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000007:9a557500cefd:6"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "6279711fe1884a21",
+      "split": "main",
+      "question": "Ngưỡng chấp nhận của bước đó là bao nhiêu?",
+      "referent": "bước kiểm tra độ lệch giữa hai đầu dò trước khi đo",
+      "history": [
+        {
+          "question": "Bước kiểm tra độ lệch hai đầu dò trước khi đo cần chuẩn bị thế nào?",
+          "answer": "Đặt hai đầu dò cạnh nhau trong bóng râm trong 5 phút.",
+          "sources": [
+            "procedures"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "Chênh lệch không quá 0,2 °C."
+      },
+      "reference_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Chênh lệch giữa hai đầu dò không quá **0,2 °C** thì mới bắt đầu đo. [S2]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Nếu mưa xuất hiện, che bộ ghi và đánh dấu lượt đo là gián đoạn.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000006:833f4eaa9c20:5"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Dây đầu dò được cố định bằng kẹp nhựa ở mép hộp.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000007:42a69d207aa0:6"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000004:5c2d1a80d0ae:3"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        }
+      ]
+    },
+    {
+      "blind_id": "6f9ee628de2fafb6",
+      "split": "main",
+      "question": "Hai tài liệu nói gì về khoảng lấy mẫu trong thời gian ghi chính thức của CR-04? Có thể chốt một con số không?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Tài liệu bài thực hành ghi 10 phút.",
+        "G2": "Ghi chú hiện trường ghi 5 phút.",
+        "G3": "Hai ghi nhận mâu thuẫn và chưa đủ căn cứ phân xử."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 3
+          },
+          "quote": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window."
+        },
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Dẫn bằng chứng của từng phía, nêu mâu thuẫn và giữ cả hai con số.",
+      "answer": "Hai tài liệu **mâu thuẫn** về khoảng lấy mẫu nhiệt độ không khí trong thời gian ghi chính thức của CR-04:\n\n- Ghi chú hiện trường nói thiết bị lấy mẫu mỗi **5 phút** [S1].\n- Tài liệu thí nghiệm nói thiết bị ghi lấy mẫu mỗi **10 phút** [S2].\n\nVì vậy, chưa thể chốt một con số dựa trên các nguồn này.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 3,
+          "source_text": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window.\nThe data file stores timestamps in local time.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 3,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:3:99bb73519bd8:2"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "# Ghi chú hiện trường CR-04",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000001:e9728685e26b:0"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 1,
+          "source_text": "Passive cooling lab: experiment CR-04\nThe test compared two unoccupied model boxes in the same courtyard.\nThe goal was to compare afternoon air temperatures under two roof finishes.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 1,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:1:0fa62a5e79d6:0"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 3,
+          "source_text": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window.\nThe data file stores timestamps in local time.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 3,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:3:99bb73519bd8:2"
+        }
+      ]
+    },
+    {
+      "blind_id": "715eb4aa23da9eae",
+      "split": "main",
+      "question": "Lúc đó tấm che trên hai hộp đang ở trạng thái nào?",
+      "referent": "mốc đọc nhiệt độ 14:00",
+      "history": [
+        {
+          "question": "Số đọc trên trang này là ở thời điểm nào?",
+          "answer": "Hai số đọc là tại 14:00.",
+          "sources": [
+            "handout"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "Tấm che phía trên cả hai hộp được thu lại hoàn toàn."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "The screen above both boxes was fully retracted during this reading."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Lúc đó, tấm che phía trên hai hộp đã được thu lại hoàn toàn. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "7235072f181c3e81",
+      "split": "main",
+      "question": "Ngưỡng lệch cho phép giữa hai đầu dò là bao nhiêu, và đầu dò trong lượt này thực tế lệch bao nhiêu?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Cho phép chênh tối đa 0,2 °C."
+      },
+      "reference_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C."
+        }
+      ],
+      "information_missing": [
+        "Giá trị lệch thực đo của CR-04."
+      ],
+      "expected_behavior": "Trích ngưỡng cho phép, nêu thiếu giá trị thực đo.",
+      "answer": "Ngưỡng lệch cho phép giữa hai đầu dò là **không quá 0,2 °C**. [S4] Ngữ cảnh không cung cấp độ lệch thực tế của hai đầu dò trong lượt này.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Đặt hộp đối chứng cách hộp mái phản quang 1,5 m để tránh che bóng lẫn nhau.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000005:64bab8512e99:4"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Nếu mưa xuất hiện, che bộ ghi và đánh dấu lượt đo là gián đoạn.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000006:833f4eaa9c20:5"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Người ghi đánh dấu mốc kiểm tra thiết bị tiếp theo vào 15:20.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000007:eaebc2b003f5:6"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        }
+      ]
+    },
+    {
+      "blind_id": "72a6981114c803ae",
+      "split": "main",
+      "question": "Mái phản quang của chính lượt CR-04 có sơn hay không? Hãy đối chiếu hai mô tả về vật liệu trước khi kết luận.",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Ghi chú ghi tấm nhôm mới không sơn.",
+        "G2": "Nhật ký ghi tấm nhôm sơn trắng.",
+        "G3": "Phạm vi chưa đủ căn cứ để chọn một mô tả."
+      },
+      "reference_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm mới, bề mặt không sơn."
+        },
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trích dẫn từng mô tả và nêu mâu thuẫn, không gộp thành một cấu hình.",
+      "answer": "Hai mô tả **mâu thuẫn nhau**:\n\n- Nhật ký CR-04 mô tả mái phản quang là tấm nhôm **sơn trắng** [S1].\n- Ghi chú hiện trường mô tả mái là tấm nhôm mới, bề mặt **không sơn** [S2].\n\nVì vậy, không thể kết luận mái có sơn hay không từ các nguồn này.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000003:58718bf232ba:2"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm mới, bề mặt không sơn.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000004:fc8843f799f4:3"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000005:b1fed334fcaa:4"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000003:58718bf232ba:2"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm mới, bề mặt không sơn.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000004:fc8843f799f4:3"
+        }
+      ]
+    },
+    {
+      "blind_id": "7cee45e9adfa378b",
+      "split": "main",
+      "question": "Hai nguồn mô tả nhóm kiểm soát điều kiện so sánh giữa hai hộp thế nào về đầu dò, khe thông gió và khoảng cách?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Cùng loại đầu dò.",
+        "G2": "Khe thông gió mở như nhau.",
+        "G3": "Quy trình yêu cầu cách nhau 1,5 m để tránh che bóng."
+      },
+      "reference_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp."
+        },
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 6,
+            "anchor": "b000006"
+          },
+          "quote": "Nhóm giữ các khe thông gió mở như nhau ở hai hộp."
+        },
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Đặt hộp đối chứng cách hộp mái phản quang 1,5 m để tránh che bóng lẫn nhau."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Phân biệt hai điều kiện ghi nhận ở hiện trường với khoảng cách được quy định trong quy trình.",
+      "answer": "- **Đầu dò:** Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp [S2]. Trước khi đo, hai đầu dò được đặt cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch [S5]; chỉ bắt đầu nếu chênh lệch không quá 0,2 °C [S3].\n- **Khe thông gió:** Nhóm giữ các khe mở như nhau ở hai hộp [S1].\n- **Khoảng cách giữa hai hộp:** Ngữ cảnh không cung cấp thông tin.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm giữ các khe thông gió mở như nhau ở hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000006:ddf85ba33c2e:5"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Nếu mưa xuất hiện, che bộ ghi và đánh dấu lượt đo là gián đoạn.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000006:833f4eaa9c20:5"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm giữ các khe thông gió mở như nhau ở hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000006:ddf85ba33c2e:5"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "7fd779d7bba9ce6f",
+      "split": "main",
+      "question": "Theo tài liệu hướng dẫn, trước khi đo cần đặt hai đầu dò ở đâu và chờ bao lâu?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Đặt hai đầu dò cạnh nhau trong bóng râm trong 5 phút."
+      },
+      "reference_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm và chờ 5 phút để kiểm tra độ lệch. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Nếu mưa xuất hiện, che bộ ghi và đánh dấu lượt đo là gián đoạn.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000006:833f4eaa9c20:5"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Dây đầu dò được cố định bằng kẹp nhựa ở mép hộp.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000007:42a69d207aa0:6"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000003:ba8f41a3d7d4:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Đặt hộp đối chứng cách hộp mái phản quang 1,5 m để tránh che bóng lẫn nhau.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000005:64bab8512e99:4"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "8b0007dba7e78e53",
+      "split": "main",
+      "question": "Hai tài liệu nói gì về khoảng lấy mẫu trong thời gian ghi chính thức của CR-04? Có thể chốt một con số không?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Tài liệu bài thực hành ghi 10 phút.",
+        "G2": "Ghi chú hiện trường ghi 5 phút.",
+        "G3": "Hai ghi nhận mâu thuẫn và chưa đủ căn cứ phân xử."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 3
+          },
+          "quote": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window."
+        },
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Dẫn bằng chứng của từng phía, nêu mâu thuẫn và giữ cả hai con số.",
+      "answer": "Hai tài liệu **mâu thuẫn nhau** về khoảng lấy mẫu nhiệt độ không khí trong thời gian ghi chính thức của CR-04:\n\n- Ghi chú hiện trường nói thiết bị lấy mẫu mỗi **5 phút** [S1].\n- Tài liệu hướng dẫn nói thiết bị lấy mẫu mỗi **10 phút** [S4].\n\nVì vậy, không thể chốt một con số từ các nguồn được cung cấp.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 3,
+          "source_text": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window.\nThe data file stores timestamps in local time.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 3,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:3:99bb73519bd8:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 1,
+          "source_text": "Passive cooling lab: experiment CR-04\nThe test compared two unoccupied model boxes in the same courtyard.\nThe goal was to compare afternoon air temperatures under two roof finishes.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 1,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:1:0fa62a5e79d6:0"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 3,
+          "source_text": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window.\nThe data file stores timestamps in local time.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 3,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:3:99bb73519bd8:2"
+        }
+      ]
+    },
+    {
+      "blind_id": "8ca3eb4a3bc82422",
+      "split": "main",
+      "question": "Vậy hộp đó được đặt ở phía nào của sân?",
+      "referent": "hộp mái phản quang",
+      "history": [
+        {
+          "question": "Tại 14:00, loại mái nào cho nhiệt độ thấp hơn?",
+          "answer": "Hộp mái phản quang có nhiệt độ thấp hơn.",
+          "sources": [
+            "handout"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "Hộp mái phản quang ở phía tây."
+      },
+      "reference_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Hộp mái phản quang được đặt ở phía tây sân. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000005:b1fed334fcaa:4"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000003:58718bf232ba:2"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Tệp nhật ký không kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000006:e166fa672caf:5"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 1,
+          "source_text": "Passive cooling lab: experiment CR-04\nThe test compared two unoccupied model boxes in the same courtyard.\nThe goal was to compare afternoon air temperatures under two roof finishes.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 1,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:1:0fa62a5e79d6:0"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000005:b1fed334fcaa:4"
+        }
+      ]
+    },
+    {
+      "blind_id": "98a8e44e557a81e7",
+      "split": "main",
+      "question": "Trong lượt thử, sân bị mây che vào thời gian nào và sau đó thời tiết thay đổi ra sao?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Mây che từ 14:10 đến 14:30, sau đó nắng trở lại."
+      },
+      "reference_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Sân bị mây che từ **14:10 đến 14:30**, sau đó nắng trở lại. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000002:3f6af4c89580:1"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000007:9a557500cefd:6"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000003:84683a0aa07f:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm mới, bề mặt không sơn.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000004:fc8843f799f4:3"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "ghi-chu-hien-truong--8ef23a979221a134.md",
+          "document_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e",
+          "source_text": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+          "section": "Ghi chú hiện trường CR-04",
+          "schema_version": 2,
+          "document_version": "8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": [
+              "Ghi chú hiện trường CR-04"
+            ]
+          },
+          "chunk_id": "bff6fb5feb5e628727691e617e5fade654452fc2ce58d1ca0cd6454792d9b65e:8ef23a979221a13429a3702afc3340a073f6eb55b103e3fe9884d22ede7ce351:b000005:b92199d972f2:4"
+        }
+      ]
+    },
+    {
+      "blind_id": "9a8d7d5cf238ffd0",
+      "split": "main",
+      "question": "Chỉ đọc trang số liệu 14:00, hãy cho biết đầu dò trong hộp đặt cao bao nhiêu so với đáy.",
+      "referent": null,
+      "history": [],
+      "required_claims": {},
+      "reference_evidence": [],
+      "information_missing": [
+        "Chiều cao đầu dò trên trang 2."
+      ],
+      "expected_behavior": "Nói trang đã chọn thiếu thông tin về chiều cao đầu dò. Dữ kiện trên trang khác nằm ngoài phạm vi.",
+      "answer": "Tôi không có đủ thông tin trong ngữ cảnh được cung cấp để trả lời.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ],
+      "citations": []
+    },
+    {
+      "blind_id": "bf2a25aab02870d2",
+      "split": "main",
+      "question": "Với lượt đó, bộ ghi lấy mẫu cách nhau bao lâu?",
+      "referent": "lượt CR-05 trong phụ lục",
+      "history": [
+        {
+          "question": "Phụ lục về cặp hộp khác đang nói đến lượt nào?",
+          "answer": "Phụ lục nói về lượt CR-05.",
+          "sources": [
+            "appendix"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "CR-05 lấy mẫu mỗi 2 phút."
+      },
+      "reference_evidence": [
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Với lượt CR-05, bộ ghi lấy mẫu mỗi **2 phút**. [S1] [S2]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000001:ad02096c09a3:0"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000002:e286829f8d14:1"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 4,
+          "source_text": "The indoor sensor was positioned 15 cm above the base.\nThe two boxes each used a base measuring 40 cm by 40 cm.\nThe chart marks the reflective-roof series with a solid line.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 4,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:4:8ac07277b6e8:3"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 3,
+          "source_text": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window.\nThe data file stores timestamps in local time.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 3,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:3:99bb73519bd8:2"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000005:f0fccd758bbd:4"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000001:ad02096c09a3:0"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000002:e286829f8d14:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "d0f6ed264b0d4a8a",
+      "split": "main",
+      "question": "Trong phụ lục CR-05, khối lượng khay nước ở hộp mái trơn thay đổi thế nào?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Khối lượng giảm 12 g trong lượt CR-05."
+      },
+      "reference_evidence": [
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Ở CR-05, khay nước trong hộp mái trơn giảm 12 g."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Khối lượng khay nước trong hộp mái trơn giảm 12 g. [S1]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, khay nước trong hộp mái trơn giảm 12 g.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000004:ebe3d06c5bbb:3"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000001:ad02096c09a3:0"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Chỉ ở CR-05, công tơ của quạt phụ ghi 0,03 kWh cho toàn lượt.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000003:83da29c315aa:2"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000005:f0fccd758bbd:4"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000002:e286829f8d14:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, khay nước trong hộp mái trơn giảm 12 g.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000004:ebe3d06c5bbb:3"
+        }
+      ]
+    },
+    {
+      "blind_id": "d1a4f0e7077769e7",
+      "split": "main",
+      "question": "Nhật ký cho biết lượt CR-04 bắt đầu lúc nào và tổng điện năng của bộ ghi là bao nhiêu?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Bắt đầu lúc 13:30."
+      },
+      "reference_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30."
+        }
+      ],
+      "information_missing": [
+        "Điện năng của bộ ghi CR-04."
+      ],
+      "expected_behavior": "Trả lời giờ bắt đầu có trích dẫn, nêu điện năng chưa được ghi.",
+      "answer": "Lượt CR-04 bắt đầu chính thức lúc **13:30** [S1]. Ngữ cảnh không cho biết tổng điện năng của bộ ghi.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhật ký vận hành lượt CR-04 ngày 18 tháng 9.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000001:2a3c405c04c1:0"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000003:58718bf232ba:2"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Người ghi đánh dấu mốc kiểm tra thiết bị tiếp theo vào 15:20.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000007:eaebc2b003f5:6"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Tệp nhật ký không kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000006",
+            "paragraph": 6,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000006:e166fa672caf:5"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "d331e061c966c7f3",
+      "split": "main",
+      "question": "Với lượt đó, bộ ghi lấy mẫu cách nhau bao lâu?",
+      "referent": "lượt CR-05 trong phụ lục",
+      "history": [
+        {
+          "question": "Phụ lục về cặp hộp khác đang nói đến lượt nào?",
+          "answer": "Phụ lục nói về lượt CR-05.",
+          "sources": [
+            "appendix"
+          ],
+          "status": "completed"
+        }
+      ],
+      "required_claims": {
+        "G1": "CR-05 lấy mẫu mỗi 2 phút."
+      },
+      "reference_evidence": [
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "answer": "Ở lượt CR-05, bộ ghi lấy mẫu cách nhau **2 phút**. [S2]",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000001:ad02096c09a3:0"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000002:e286829f8d14:1"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Chỉ ở CR-05, công tơ của quạt phụ ghi 0,03 kWh cho toàn lượt.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000003",
+            "paragraph": 3,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000003:83da29c315aa:2"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000005",
+            "paragraph": 5,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000005:f0fccd758bbd:4"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, khay nước trong hộp mái trơn giảm 12 g.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000004:ebe3d06c5bbb:3"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "phu-luc-cr05--02b6bfbecc50b93e.txt",
+          "document_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759",
+          "source_text": "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút.",
+          "schema_version": 2,
+          "document_version": "02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "6b8976f7054ba21b1330d8fc2d53427f91ad81181c48c565f263cfbbf215d759:02b6bfbecc50b93e675529f87803f6ea66a674872ef8ceb115e7ecc6c75bf3ee:b000002:e286829f8d14:1"
+        }
+      ]
+    },
+    {
+      "blind_id": "e0ef5aace673689e",
+      "split": "main",
+      "question": "Mức độ hài lòng của người ở trong hộp sau thí nghiệm là bao nhiêu?",
+      "referent": null,
+      "history": [],
+      "required_claims": {},
+      "reference_evidence": [],
+      "information_missing": [
+        "Số liệu khảo sát mức độ hài lòng."
+      ],
+      "expected_behavior": "Nêu nguồn không có kết quả khảo sát. Có thể giải thích cả hai hộp mô hình đều trống nếu kèm trích dẫn.",
+      "answer": "Tôi không có đủ thông tin trong ngữ cảnh được cung cấp để trả lời.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 1,
+          "source_text": "Passive cooling lab: experiment CR-04\nThe test compared two unoccupied model boxes in the same courtyard.\nThe goal was to compare afternoon air temperatures under two roof finishes.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 1,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:1:0fa62a5e79d6:0"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 4,
+          "source_text": "The indoor sensor was positioned 15 cm above the base.\nThe two boxes each used a base measuring 40 cm by 40 cm.\nThe chart marks the reflective-roof series with a solid line.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 4,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:4:8ac07277b6e8:3"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 3,
+          "source_text": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window.\nThe data file stores timestamps in local time.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 3,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:3:99bb73519bd8:2"
+        }
+      ],
+      "citations": []
+    },
+    {
+      "blind_id": "e524b677e5c06cab",
+      "split": "main",
+      "question": "Ghép giờ bắt đầu trong nhật ký với thời lượng trong quy trình. Lượt CR-04 dự kiến kết thúc ghi lúc mấy giờ?",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Bắt đầu 13:30.",
+        "G2": "Thời lượng theo quy trình là 90 phút.",
+        "G3": "Giờ kết thúc dự kiến là 15:00."
+      },
+      "reference_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30."
+        },
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi."
+        }
+      ],
+      "information_missing": [],
+      "expected_behavior": "Dẫn cả hai nguồn và trình bày 15:00 là giờ tính theo kế hoạch.",
+      "answer": "Lượt CR-04 dự kiến kết thúc ghi lúc **15:00**: bắt đầu lúc 13:30 [S1] và kéo dài 90 phút [S2].",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000004:5c2d1a80d0ae:3"
+        },
+        {
+          "source_index": 3,
+          "source_marker": "S3",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Người ghi đánh dấu mốc kiểm tra thiết bị tiếp theo vào 15:20.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000007",
+            "paragraph": 7,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000007:eaebc2b003f5:6"
+        },
+        {
+          "source_index": 4,
+          "source_marker": "S4",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Nhật ký vận hành lượt CR-04 ngày 18 tháng 9.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000001",
+            "paragraph": 1,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000001:2a3c405c04c1:0"
+        },
+        {
+          "source_index": 5,
+          "source_marker": "S5",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000002:800c255c0b4d:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "nhat-ky-cr04--360bb6962eb02a64.txt",
+          "document_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22",
+          "source_text": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+          "schema_version": 2,
+          "document_version": "360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000002",
+            "paragraph": 2,
+            "heading": []
+          },
+          "chunk_id": "536334cca55558ebb7ef4a53db297d88cee3fedd570933d08c22d673b9e4fc22:360bb6962eb02a64e81f1484f354ecdc1e01b374c0cd707ac862a3b1bb2c3680:b000002:f585c034d91a:1"
+        },
+        {
+          "source_index": 2,
+          "source_marker": "S2",
+          "filename": "quy-trinh-do--a4048a215897e665.docx",
+          "document_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d",
+          "source_text": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi.",
+          "schema_version": 2,
+          "document_version": "a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480",
+          "locator": {
+            "kind": "paragraph",
+            "anchor": "b000004",
+            "paragraph": 4,
+            "heading": []
+          },
+          "chunk_id": "063e7a1d87a87e7d65e10d9d7a0418f96f0b455277a0d5a878e8434af2cdcc6d:a4048a215897e665cea07f9e76b9a57d5bcbab57c32d82dff296af2e44624480:b000004:5c2d1a80d0ae:3"
+        }
+      ]
+    },
+    {
+      "blind_id": "f422124b5bc36c47",
+      "split": "main",
+      "question": "Ở trang số liệu 14:00, đọc nhiệt độ của hộp mái trơn và hộp mái phản quang, rồi cho biết độ ẩm lúc đó.",
+      "referent": null,
+      "history": [],
+      "required_claims": {
+        "G1": "Mái trơn 34,8 °C, mái phản quang 31,2 °C tại 14:00."
+      },
+      "reference_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C."
+        }
+      ],
+      "information_missing": [
+        "Độ ẩm tại 14:00."
+      ],
+      "expected_behavior": "Trả lời hai nhiệt độ có trích dẫn, nêu trang đã chọn chưa cung cấp độ ẩm.",
+      "answer": "Lúc 14:00, hộp mái trơn có nhiệt độ **34,8°C**, còn hộp mái phản quang là **31,2°C** [S1]. Ngữ cảnh không cung cấp độ ẩm tại thời điểm đó.",
+      "context": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ],
+      "citations": [
+        {
+          "source_index": 1,
+          "source_marker": "S1",
+          "filename": "cool-roof-handout--a99776b21fd2da21.pdf",
+          "document_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e",
+          "page": 2,
+          "source_text": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.\nThe screen above both boxes was fully retracted during this reading.",
+          "schema_version": 2,
+          "document_version": "a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39",
+          "locator": {
+            "kind": "page",
+            "page": 2,
+            "heading": []
+          },
+          "chunk_id": "c0d7a703cd479f34b3088b99f2fa7c34eea6647650e93fdf0166cc3f662ed89e:a99776b21fd2da21f6acdbe29cfc3b6a3377951ac3f63b56becb46b497cbef39:2:cbd1a83b7736:1"
+        }
+      ]
+    }
+  ]
+}

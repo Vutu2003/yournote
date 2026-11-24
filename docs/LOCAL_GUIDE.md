@@ -4,20 +4,19 @@ Bản 0.6.0-local dành cho dùng thử có kiểm soát trên Linux x86_64. Gi�
 
 ## Cài mới
 
-Môi trường tham chiếu: Python 3.12.10, Node 24.21.0/npm 11.19.0. Cần trình duyệt hiện đại và chỗ trống cho dependency, embedding model, tài liệu và backup. Cài trên bản thư mục mới; không ghi đè `.env` hoặc dữ liệu của bản đang dùng.
+Môi trường tham chiếu dùng Python 3.12.10 (có `venv` và `pip`) và Node 24.21.0/npm 11.19.0. Đưa Python và Node vào `PATH` trước khi chạy bộ cài. Cần trình duyệt hiện đại và chỗ trống cho dependency, embedding model, tài liệu và backup.
 
-Trong workspace vào `project/`; nếu giải nén archive thì vào thư mục `yournote/` thay cho `project/` trong lệnh dưới.
+Trên máy mới, clone repo rồi chạy các lệnh bên dưới ngay trong thư mục `yournote/`. Nếu đã có mã nguồn, chạy từ thư mục chứa `scripts/setup_local.sh`.
 
 ```bash
-cd project
-# Node 24 phải có trong PATH; nếu dùng Node của workspace:
-export PATH="$PWD/.tools/node/bin:$PATH"
+git clone https://github.com/Vutu2003/yournote.git
+cd yournote
 bash scripts/setup_local.sh
-# Tùy chọn cho cài mới; chỉ chạy nếu chưa có .env:
-cp -n .env.example .env
 bash scripts/start_local.sh
 bash scripts/status.sh
 ```
+
+Ứng dụng khởi động với cấu hình mặc định. Để cấu hình riêng, tạo `.env` từ `.env.example` khi chưa có `.env`.
 
 `requirements-local.txt` dùng snapshot `requirements-local.lock` làm constraints. Bộ cài local dùng PyTorch CPU cùng nhánh 2.14, tránh tải CUDA không cần cho embedding. Đây là snapshot Linux đã kiểm tra, không phải lockfile đa nền tảng có hash wheel. `requirements.txt` gốc phục vụ giao diện Gradio cũ, không phải entrypoint của bản React này.
 

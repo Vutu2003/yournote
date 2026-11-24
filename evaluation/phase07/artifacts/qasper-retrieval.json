@@ -1,0 +1,1285 @@
+{
+  "dataset": "QASPER v0.3, official test split, text-only answerable sample",
+  "dataset_archive_sha256": "72a52a41193e2838b8074f80ac074b94f956b84886c36a61c58a7df4171bdd72",
+  "sampling_seed": "YourNote-QASPER-test-v0.3-2026-11-24",
+  "base_git_commit": "661b380daa604c2fc52a222f8ed892c26f8e5047",
+  "retrieval_code_sha256": {
+    "evaluation/phase07/qasper.py": "b723063aa121e4ef09d913312ab9f3ad1196172cded934125865d7b6f0e3fb72",
+    "evaluation/phase06/bundle.py": "60acb4eae7da924552858ee84874983160499317f1afebf8cae37bd4fa17e3a1",
+    "src/rag.py": "23faf434e2e2935ed52714eebdba7ab9ff18bbdf48a89e097e2641edd6455724",
+    "src/retrieval.py": "182c38d1904ec866916a5cb4a1541f34cbf0b6b44a03f6d0f65fb2bfe5feeb83",
+    "src/document_parser.py": "56e9487ceaaa249bf57bae9d8ea75ffc4b071d7d51b8c8648eb71b28223e4130",
+    "src/indexing.py": "ca9e57d59c3496322a7986c02f9b5462c9620e727b02e7ed46562d039e5fca65",
+    "src/embeddings.py": "3631c0d2387ce45c22bda3e8a7767695fdb327009b92b31f7dbe239f8928873b"
+  },
+  "policy_sha256": "d376caf4e4db1880a8d52ab824e15a446398ca59071032e94ff4494a7b739241",
+  "configuration": {
+    "k": 5,
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 1500,
+    "chunk_overlap": 200
+  },
+  "llm_calls": 0,
+  "eligible_papers": 366,
+  "eligible_questions": 872,
+  "case_manifest_sha256": "4a99f6db86ba8783f8a19b0592fc81183946e48b98eb748ef9ae6f242ab910be",
+  "cases": [
+    {
+      "paper_id": "1809.06083",
+      "question_id": "80d6b9123a10358f57f259b8996a792cac08cb88",
+      "gold_paragraph_sets": [
+        [
+          12
+        ],
+        [
+          12
+        ]
+      ],
+      "document_paragraphs": 24
+    },
+    {
+      "paper_id": "1909.09070",
+      "question_id": "42a4ab4607a9eec42c427a817b7e898230d26444",
+      "gold_paragraph_sets": [
+        [
+          26,
+          27
+        ],
+        [
+          26,
+          27,
+          28
+        ],
+        [
+          2
+        ],
+        [
+          8
+        ]
+      ],
+      "document_paragraphs": 59
+    },
+    {
+      "paper_id": "1810.12897",
+      "question_id": "d323f0d65b57b30ae85fb9f24298927a3d1216e9",
+      "gold_paragraph_sets": [
+        [
+          15
+        ],
+        [
+          4,
+          15
+        ]
+      ],
+      "document_paragraphs": 25
+    },
+    {
+      "paper_id": "1805.04579",
+      "question_id": "6a20a3220c4edad758b912e2d3e5b99b0b295d96",
+      "gold_paragraph_sets": [
+        [
+          8,
+          76,
+          78,
+          80
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          78,
+          85,
+          86
+        ]
+      ],
+      "document_paragraphs": 99
+    },
+    {
+      "paper_id": "1707.07568",
+      "question_id": "79258cea30cd6c0662df4bb712bf667589498a1f",
+      "gold_paragraph_sets": [
+        [
+          30
+        ],
+        [
+          30
+        ]
+      ],
+      "document_paragraphs": 38
+    },
+    {
+      "paper_id": "1610.09722",
+      "question_id": "dfdd309e56b71589b25412ba85b0a5d79a467ceb",
+      "gold_paragraph_sets": [
+        [
+          39
+        ],
+        [
+          39
+        ]
+      ],
+      "document_paragraphs": 69
+    },
+    {
+      "paper_id": "2004.04478",
+      "question_id": "57d07d2b509c5860880583efe2ed4c5620a96747",
+      "gold_paragraph_sets": [
+        [
+          47
+        ],
+        [
+          66
+        ]
+      ],
+      "document_paragraphs": 67
+    },
+    {
+      "paper_id": "1705.00571",
+      "question_id": "22225ba18a6efe74b1315cc08405011d5431498e",
+      "gold_paragraph_sets": [
+        [
+          5,
+          18
+        ],
+        [
+          2,
+          4,
+          5
+        ]
+      ],
+      "document_paragraphs": 30
+    },
+    {
+      "paper_id": "2003.11687",
+      "question_id": "2abcff4fdedf9b17f76875cc338ba4ab8d1eccd3",
+      "gold_paragraph_sets": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "document_paragraphs": 35
+    },
+    {
+      "paper_id": "2003.12139",
+      "question_id": "471683ba6251b631f38a24d42b6dba6f52dee429",
+      "gold_paragraph_sets": [
+        [
+          15
+        ],
+        [
+          15
+        ],
+        [
+          15
+        ]
+      ],
+      "document_paragraphs": 28
+    },
+    {
+      "paper_id": "1708.07690",
+      "question_id": "cf3fab54b2b289b66e7dba4706c47a62569627c5",
+      "gold_paragraph_sets": [
+        [
+          21,
+          22,
+          23,
+          24
+        ],
+        [
+          21,
+          22,
+          23,
+          24
+        ],
+        [
+          10,
+          15
+        ]
+      ],
+      "document_paragraphs": 42
+    },
+    {
+      "paper_id": "1801.03615",
+      "question_id": "68f1df3fb0703ff694a055d23e7ec3f6fb449b8d",
+      "gold_paragraph_sets": [
+        [
+          55,
+          56
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          55
+        ]
+      ],
+      "document_paragraphs": 67
+    },
+    {
+      "paper_id": "1909.00786",
+      "question_id": "075d6ab5dd132666e85d0b6ad238118271dfc147",
+      "gold_paragraph_sets": [
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      "document_paragraphs": 57
+    },
+    {
+      "paper_id": "1611.02378",
+      "question_id": "283d358606341c399e369f2ba7952cd955326f73",
+      "gold_paragraph_sets": [
+        [
+          12
+        ],
+        [
+          21
+        ]
+      ],
+      "document_paragraphs": 52
+    },
+    {
+      "paper_id": "1904.02954",
+      "question_id": "9dd8ce48a2a59a63ae6366ab8b2b8828e5ae7f35",
+      "gold_paragraph_sets": [
+        [
+          20,
+          21
+        ],
+        [
+          20
+        ],
+        [
+          20,
+          21
+        ]
+      ],
+      "document_paragraphs": 34
+    },
+    {
+      "paper_id": "1706.02222",
+      "question_id": "77a331d4d909d92fab9552b429adde5379b2ae69",
+      "gold_paragraph_sets": [
+        [
+          61,
+          63
+        ],
+        [
+          68
+        ]
+      ],
+      "document_paragraphs": 69
+    },
+    {
+      "paper_id": "1803.07828",
+      "question_id": "1f40adc719d8ccda81e7e90525b577f5698b5aad",
+      "gold_paragraph_sets": [
+        [
+          8
+        ],
+        [
+          9,
+          10,
+          11
+        ]
+      ],
+      "document_paragraphs": 32
+    },
+    {
+      "paper_id": "1704.06851",
+      "question_id": "1a419468d255d40ae82ed7777618072a48f0091b",
+      "gold_paragraph_sets": [
+        [
+          3,
+          19
+        ],
+        [
+          19
+        ],
+        [
+          19,
+          20
+        ]
+      ],
+      "document_paragraphs": 45
+    },
+    {
+      "paper_id": "1908.05908",
+      "question_id": "07104dd36a0e7fdd2c211ad710de9a605495b697",
+      "gold_paragraph_sets": [
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          17,
+          20
+        ]
+      ],
+      "document_paragraphs": 41
+    },
+    {
+      "paper_id": "1605.04278",
+      "question_id": "73c535a7b46f0c2408ea2b1da0a878b376a2bca5",
+      "gold_paragraph_sets": [
+        [
+          11
+        ],
+        [
+          11
+        ]
+      ],
+      "document_paragraphs": 130
+    },
+    {
+      "paper_id": "1606.07947",
+      "question_id": "f77d7cddef3e021d70e16b9e16cecfd4b8ee80d3",
+      "gold_paragraph_sets": [
+        [
+          39,
+          40
+        ],
+        [
+          40
+        ]
+      ],
+      "document_paragraphs": 55
+    },
+    {
+      "paper_id": "2002.04374",
+      "question_id": "f9ae1b31c1a60aacb9ef869e1cc6b0e70c6e5d8e",
+      "gold_paragraph_sets": [
+        [
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "document_paragraphs": 20
+    },
+    {
+      "paper_id": "1803.02914",
+      "question_id": "d6a815d24c46557827d8aca65d3ffd008ac1bc07",
+      "gold_paragraph_sets": [
+        [
+          9,
+          12
+        ],
+        [
+          12
+        ]
+      ],
+      "document_paragraphs": 26
+    },
+    {
+      "paper_id": "1908.10001",
+      "question_id": "be632f0246c2e5f049d12e796812f496e083c33e",
+      "gold_paragraph_sets": [
+        [
+          29,
+          30
+        ],
+        [
+          18
+        ]
+      ],
+      "document_paragraphs": 38
+    }
+  ],
+  "init_seconds": 22.580427649999365,
+  "summary": {
+    "hybrid": {
+      "questions": 24,
+      "hits": 13,
+      "macro_recall_at_5": 0.4270833333333333,
+      "macro_evidence_f1_at_5": 0.2371031746031746,
+      "locator_checks": 120
+    },
+    "vector": {
+      "questions": 24,
+      "hits": 13,
+      "macro_recall_at_5": 0.4513888888888889,
+      "macro_evidence_f1_at_5": 0.23244047619047617,
+      "locator_checks": 120
+    }
+  },
+  "rows": [
+    {
+      "paper_id": "1809.06083",
+      "question_id": "80d6b9123a10358f57f259b8996a792cac08cb88",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        16,
+        12,
+        7,
+        22,
+        15
+      ],
+      "source_sha256": "d397a0d126d54fe9bcaf9cf532802100fafbca7e5a1c2afebc29f1595bd2e807",
+      "locator_checks": 5,
+      "retrieval_ms": 38.78735699981917,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.3333333333333333
+    },
+    {
+      "paper_id": "1809.06083",
+      "question_id": "80d6b9123a10358f57f259b8996a792cac08cb88",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        16,
+        12,
+        11,
+        21,
+        22
+      ],
+      "source_sha256": "d397a0d126d54fe9bcaf9cf532802100fafbca7e5a1c2afebc29f1595bd2e807",
+      "locator_checks": 5,
+      "retrieval_ms": 26.011103999735496,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.3333333333333333
+    },
+    {
+      "paper_id": "1909.09070",
+      "question_id": "42a4ab4607a9eec42c427a817b7e898230d26444",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        57,
+        52,
+        6,
+        8,
+        14
+      ],
+      "source_sha256": "3456b9373982ceeb47be0567e1c36181369994ee809874316140e6ed1a5d8fba",
+      "locator_checks": 5,
+      "retrieval_ms": 27.024102999348543,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.3333333333333333
+    },
+    {
+      "paper_id": "1909.09070",
+      "question_id": "42a4ab4607a9eec42c427a817b7e898230d26444",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        57,
+        15,
+        14,
+        10,
+        52
+      ],
+      "source_sha256": "3456b9373982ceeb47be0567e1c36181369994ee809874316140e6ed1a5d8fba",
+      "locator_checks": 5,
+      "retrieval_ms": 40.93379499954608,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1810.12897",
+      "question_id": "d323f0d65b57b30ae85fb9f24298927a3d1216e9",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        15,
+        4,
+        24,
+        5,
+        20
+      ],
+      "source_sha256": "9fe665366b2fda0e861fd712c052a9940d2ccdbeea6b14edf8aef703c9d0ab92",
+      "locator_checks": 5,
+      "retrieval_ms": 40.94596599952638,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.5714285714285714
+    },
+    {
+      "paper_id": "1810.12897",
+      "question_id": "d323f0d65b57b30ae85fb9f24298927a3d1216e9",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        15,
+        20,
+        25,
+        5,
+        4
+      ],
+      "source_sha256": "9fe665366b2fda0e861fd712c052a9940d2ccdbeea6b14edf8aef703c9d0ab92",
+      "locator_checks": 5,
+      "retrieval_ms": 26.333650999731617,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.5714285714285714
+    },
+    {
+      "paper_id": "1805.04579",
+      "question_id": "6a20a3220c4edad758b912e2d3e5b99b0b295d96",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        15,
+        93,
+        6,
+        84,
+        87
+      ],
+      "source_sha256": "8dba2a838faba09239cd9e813491ee46bda59720313c038aa7b24c3420a74390",
+      "locator_checks": 5,
+      "retrieval_ms": 27.874528000211285,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1805.04579",
+      "question_id": "6a20a3220c4edad758b912e2d3e5b99b0b295d96",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        41,
+        6,
+        93,
+        86,
+        59
+      ],
+      "source_sha256": "8dba2a838faba09239cd9e813491ee46bda59720313c038aa7b24c3420a74390",
+      "locator_checks": 5,
+      "retrieval_ms": 41.87369099963689,
+      "hit_at_5": 1,
+      "recall_at_5": 0.25,
+      "evidence_f1_at_5": 0.2222222222222222
+    },
+    {
+      "paper_id": "1707.07568",
+      "question_id": "79258cea30cd6c0662df4bb712bf667589498a1f",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        37,
+        8,
+        5,
+        4,
+        17
+      ],
+      "source_sha256": "b08c4adabf113fa9b9ae9506ae5c35aa405b55766bf422fcd64621690657090e",
+      "locator_checks": 5,
+      "retrieval_ms": 37.868309000259615,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1707.07568",
+      "question_id": "79258cea30cd6c0662df4bb712bf667589498a1f",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        37,
+        35,
+        27,
+        17,
+        38
+      ],
+      "source_sha256": "b08c4adabf113fa9b9ae9506ae5c35aa405b55766bf422fcd64621690657090e",
+      "locator_checks": 5,
+      "retrieval_ms": 26.264019000336702,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1610.09722",
+      "question_id": "dfdd309e56b71589b25412ba85b0a5d79a467ceb",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        69,
+        57,
+        16,
+        15,
+        40
+      ],
+      "source_sha256": "860270e546c1c0ecbd7280bb3236934d43bfcea703cb9c9683b6201ab2ee5cf1",
+      "locator_checks": 5,
+      "retrieval_ms": 26.92490000026737,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1610.09722",
+      "question_id": "dfdd309e56b71589b25412ba85b0a5d79a467ceb",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        66,
+        57,
+        40,
+        26,
+        39
+      ],
+      "source_sha256": "860270e546c1c0ecbd7280bb3236934d43bfcea703cb9c9683b6201ab2ee5cf1",
+      "locator_checks": 5,
+      "retrieval_ms": 40.45969700018759,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.3333333333333333
+    },
+    {
+      "paper_id": "2004.04478",
+      "question_id": "57d07d2b509c5860880583efe2ed4c5620a96747",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        17,
+        66,
+        54,
+        14,
+        61
+      ],
+      "source_sha256": "9b6b8b05905c8901c0c7abb3c6727c6edd125e481ae1c4bc665c93605cc992fd",
+      "locator_checks": 5,
+      "retrieval_ms": 40.563757000199985,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.3333333333333333
+    },
+    {
+      "paper_id": "2004.04478",
+      "question_id": "57d07d2b509c5860880583efe2ed4c5620a96747",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        17,
+        19,
+        14,
+        54,
+        5
+      ],
+      "source_sha256": "9b6b8b05905c8901c0c7abb3c6727c6edd125e481ae1c4bc665c93605cc992fd",
+      "locator_checks": 5,
+      "retrieval_ms": 26.315570999940974,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1705.00571",
+      "question_id": "22225ba18a6efe74b1315cc08405011d5431498e",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        2,
+        3,
+        30,
+        5,
+        4
+      ],
+      "source_sha256": "9574a4e747c81b8c15e6985e1d2791c538b2526c21cc0d4c6031870fb835af9f",
+      "locator_checks": 5,
+      "retrieval_ms": 26.337221000176214,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.75
+    },
+    {
+      "paper_id": "1705.00571",
+      "question_id": "22225ba18a6efe74b1315cc08405011d5431498e",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        2,
+        3,
+        23,
+        30,
+        5
+      ],
+      "source_sha256": "9574a4e747c81b8c15e6985e1d2791c538b2526c21cc0d4c6031870fb835af9f",
+      "locator_checks": 5,
+      "retrieval_ms": 37.96334699927684,
+      "hit_at_5": 1,
+      "recall_at_5": 0.6666666666666666,
+      "evidence_f1_at_5": 0.5
+    },
+    {
+      "paper_id": "2003.11687",
+      "question_id": "2abcff4fdedf9b17f76875cc338ba4ab8d1eccd3",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        35,
+        4,
+        2,
+        25,
+        23
+      ],
+      "source_sha256": "44778a7ba5d23b7af4c3e06a3da6dd68815e74c66b2adf8b238e86f4041abd39",
+      "locator_checks": 5,
+      "retrieval_ms": 38.320513000144274,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "2003.11687",
+      "question_id": "2abcff4fdedf9b17f76875cc338ba4ab8d1eccd3",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        35,
+        2,
+        25,
+        4,
+        23
+      ],
+      "source_sha256": "44778a7ba5d23b7af4c3e06a3da6dd68815e74c66b2adf8b238e86f4041abd39",
+      "locator_checks": 5,
+      "retrieval_ms": 28.63411999987875,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "2003.12139",
+      "question_id": "471683ba6251b631f38a24d42b6dba6f52dee429",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        16,
+        20,
+        1,
+        15
+      ],
+      "source_sha256": "d17d8549451156ad01d65b6181d4fe95ee108102b99bccd061a4c46477283a69",
+      "locator_checks": 5,
+      "retrieval_ms": 26.28720800021256,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.4
+    },
+    {
+      "paper_id": "2003.12139",
+      "question_id": "471683ba6251b631f38a24d42b6dba6f52dee429",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        20,
+        1,
+        16,
+        13,
+        23
+      ],
+      "source_sha256": "d17d8549451156ad01d65b6181d4fe95ee108102b99bccd061a4c46477283a69",
+      "locator_checks": 5,
+      "retrieval_ms": 37.67423799945391,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1708.07690",
+      "question_id": "cf3fab54b2b289b66e7dba4706c47a62569627c5",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        10,
+        2,
+        12,
+        22,
+        23
+      ],
+      "source_sha256": "60670b580fa5e19786192a2cd09fe8046a7523ec4354437d0891ccf626d68fa4",
+      "locator_checks": 5,
+      "retrieval_ms": 39.699503999145236,
+      "hit_at_5": 1,
+      "recall_at_5": 0.5,
+      "evidence_f1_at_5": 0.4444444444444444
+    },
+    {
+      "paper_id": "1708.07690",
+      "question_id": "cf3fab54b2b289b66e7dba4706c47a62569627c5",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        10,
+        12,
+        19,
+        28,
+        6
+      ],
+      "source_sha256": "60670b580fa5e19786192a2cd09fe8046a7523ec4354437d0891ccf626d68fa4",
+      "locator_checks": 5,
+      "retrieval_ms": 26.502214999709395,
+      "hit_at_5": 1,
+      "recall_at_5": 0.5,
+      "evidence_f1_at_5": 0.2857142857142857
+    },
+    {
+      "paper_id": "1801.03615",
+      "question_id": "68f1df3fb0703ff694a055d23e7ec3f6fb449b8d",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        4,
+        62,
+        51,
+        60,
+        67
+      ],
+      "source_sha256": "f6eab0d59382196136b529c58d73cdfe239580b5319198dcd1ee8016a5da6618",
+      "locator_checks": 5,
+      "retrieval_ms": 26.90846000041347,
+      "hit_at_5": 1,
+      "recall_at_5": 0.5,
+      "evidence_f1_at_5": 0.2857142857142857
+    },
+    {
+      "paper_id": "1801.03615",
+      "question_id": "68f1df3fb0703ff694a055d23e7ec3f6fb449b8d",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        4,
+        12,
+        67,
+        56,
+        52
+      ],
+      "source_sha256": "f6eab0d59382196136b529c58d73cdfe239580b5319198dcd1ee8016a5da6618",
+      "locator_checks": 5,
+      "retrieval_ms": 40.016239000578935,
+      "hit_at_5": 1,
+      "recall_at_5": 0.5,
+      "evidence_f1_at_5": 0.2857142857142857
+    },
+    {
+      "paper_id": "1909.00786",
+      "question_id": "075d6ab5dd132666e85d0b6ad238118271dfc147",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        56,
+        53,
+        52,
+        3,
+        1
+      ],
+      "source_sha256": "d2adbe54f52b3ae832109de03fd315bffd3599e237ca4044571393f015f2ca4e",
+      "locator_checks": 5,
+      "retrieval_ms": 41.16235399942525,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1909.00786",
+      "question_id": "075d6ab5dd132666e85d0b6ad238118271dfc147",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        56,
+        52,
+        53,
+        3,
+        1
+      ],
+      "source_sha256": "d2adbe54f52b3ae832109de03fd315bffd3599e237ca4044571393f015f2ca4e",
+      "locator_checks": 5,
+      "retrieval_ms": 27.653803999783122,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1611.02378",
+      "question_id": "283d358606341c399e369f2ba7952cd955326f73",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        6,
+        17,
+        15,
+        25,
+        45
+      ],
+      "source_sha256": "0868fe1046d0cdc3c100794ca9f6e393d50378b090e664fa3d7781f956eab83e",
+      "locator_checks": 5,
+      "retrieval_ms": 26.435083000251325,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1611.02378",
+      "question_id": "283d358606341c399e369f2ba7952cd955326f73",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        10,
+        45,
+        50,
+        31,
+        6
+      ],
+      "source_sha256": "0868fe1046d0cdc3c100794ca9f6e393d50378b090e664fa3d7781f956eab83e",
+      "locator_checks": 5,
+      "retrieval_ms": 38.481537000734534,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1904.02954",
+      "question_id": "9dd8ce48a2a59a63ae6366ab8b2b8828e5ae7f35",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        11,
+        8,
+        33,
+        18,
+        31
+      ],
+      "source_sha256": "c733630da71df7324b3c3a136e77347b2902a70146e397d2f493772bd760c8d2",
+      "locator_checks": 5,
+      "retrieval_ms": 37.66421100044681,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1904.02954",
+      "question_id": "9dd8ce48a2a59a63ae6366ab8b2b8828e5ae7f35",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        11,
+        18,
+        8,
+        9,
+        28
+      ],
+      "source_sha256": "c733630da71df7324b3c3a136e77347b2902a70146e397d2f493772bd760c8d2",
+      "locator_checks": 5,
+      "retrieval_ms": 26.050901999951748,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1706.02222",
+      "question_id": "77a331d4d909d92fab9552b429adde5379b2ae69",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        60,
+        62,
+        55,
+        63,
+        49
+      ],
+      "source_sha256": "0843d2ae10d43786dfacd149f6b587714474f996fbad87daac5420143584337d",
+      "locator_checks": 5,
+      "retrieval_ms": 27.308558999720844,
+      "hit_at_5": 1,
+      "recall_at_5": 0.5,
+      "evidence_f1_at_5": 0.2857142857142857
+    },
+    {
+      "paper_id": "1706.02222",
+      "question_id": "77a331d4d909d92fab9552b429adde5379b2ae69",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        55,
+        28,
+        51,
+        60,
+        10
+      ],
+      "source_sha256": "0843d2ae10d43786dfacd149f6b587714474f996fbad87daac5420143584337d",
+      "locator_checks": 5,
+      "retrieval_ms": 40.36214000007021,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1803.07828",
+      "question_id": "1f40adc719d8ccda81e7e90525b577f5698b5aad",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        7,
+        2,
+        11,
+        1
+      ],
+      "source_sha256": "3b224502485b0657d23b19028e7b54750ca16eef919cca8376ae0d1f8b6fc9c0",
+      "locator_checks": 5,
+      "retrieval_ms": 38.3764180005528,
+      "hit_at_5": 1,
+      "recall_at_5": 0.3333333333333333,
+      "evidence_f1_at_5": 0.2857142857142857
+    },
+    {
+      "paper_id": "1803.07828",
+      "question_id": "1f40adc719d8ccda81e7e90525b577f5698b5aad",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        2,
+        11,
+        7,
+        14
+      ],
+      "source_sha256": "3b224502485b0657d23b19028e7b54750ca16eef919cca8376ae0d1f8b6fc9c0",
+      "locator_checks": 5,
+      "retrieval_ms": 27.0548599992253,
+      "hit_at_5": 1,
+      "recall_at_5": 0.3333333333333333,
+      "evidence_f1_at_5": 0.2857142857142857
+    },
+    {
+      "paper_id": "1704.06851",
+      "question_id": "1a419468d255d40ae82ed7777618072a48f0091b",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        6,
+        19,
+        4,
+        29,
+        34
+      ],
+      "source_sha256": "4d7a88e18e806d5192a074efdb5d769cfc63c16dfaabd2b648494fe1d4892625",
+      "locator_checks": 5,
+      "retrieval_ms": 26.210931000605342,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.3333333333333333
+    },
+    {
+      "paper_id": "1704.06851",
+      "question_id": "1a419468d255d40ae82ed7777618072a48f0091b",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        20,
+        19,
+        34,
+        6,
+        32
+      ],
+      "source_sha256": "4d7a88e18e806d5192a074efdb5d769cfc63c16dfaabd2b648494fe1d4892625",
+      "locator_checks": 5,
+      "retrieval_ms": 39.058067000041774,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.5714285714285714
+    },
+    {
+      "paper_id": "1908.05908",
+      "question_id": "07104dd36a0e7fdd2c211ad710de9a605495b697",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        41,
+        12,
+        7,
+        11,
+        15
+      ],
+      "source_sha256": "c1385543906936ed59fece7d0b43f466e033eaeceb6a4de6983ef4a7d1ef0d41",
+      "locator_checks": 5,
+      "retrieval_ms": 38.45911200005503,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.5714285714285714
+    },
+    {
+      "paper_id": "1908.05908",
+      "question_id": "07104dd36a0e7fdd2c211ad710de9a605495b697",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        41,
+        12,
+        7,
+        39,
+        6
+      ],
+      "source_sha256": "c1385543906936ed59fece7d0b43f466e033eaeceb6a4de6983ef4a7d1ef0d41",
+      "locator_checks": 5,
+      "retrieval_ms": 26.019990000349935,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.5714285714285714
+    },
+    {
+      "paper_id": "1605.04278",
+      "question_id": "73c535a7b46f0c2408ea2b1da0a878b376a2bca5",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        14,
+        130,
+        127,
+        32,
+        31
+      ],
+      "source_sha256": "4982d4a28e45fa26c8d8a395d5e1609d83469bbb8105edb1d6d8417cbe9e6261",
+      "locator_checks": 5,
+      "retrieval_ms": 27.976696999758133,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1605.04278",
+      "question_id": "73c535a7b46f0c2408ea2b1da0a878b376a2bca5",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        31,
+        32,
+        14,
+        128,
+        16
+      ],
+      "source_sha256": "4982d4a28e45fa26c8d8a395d5e1609d83469bbb8105edb1d6d8417cbe9e6261",
+      "locator_checks": 5,
+      "retrieval_ms": 43.6100320002879,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1606.07947",
+      "question_id": "f77d7cddef3e021d70e16b9e16cecfd4b8ee80d3",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        29,
+        37,
+        33,
+        30,
+        8
+      ],
+      "source_sha256": "78f0fa0439cf31a807bb1efb5a459fe71ff77a1eb85a317cdbce48e32482ab4a",
+      "locator_checks": 5,
+      "retrieval_ms": 38.50300500016601,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1606.07947",
+      "question_id": "f77d7cddef3e021d70e16b9e16cecfd4b8ee80d3",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        30,
+        33,
+        29,
+        37,
+        14
+      ],
+      "source_sha256": "78f0fa0439cf31a807bb1efb5a459fe71ff77a1eb85a317cdbce48e32482ab4a",
+      "locator_checks": 5,
+      "retrieval_ms": 29.11681499972474,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "2002.04374",
+      "question_id": "f9ae1b31c1a60aacb9ef869e1cc6b0e70c6e5d8e",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        13,
+        12,
+        17,
+        16,
+        11
+      ],
+      "source_sha256": "3603789e05f888f83d2f1482620ac9cbcdb9415c476106bb4476bcc634b18158",
+      "locator_checks": 5,
+      "retrieval_ms": 25.69753599982505,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "2002.04374",
+      "question_id": "f9ae1b31c1a60aacb9ef869e1cc6b0e70c6e5d8e",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        13,
+        17,
+        12,
+        11,
+        9
+      ],
+      "source_sha256": "3603789e05f888f83d2f1482620ac9cbcdb9415c476106bb4476bcc634b18158",
+      "locator_checks": 5,
+      "retrieval_ms": 37.58964900043793,
+      "hit_at_5": 0,
+      "recall_at_5": 0.0,
+      "evidence_f1_at_5": 0.0
+    },
+    {
+      "paper_id": "1803.02914",
+      "question_id": "d6a815d24c46557827d8aca65d3ffd008ac1bc07",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        9,
+        12,
+        25,
+        4
+      ],
+      "source_sha256": "c254edbaab74e0b1d0bedc2f07d0027e7d806892310f68c5e6f7be079bf0b09b",
+      "locator_checks": 5,
+      "retrieval_ms": 37.6072489998478,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.6666666666666666
+    },
+    {
+      "paper_id": "1803.02914",
+      "question_id": "d6a815d24c46557827d8aca65d3ffd008ac1bc07",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        9,
+        12,
+        3,
+        1,
+        6
+      ],
+      "source_sha256": "c254edbaab74e0b1d0bedc2f07d0027e7d806892310f68c5e6f7be079bf0b09b",
+      "locator_checks": 5,
+      "retrieval_ms": 26.132779999898048,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.5714285714285714
+    },
+    {
+      "paper_id": "1908.10001",
+      "question_id": "be632f0246c2e5f049d12e796812f496e083c33e",
+      "retriever": "vector",
+      "retrieved_paragraphs": [
+        30,
+        29,
+        28,
+        31,
+        15
+      ],
+      "source_sha256": "b9edb2a85734eb07fab1f6e607da1eacbd44323b75b88a103634b620252f4307",
+      "locator_checks": 5,
+      "retrieval_ms": 27.570259999265545,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.5714285714285714
+    },
+    {
+      "paper_id": "1908.10001",
+      "question_id": "be632f0246c2e5f049d12e796812f496e083c33e",
+      "retriever": "hybrid",
+      "retrieved_paragraphs": [
+        30,
+        29,
+        31,
+        18,
+        12
+      ],
+      "source_sha256": "b9edb2a85734eb07fab1f6e607da1eacbd44323b75b88a103634b620252f4307",
+      "locator_checks": 5,
+      "retrieval_ms": 38.18681399934576,
+      "hit_at_5": 1,
+      "recall_at_5": 1.0,
+      "evidence_f1_at_5": 0.5714285714285714
+    }
+  ]
+}

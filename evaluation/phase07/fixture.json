@@ -1,0 +1,1017 @@
+{
+  "schema_version": 1,
+  "title": "Đọc hồ sơ thí nghiệm mô phỏng về làm mát thụ động",
+  "license": "CC0-1.0",
+  "provenance": "Toàn bộ đề bài, tài liệu và số liệu do nhóm soạn riêng cho bài đánh giá; các lượt thử đều hư cấu. Không có dữ liệu người học, ảnh hoặc văn bản của bên thứ ba.",
+  "sources": [
+    {
+      "id": "handout",
+      "filename": "cool-roof-handout.pdf",
+      "format": "pdf",
+      "pages": [
+        [
+          "Passive cooling lab: experiment CR-04",
+          "The test compared two unoccupied model boxes in the same courtyard.",
+          "The goal was to compare afternoon air temperatures under two roof finishes."
+        ],
+        [
+          "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C.",
+          "The screen above both boxes was fully retracted during this reading."
+        ],
+        [
+          "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window.",
+          "The data file stores timestamps in local time."
+        ],
+        [
+          "The indoor sensor was positioned 15 cm above the base.",
+          "The two boxes each used a base measuring 40 cm by 40 cm.",
+          "The chart marks the reflective-roof series with a solid line."
+        ]
+      ]
+    },
+    {
+      "id": "procedures",
+      "filename": "quy-trinh-do.docx",
+      "format": "docx",
+      "docx_package": "ooxml",
+      "blocks": [
+        "Quy trình thao tác thí nghiệm mô hình mái làm mát CR-04.",
+        "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch.",
+        "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C.",
+        "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi.",
+        "Đặt hộp đối chứng cách hộp mái phản quang 1,5 m để tránh che bóng lẫn nhau.",
+        "Nếu mưa xuất hiện, che bộ ghi và đánh dấu lượt đo là gián đoạn.",
+        "Dây đầu dò được cố định bằng kẹp nhựa ở mép hộp."
+      ]
+    },
+    {
+      "id": "field_notes",
+      "filename": "ghi-chu-hien-truong.md",
+      "format": "markdown",
+      "blocks": [
+        "# Ghi chú hiện trường CR-04",
+        "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút.",
+        "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp.",
+        "Mái phản quang lắp cho lượt CR-04 là tấm nhôm mới, bề mặt không sơn.",
+        "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại.",
+        "Nhóm giữ các khe thông gió mở như nhau ở hai hộp.",
+        "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây."
+      ]
+    },
+    {
+      "id": "log",
+      "filename": "nhat-ky-cr04.txt",
+      "format": "text",
+      "blocks": [
+        "Nhật ký vận hành lượt CR-04 ngày 18 tháng 9.",
+        "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30.",
+        "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng.",
+        "Nhóm đã kết thúc lượt ghi theo kế hoạch; bộ ghi không bị gián đoạn.",
+        "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây.",
+        "Tệp nhật ký không kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi.",
+        "Người ghi đánh dấu mốc kiểm tra thiết bị tiếp theo vào 15:20."
+      ]
+    },
+    {
+      "id": "appendix",
+      "filename": "phu-luc-cr05.txt",
+      "format": "text",
+      "blocks": [
+        "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác.",
+        "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút.",
+        "Chỉ ở CR-05, công tơ của quạt phụ ghi 0,03 kWh cho toàn lượt.",
+        "Ở CR-05, khay nước trong hộp mái trơn giảm 12 g.",
+        "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử."
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "p07-s01",
+      "group": "single_source",
+      "question": "Ở trang ghi số đọc lúc 14:00, không khí trong hai hộp nóng bao nhiêu và chênh nhau bao nhiêu?",
+      "sources": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ],
+      "answerability": "full",
+      "required_claims": [
+        "Mái phản quang 31,2 °C, mái trơn 34,8 °C.",
+        "Hộp mái phản quang mát hơn 3,6 °C tại mốc này."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-s02",
+      "group": "single_source",
+      "question": "Theo tài liệu hướng dẫn, trước khi đo cần đặt hai đầu dò ở đâu và chờ bao lâu?",
+      "sources": [
+        "procedures"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Đặt hai đầu dò cạnh nhau trong bóng râm trong 5 phút."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Trước khi đo, đặt hai đầu dò cạnh nhau trong bóng râm 5 phút để kiểm tra độ lệch."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-s03",
+      "group": "single_source",
+      "question": "Trong lượt thử, sân bị mây che vào thời gian nào và sau đó thời tiết thay đổi ra sao?",
+      "sources": [
+        "field_notes"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Mây che từ 14:10 đến 14:30, sau đó nắng trở lại."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-s04",
+      "group": "single_source",
+      "question": "Nhật ký mô tả hộp mái trơn và hộp mái phản quang đặt ở phía nào của sân?",
+      "sources": [
+        "log"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Mái trơn ở phía đông.",
+        "Mái phản quang ở phía tây."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-s05",
+      "group": "single_source",
+      "question": "Hãy đọc phần mô tả kích thước. Đáy mỗi hộp rộng bao nhiêu và đầu dò bên trong đặt cao bao nhiêu so với đáy?",
+      "sources": [
+        "handout"
+      ],
+      "pages": [
+        4
+      ],
+      "answerability": "full",
+      "required_claims": [
+        "Đáy 40 cm × 40 cm.",
+        "Đầu dò cao 15 cm so với đáy."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 4
+          },
+          "quote": "The two boxes each used a base measuring 40 cm by 40 cm."
+        },
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 4
+          },
+          "quote": "The indoor sensor was positioned 15 cm above the base."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-s06",
+      "group": "single_source",
+      "question": "Trong phụ lục CR-05, khối lượng khay nước ở hộp mái trơn thay đổi thế nào?",
+      "sources": [
+        "appendix"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Khối lượng giảm 12 g trong lượt CR-05."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Ở CR-05, khay nước trong hộp mái trơn giảm 12 g."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-m01",
+      "group": "multi_source",
+      "question": "Ghép giờ bắt đầu trong nhật ký với thời lượng trong quy trình. Lượt CR-04 dự kiến kết thúc ghi lúc mấy giờ?",
+      "sources": [
+        "log",
+        "procedures"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Bắt đầu 13:30.",
+        "Thời lượng theo quy trình là 90 phút.",
+        "Giờ kết thúc dự kiến là 15:00."
+      ],
+      "missing": [],
+      "expected_behavior": "Dẫn cả hai nguồn và trình bày 15:00 là giờ tính theo kế hoạch.",
+      "expected_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30."
+        },
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-m02",
+      "group": "multi_source",
+      "question": "Hai tài liệu nói gì về khoảng lấy mẫu trong thời gian ghi chính thức của CR-04? Có thể chốt một con số không?",
+      "sources": [
+        "handout",
+        "field_notes"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Tài liệu bài thực hành ghi 10 phút.",
+        "Ghi chú hiện trường ghi 5 phút.",
+        "Hai ghi nhận mâu thuẫn và chưa đủ căn cứ phân xử."
+      ],
+      "missing": [],
+      "expected_behavior": "Dẫn bằng chứng của từng phía, nêu mâu thuẫn và giữ cả hai con số.",
+      "expected_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 3
+          },
+          "quote": "For CR-04, the logger sampled air temperature every 10 minutes during the official recording window."
+        },
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Trong khoảng ghi chính thức của lượt CR-04, thiết bị đã lấy mẫu nhiệt độ không khí mỗi 5 phút."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-m03",
+      "group": "multi_source",
+      "question": "Mái phản quang của chính lượt CR-04 có sơn hay không? Hãy đối chiếu hai mô tả về vật liệu trước khi kết luận.",
+      "sources": [
+        "field_notes",
+        "log"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Ghi chú ghi tấm nhôm mới không sơn.",
+        "Nhật ký ghi tấm nhôm sơn trắng.",
+        "Phạm vi chưa đủ căn cứ để chọn một mô tả."
+      ],
+      "missing": [],
+      "expected_behavior": "Trích dẫn từng mô tả và nêu mâu thuẫn, không gộp thành một cấu hình.",
+      "expected_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm mới, bề mặt không sơn."
+        },
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Mái phản quang lắp cho lượt CR-04 là tấm nhôm sơn trắng."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-m04",
+      "group": "multi_source",
+      "question": "Hai nguồn mô tả nhóm kiểm soát điều kiện so sánh giữa hai hộp thế nào về đầu dò, khe thông gió và khoảng cách?",
+      "sources": [
+        "procedures",
+        "field_notes"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Cùng loại đầu dò.",
+        "Khe thông gió mở như nhau.",
+        "Quy trình yêu cầu cách nhau 1,5 m để tránh che bóng."
+      ],
+      "missing": [],
+      "expected_behavior": "Phân biệt hai điều kiện ghi nhận ở hiện trường với khoảng cách được quy định trong quy trình.",
+      "expected_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Nhóm dùng cùng loại đầu dò nhiệt độ không khí cho cả hai hộp."
+        },
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 6,
+            "anchor": "b000006"
+          },
+          "quote": "Nhóm giữ các khe thông gió mở như nhau ở hai hộp."
+        },
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Đặt hộp đối chứng cách hộp mái phản quang 1,5 m để tránh che bóng lẫn nhau."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-m05",
+      "group": "multi_source",
+      "question": "Mốc nhiệt độ 14:00 được ghi trước hay trong khoảng có mây che? Hãy nêu căn cứ thời gian ở hai nguồn.",
+      "sources": [
+        "handout",
+        "field_notes"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Số đọc hai hộp ở mốc 14:00.",
+        "Khoảng mây che ghi nhận là 14:10–14:30.",
+        "Mốc 14:00 sớm hơn 10 phút so với lúc bắt đầu khoảng mây che."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C."
+        },
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-m06",
+      "group": "multi_source",
+      "question": "Tài liệu bài thực hành và phụ lục mô tả hai lượt nào? Đối tượng so sánh trong lượt chính là gì và phụ lục có dùng lại cùng cặp hộp không?",
+      "sources": [
+        "handout",
+        "appendix"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Lượt CR-04 so sánh hai hộp trống trong cùng sân.",
+        "Phụ lục mô tả CR-05 dùng một cặp hộp khác."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 1
+          },
+          "quote": "Passive cooling lab: experiment CR-04"
+        },
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 1
+          },
+          "quote": "The test compared two unoccupied model boxes in the same courtyard."
+        },
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 1,
+            "anchor": "b000001"
+          },
+          "quote": "Phiếu đối chiếu lượt CR-05. Đây là lượt thử riêng với một cặp hộp khác."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-i01",
+      "group": "insufficient",
+      "question": "Chỉ đọc trang số liệu 14:00, hãy cho biết đầu dò trong hộp đặt cao bao nhiêu so với đáy.",
+      "sources": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ],
+      "answerability": "none",
+      "required_claims": [],
+      "missing": [
+        "Chiều cao đầu dò trên trang 2."
+      ],
+      "expected_behavior": "Nói trang đã chọn thiếu thông tin về chiều cao đầu dò. Dữ kiện trên trang khác nằm ngoài phạm vi.",
+      "expected_evidence": [],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-i02",
+      "group": "insufficient",
+      "question": "Từ các phiếu đã chọn, quạt phụ dùng hết bao nhiêu điện trong lượt CR-04?",
+      "sources": [
+        "field_notes",
+        "appendix"
+      ],
+      "pages": [],
+      "answerability": "none",
+      "required_claims": [],
+      "missing": [
+        "Điện năng của quạt riêng cho CR-04."
+      ],
+      "expected_behavior": "Nêu thiếu số liệu của CR-04. Số 0,03 kWh thuộc CR-05 và không thay cho dữ liệu CR-04.",
+      "expected_evidence": [],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-i03",
+      "group": "insufficient",
+      "question": "Mức độ hài lòng của người ở trong hộp sau thí nghiệm là bao nhiêu?",
+      "sources": [
+        "handout"
+      ],
+      "pages": [],
+      "answerability": "none",
+      "required_claims": [],
+      "missing": [
+        "Số liệu khảo sát mức độ hài lòng."
+      ],
+      "expected_behavior": "Nêu nguồn không có kết quả khảo sát. Có thể giải thích cả hai hộp mô hình đều trống nếu kèm trích dẫn.",
+      "expected_evidence": [],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-i04",
+      "group": "insufficient",
+      "question": "Ngưỡng lệch cho phép giữa hai đầu dò là bao nhiêu, và đầu dò trong lượt này thực tế lệch bao nhiêu?",
+      "sources": [
+        "procedures",
+        "log"
+      ],
+      "pages": [],
+      "answerability": "partial",
+      "required_claims": [
+        "Cho phép chênh tối đa 0,2 °C."
+      ],
+      "missing": [
+        "Giá trị lệch thực đo của CR-04."
+      ],
+      "expected_behavior": "Trích ngưỡng cho phép, nêu thiếu giá trị thực đo.",
+      "expected_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-i05",
+      "group": "insufficient",
+      "question": "Nhật ký cho biết lượt CR-04 bắt đầu lúc nào và tổng điện năng của bộ ghi là bao nhiêu?",
+      "sources": [
+        "log"
+      ],
+      "pages": [],
+      "answerability": "partial",
+      "required_claims": [
+        "Bắt đầu lúc 13:30."
+      ],
+      "missing": [
+        "Điện năng của bộ ghi CR-04."
+      ],
+      "expected_behavior": "Trả lời giờ bắt đầu có trích dẫn, nêu điện năng chưa được ghi.",
+      "expected_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Lượt CR-04 bắt đầu ghi chính thức lúc 13:30."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-i06",
+      "group": "insufficient",
+      "question": "Ở trang số liệu 14:00, đọc nhiệt độ của hộp mái trơn và hộp mái phản quang, rồi cho biết độ ẩm lúc đó.",
+      "sources": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ],
+      "answerability": "partial",
+      "required_claims": [
+        "Mái trơn 34,8 °C, mái phản quang 31,2 °C tại 14:00."
+      ],
+      "missing": [
+        "Độ ẩm tại 14:00."
+      ],
+      "expected_behavior": "Trả lời hai nhiệt độ có trích dẫn, nêu trang đã chọn chưa cung cấp độ ẩm.",
+      "expected_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "At 14:00 the reflective roof box was at 31.2 degrees C and the plain roof box was at 34.8 degrees C."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-f01",
+      "group": "follow_up",
+      "question": "Vậy hộp đó được đặt ở phía nào của sân?",
+      "sources": [
+        "handout",
+        "log"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Hộp mái phản quang ở phía tây."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Hộp mái trơn đặt ở phía đông sân, hộp mái phản quang đặt ở phía tây."
+        }
+      ],
+      "history": [
+        {
+          "question": "Tại 14:00, loại mái nào cho nhiệt độ thấp hơn?",
+          "answer": "Hộp mái phản quang có nhiệt độ thấp hơn.",
+          "sources": [
+            "handout"
+          ],
+          "status": "completed"
+        }
+      ],
+      "referent": "hộp mái phản quang"
+    },
+    {
+      "id": "p07-f02",
+      "group": "follow_up",
+      "question": "Còn thời lượng của khoảng này theo quy trình là bao lâu?",
+      "sources": [
+        "log",
+        "procedures"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Khoảng ghi chính thức kéo dài 90 phút."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Khoảng ghi chính thức kéo dài 90 phút kể từ khi bật bộ ghi."
+        }
+      ],
+      "history": [
+        {
+          "question": "Khoảng ghi chính thức của lượt CR-04 bắt đầu lúc nào?",
+          "answer": "Khoảng ghi chính thức bắt đầu lúc 13:30.",
+          "sources": [
+            "log"
+          ],
+          "status": "completed"
+        }
+      ],
+      "referent": "khoảng ghi chính thức của CR-04"
+    },
+    {
+      "id": "p07-f03",
+      "group": "follow_up",
+      "question": "Ngưỡng chấp nhận của bước đó là bao nhiêu?",
+      "sources": [
+        "procedures"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Chênh lệch không quá 0,2 °C."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "procedures",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 3,
+            "anchor": "b000003"
+          },
+          "quote": "Chỉ bắt đầu nếu chênh lệch giữa hai đầu dò không quá 0,2 °C."
+        }
+      ],
+      "history": [
+        {
+          "question": "Bước kiểm tra độ lệch hai đầu dò trước khi đo cần chuẩn bị thế nào?",
+          "answer": "Đặt hai đầu dò cạnh nhau trong bóng râm trong 5 phút.",
+          "sources": [
+            "procedures"
+          ],
+          "status": "completed"
+        }
+      ],
+      "referent": "bước kiểm tra độ lệch giữa hai đầu dò trước khi đo"
+    },
+    {
+      "id": "p07-f04",
+      "group": "follow_up",
+      "question": "Với lượt đó, bộ ghi lấy mẫu cách nhau bao lâu?",
+      "sources": [
+        "appendix",
+        "handout"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "CR-05 lấy mẫu mỗi 2 phút."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 2,
+            "anchor": "b000002"
+          },
+          "quote": "Ở CR-05, bộ ghi lấy mẫu mỗi 2 phút."
+        }
+      ],
+      "history": [
+        {
+          "question": "Phụ lục về cặp hộp khác đang nói đến lượt nào?",
+          "answer": "Phụ lục nói về lượt CR-05.",
+          "sources": [
+            "appendix"
+          ],
+          "status": "completed"
+        }
+      ],
+      "referent": "lượt CR-05 trong phụ lục"
+    },
+    {
+      "id": "p07-f05",
+      "group": "follow_up",
+      "question": "Trong lúc đó bộ ghi có bị gián đoạn không?",
+      "sources": [
+        "log",
+        "field_notes"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Nhật ký ghi cả lượt không bị gián đoạn, gồm khoảng mây che."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Từ 14:10 đến 14:30 có mây che sân, rồi nắng trở lại."
+        },
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 4,
+            "anchor": "b000004"
+          },
+          "quote": "Nhóm đã kết thúc lượt ghi theo kế hoạch; bộ ghi không bị gián đoạn."
+        }
+      ],
+      "history": [
+        {
+          "question": "Lúc nào có mây che sân trong lúc thử?",
+          "answer": "Từ 14:10 đến 14:30.",
+          "sources": [
+            "field_notes"
+          ],
+          "status": "completed"
+        }
+      ],
+      "referent": "khoảng mây che từ 14:10 đến 14:30"
+    },
+    {
+      "id": "p07-f06",
+      "group": "follow_up",
+      "question": "Lúc đó tấm che trên hai hộp đang ở trạng thái nào?",
+      "sources": [
+        "handout"
+      ],
+      "pages": [
+        2
+      ],
+      "answerability": "full",
+      "required_claims": [
+        "Tấm che phía trên cả hai hộp được thu lại hoàn toàn."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 2
+          },
+          "quote": "The screen above both boxes was fully retracted during this reading."
+        }
+      ],
+      "history": [
+        {
+          "question": "Số đọc trên trang này là ở thời điểm nào?",
+          "answer": "Hai số đọc là tại 14:00.",
+          "sources": [
+            "handout"
+          ],
+          "status": "completed"
+        }
+      ],
+      "referent": "mốc đọc nhiệt độ 14:00"
+    }
+  ],
+  "pilot_cases": [
+    {
+      "id": "p07-t01",
+      "group": "single_source",
+      "question": "Trên đồ thị, chuỗi của mái phản quang được vẽ bằng nét gì?",
+      "sources": [
+        "handout"
+      ],
+      "pages": [
+        4
+      ],
+      "answerability": "full",
+      "required_claims": [
+        "Đường nét liền."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "handout",
+          "locator": {
+            "kind": "page",
+            "page": 4
+          },
+          "quote": "The chart marks the reflective-roof series with a solid line."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-t02",
+      "group": "multi_source",
+      "question": "Phiếu hiện trường ghi những loại dữ liệu nào? Nhật ký có kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi không?",
+      "sources": [
+        "field_notes",
+        "log"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Phiếu chỉ ghi nhiệt độ không khí và tình trạng mây.",
+        "Nhật ký không kèm ảnh lắp mái hay bản xuất cấu hình."
+      ],
+      "missing": [],
+      "expected_behavior": "Dẫn từng nguồn và giữ đúng phạm vi của từng phiếu.",
+      "expected_evidence": [
+        {
+          "source": "field_notes",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 7,
+            "anchor": "b000007"
+          },
+          "quote": "Phiếu hiện trường chỉ ghi nhiệt độ không khí và tình trạng mây."
+        },
+        {
+          "source": "log",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 6,
+            "anchor": "b000006"
+          },
+          "quote": "Tệp nhật ký không kèm ảnh lắp mái hoặc bản xuất cấu hình bộ ghi."
+        }
+      ],
+      "history": [],
+      "referent": null
+    },
+    {
+      "id": "p07-t03",
+      "group": "follow_up",
+      "question": "Lượt đó có ghi hướng của mũi tên trên sơ đồ không?",
+      "sources": [
+        "appendix",
+        "log"
+      ],
+      "pages": [],
+      "answerability": "full",
+      "required_claims": [
+        "Ở sơ đồ của CR-05, mũi tên chỉ hướng bắc."
+      ],
+      "missing": [],
+      "expected_behavior": "Trả lời đủ ý có trong phạm vi, dẫn đúng bằng chứng và nêu giới hạn nếu chi tiết khác không có trong nguồn.",
+      "expected_evidence": [
+        {
+          "source": "appendix",
+          "locator": {
+            "kind": "paragraph",
+            "paragraph": 5,
+            "anchor": "b000005"
+          },
+          "quote": "Ở CR-05, mũi tên trên sơ đồ chỉ hướng bắc của sân thử."
+        }
+      ],
+      "history": [
+        {
+          "question": "Lượt nào có số đo điện quạt phụ trong phụ lục?",
+          "answer": "Lượt CR-05.",
+          "sources": [
+            "appendix"
+          ],
+          "status": "completed"
+        }
+      ],
+      "referent": "lượt CR-05 trong phụ lục"
+    }
+  ]
+}
