@@ -1,118 +1,72 @@
-# Phase 08 — Đo chất lượng hỏi đáp RAG của YourNote
+# Phase 08 — Đo hỏi đáp RAG trên 7 PDF gốc
 
-Ngày 24/11/2026. Đã hoàn tất truy xuất và hỏi đáp thật theo kế hoạch. Các điểm ngữ nghĩa bên dưới là chấm sơ bộ trên phiếu ẩn cấu hình, đang chờ hai người chấm.
+Đo ngày **24/11/2026**, mã ứng dụng `8adbbdf74581e8c0aa899bc1bc513d4e66fdf6e6`. Câu hỏi tiếng Việt, tài liệu gốc tiếng Anh, index Qdrant cục bộ dựng từ 7 PDF và 406 chunk. Cùng MiniLM đa ngôn ngữ, `k=5`, phạm vi tài liệu/trang, lịch sử và prompt trong mỗi cặp. ChatGPT báo `gpt-6.1-terra` ở cả 34 lượt sinh. [Protocol và danh mục nguồn](phase_07_evaluation_design.md).
 
-## Cấu hình và phạm vi
+Runner gọi trực tiếp **retriever → tạo câu trả lời từ các đoạn → xác minh trích dẫn** bằng mã YourNote. API tác vụ, giao diện, luồng chọn văn bản và nhánh ưu tiên trích xuất tóm tắt của ứng dụng nằm ngoài đường đo này. Lịch sử của sáu câu nối tiếp do người thiết kế soạn trước. Ba ca thử chạy hybrid. Trong tập chính, 24 ca chạy hybrid và tám ca đối chứng chạy thêm vector-only.
 
-Phép đo dùng 24 câu tiếng Việt trên 5 tài liệu tổng hợp của Phase 07. Hybrid chạy trên toàn bộ tập. Vector-only chạy trên 8 câu đối chứng đã chốt, mỗi nhóm hai câu. Ba câu thử hybrid được giữ riêng. Hai lượt trong một cặp dùng cùng nguồn, phiên bản, trang, lịch sử, prompt, model và k = 5. Thứ tự trong cặp đã được đảo cân bằng theo nhóm. [Protocol và rubric Phase 07](phase_07_evaluation_design.md)
+Mã băm kế hoạch `153008dc38bb90643bc86c94e585b739f8b3b44f2b4e35046cf53b697f02a494`. Hồ sơ cục bộ lưu bản kê từng SHA-256 của PDF, tập câu, quy tắc chấm, prompt, mã chạy và cấu hình. Kế hoạch khóa trước đo (tệp cục bộ `.run/real_pdf_validation/plan.json`) · Preflight 27 câu (tệp cục bộ `.run/real_pdf_validation/preflight.json`).
 
-Runner gọi trực tiếp truy xuất và `answer_from_chunks` trên bản nguồn và chỉ mục Qdrant tạm. Trường hợp nối tiếp dùng lịch sử đã hoàn tất được chuẩn bị sẵn. Phép đo thời gian bao gồm bước tạo truy vấn theo lịch sử, truy xuất, nhận câu trả lời hoàn tất và kiểm tra citation. Giao diện, thời gian nhận token đầu tiên và các nhánh đọc đặc biệt như tóm tắt abstract được để ngoài phạm vi phép đo này.
+## Truy xuất bằng chứng
 
-- Provider và model yêu cầu đã chốt là **ChatGPT plan usage · `gpt-6.1-terra`**. Model xuất hiện trong danh mục của tài khoản tại thời điểm xem trước. Các tham số sinh dùng mặc định phía dịch vụ. Embedding cục bộ dùng `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`, chunk 1.500 ký tự và phần chồng lấn 200 ký tự.
-- Bản mã ứng dụng gốc `661b380daa604c2fc52a222f8ed892c26f8e5047`. Kế hoạch ghi mã băm phiên bản nội dung mã đang chạy, dữ liệu, từng tệp nguồn, prompt, policy và báo cáo chứa rubric trước lúc sinh câu trả lời. [Kế hoạch cố định](../evaluation/phase08/artifacts/plan.json)
-- Kiểm tra đầu vào nạp đủ **5/5 tài liệu**, kiểm tra **27/27 câu** và **35/35 đơn vị bằng chứng chuẩn**. Nơi lưu dữ liệu làm việc của YourNote được tách khỏi chỉ mục benchmark. [Kết quả kiểm tra](../evaluation/phase08/artifacts/preflight.json)
-
-## Truy xuất được xác minh bằng mã
-
-Tập chính hoàn tất **32/32 lượt truy xuất**, thêm **3/3 lượt thử**. Khởi tạo embedding mất **0,97 giây**, tạo chỉ mục tạm mất **1,11 giây**. Các thời gian này được đo riêng khỏi độ trễ truy xuất.
-
-| Cấu hình | Lượt hoàn tất | Evidence hit@5 | Recall@5 trung bình theo câu | Đơn vị chuẩn tìm thấy | Trung vị / p95 |
+| Điều kiện | Hoàn tất | Hit@5 | Recall@5 theo câu | Tìm được theo tổng mốc | Trung vị / p95 (ms) |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Hybrid toàn tập chính | 24/24 | 21/21 (100%) | 20⅔ / 21 (98,41%) | 30/31 | 23,21 / 26,04 ms |
-| Hybrid trên 8 câu đối chứng | 8/8 | 7/7 (100%) | 7/7 (100%) | 9/9 | 23,32 / 26,04 ms |
-| Vector-only trên cùng 8 câu | 8/8 | 7/7 (100%) | 7/7 (100%) | 9/9 | 22,29 / 24,82 ms |
-| Hybrid trên tập thử riêng | 3/3 | 3/3 (100%) | 2,5/3 (83,33%) | 3/4 | 24,99 / 25,08 ms |
+| Hybrid, tập chính | 24/24 | 8/21 (38,10%) | 33,33% (21 câu) | 10/32 | 37,49 / 60,70 |
+| Hybrid, tám cặp | 8/8 | 4/7 | 50,00% (7 câu) | 5/11 | 35,56 / 49,53 |
+| Vector-only, tám cặp | 8/8 | 4/7 | 50,00% (7 câu) | 5/11 | 28,66 / 34,43 |
+| Thử kỹ thuật hybrid | 3/3 | 3/3 | 100% (3 câu) | 3/3 | 28,82 / 28,85 |
 
-Hit và recall dùng các lượt có ít nhất một đơn vị chuẩn. Trong tập chính, ba câu hybrid thiếu toàn bộ thông tin, trong đó một câu thuộc tám cặp đối chứng. Các câu này được kiểm tra phạm vi nguồn và xử lý thiếu thông tin riêng. Tổng cộng **131/131 vị trí đoạn truy xuất ở tập chính** và **11/11 ở tập thử** khớp nguồn, phiên bản và vị trí. Có **0/35 lượt lộ nguồn ngoài phạm vi** và **0/35 lượt có lỗi vị trí đoạn truy xuất**. Đây là kiểm tra vị trí của đoạn trong ngữ cảnh. Chỉ số vị trí citation trong câu trả lời được tính riêng.
+Ba câu chính thiếu bằng chứng hoàn toàn có mẫu số bằng 0 và được loại khỏi hit/recall. 35/35 lượt truy xuất hoàn tất. Xác minh **165/165 đoạn** về nguồn được chọn, phiên bản PDF, trang và vị trí; phát hiện **0 ca vượt phạm vi**. Thời gian khởi tạo embedding **1,02 s**, làm nóng **0,01 s** và nhập index **13,33 s** được đo riêng. Sau khi dựng lại index cho lần sinh, thứ tự chunk ở **35/35 ca** trùng với phép đo truy xuất riêng. Nhật ký truy xuất và các mốc thiếu từng câu (tệp cục bộ `.run/real_pdf_validation/retrieval.json`).
 
-| Nhóm | Hybrid toàn tập | Hit / mẫu số | Recall trung bình | Vector-only đối chứng | Hit / mẫu số | Recall trung bình |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Một nguồn | 6/6 | 6/6 | 100% | 2/2 | 2/2 | 100% |
-| Nhiều nguồn | 6/6 | 6/6 | 94,44% | 2/2 | 2/2 | 100% |
-| Thiếu bằng chứng | 6/6 | 3/3 | 100% | 2/2 | 1/1 | 100% |
-| Hỏi nối tiếp | 6/6 | 6/6 | 100% | 2/2 | 2/2 | 100% |
-
-| Câu đối chứng | Hybrid tìm thấy / đoạn chuẩn | Vector-only tìm thấy / đoạn chuẩn |
-| --- | ---: | ---: |
-| `p07-s01` | 1/1 | 1/1 |
-| `p07-s03` | 1/1 | 1/1 |
-| `p07-m01` | 2/2 | 2/2 |
-| `p07-m02` | 2/2 | 2/2 |
-| `p07-i01` | Không có đoạn chuẩn trong phạm vi | Không có đoạn chuẩn trong phạm vi |
-| `p07-i04` | 1/1 | 1/1 |
-| `p07-f03` | 1/1 | 1/1 |
-| `p07-f04` | 1/1 | 1/1 |
-
-[Chi tiết từng lượt truy xuất, danh sách đoạn và thời gian](../evaluation/phase08/artifacts/retrieval.json)
-
-### Ca thiếu bằng chứng trong top 5
-
-Ở `p07-m04`, câu hỏi yêu cầu đọc hai nguồn về điều kiện so sánh giữa các hộp. Ngữ cảnh có đoạn về **khe thông gió mở như nhau** và **dùng cùng loại đầu dò**. Đoạn 5 của quy trình, quy định hai hộp cách nhau **1,5 m**, có trong chỉ mục nhưng vắng ở top 5. Ca này có hit = 1 và recall = 2/3. Ở câu thử `p07-t02`, top 5 có đoạn nhật ký về việc thiếu ảnh lắp mái hoặc cấu hình bộ ghi, còn đoạn liệt kê loại dữ liệu trong phiếu hiện trường nằm ngoài top 5.
-
-## Hỏi đáp trên mô hình thật
-
-Ba lượt thử hoàn tất và qua kiểm tra kỹ thuật trước khi bắt đầu bộ chính. Bộ chính hoàn tất **32/32 lượt**, gồm **24 hybrid** và **8 vector-only**. Có **0 lượt lỗi** và **0 lượt chưa chạy**. Dịch vụ trả về `gpt-6.1-terra` ở cả 35 lượt, nên tám cặp chính có cùng định danh model được báo. Backend đã được khởi động lại và kiểm tra hoạt động sau phép đo. [Kết quả từng lượt, ngữ cảnh, câu trả lời và trích dẫn](../evaluation/phase08/artifacts/inference.json)
-
-| Cấu hình | Lượt gọi / trần | Vị trí trích dẫn hợp lệ | Lượt hoàn tất không trích dẫn | Trung vị / p95 phản hồi |
+| Nhóm ca hybrid chính | Số câu | Hit@5 | Mốc tìm được | Câu đạt sơ bộ |
 | --- | ---: | ---: | ---: | ---: |
-| Hybrid toàn tập chính | 24/24 | 30/30 | 3/24 | 3,33 / 4,34 giây |
-| Hybrid trên 8 câu đối chứng | 8/8 | 9/9 | 1/8 | 3,42 / 4,17 giây |
-| Vector-only trên cùng 8 câu | 8/8 | 10/10 | 1/8 | 3,58 / 4,72 giây |
-| Hybrid trên tập thử riêng | 3/3 | 6/6 | 0/3 | 3,59 / 5,18 giây |
+| Một nguồn | 6 | 3/6 | 3/9 | 4/6 |
+| Nhiều nguồn | 6 | 1/6 | 1/12 | 0/6 |
+| Thiếu hoặc không đủ bằng chứng | 6 | 2/3 | 2/3 | 6/6 |
+| Nối tiếp | 6 | 2/6 | 4/8 | 2/6 |
 
-Các lượt hoàn tất thiếu trích dẫn đều là câu từ chối khi không có dữ kiện trong phạm vi. Không có lượt hoàn tất bằng nhánh trả lời cục bộ trước khi gọi model. Đợt hỏi đáp khởi tạo embedding trong **1,44 giây** và lập chỉ mục tạm trong **1,35 giây**, tách khỏi thời gian phản hồi. Chỉ số vị trí trích dẫn kiểm tra nguồn, phiên bản, phạm vi, locator và trích đoạn. Mức hỗ trợ nhận định được chấm ở phần dưới.
-
-Tổng cộng dùng **35/35 lượt** qua kết nối ChatGPT. Dịch vụ báo **29.582 token đầu vào** và **1.720 token đầu ra**, tổng **31.302 token**. Tập chính chiếm **28.683 token**, tập thử chiếm **2.619 token**. [Thống kê lượt gọi và usage](../evaluation/phase08/artifacts/inference.json)
-
-### Chấm sơ bộ trên phiếu ẩn cấu hình
-
-Một tác nhân đọc đủ **32 câu trả lời chính và 3 câu thử**, đối chiếu ý bắt buộc, ngữ cảnh và từng trích dẫn. Pilot dùng để xem rubric và được báo riêng. Chưa có nhãn của hai người chấm nên tỷ lệ đồng thuận và Cohen’s κ để trống. Các số liệu ngữ nghĩa trong hai bảng sau mang tính sơ bộ. [Nhãn chấm từng lượt](../evaluation/phase08/artifacts/review/developer_labels.json) · [Điểm và mẫu số](../evaluation/phase08/artifacts/summary/scores.json)
-
-| Chỉ số ngữ nghĩa | Hybrid toàn tập chính | Hybrid trên 8 câu đối chứng | Vector-only trên cùng 8 câu | Hybrid tập thử riêng |
+| Chủ đề của tập nguồn đã chọn | Số câu | Hit@5 | Mốc tìm được | Câu đạt sơ bộ |
 | --- | ---: | ---: | ---: | ---: |
-| Câu trả lời đạt đủ rubric | 22/24 (91,67%) | 8/8 | 8/8 | 2/3 |
-| Bao phủ ý bắt buộc | 33/35 (94,29%) | 12/12 | 12/12 | 3/4 |
-| Nhận định bám ngữ cảnh | 42/42 | 13/13 | 13/13 | 6/6 |
-| Nhận định được các citation hỗ trợ đầy đủ | 42/42 | 13/13 | 13/13 | 6/6 |
-| Cặp nhận định–citation có đóng góp | 45/45 | 14/14 | 14/15 (93,33%) | 6/6 |
+| HRV, động lực phi tuyến và giấc ngủ | 18 | 6/16 | 7/23 | 9/18 |
+| Tối ưu lồi | 2 | 0/1 | 0/2 | 1/2 |
+| CPC lọc nhiễu PPG | 2 | 2/2 | 3/3 | 2/2 |
+| Liên chủ đề | 2 | 0/2 | 0/4 | 0/2 |
 
-| Nhóm | Hybrid hoàn tất / kế hoạch | Hybrid đạt / số đã chạy | Vector-only hoàn tất / kế hoạch | Vector-only đạt / số đã chạy |
-| --- | ---: | ---: | ---: | ---: |
-| Một nguồn | 6/6 | 6/6 | 2/2 | 2/2 |
-| Nhiều nguồn | 6/6 | 4/6 | 2/2 | 2/2 |
-| Thiếu bằng chứng | 6/6 | 6/6 | 2/2 | 2/2 |
-| Hỏi nối tiếp | 6/6 | 6/6 | 2/2 | 2/2 |
+Theo tài liệu, số ca chính có chọn P01–P07 lần lượt là **5, 4, 4, 5, 5, 3, 4**. Số mốc truy được của từng PDF lần lượt là **0/4, 1/4, 1/5, 4/6, 1/5, 0/3, 3/5**. Một ca có thể chọn hai tệp nên số lần chọn tài liệu có phần trùng.
 
-**Đối chứng trả lời.** Tám ID trong bảng đối chứng truy xuất đều đủ cặp và cùng định danh model được báo. Chấm sơ bộ cho **8 cặp cả hai đạt**, **0 chỉ hybrid đạt**, **0 chỉ vector-only đạt**, **0 cả hai chưa đạt**. Ở `p07-f04`, vector-only trả lời đúng CR-05 lấy mẫu mỗi 2 phút. Đoạn S2 hỗ trợ trực tiếp tần suất. Đoạn S1 giới thiệu CR-05 nhưng không thêm bằng chứng cho tần suất, nên cặp nhận định–S1 bị trừ ở chỉ số độ liên quan trích dẫn. Trên tám câu này, cả hai cùng đạt hit, recall và tỷ lệ câu đạt như nhau. Mẫu tám cặp trên một hồ sơ hư cấu chỉ cho phép kết luận trong phạm vi các ca đã đo. [Chi tiết từng cặp cùng model](../evaluation/phase08/artifacts/summary/scores.json)
+## Hỏi đáp và trích dẫn
 
-### Hai nguyên nhân làm câu trả lời chưa đạt đủ rubric
+| Điều kiện | Hoàn tất | Câu đạt | Ý bắt buộc có mặt | Bám ngữ cảnh¹ | Trích dẫn đúng vị trí² | Nhận định được trích dẫn hỗ trợ¹ | Liên quan cặp trích dẫn–nhận định¹ | Trung vị / p95 (s) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Hybrid chính | 24/24 | 12/24 | 25/44 | 36/36 | 32/32 | 35/36 | 40/40 | 4,10 / 6,69 |
+| Hybrid trên tám cặp | 8/8 | 4/8 | 11/15 | 11/11 | 9/9 | 10/11 | 11/11 | 3,76 / 6,18 |
+| Vector-only trên tám cặp | 8/8 | 4/8 | 8/15 | 10/10 | 9/9 | 10/10 | 11/11 | 4,05 / 5,75 |
+| Pilot hybrid | 3/3 | 3/3 | 3/3 | 4/4 | 4/4 | 4/4 | 5/5 | 3,70 / 4,21 |
 
-- **`p07-m04` — thiếu đoạn trong truy xuất.** Câu trả lời dùng S1 cho khe thông gió và S2 cho loại đầu dò, cả hai đều khớp nguồn. Đoạn quy định **1,5 m** vắng trong ngữ cảnh. Model nêu rõ giới hạn và thiếu ý bắt buộc về khoảng cách. Điểm câu là chưa đạt, với hai trong ba ý đạt.
-- **`p07-m05` — có đủ đoạn nhưng bỏ sót ý.** Truy xuất có đủ **2/2 đơn vị chuẩn**. Model dẫn đúng **14:00** và **14:10–14:30**, rồi kết luận đúng mốc đọc sớm hơn khoảng mây che. Rubric đã chốt yêu cầu nêu rõ **sớm hơn 10 phút**, nên điểm câu vẫn là chưa đạt. Số liệu này giải thích vì sao tỷ lệ bám ngữ cảnh có thể đạt 100% trong khi tỷ lệ câu đạt và độ bao phủ ý thấp hơn.
+¹ Một lượt chấm ngữ nghĩa sơ bộ bởi Codex trên phiếu ẩn cấu hình. Chấm các nhận định có trong đáp án, nên các câu từ chối hoặc đáp án thiếu ý có thể làm mẫu số nhỏ. Mẫu nhỏ và chưa có người chấm độc lập. Tỷ lệ đồng thuận và Cohen’s κ để trống. ² Cột vị trí là kiểm tra bằng mã với PDF gốc. Phiếu ẩn cấu hình (tệp cục bộ `.run/real_pdf_validation/blind_packet.json`) · Mẫu cho người chấm (tệp cục bộ `.run/real_pdf_validation/human_review_template.json`) · Nhãn sơ bộ (tệp cục bộ `.run/real_pdf_validation/codex_labels.json`) · Số liệu tổng hợp (tệp cục bộ `.run/real_pdf_validation/scores.json`).
 
-Để đối chiếu bằng hai người, dùng hai bản sao của phiếu trắng cùng danh sách nhận định đề xuất. Chỉ dùng phiếu ẩn và phiếu trắng khi chấm độc lập. Bản nhãn sơ bộ và bảng ánh xạ được dùng sau khi đã lưu nhãn gốc của từng người. [Phiếu ẩn cấu hình](../evaluation/phase08/artifacts/review/blinded_packet.json) · [Phiếu trắng cho người chấm](../evaluation/phase08/artifacts/review/human_review_template.json)
+**Ngân sách và mẫu số.** Hoàn tất 32/32 ca chính và 3/3 ca thử. Có 34 lượt ChatGPT trong ngân sách tối đa 35. N05 không có chunk trong trang 18 của P06 và trả về thông báo thiếu thông tin bằng nhánh cục bộ, không tính là lượt ChatGPT. Lần preflight đầu phát hiện tiến trình YourNote giữ khóa, phát sinh 0 lượt sinh. Sau khi chạy tiếp với backend tạm dừng, không có lỗi sinh hoặc ca chưa chạy. Dịch vụ báo 82.005 token vào và 3.507 token ra, tổng 85.512 trên 34 lượt sinh. Trung vị riêng 23 ca hybrid chính có gọi mô hình là 4,24 s. Độ trễ đo từ lúc bắt đầu xử lý câu hỏi trong runner, không gồm phần dựng index hoặc tương tác UI. Lượt sinh, usage và trích dẫn (tệp cục bộ `.run/real_pdf_validation/inference.json`).
 
-## Đối chiếu công khai đã chạy ở Phase 07
+## Ghép cặp và ca điển hình
 
-Trên mẫu **24 câu tiếng Anh thuộc 24 bài báo QASPER**, hybrid và vector-only cùng có hit@5 **13/24**. Recall trung bình lần lượt là **42,71%** và **45,14%**. Kết quả này dùng đoạn văn từ bài báo khoa học với thiết lập riêng. Điểm ở các bảng tiếng Việt phía trên phản ánh bộ tài liệu học tập tổng hợp của YourNote. [Đối chiếu QASPER](phase_07_evaluation_design.md#7-đối-chiếu-truy-xuất-trên-benchmark-công-khai)
+| ID | Chủ đề | Mốc hybrid | Mốc vector | Đạt hybrid / vector |
+| --- | --- | ---: | ---: | --- |
+| S02 | Thứ tự BRS qua chu kỳ ngủ | 1/1 | 1/1 | Có / Có |
+| S06 | Phạm vi nghiệm tối ưu cục bộ | 0/2 | 1/2 | Không / Không |
+| M03 | Khung kiểm định surrogate và cấu hình năm 2015 | 1/2 | 0/2 | Không / Không |
+| M06 | Định nghĩa nghiệm tối ưu và trọng số CPC | 0/2 | 0/2 | Không / Không |
+| N01 | Hệ số Pearson không báo trong trang được chọn | — | — | Có / Có |
+| N06 | Mẫu CPC và giới hạn báo AAE cho nữ | 1/1 | 1/1 | Có / Có |
+| F03 | Giải thích NMSPE vượt 1 | 0/1 | 0/1 | Không / Không |
+| F06 | Chồng lấn cửa sổ CPC, ECG chuẩn | 2/2 | 2/2 | Có / Có |
 
-## Tái lập
+Tám cặp hoàn tất, bốn cặp cùng đạt và bốn cặp cùng không đạt theo chấm sơ bộ. Hybrid và vector-only ngang nhau về hit@5 và recall@5 trong tập ghép cặp. S06 và M03 cho thấy sự chênh lệch tìm đoạn theo từng câu, dù tổng bằng nhau.
 
-Chạy từ `project/`. Các lệnh dưới đây kiểm tra dữ liệu rồi tạo một thư mục đo mới.
+- **M03, thiếu dữ kiện khi tổng hợp.** Hybrid lấy được P03 trang 4, nên đáp án mô tả đủ các bước kiểm định. Nó lấy P04 trang 2 về NV% và UPI nhưng bỏ P04 trang 3, nơi ghi 250 surrogate cho mỗi chuỗi. Trích dẫn tới hai đoạn đúng vị trí và hỗ trợ những điều đã nêu. Đáp án vẫn thiếu dữ kiện cần để tái lập.
+- **S01, mốc chuẩn và bằng chứng hợp lệ khác nhau.** Mốc P01 trang 6 không vào top 5. Mô hình dùng P01 trang 11 để đưa ra cơ chế thay thế phù hợp với yêu cầu nêu một cơ chế. Ca này trượt hit theo mốc đã khóa và đạt theo rubric nội dung.
+- **N05, giới hạn trang được thực thi.** Scope đúng P06 trang 18, nơi parser không có văn bản. Hệ thống trả đủ trạng thái không tìm thấy bằng chứng với 0 trích dẫn và 0 lượt mạng.
 
-```bash
-.venv/bin/python -m evaluation.phase07 check
-.venv/bin/python -m evaluation.phase08.benchmark plan --directory /tmp/yournote-phase08-reproduction --model gpt-6.1-terra
-.venv/bin/python -m evaluation.phase08.benchmark retrieval /tmp/yournote-phase08-reproduction/plan.json
-```
+Phân tích giới hạn ở 24 câu do nhóm soạn từ kho đang dùng và tám cặp đối chứng. Câu hỏi tiếng Việt và các đoạn PDF tiếng Anh cùng xuất hiện trong bộ đo. Chưa có phép đối chứng riêng để lượng hóa ảnh hưởng của khác biệt ngôn ngữ, cấu trúc PDF hoặc giới hạn top 5. Một số câu có đoạn hỗ trợ ngoài mốc ngắn đã chọn, nên cần đọc ngữ cảnh cùng với hit/recall.
 
-Để chạy hỏi đáp, dùng lệnh `live <plan.json> --confirm-plan-sha <plan_sha256>` với kế hoạch đã xem trước, kết nối ChatGPT hợp lệ và ngân sách được phép. Runner tạo checkpoint trước mỗi lượt và ngay trước khi gửi HTTP, đếm cả lần thử gửi bị lỗi. Phép đo mới có thư mục riêng. Danh sách đoạn trong ngữ cảnh của **35/35 lượt hỏi đáp** khớp lượt truy xuất riêng. **24 kiểm thử** benchmark, parser và provider đã chạy đạt, gồm ca quota, timeout, marker sai và nhánh không gọi LLM. [Runner](../evaluation/phase08/benchmark.py) · [Công cụ chấm](../evaluation/phase08/review.py)
+**Đối chiếu công khai đã có.** Trên mẫu QASPER khóa ở commit `661b380`, hit@5 là **13/24** cho cả hai phương thức, recall theo câu lần lượt **42,71%** và **45,14%**. Đây là lần đo truy xuất theo đoạn gốc trên dữ liệu và phiên bản benchmark riêng. [Kết quả QASPER lưu trong repo](../evaluation/phase07/artifacts/qasper-retrieval.json).
 
-Khi có hai bản nhãn với `reviewer_id` riêng và `role` là `human`, có thể tổng hợp độc lập vào một thư mục mới bằng lệnh dưới đây. Dùng một bản nhãn riêng với `role` là `adjudicated` để lưu quyết định cuối sau khi đối chiếu.
-
-```bash
-.venv/bin/python -m evaluation.phase08.review evaluation/phase08/artifacts/inference.json /tmp/yournote-phase08-human-summary \
-  --labels /path/to/reviewer-a.json --labels /path/to/reviewer-b.json
-```
-
-Nhật ký và phiếu chấm gốc được lưu cùng mã đánh giá trong `project/evaluation/phase08/artifacts/`. Đường dẫn và mã băm ghi bên trong kế hoạch là của lần chạy đã lưu. Lệnh tái lập tạo kế hoạch mới trong thư mục đầu ra mới.
+Tái lập trên PC giữ các PDF cùng SHA-256. Từ `project/`, chạy `.venv/bin/python .run/real_pdf_validation/run.py retrieve` trong thư mục đo riêng để lưu lần đo mới. Chạy `live --confirm-sha <mã_kế_hoạch>` khi đã có quyền kết nối, ngân sách và nơi lưu riêng.
